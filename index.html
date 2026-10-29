@@ -4,6 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="dark" />
+
+    <!-- ===== Security =====
+         Served over HTTPS only. This policy lets the page load nothing
+         except its own files, Google Fonts, and the translation service
+         it uses — no outside scripts, no embedded objects, no form
+         posts anywhere but here. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
     <link rel="icon" href="assets/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -127,11 +136,11 @@
          in a dark hall, vivid light flowing endlessly around it;
          tower-size glass panels,
          the folding cloud sea, a calm row of glass monoliths in bright
-         daylight, a stone wall bending like fabric, and the small black
-         OVIA mark floating gently over clouds that fill the whole
-         frame edge to edge, with no sky). Every
-         film flows — fluid, continuous motion, looping seamlessly with
-         no visible cut. Subjects sit
+         daylight, a stone wall bending like fabric — and, as the one
+         still image on the page, the small black OVIA mark resting
+         over clouds that fill the whole frame edge to edge, with no
+         sky). Every film flows — fluid, continuous motion, looping
+         seamlessly with no visible cut. Subjects sit
          right/up, clear of the bottom-left
          text zone. No humans, no still photographs. */
 
@@ -253,9 +262,9 @@
       .row p, .row span.body { color: var(--muted); font-size: 1rem; }
       .plain .remote-note { margin-top: 44px; color: var(--muted); font-size: 1.02rem; font-weight: 500; max-width: 640px; }
 
-      /* ---------- Logo film: full-bleed band ---------- */
+      /* ---------- Logo still: full-bleed band ---------- */
       .logofilm { position: relative; height: 100svh; min-height: 480px; overflow: hidden; background: var(--black); }
-      .logofilm video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .logofilm img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
 
       /* ---------- Contact page: the form only ---------- */
       .contact-page { padding: 170px 0 120px; }
@@ -313,7 +322,7 @@
         nav.main { gap: 8px 18px; }
         nav.main a { font-size: 0.68rem; letter-spacing: 0.12em; }
         .logofilm { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
-        .logofilm video { position: absolute; }
+        .logofilm img { position: absolute; }
       }
       @media (max-width: 520px) {
         .row { grid-template-columns: 1fr; }
@@ -640,11 +649,9 @@
         </div>
       </section>
 
-      <!-- ================= Logo film ================= -->
-      <section class="logofilm" aria-label="OVIA logo film">
-        <video muted loop playsinline preload="none" poster="assets/logo-film.jpg" data-autovid data-i18n-aria="ariaLogo" aria-label="Film: the OVIA logo itself — the exact mark, in black, small and centred, floating gently over soft white clouds that fill the whole frame edge to edge with no sky, the clouds level and even, drifting slowly and flowing continuously">
-          <source src="assets/logo-film.mp4" type="video/mp4" />
-        </video>
+      <!-- ================= Logo still ================= -->
+      <section class="logofilm" aria-label="OVIA logo">
+        <img src="assets/logo-film.jpg" data-i18n-aria="ariaLogo" alt="Still image: the OVIA logo — the exact mark in black with its diamond eye, small and centred, resting on soft white clouds that fill the whole frame edge to edge at one even scale, with no sky" />
       </section>
 
       <!-- ================= Closing ================= -->
@@ -804,7 +811,7 @@
           val3d: "Good judgment, not just quick answers. Every warning and suggestion is based on your own business's real numbers, and checked against how your business actually runs.",
           val4g: "Craft",
           val4d: "The made thing, made well. Technology designed and built with skill and care — artificial in the original sense: crafted, and made to last.",
-          ariaLogo: "Film: the OVIA logo itself — the exact mark, in black, small and centred, floating gently over soft white clouds that fill the whole frame edge to edge with no sky, the clouds level and even, drifting slowly and flowing continuously",
+          ariaLogo: "Still image: the OVIA logo — the exact mark in black with its diamond eye, small and centred, resting on soft white clouds that fill the whole frame edge to edge at one even scale, with no sky",
           bandH2: "Let's build yours.",
           bandP: "Every job starts the same way: a conversation, then a clear written plan — what we will do, how long it will take, and what it will cost. No surprises, and no bills that keep growing — wherever you are.",
           ariaCta: "Film: an immense curved stone wall bending slowly like heavy fabric under sunset light in gradients of gold, rose and violet, mirrored in a still reflective floor — surreal and monumental, in full vivid colour, no people",
