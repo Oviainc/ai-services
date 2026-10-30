@@ -1,1 +1,40 @@
-IyBPdmlhIEluYyDigJQgQUkgU2VydmljZXMKCioqQUksIHdpdGhvdXQgdGhlIGh5cGUuKioKCldlIGJ1aWxkIEFJIGFnZW50cywgbWFjaGluZSBsZWFybmluZyBpbiBwcm9kdWN0aW9uLCBhbmQgQUkgcHJvZHVjdHMgZm9yIGJ1c2luZXNzIOKAlCBwcmFjdGljYWwgc3lzdGVtcyB0aGF0IGRvIHJlYWwgd29yaywgZXhwbGFpbmVkIGluIHBsYWluIGxhbmd1YWdlLgoKKipMaXZlIHNpdGU6KiogaHR0cHM6Ly9vdmlhaW5jLmdpdGh1Yi5pby9haS1zZXJ2aWNlcy8KCiMjIFdoYXQgd2UgZG8KCi0gKipBSSBhZ2VudHMqKiDigJQgYWdlbnRzIHRoYXQgYW5zd2VyLCByb3V0ZSwgZHJhZnQsIGFuZCBmb2xsb3cgdGhyb3VnaCBvbiByZWFsIHRhc2tzLCB3aXRoIGEgZGVkaWNhdGVkIHRlYW0gYmVoaW5kIHRoZW0uCi0gKipNYWNoaW5lIGxlYXJuaW5nIGluIHByb2R1Y3Rpb24qKiDigJQgbW9kZWxzIG1vdmVkIG91dCBvZiBub3RlYm9va3MgYW5kIGludG8gZGFpbHkgb3BlcmF0aW9ucywgd2l0aCBtb25pdG9yaW5nIGFuZCBob25lc3QgcmVwb3J0aW5nLgotICoqQUkgcHJvZHVjdHMgZm9yIGJ1c2luZXNzKiog4oCUIGZvY3VzZWQgdG9vbHMgYnVpbHQgYXJvdW5kIG9uZSBjbGVhciBqb2IsIGRlc2lnbmVkIHRvIGJlIHVzZWQgZXZlcnkgZGF5LgotICoqQ29udGV4dCBlbmdpbmVlcmluZyoqIOKAlCB0aGUgZGlzY2lwbGluZSBiZWhpbmQgcmVsaWFibGUgYWdlbnRzOiB0aGUgcmlnaHQgaW5mb3JtYXRpb24sIGluIHRoZSByaWdodCBzaGFwZSwgYXQgdGhlIHJpZ2h0IG1vbWVudC4KLSAqKkJ1c2luZXNzIGludGVsbGlnZW5jZSAmIGRhdGEqKiDigJQgZGFzaGJvYXJkcywgYXV0b21hdGlvbiwgYW5kIGRhdGEgd29ya2Zsb3dzIHRoYXQgdHVybiBzY2F0dGVyZWQgaW5mb3JtYXRpb24gaW50byBkZWNpc2lvbnMuCgojIyBBcnRpY2xlcwoKV2UgcHVibGlzaCB3aGF0IHdlIGxlYXJuIGZyb20gcmVhbCB3b3JrIOKAlCBldmVyeSBhcnRpY2xlIGxpdmVzIG9uIHRoZSBzaXRlLCBpbiBFbmdsaXNoLCBGcmVuY2gsIGFuZCBTcGFuaXNoOgoKLSBbQXJ0aWNsZXMgaW5kZXhdKGh0dHBzOi8vb3ZpYWluYy5naXRodWIuaW8vYWktc2VydmljZXMvYXJ0aWNsZXMvKQotIE5ldyBhcnRpY2xlcyBhcmUgYWRkZWQgYXMgdGhlIHdvcmsgaGFwcGVuczsgZWFjaCBvbmUgaXMgd3JpdHRlbiBmcm9tIGFuIGFjdHVhbCBwcm9qZWN0LCBkZXBsb3ltZW50LCBvciByZXN1bHQuCgojIyBUaGlzIHJlcG9zaXRvcnkKClRoaXMgcmVwbyBpcyB0aGUgc291cmNlIG9mIHRoZSBPdmlhIEluYyBBSSBzZXJ2aWNlcyBzaXRlOgoKLSBgaW5kZXguaHRtbGAg4oCUIHRoZSBvbmUtcGFnZSBzaXRlOiBvbmUgZmlsbSBwZXIgc2VjdGlvbiwgb25lIGhlYWRsaW5lLCBvbmUgbGluZSwgb25lIG5leHQgc3RlcC4KLSBgYXJ0aWNsZXMvYCDigJQgdGhlIGFydGljbGUgcGFnZXMgdGhlIHNpdGUgYW5kIG91ciBwb3N0cyBsaW5rIHRvLgotIGBhc3NldHMvYCDigJQgdGhlIHNlY3Rpb24gZmlsbXMgYW5kIGltYWdlcyAoYWxsIGltYWdlcyBuYW1lZCBgb3ZpYS1pbmMtKmApLgoKVGhlIHNpdGUgaXMgcGxhaW4gSFRNTC9DU1Mgd2l0aCBubyBidWlsZCBzdGVwLCBzZXJ2ZWQgYnkgR2l0SHViIFBhZ2VzLiBJdCBkaXNwbGF5cyBhdXRvbWF0aWNhbGx5IGluIHRoZSB2aXNpdG9yJ3MgbGFuZ3VhZ2UsIHdpdGggYSBsYW5ndWFnZSBjaG9vc2VyIGNvdmVyaW5nIDc1KyBsYW5ndWFnZXMuCgojIyBXb3JraW5nIHdpdGggdXMKClN0YXJ0IGZyb20gdGhlIHNpdGU6IGh0dHBzOi8vb3ZpYWluYy5naXRodWIuaW8vYWktc2VydmljZXMvIOKAlCB0aGUgY29udGFjdCBmb3JtIHRoZXJlIGlzIHRoZSBmYXN0ZXN0IHdheSB0byByZWFjaCB0aGUgdGVhbS4KCi0tLQoKT3ZpYSBJbmMg4oCUIEFydGlmaWNpYWwgSW50ZWxsaWdlbmNlICYgQ29udGV4dCBFbmdpbmVlcmluZy4gQmFzZWQgaW4gQ2FuYWRhLCB3b3JraW5nIHdoZXJldmVyIHRoZSB3b3JrIGlzLgo=
+# Ovia Inc — AI Services
+
+**AI, without the hype.**
+
+We build AI agents, machine learning in production, and AI products for business — practical systems that do real work, explained in plain language.
+
+**Live site:** https://oviainc.github.io/ai-services/
+
+## What we do
+
+- **AI agents** — agents that answer, route, draft, and follow through on real tasks, with a dedicated team behind them.
+- **Machine learning in production** — models moved out of notebooks and into daily operations, with monitoring and honest reporting.
+- **AI products for business** — focused tools built around one clear job, designed to be used every day.
+- **Context engineering** — the discipline behind reliable agents: the right information, in the right shape, at the right moment.
+- **Business intelligence & data** — dashboards, automation, and data workflows that turn scattered information into decisions.
+
+## Articles
+
+We publish what we learn from real work — every article lives on the site, in English, French, and Spanish:
+
+- [Articles index](https://oviainc.github.io/ai-services/articles/)
+- New articles are added as the work happens; each one is written from an actual project, deployment, or result.
+
+## This repository
+
+This repo is the source of the Ovia Inc AI services site:
+
+- `index.html` — the one-page site: one film per section, one headline, one line, one next step.
+- `articles/` — the article pages the site and our posts link to.
+- `assets/` — the section films and images (all images named `ovia-inc-*`).
+
+The site is plain HTML/CSS with no build step, served by GitHub Pages. It displays automatically in the visitor's language, with a language chooser covering 75+ languages.
+
+## Working with us
+
+Start from the site: https://oviainc.github.io/ai-services/ — the contact form there is the fastest way to reach the team.
+
+---
+
+Ovia Inc — Artificial Intelligence & Context Engineering. Based in Canada, working wherever the work is.
