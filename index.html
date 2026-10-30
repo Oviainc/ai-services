@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="dark" />
-    <meta name="build-version" content="1.1" />
+    <meta name="build-version" content="1.2" />
 
     <!-- ===== Security =====
          Served over HTTPS only. This policy lets the page load nothing
@@ -139,10 +139,10 @@
          in a dark hall, vivid light flowing endlessly around it;
          tower-size glass panels,
          the folding cloud sea, a calm row of glass monoliths in bright
-         daylight, a stone wall bending like fabric — and, as the one
-         logo band, the small black OVIA mark held still over clouds
-         that drift slowly across the whole frame edge to edge, with
-         no sky). Every film flows — fluid, continuous motion, looping
+         daylight, a stone wall bending like fabric — and, closing the
+         page at the very bottom, the one logo band: the small black
+         OVIA mark held still over a smooth film of real clouds
+         drifting and morphing). Every film flows — fluid, continuous motion, looping
          seamlessly with no visible cut. Subjects sit
          right/up, clear of the bottom-left
          text zone. No humans, no still photographs. */
@@ -265,20 +265,17 @@
       .row p, .row span.body { color: var(--muted); font-size: 1rem; }
       .plain .remote-note { margin-top: 44px; color: var(--muted); font-size: 1.02rem; font-weight: 500; max-width: 640px; }
 
-      /* ---------- Logo band: still mark, clouds drifting beneath ---------- */
+      /* ---------- Logo band (page bottom): still mark over a smooth
+         film of real clouds drifting and morphing. The film itself
+         provides all the motion — its loop point is crossfaded in the
+         file, so it loops seamlessly with the mark held still above. */
       .logofilm { position: relative; height: 100svh; min-height: 480px; overflow: hidden; background: var(--black); }
-      .logofilm .clouds {
-        position: absolute; inset: 0 -10%;
-        background: url("assets/logo-clouds.jpg") center / cover no-repeat;
-        animation: cloudDrift 22s ease-in-out infinite alternate;
-        will-change: transform;
-      }
-      @keyframes cloudDrift {
-        from { transform: translate3d(-5%, 0, 0); }
-        to { transform: translate3d(5%, 0, 0); }
+      .logofilm video.film {
+        position: absolute; inset: 0; width: 100%; height: 100%;
+        object-fit: cover; object-position: center; display: block;
       }
       .logofilm .mark {
-        position: absolute; left: 50%; top: 50%;
+        position: absolute; left: 50%; top: 50%; z-index: 1;
         width: clamp(40px, 4.9vw, 96px); height: auto;
         transform: translate(-50%, -50%);
       }
@@ -352,7 +349,6 @@
       }
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
-        .logofilm .clouds { animation: none; }
       }
     </style>
   </head>
@@ -670,12 +666,6 @@
         </div>
       </section>
 
-      <!-- ================= Logo band: still mark, moving clouds ================= -->
-      <section class="logofilm" aria-label="OVIA logo">
-        <div class="clouds" aria-hidden="true"></div>
-        <img class="mark" src="assets/logo.png" data-i18n-aria="ariaLogo" alt="The OVIA logo — the exact mark in black with its diamond eye, small, centred and still, over soft white clouds that drift slowly across the whole frame edge to edge at one even scale, with no sky" />
-      </section>
-
       <!-- ================= Closing ================= -->
       <section class="screen" aria-label="Book a consultation">
         <video class="bg" muted loop playsinline preload="none" poster="assets/cta.jpg" data-autovid data-i18n-aria="ariaCta" aria-label="Film: an immense curved stone wall bending slowly like heavy fabric under sunset light in gradients of gold, rose and violet, mirrored in a still reflective floor — surreal and monumental, in full vivid colour, no people">
@@ -734,6 +724,18 @@
     </div><!-- /view-contact -->
     </main>
 
+    <!-- ================= Logo band: last section of the page — the
+         still OVIA mark over a smooth film of real clouds. The film
+         provides all the motion (its loop point is crossfaded in the
+         file); the mark never moves. Under reduced motion the film
+         does not play: the still poster shows, with the mark on it. -->
+    <section class="logofilm" aria-label="OVIA logo">
+      <video class="film" autoplay muted loop playsinline preload="auto" poster="assets/logo-clouds.jpg" data-logo-film aria-hidden="true">
+        <source src="assets/ovia-inc-logo-clouds.mp4" type="video/mp4" />
+      </video>
+      <img class="mark" src="assets/logo.png" data-i18n-aria="ariaLogo" alt="The OVIA logo — the exact mark in black with its diamond eye, small, centred and still, over soft white clouds that drift slowly across the whole frame edge to edge at one even scale, with no sky" />
+    </section>
+
     <!-- ================= Footer ================= -->
     <footer class="site">
       <div class="wrap">
@@ -750,7 +752,7 @@
         </div>
         <div class="foot-bottom">
           <span>© <span id="year"></span> Ovia Inc. <span data-i18n="rights">All rights reserved.</span></span>
-          <span class="nomad"><span data-i18n="footBlurb2">A dedicated team, fully remote and nomadic — serving clients anywhere. Plain talk, done right.</span> · v1.1</span>
+          <span class="nomad"><span data-i18n="footBlurb2">A dedicated team, fully remote and nomadic — serving clients anywhere. Plain talk, done right.</span> · v1.2</span>
         </div>
       </div>
     </footer>
@@ -1165,7 +1167,12 @@
       var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       var vids = document.querySelectorAll("video");
       if (reduceMotion) {
-        vids.forEach(function (v) { v.removeAttribute("autoplay"); v.pause(); v.setAttribute("controls", ""); });
+        vids.forEach(function (v) {
+          v.removeAttribute("autoplay"); v.pause();
+          // The logo film is decorative: no controls — it simply rests
+          // on its still poster, with the mark over it.
+          if (!v.hasAttribute("data-logo-film")) v.setAttribute("controls", "");
+        });
       } else if ("IntersectionObserver" in window) {
         var vio = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
