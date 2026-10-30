@@ -8,9 +8,9 @@
     <!-- ===== Security =====
          Served over HTTPS only. This policy lets the page load nothing
          except its own files, Google Fonts, and the translation service
-         it uses — no outside scripts, no embedded objects, no form
-         posts anywhere but here. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'; form-action 'self'" />
+         it uses — no outside scripts, no embedded objects, and form
+         posts go only to Formspree, which delivers them to us. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://api.mymemory.translated.net https://formspree.io; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
     <link rel="icon" href="assets/favicon.ico" sizes="any" />
@@ -302,6 +302,9 @@
       .form-note { margin-top: 16px; font-size: 0.85rem; color: var(--faint); }
       .form-done { display: none; margin-top: 18px; padding: 14px 16px; border: 1px solid var(--white); font-size: 0.94rem; color: var(--white); }
       .form-done.show { display: block; }
+      .form-error { display: none; margin-top: 18px; padding: 14px 16px; border: 1px solid var(--white); font-size: 0.94rem; color: var(--white); }
+      .form-error.show { display: block; }
+      form.lead .btn[disabled] { opacity: 0.55; cursor: wait; }
 
       /* ---------- Footer: one slim row ---------- */
       footer.site { border-top: 1px solid var(--line); padding: 42px 0 34px; }
@@ -690,7 +693,8 @@
     <div id="view-contact" hidden>
       <section class="contact-page">
         <div class="wrap">
-            <form class="lead" id="leadForm">
+            <form class="lead" id="leadForm" action="https://formspree.io/f/xdeelzqo" method="POST">
+              <input type="hidden" name="_subject" value="New message from the Ovia Inc website" />
               <div class="field">
                 <label for="f-name" data-i18n="fName">Your name</label>
                 <input id="f-name" name="name" type="text" autocomplete="name" required />
@@ -701,7 +705,7 @@
               </div>
               <div class="field">
                 <label for="f-offer" data-i18n="fOffer">What do you need?</label>
-                <select id="f-offer" name="offer">
+                <select id="f-offer" name="service">
                   <option value="ai" data-i18n="optAi">AI Agents &amp; Everyday jobs handled start to finish</option>
                   <option value="ml" data-i18n="optMl">Machine Learning &amp; Data Platforms</option>
                   <option value="web" data-i18n="optWeb">AI Products &amp; Web</option>
@@ -718,6 +722,7 @@
               <button class="btn" type="submit" data-i18n="submit">Send my request</button>
               <p class="form-note" data-i18n="formNote">We reply to every message sent through this form.</p>
               <p class="form-done" id="formDone" role="status"></p>
+              <p class="form-error" id="formError" role="alert" data-i18n="formError">Sorry — your message could not be sent. Please try again.</p>
             </form>
         </div>
       </section>
@@ -839,6 +844,7 @@
           submit: "Send my request",
           formNote: "We reply to every message sent through this form.",
           formDone: "Thank you — your request has been sent. We will reply to the email address you gave us.",
+          formError: "Sorry — your message could not be sent. Please try again.",
           footBlurb2: "A dedicated team, fully remote and nomadic — serving clients anywhere. Plain talk, done right.",
           footLinkMore: "More services",
           rights: "All rights reserved."
@@ -1016,7 +1022,7 @@
       }
 
       function usedKeys() {
-        var set = { metaTitle: true, metaDesc: true, formDone: true };
+        var set = { metaTitle: true, metaDesc: true, formDone: true, formError: true };
         ["data-i18n", "data-i18n-html", "data-i18n-aria", "data-i18n-ph"].forEach(function (attr) {
           document.querySelectorAll("[" + attr + "]").forEach(function (el) { set[el.getAttribute(attr)] = true; });
         });
@@ -1090,13 +1096,36 @@
         });
       });
 
-      /* ============ Contact form (on-site only; no email or phone is published) ============ */
+      /* ============ Contact form: submits to Formspree by AJAX, so the
+         visitor stays on this page; no email or phone is published ============ */
       document.getElementById("leadForm").addEventListener("submit", function (ev) {
         ev.preventDefault();
+        var form = ev.target;
         var done = document.getElementById("formDone");
-        done.textContent = currentStrings.formDone;
-        done.classList.add("show");
-        ev.target.reset();
+        var err = document.getElementById("formError");
+        var btn = form.querySelector('button[type="submit"]');
+        done.classList.remove("show");
+        err.classList.remove("show");
+        if (btn) btn.disabled = true;
+        fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { "Accept": "application/json" }
+        }).then(function (res) {
+          if (btn) btn.disabled = false;
+          if (res.ok) {
+            done.textContent = currentStrings.formDone;
+            done.classList.add("show");
+            form.reset();
+          } else {
+            err.textContent = currentStrings.formError;
+            err.classList.add("show");
+          }
+        }).catch(function () {
+          if (btn) btn.disabled = false;
+          err.textContent = currentStrings.formError;
+          err.classList.add("show");
+        });
       });
 
       /* ============ Videos: play only while on screen ============ */
