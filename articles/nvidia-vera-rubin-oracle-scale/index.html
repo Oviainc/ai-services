@@ -69,8 +69,20 @@
   footer .ftag{color:var(--text);letter-spacing:.06em;}
   @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
+<style id="arch-css">
+/* Layout archetype: bands (diversification pass) */
+body.arch-bands main{max-width:none;padding-left:0;padding-right:0;}
+body.arch-bands .cols{column-count:1;max-width:none;}
+body.arch-bands .cols p,body.arch-bands .cols .keybox{max-width:800px;margin-left:auto;margin-right:auto;}
+body.arch-bands .cols h2.sec{background:var(--accent);color:#0A0E14;border-top:none;padding:18px 22px;text-align:center;font-size:1rem;margin:48px 0 30px;}
+body.arch-bands .cols figure.body,body.arch-bands .cols figure.wide{width:100%;margin:34px 0;}
+body.arch-bands .cols figure img{width:100%;max-height:72vh;object-fit:cover;}
+body.arch-bands .cols figure figcaption{padding-left:22px;}
+body.arch-bands .cols blockquote.pull{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:46px 22px;margin:44px 0;}
+body.arch-bands .refs-sec,body.arch-bands p.tags,body.arch-bands footer{max-width:1136px;margin-left:auto;margin-right:auto;padding-left:22px;padding-right:22px;}
+</style>
 </head>
-<body>
+<body class="arch arch-bands">
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('ovia-inc-nvidia-vera-rubin-oracle-scale-background.webp')"></div>
   <div class="mast-shade"></div>
