@@ -69,8 +69,20 @@
   footer .ftag{color:var(--text);letter-spacing:.06em;}
   @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
+<style id="arch-css">
+/* Layout archetype: dark (diversification pass) */
+body.arch-dark{--bg:#000000;--panel:#060809;--line:#1C2836;}
+body.arch-dark{background:#000000;}
+body.arch-dark .mast-bg{opacity:.42;}
+body.arch-dark h1.display{font-size:clamp(3.3rem,8.6vw,6.6rem);letter-spacing:.01em;}
+body.arch-dark .cols{font-size:1.22rem;line-height:1.85;}
+body.arch-dark figure.hero img,body.arch-dark .cols figure img{border:1px solid var(--line);}
+body.arch-dark blockquote.pull{font-size:clamp(2rem,4.8vw,3.1rem);color:var(--text);}
+body.arch-dark .keybox{background:#000000;border:1px solid var(--accent);}
+body.arch-dark h2.sec{font-size:1rem;}
+</style>
 </head>
-<body>
+<body class="arch arch-dark">
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('ovia-inc-agentic-observatory-seti-search-background.webp')"></div>
   <div class="mast-shade"></div>
