@@ -6,4 +6,9 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+<url><loc>https://oviainc.github.io/ai-services/menus/</loc></url>
+<url><loc>https://oviainc.github.io/ai-services/menus/spring.html</loc></url>
+<url><loc>https://oviainc.github.io/ai-services/menus/summer.html</loc></url>
+<url><loc>https://oviainc.github.io/ai-services/menus/autumn.html</loc></url>
+<url><loc>https://oviainc.github.io/ai-services/menus/winter.html</loc></url>
 </urlset>
