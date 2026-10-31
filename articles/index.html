@@ -10,20 +10,20 @@
 <meta property="og:description" content="Articles from Ovia Inc — context engineering, artificial intelligence, virtual production and data, in English, French and Spanish.">
 <meta property="og:url" content="https://oviainc.github.io/ai-services/articles/">
 <style>
-  :root{--bg:#0A0E14;--accent:#2E9BD6;--text:#FFFFFF;--muted:#B9C4CE;}
+  :root{--bg:#000000;--panel:#111111;--line:#262626;--text:#FFFFFF;--muted:#BFBFBF;}
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;}
   main{max-width:760px;margin:0 auto;padding:32px 20px 48px;}
-  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;}
+  .kicker{color:var(--muted);font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;}
   h1{font-size:2rem;line-height:1.25;margin-bottom:24px;font-weight:700;}
   ul{list-style:none;}
-  li{border:1px solid #1E2A36;border-radius:10px;padding:18px 20px;margin-bottom:16px;}
+  li{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:16px;}
   li a{color:var(--text);text-decoration:none;font-size:1.1rem;font-weight:600;}
-  li a:hover{color:var(--accent);}
-  .lang{color:var(--accent);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:6px;}
+  li a:hover{color:var(--muted);}
+  .lang{color:var(--muted);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:6px;}
   .desc{color:var(--muted);font-size:.95rem;margin-top:6px;}
-  footer{border-top:1px solid #1E2A36;margin-top:36px;padding-top:20px;font-size:.95rem;color:var(--muted);}
-  footer a{color:var(--accent);text-decoration:none;}
+  footer{border-top:1px solid var(--line);margin-top:36px;padding-top:20px;font-size:.95rem;color:var(--muted);}
+  footer a{color:var(--text);text-decoration:none;}
   footer a:hover{text-decoration:underline;}
   @media (max-width:600px){h1{font-size:1.55rem;}main{padding:22px 16px 36px;}}
 </style>
@@ -127,6 +127,21 @@
       <span class="lang">English</span>
       <a href="one-ontology-many-models/">One Vocabulary, Every Model: Governing Meaning Across the Semantic Estate</a>
       <p class="desc">Meaning drifts wherever models multiply. One governed ontology, mapped onto many semantic models, keeps every dashboard and every agent speaking the same language.</p>
+    </li>
+    <li>
+      <span class="lang">English</span>
+      <a href="let-the-agent-choose/">Let the Agent Choose, Let the Workflow Execute</a>
+      <p class="desc">AWS turns existing Step Functions workflows into tools for AI agents through AgentCore Gateway — freedom at the decision, rigidity at the execution.</p>
+    </li>
+    <li>
+      <span class="lang">English</span>
+      <a href="context-graph-permissions-of-the-human/">Context Travels, Authority Stays Personal</a>
+      <p class="desc">ZoomInfo's context graph lands inside Snowflake, read by agents through the permissions of the person asking — context travels, authority stays personal.</p>
+    </li>
+    <li>
+      <span class="lang">English</span>
+      <a href="one-hour-of-audio-one-context/">One Hour of Audio, One Context</a>
+      <p class="desc">NVIDIA Nemotron 3.5 Transcribe holds a full hour of recorded audio in a single 65,536-token context — sound becomes first-class context.</p>
     </li>
   </ul>
   <footer>
