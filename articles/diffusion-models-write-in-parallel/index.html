@@ -5,42 +5,82 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
 <title>Writing in Parallel: The Diffusion Model That Drafts the Whole Page at Once — Ovia Inc</title>
-<meta name="description" content="DiffuSpace Clover-35B-A3B-Preview on Hugging Face is a Mixture-of-Experts diffusion language model — 35B total, 3B active, Apache licence — and the maker's own comparison puts the model first on six agent benchmarks. Generation order is a design choice, and parallel drafting changes what agents can attempt.">
+<meta name="description" content="DiffuSpace Clover-35B-A3B-Preview is a Mixture-of-Experts diffusion language model that drafts a whole block at once, and generation order changes what agents can attempt.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Writing in Parallel: The Diffusion Model That Drafts the Whole Page at Once">
-<meta property="og:description" content="DiffuSpace Clover-35B-A3B-Preview on Hugging Face is a Mixture-of-Experts diffusion language model — 35B total, 3B active, Apache licence — and the maker's own comparison puts the model first on six agent benchmarks. Generation order is a design choice, and parallel drafting changes what agents can attempt.">
+<meta property="og:description" content="DiffuSpace Clover-35B-A3B-Preview is a Mixture-of-Experts diffusion language model that drafts a whole block at once, and generation order changes what agents can attempt.">
 <meta property="og:url" content="https://oviainc.github.io/ai-services/articles/diffusion-models-write-in-parallel/">
 <meta property="og:image" content="https://oviainc.github.io/ai-services/articles/diffusion-models-write-in-parallel/ovia-inc-diffusion-models-write-in-parallel-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-  :root{--bg:#0A0E14;--accent:#2E9BD6;--text:#FFFFFF;--muted:#B9C4CE;}
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#CE8450;}
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;}
-  main{max-width:760px;margin:0 auto;padding:32px 20px 48px;}
-  .langbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:18px;}
-  .langbar label{color:var(--muted);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;}
-  .langbar select{background:#101823;color:var(--text);border:1px solid #1E2A36;border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:60vw;}
-  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;}
-  h1{font-size:2rem;line-height:1.25;margin-bottom:20px;font-weight:700;}
-  h2{font-size:1.3rem;line-height:1.35;margin:28px 0 12px;font-weight:700;color:var(--accent);}
-  img.hero{width:100%;height:auto;border-radius:10px;display:block;margin-bottom:28px;}
-  p{margin-bottom:16px;color:var(--text);}
-  p.tags{color:var(--accent);font-size:.95rem;}
-  ul.refs{list-style:none;margin-bottom:16px;}
-  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* masthead zone over the article background image */
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.52),rgba(10,14,20,.94));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;}
+  .masthead img.logo{height:46px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;text-transform:uppercase;font-weight:700;font-size:clamp(2.5rem,6.4vw,4.7rem);line-height:.99;letter-spacing:.004em;max-width:1020px;}
+  .standfirst{font-size:clamp(1.12rem,2.3vw,1.42rem);font-style:italic;color:var(--muted);max-width:780px;line-height:1.5;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  /* hero */
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;border-radius:2px;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  /* body columns */
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.16rem;line-height:1.75;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,sans-serif;font-size:5.4rem;line-height:.78;float:left;padding:.55rem .9rem 0 0;color:var(--accent);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:36px 0 14px;border-top:2px solid var(--accent);padding-top:14px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;font-size:clamp(1.55rem,3.6vw,2.35rem);line-height:1.3;font-style:italic;text-align:center;color:var(--accent);margin:42px 0;padding:4px 12px;}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;border-radius:2px;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px 20px 10px;margin:0 0 24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .keybox li{margin:0 0 9px 18px;font-size:.95rem;line-height:1.5;}
+  /* references + tags + footer */
+  .refs-sec{margin-top:44px;border-top:1px solid var(--line);padding-top:24px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
   ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
   ul.refs a:hover{text-decoration:underline;}
-  footer{border-top:1px solid #1E2A36;margin-top:36px;padding-top:20px;font-size:.95rem;color:var(--muted);}
+  p.tags{color:var(--accent);font-size:.95rem;margin-top:26px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 10px;font-size:.95rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;}
   footer a{color:var(--accent);text-decoration:none;}
   footer a:hover{text-decoration:underline;}
-  @media (max-width:600px){h1{font-size:1.55rem;}main{padding:22px 16px 36px;}}
+  footer .ftag{color:var(--text);letter-spacing:.06em;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
 </head>
 <body>
-<main>
-<div class="langbar">
-          <label for="langPick" data-tr>Language</label>
-          <select id="langPick" aria-label="Choose your language">
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('ovia-inc-diffusion-models-write-in-parallel-background.webp')"></div>
+  <div class="mast-shade"></div>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="../../" aria-label="Ovia Inc — home"><img class="logo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
             <option value="en">English</option>
             <option value="fr">Français</option>
             <option value="es">Español</option>
@@ -118,34 +158,64 @@
             <option value="lo">ລາວ</option>
             <option value="mn">Монгол</option>
           </select>
-        </div>
-  <p class="kicker" data-tr>Ovia Inc — Articles</p>
-  <h1 data-tr>Writing in Parallel: The Diffusion Model That Drafts the Whole Page at Once</h1>
-  <img class="hero" src="ovia-inc-diffusion-models-write-in-parallel-hero.webp" alt="Ovia Inc — A minimalist grid of copper squares on ivory paper, pale and unfinished at the edges, resolving into polished copper in the middle all at once">
-  <h2 data-tr>The release</h2>
-  <p data-tr>Late in October 2026, DiffuSpace released Clover-35B-A3B-Preview on Hugging Face: a Mixture-of-Experts diffusion language model with 35 billion parameters in total and about 3 billion active per token, a thinking mode, and weights published under an Apache licence, with inference support in SGLang and llama.cpp. The lineage matters. DiffuSpace grows out of the University of Hong Kong NLP group behind Dream 7B, the model family that first showed diffusion generation could stand beside conventional generation at small scale. Clover is the same idea, scaled up and aimed squarely at agent work.</p>
-  <p data-tr>The mechanical difference is simple to state and large in consequence. A conventional language model writes one token, feeds that token back, and writes the next, always moving left to right. A diffusion model starts from a masked block of text and refines the whole block across several passes, settling the positions the model is most confident about first and revisiting the rest. The page gets drafted everywhere at once, then sharpened.</p>
-  <h2 data-tr>Why generation order matters</h2>
-  <p data-tr>Left-to-right order is a habit inherited from typewriters and early sequence models, not a law of language. Forced to commit early, an autoregressive model can lock in a weak opening and spend the rest of the answer defending that opening. Parallel drafting reverses the pressure: confident spans land first, uncertain spans stay open longer, and revision becomes part of generation rather than a separate editing pass bolted on afterwards. Structure, code and plans all benefit when the draft can be rearranged before the wording hardens.</p>
-  <p data-tr>Speed follows from the same change. When many positions resolve in a single pass, throughput rises and the cost of an attempt falls. Cheap attempts change behaviour: agents can draft several candidate plans, compare them, and keep the strongest. Generation order quietly decides how much exploration an agent budget can buy.</p>
-  <h2 data-tr>The agent angle</h2>
-  <p data-tr>The maker reports that Clover scores highest on all six agent benchmarks in the maker's own comparison, including 73.6 on SWE-bench Verified and 51.7 on Terminal-Bench 2.1. The maker also reports 680 tokens per second on a single NVIDIA GB300, in BF16 at batch size one, on internal agent workloads, and an INT4 build running on a consumer RTX 5070 Ti with 16GB of memory at 101.8 tokens per second on MATH-500. Every one of those figures is maker-reported, and the comparisons are the maker's own — the honest reading is promise, not proof, until independent teams reproduce the numbers.</p>
-  <p data-tr>Even with that caution, the direction fits the work. The Hugging Face Agents Course and the Hugging Face Deep Reinforcement Learning Course both teach the same lesson from different sides: agents improve when the loop of acting, checking and revising gets faster and cheaper. Context engineering at Ovia since December 2022 starts from the surrounding half of that loop — the state, tools and evidence an agent drafts against. A model that drafts in parallel pairs naturally with verification that also runs in parallel, and context design decides how much of that speed becomes reliability.</p>
-  <h2 data-tr>Caveats and fine print</h2>
-  <p data-tr>Three cautions belong on the record. First, the release carries the word Preview in the name: tooling, kernels and serving paths for block diffusion are younger than the mature autoregressive stack, and rough edges should be expected. Second, every headline figure comes from the maker, including the benchmark table and the throughput claims; the baseline comparisons were run by the maker as well, so independent reproduction is the test that counts. Third, a 35-billion-parameter model remains a serious piece of hardware commitments in full precision — the reported INT4 build eases local experimentation, yet production serving still demands deliberate planning.</p>
-  <h2 data-tr>What to watch</h2>
-  <p data-tr>Signals worth tracking: independent benchmark runs on agent tasks, especially long-horizon coding work; the maturity of the SGLang and llama.cpp paths, since serving quality decides adoption more than launch tables do; agent frameworks reporting results with diffusion backbones inside real scaffolds; and the decision-model variant the maker has signalled for later. The deeper question is whether drafting in parallel becomes a standard option beside left-to-right generation — one more design choice on the table, chosen per workload, the way quantisation and decoding strategy already are.</p>
-  <h2 data-tr>References</h2>
-  <ul class="refs">
-    <li><span data-tr>DiffuSpace — “Clover-35B-A3B-Preview: A New Way for Intelligence”, Hugging Face blog, October 2026:</span> <a href="https://huggingface.co/blog/Diffuspace/clover-35b-a3b-preview">https://huggingface.co/blog/Diffuspace/clover-35b-a3b-preview</a></li>
-    <li><span data-tr>DiffuSpace — Clover-35B-A3B-Preview model card, Hugging Face:</span> <a href="https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview">https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview</a></li>
-  </ul>
+      </div>
+    </div>
+    <p class="kicker" data-tr>Ovia Inc — Artificial Intelligence · Diffusion Language Models</p>
+    <h1 class="display" data-tr>Writing in Parallel: The Diffusion Model That Drafts the Whole Page at Once</h1>
+    <p class="standfirst" data-tr>A diffusion model settles confident spans first and keeps uncertain spans open, turning revision into part of generation itself.</p>
+    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+  </div>
+</header>
+<div class="hero-zone">
+  <figure class="hero">
+    <img src="ovia-inc-diffusion-models-write-in-parallel-hero.webp" alt="Ovia Inc — A minimalist grid of copper squares on ivory paper, pale and unfinished at the edges, resolving into polished copper in the middle all at once">
+    <figcaption data-tr>Parallel drafting in copper and ivory. Image: Ovia Inc</figcaption>
+  </figure>
+</div>
+<main>
+  <div class="cols">
+<p class="first" data-tr>Generation order sounds like an implementation detail, the kind of choice engineers make deep inside a model and readers never need to see. Writing in Parallel argues the opposite: the order in which words arrive changes what a system can attempt, how much revision costs, and how agents should be built around the model. A page drafted everywhere at once behaves differently from a page forced to commit one token at a time.</p>
+<p data-tr>Late in October 2026, DiffuSpace released Clover-35B-A3B-Preview on Hugging Face, and the release gives the argument a concrete shape. The model arrives with published weights, a stated lineage, benchmark claims from the maker, and serving paths that invite experimentation. The careful way to read a launch like this one is to separate three things: what the artefact is, what the maker reports about the artefact, and what independent work still needs to confirm.</p>
+<p data-tr>Context engineering at Ovia since December 2022 has always treated the model as one part of a larger system: the state around the model, the tools within reach, and the evidence left behind matter as much as the weights. A new generation method earns attention when the method changes the design of that surrounding system, and parallel drafting does exactly that.</p>
+<aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>Clover-35B-A3B-Preview is a Mixture-of-Experts diffusion language model with 35 billion parameters in total and about 3 billion active per token.</li><li data-tr>Diffusion generation refines a whole masked block across several passes instead of writing strictly left to right.</li><li data-tr>Every headline benchmark and throughput figure in the launch is reported by the maker and still awaits independent reproduction.</li><li data-tr>Parallel drafting pairs naturally with parallel verification, and context design decides how much speed becomes reliability.</li></ul></aside>
+<h2 class="sec" data-tr>01 · The release</h2>
+<p data-tr>Late in October 2026, DiffuSpace released Clover-35B-A3B-Preview on Hugging Face: a Mixture-of-Experts diffusion language model with 35 billion parameters in total and about 3 billion active per token, a thinking mode, and weights published under an Apache licence, with inference support in SGLang and llama.cpp. The lineage matters. DiffuSpace grows out of the University of Hong Kong NLP group behind Dream 7B, the model family that first showed diffusion generation could stand beside conventional generation at small scale. Clover is the same idea, scaled up and aimed squarely at agent work.</p>
+<p data-tr>The mechanical difference is simple to state and large in consequence. A conventional language model writes one token, feeds that token back, and writes the next, always moving left to right. A diffusion model starts from a masked block of text and refines the whole block across several passes, settling the positions the model is most confident about first and revisiting the rest. The page gets drafted everywhere at once, then sharpened.</p>
+<figure class="body"><img src="ovia-inc-diffusion-models-write-in-parallel-body-1.webp" alt="Ovia Inc — A grid of copper squares on ivory, pale at the edges and polished in the centre, resolving all at once"><figcaption data-tr>Confident spans settle first while uncertain spans stay open longer. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>02 · Why generation order matters</h2>
+<p data-tr>Left-to-right order is a habit inherited from typewriters and early sequence models, not a law of language. Forced to commit early, an autoregressive model can lock in a weak opening and spend the rest of the answer defending that opening. Parallel drafting reverses the pressure: confident spans land first, uncertain spans stay open longer, and revision becomes part of generation rather than a separate editing pass bolted on afterwards. Structure, code and plans all benefit when the draft can be rearranged before the wording hardens.</p>
+<p data-tr>Speed follows from the same change. When many positions resolve in a single pass, throughput rises and the cost of an attempt falls. Cheap attempts change behaviour: agents can draft several candidate plans, compare them, and keep the strongest. Generation order quietly decides how much exploration an agent budget can buy, and budgets shape behaviour more honestly than slogans do.</p>
+<blockquote class="pull" data-tr>Generation order quietly decides how much exploration an agent budget can buy.</blockquote>
+<h2 class="sec" data-tr>03 · The agent angle</h2>
+<p data-tr>The maker reports that Clover scores highest on all six agent benchmarks in the maker's own comparison, including 73.6 on SWE-bench Verified and 51.7 on Terminal-Bench 2.1. The maker also reports 680 tokens per second on a single NVIDIA GB300, in BF16 at batch size one, on internal agent workloads, and an INT4 build running on a consumer RTX 5070 Ti with 16GB of memory at 101.8 tokens per second on MATH-500. Every one of those figures is maker-reported, and the comparisons are the maker's own — the honest reading is promise, not proof, until independent teams reproduce the numbers.</p>
+<figure class="wide"><img src="ovia-inc-diffusion-models-write-in-parallel-body-2.webp" alt="Ovia Inc — Several ivory draft sheets side by side with copper blocks, candidate plans compared in parallel"><figcaption data-tr>Candidate drafts side by side: cheaper attempts make comparison part of the workflow. Image: Ovia Inc</figcaption></figure>
+<p data-tr>Even with that caution, the direction fits the work. The Hugging Face Agents Course and the Hugging Face Deep Reinforcement Learning Course both teach the same lesson from different sides: agents improve when the loop of acting, checking and revising gets faster and cheaper. Context engineering at Ovia since December 2022 starts from the surrounding half of that loop — the state, tools and evidence an agent drafts against. A model that drafts in parallel pairs naturally with verification that also runs in parallel, and context design decides how much of that speed becomes reliability.</p>
+<h2 class="sec" data-tr>04 · Caveats and fine print</h2>
+<p data-tr>Three cautions belong on the record. First, the release carries the word Preview in the name: tooling, kernels and serving paths for block diffusion are younger than the mature autoregressive stack, and rough edges should be expected. Second, every headline figure comes from the maker, including the benchmark table and the throughput claims; the baseline comparisons were run by the maker as well, so independent reproduction is the test that counts. Third, a 35-billion-parameter model remains a serious piece of hardware commitments in full precision — the reported INT4 build eases local experimentation, yet production serving still demands deliberate planning.</p>
+<p data-tr>The craft angle follows from those cautions. Evaluation discipline matters more than launch enthusiasm: run the model inside a real scaffold, on real tasks, with the same verification steps a production workflow would demand, and record where the draft quality helps and where the tooling still resists. A generation method proves value in the loop around the model, not in a launch table.</p>
+<figure class="body"><img src="ovia-inc-diffusion-models-write-in-parallel-body-3.webp" alt="Ovia Inc — Copper drafting tools and small copper blocks arranged on an ivory drafting table"><figcaption data-tr>Revision as craft: tools laid out, drafts compared, wording hardened only at the end. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>05 · What to watch</h2>
+<p data-tr>Signals worth tracking: independent benchmark runs on agent tasks, especially long-horizon coding work; the maturity of the SGLang and llama.cpp paths, since serving quality decides adoption more than launch tables do; agent frameworks reporting results with diffusion backbones inside real scaffolds; and the decision-model variant the maker has signalled for later. The deeper question is whether drafting in parallel becomes a standard option beside left-to-right generation — one more design choice on the table, chosen per workload, the way quantisation and decoding strategy already are.</p>
+<p data-tr>We close with the design lesson rather than the headline. When a draft can be rearranged before the wording hardens, builders gain a new place to spend judgement: keep uncertain spans open, verify in parallel, and let structure settle before sentences do. Whether Clover itself becomes the standard matters less than whether that option stays on the table for agent work from here on.</p>
+
+  </div>
+  <div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+<li><span data-tr>DiffuSpace — “Clover-35B-A3B-Preview: A New Way for Intelligence”, Hugging Face blog, October 2026:</span> <a href="https://huggingface.co/blog/Diffuspace/clover-35b-a3b-preview">https://huggingface.co/blog/Diffuspace/clover-35b-a3b-preview</a></li>
+<li><span data-tr>DiffuSpace — Clover-35B-A3B-Preview model card, Hugging Face:</span> <a href="https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview">https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview</a></li>
+
+    </ul>
+  </div>
   <p class="tags">#ArtificialIntelligence #AIAgents #HuggingFace #toyoursatisfaction</p>
   <footer>
-    <p><a href="../../">Ovia Inc</a> · Source on GitHub: <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></p>
+    <div class="frow">
+      <a href="../../" aria-label="Ovia Inc — home"><img class="flogo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="../../">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
   </footer>
 </main>
-
 <script>
 (function () {
   "use strict";
@@ -307,6 +377,5 @@
   }
 })();
 </script>
-
 </body>
 </html>
