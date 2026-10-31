@@ -69,8 +69,15 @@
   footer .ftag{color:var(--text);letter-spacing:.06em;}
   @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
+<style id="arch-css">
+/* Layout archetype: quote (diversification pass) */
+body.arch-quote .mast-bg{opacity:.07;}
+body.arch-quote blockquote.opener{font-size:clamp(2.1rem,5.4vw,3.8rem);line-height:1.16;font-style:italic;color:var(--text);margin-top:36px;padding-top:24px;border-top:3px solid var(--accent);max-width:1000px;}
+body.arch-quote .cols{margin-top:26px;}
+body.arch-quote .hero-zone{max-width:1180px;margin:44px auto 4px;padding:0;}
+</style>
 </head>
-<body>
+<body class="arch arch-quote">
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('ovia-inc-zero-trust-para-agentes-background.webp')"></div>
   <div class="mast-shade"></div>
@@ -164,19 +171,14 @@
     <h1 class="display" data-tr>Zero Trust para agentes: identidad después de OAuth</h1>
     <p class="standfirst" data-tr>Los agentes ya actúan en nombre de equipos humanos. La confianza cero les da lo que cualquier actor serio necesita: identidad propia, permisos mínimos y un registro que se puede comprobar.</p>
     <p class="byline" data-tr>Ovia Inc · Studio y Lab · 6 min de lectura</p>
+    <blockquote class="pull opener" data-tr>Primero la identidad, después la autonomía.</blockquote>
   </div>
 </header>
-<div class="hero-zone">
-  <figure class="hero">
-    <img src="ovia-inc-zero-trust-para-agentes-hero.webp" alt="Ovia Inc — Tres anillos concéntricos de verificación en rojo señal sobre acero carbón">
-    <figcaption data-tr>La puerta no confía: verifica. Tres anillos, tres comprobaciones antes de cualquier acción. Imagen: Ovia Inc</figcaption>
-  </figure>
-</div>
 <main>
   <div class="cols">
-    <p class="first" data-tr>Aplicamos confianza cero a los agentes que actúan en nombre de equipos humanos: identidad propia, permisos mínimos y registro verificable de cada acción. La frase suena breve, pero cambia por completo la manera de construir. Un agente ya no es una función que se ejecuta dentro de un perímetro confiable; es un actor más dentro del sistema, con nombre, con credenciales y con una historia de acciones que cualquiera puede revisar.</p>
-    <p data-tr>La base viene de trabajo real: autenticación con OAuth 2.0, SAML, OpenID Connect y JWT, temas ya tratados en Medium en septiembre de 2023, y seguridad de datos con confianza cero, en agosto de 2024. Esos protocolos resolvieron la identidad de las personas y de las aplicaciones que actúan en su nombre. La pregunta nueva es qué ocurre cuando quien actúa es un agente autónomo que encadena herramientas, delega subtareas y toma decisiones entre una petición y la siguiente.</p>
-    <aside class="keybox">
+<p class="first" data-tr>Aplicamos confianza cero a los agentes que actúan en nombre de equipos humanos: identidad propia, permisos mínimos y registro verificable de cada acción. La frase suena breve, pero cambia por completo la manera de construir. Un agente ya no es una función que se ejecuta dentro de un perímetro confiable; es un actor más dentro del sistema, con nombre, con credenciales y con una historia de acciones que cualquiera puede revisar.</p>
+<p data-tr>La base viene de trabajo real: autenticación con OAuth 2.0, SAML, OpenID Connect y JWT, temas ya tratados en Medium en septiembre de 2023, y seguridad de datos con confianza cero, en agosto de 2024. Esos protocolos resolvieron la identidad de las personas y de las aplicaciones que actúan en su nombre. La pregunta nueva es qué ocurre cuando quien actúa es un agente autónomo que encadena herramientas, delega subtareas y toma decisiones entre una petición y la siguiente.</p>
+<aside class="keybox">
       <h3 data-tr>Puntos clave</h3>
       <ul>
         <li data-tr>Cada agente recibe una identidad propia, distinta de la de cualquier persona y de cualquier otro agente.</li>
@@ -185,36 +187,40 @@
         <li data-tr>Toda acción queda en un registro que se puede comprobar después, línea por línea.</li>
       </ul>
     </aside>
-    <h2 class="sec" data-tr>01 · Primero la identidad</h2>
-    <p data-tr>Un agente rápido sin identidad clara solo produce errores más rápido. La identidad define qué puede hacer cada agente, con qué permisos y bajo qué registro. Por eso el orden importa: primero la identidad, después la autonomía. Cuando un agente comparte las credenciales de una persona, cada acción suya se confunde con las acciones de esa persona, y la primera pregunta de cualquier auditoría — quién hizo qué — deja de tener respuesta.</p>
-    <p data-tr>La identidad propia se construye con las mismas piezas que ya conocemos de la federación clásica. OAuth 2.0 aporta la delegación con alcance limitado: un token dice qué se puede hacer, dónde y hasta cuándo. OpenID Connect añade la capa de identidad sobre ese flujo. SAML sigue resolviendo la federación empresarial. Y JWT ofrece el formato firmado que transporta las afirmaciones de un servicio a otro. Ninguna de estas piezas es nueva; lo nuevo es aplicarlas a actores que no son personas ni aplicaciones tradicionales, sino agentes que planifican.</p>
-    <figure class="body">
+<h2 class="sec" data-tr>01 · Primero la identidad</h2>
+<p data-tr>Un agente rápido sin identidad clara solo produce errores más rápido. La identidad define qué puede hacer cada agente, con qué permisos y bajo qué registro. Por eso el orden importa: primero la identidad, después la autonomía. Cuando un agente comparte las credenciales de una persona, cada acción suya se confunde con las acciones de esa persona, y la primera pregunta de cualquier auditoría — quién hizo qué — deja de tener respuesta.</p>
+<p data-tr>La identidad propia se construye con las mismas piezas que ya conocemos de la federación clásica. OAuth 2.0 aporta la delegación con alcance limitado: un token dice qué se puede hacer, dónde y hasta cuándo. OpenID Connect añade la capa de identidad sobre ese flujo. SAML sigue resolviendo la federación empresarial. Y JWT ofrece el formato firmado que transporta las afirmaciones de un servicio a otro. Ninguna de estas piezas es nueva; lo nuevo es aplicarlas a actores que no son personas ni aplicaciones tradicionales, sino agentes que planifican.</p>
+<figure class="body">
       <img src="ovia-inc-zero-trust-para-agentes-body-1.webp" alt="Ovia Inc — Una puerta de acero recorrida por un haz de luz roja de escaneo en un corredor oscuro">
       <figcaption data-tr>Cada puerta comprueba credenciales en el momento del paso, no al entrar al edificio. Imagen: Ovia Inc</figcaption>
     </figure>
-    <h2 class="sec" data-tr>02 · Permisos mínimos, siempre</h2>
-    <p data-tr>El segundo principio es el privilegio mínimo llevado en serio. Un agente que resume documentos no necesita permiso para enviarlos; un agente que consulta una base de datos no necesita permiso para modificarla. Cada permiso extra es superficie de ataque regalada, y los agentes, que actúan a velocidad de máquina, convierten cualquier exceso de permiso en un exceso de daño potencial a la misma velocidad.</p>
-    <p data-tr>En la práctica, el privilegio mínimo se combina con la caducidad. Las credenciales de un agente deben vivir poco: minutos u horas, no meses. Una credencial robada con caducidad corta es un problema pequeño; una credencial permanente robada es una puerta abierta para siempre. La arquitectura de confianza cero publicada por el NIST en su SP 800-207 lo expresa con claridad: el acceso a cada recurso se concede por sesión y tras verificar la identidad, y ninguna comunicación se considera confiable por el solo hecho de ocurrir dentro de la red.</p>
-    <blockquote class="pull" data-tr>Primero la identidad, después la autonomía.</blockquote>
-    <h2 class="sec" data-tr>03 · Cada acción, verificada</h2>
-    <p data-tr>Verificar una vez al inicio de la sesión no basta cuando quien actúa encadena decenas de acciones por minuto. La verificación debe acompañar a la acción: cada llamada a una herramienta, cada lectura sensible y cada escritura deberían pasar por el mismo punto de control que decidió la identidad y los permisos. Ese punto de control es el lugar donde la política se convierte en comportamiento: qué agente, qué acción, sobre qué recurso, con qué justificación registrada.</p>
-    <figure class="body">
+<h2 class="sec" data-tr>02 · Permisos mínimos, siempre</h2>
+<p data-tr>El segundo principio es el privilegio mínimo llevado en serio. Un agente que resume documentos no necesita permiso para enviarlos; un agente que consulta una base de datos no necesita permiso para modificarla. Cada permiso extra es superficie de ataque regalada, y los agentes, que actúan a velocidad de máquina, convierten cualquier exceso de permiso en un exceso de daño potencial a la misma velocidad.</p>
+<p data-tr>En la práctica, el privilegio mínimo se combina con la caducidad. Las credenciales de un agente deben vivir poco: minutos u horas, no meses. Una credencial robada con caducidad corta es un problema pequeño; una credencial permanente robada es una puerta abierta para siempre. La arquitectura de confianza cero publicada por el NIST en su SP 800-207 lo expresa con claridad: el acceso a cada recurso se concede por sesión y tras verificar la identidad, y ninguna comunicación se considera confiable por el solo hecho de ocurrir dentro de la red.</p>
+<h2 class="sec" data-tr>03 · Cada acción, verificada</h2>
+<p data-tr>Verificar una vez al inicio de la sesión no basta cuando quien actúa encadena decenas de acciones por minuto. La verificación debe acompañar a la acción: cada llamada a una herramienta, cada lectura sensible y cada escritura deberían pasar por el mismo punto de control que decidió la identidad y los permisos. Ese punto de control es el lugar donde la política se convierte en comportamiento: qué agente, qué acción, sobre qué recurso, con qué justificación registrada.</p>
+<figure class="body">
       <img src="ovia-inc-zero-trust-para-agentes-body-2.webp" alt="Ovia Inc — Una llave de acero y una ficha de acceso sobre acero oscuro bajo luz roja de acento">
       <figcaption data-tr>La credencial como objeto físico: única, con dueño y con fecha de caducidad. Imagen: Ovia Inc</figcaption>
     </figure>
-    <p data-tr>Este diseño tiene un beneficio lateral que aparece en cuanto el sistema crece: el punto de control se convierte en el mejor lugar para observar. Si toda acción verificada pasa por el mismo sitio, ese sitio sabe qué agentes trabajan, qué herramientas usan y qué resultados devuelven. La seguridad y la observabilidad dejan de ser dos sistemas distintos y pasan a ser dos lecturas del mismo registro.</p>
-    <h2 class="sec" data-tr>04 · El registro que se puede comprobar</h2>
-    <p data-tr>El tercer compromiso es el registro verificable. No alcanza con guardar registros que el propio sistema puede editar: el registro debe permitir que un tercero compruebe qué ocurrió, en qué orden y bajo qué identidad. Cuando un agente actúa en nombre de un equipo humano, la confianza no se declara; se demuestra mostrando la cadena completa de decisiones y acciones.</p>
-    <figure class="wide">
+<p data-tr>Este diseño tiene un beneficio lateral que aparece en cuanto el sistema crece: el punto de control se convierte en el mejor lugar para observar. Si toda acción verificada pasa por el mismo sitio, ese sitio sabe qué agentes trabajan, qué herramientas usan y qué resultados devuelven. La seguridad y la observabilidad dejan de ser dos sistemas distintos y pasan a ser dos lecturas del mismo registro.</p>
+<h2 class="sec" data-tr>04 · El registro que se puede comprobar</h2>
+<p data-tr>El tercer compromiso es el registro verificable. No alcanza con guardar registros que el propio sistema puede editar: el registro debe permitir que un tercero compruebe qué ocurrió, en qué orden y bajo qué identidad. Cuando un agente actúa en nombre de un equipo humano, la confianza no se declara; se demuestra mostrando la cadena completa de decisiones y acciones.</p>
+<figure class="wide">
       <img src="ovia-inc-zero-trust-para-agentes-body-3.webp" alt="Ovia Inc — Un muro de control de verificación con paneles de acero y una traza de luces rojas indicadoras">
       <figcaption data-tr>El muro de control: cada luz, una acción registrada y comprobable. Imagen: Ovia Inc</figcaption>
     </figure>
-    <p data-tr>Ese registro también protege al propio equipo que despliega agentes. Cuando algo sale mal — y algo saldrá mal — la diferencia entre un incidente y una crisis es poder reconstruir la secuencia exacta: qué se pidió, qué se verificó, qué se permitió y qué se ejecutó. Sin registro verificable, cada error de un agente se convierte en una sospecha sobre todo el sistema.</p>
-    <h2 class="sec" data-tr>05 · Las cautelas honestas</h2>
-    <p data-tr>La confianza cero para agentes no es gratuita, y conviene decirlo. Verificar cada acción añade latencia y coste de cómputo; un punto de control mal diseñado se convierte en cuello de botella o en punto único de fallo. La gestión de identidades también crece: decenas de agentes con credenciales cortas exigen automatización seria para emitir, rotar y revocar sin intervención manual. Y existe un riesgo sutil: un sistema que verifica credenciales con rigor puede seguir permitiendo acciones legítimas en forma pero equivocadas en fondo, porque la identidad comprueba quién actúa, no si la acción tiene sentido.</p>
-    <p data-tr>Por eso la identidad es el principio, no el final. Primero la identidad, después la autonomía, y entre ambas, la verificación continua y el registro que permite comprobarlo todo. Los agentes que construyen los equipos en los próximos años heredarán los permisos que hoy se les concedan; la disciplina de conceder pocos, verificar siempre y registrar todo es la diferencia entre una flota de agentes confiable y una flota de errores muy rápidos.</p>
-
+<p data-tr>Ese registro también protege al propio equipo que despliega agentes. Cuando algo sale mal — y algo saldrá mal — la diferencia entre un incidente y una crisis es poder reconstruir la secuencia exacta: qué se pidió, qué se verificó, qué se permitió y qué se ejecutó. Sin registro verificable, cada error de un agente se convierte en una sospecha sobre todo el sistema.</p>
+<h2 class="sec" data-tr>05 · Las cautelas honestas</h2>
+<p data-tr>La confianza cero para agentes no es gratuita, y conviene decirlo. Verificar cada acción añade latencia y coste de cómputo; un punto de control mal diseñado se convierte en cuello de botella o en punto único de fallo. La gestión de identidades también crece: decenas de agentes con credenciales cortas exigen automatización seria para emitir, rotar y revocar sin intervención manual. Y existe un riesgo sutil: un sistema que verifica credenciales con rigor puede seguir permitiendo acciones legítimas en forma pero equivocadas en fondo, porque la identidad comprueba quién actúa, no si la acción tiene sentido.</p>
+<p data-tr>Por eso la identidad es el principio, no el final. Primero la identidad, después la autonomía, y entre ambas, la verificación continua y el registro que permite comprobarlo todo. Los agentes que construyen los equipos en los próximos años heredarán los permisos que hoy se les concedan; la disciplina de conceder pocos, verificar siempre y registrar todo es la diferencia entre una flota de agentes confiable y una flota de errores muy rápidos.</p>
   </div>
+<div class="hero-zone">
+  <figure class="hero">
+    <img src="ovia-inc-zero-trust-para-agentes-hero.webp" alt="Ovia Inc — Tres anillos concéntricos de verificación en rojo señal sobre acero carbón">
+    <figcaption data-tr>La puerta no confía: verifica. Tres anillos, tres comprobaciones antes de cualquier acción. Imagen: Ovia Inc</figcaption>
+  </figure>
+</div>
   <div class="refs-sec">
     <h2 data-tr>Referencias</h2>
     <ul class="refs">
