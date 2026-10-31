@@ -28,7 +28,7 @@
     <title>AI Automation &amp; AI Agents for Businesses | OVIA Inc.</title>
     <meta name="description" content="Automate customer service, appointments, quotes and invoices with custom AI agents. OVIA builds practical AI automation and machine learning solutions for businesses." />
     <meta name="keywords" content="AI services, AI agents, machine learning, AI products, custom AI agents, autonomous workflows, predictive analytics, AI consulting, remote AI services, Ovia Inc, OVIA" />
-    <link rel="preload" as="image" href="assets/hero-loop.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/ovia-inc-hero-loop.webp" fetchpriority="high" />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Ovia Inc" />
     <link rel="canonical" href="https://oviainc.github.io/ai-services/" />
@@ -39,7 +39,7 @@
     <meta property="og:url" content="https://oviainc.github.io/ai-services/" />
     <meta property="og:title" content="AI Automation &amp; AI Agents for Businesses | OVIA Inc." />
     <meta property="og:description" content="Automate customer service, appointments, quotes and invoices with custom AI agents. OVIA builds practical AI automation and machine learning solutions for businesses." />
-    <meta property="og:image" content="https://oviainc.github.io/ai-services/assets/hero-loop.jpg" />
+    <meta property="og:image" content="https://oviainc.github.io/ai-services/assets/ovia-inc-hero-loop.webp" />
     <meta property="og:image:width" content="1280" />
     <meta property="og:image:height" content="720" />
     <meta property="og:image:alt" content="Film: a single colossal clear glass slab standing alone in a vast dark hall quietly divides into three ordered glass slabs, warm light glowing along their edges, then settles still above the glossy dark floor, gentle fog — the Ovia Inc hero film" />
@@ -49,7 +49,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="AI Automation &amp; AI Agents for Businesses | OVIA Inc." />
     <meta name="twitter:description" content="Automate customer service, appointments, quotes and invoices with custom AI agents. OVIA builds practical AI automation and machine learning solutions for businesses." />
-    <meta name="twitter:image" content="https://oviainc.github.io/ai-services/assets/hero-loop.jpg" />
+    <meta name="twitter:image" content="https://oviainc.github.io/ai-services/assets/ovia-inc-hero-loop.webp" />
     <meta name="twitter:image:alt" content="Film: a single colossal clear glass slab standing alone in a vast dark hall quietly divides into three ordered glass slabs, warm light glowing along their edges, then settles still above the glossy dark floor, gentle fog — the Ovia Inc hero film" />
 
     <!-- Structured data -->
@@ -196,10 +196,11 @@
          flagships 01–03, sections 04–06, closing band, logo film):
          muted + autoplay + playsinline + seamless loop, centre focal
          crop (object-fit: cover, centred) at every width, and staged
-         loading — only the hero loads eagerly; every other film's
-         source stays deferred (data-src) until its section nears the
-         viewport, with its poster — a frame of the very film it shows —
-         filling the screen meanwhile, so no film ever sits black. */
+         loading — the hero paints from its poster alone and its film
+         loads on window load; every other film's source stays deferred
+         (data-src) until its section nears the viewport, its poster —
+         a frame of the very film it shows — now deferred with it and
+         set as the section nears, so no film ever sits black. */
       .screen { position: relative; min-height: 100svh; display: flex; align-items: flex-end; background: var(--black); }
       .screen video.bg {
         position: absolute; inset: 0; width: 100%; height: 100%;
@@ -364,7 +365,7 @@
     <!-- ================= Header ================= -->
     <header class="site">
       <div class="wrap bar">
-        <a class="brand" href="#top" aria-label="OVIA"><img class="brand-mark" src="assets/logo-white.png" alt="Ovia Inc logo" />OVIA</a>
+        <a class="brand" href="#top" aria-label="OVIA"><img class="brand-mark" src="assets/ovia-inc-logo-white.webp" alt="Ovia Inc logo" />OVIA</a>
         <nav class="main" aria-label="Main">
           <a href="#agents" data-i18n="navAgents">AI Agents</a>
           <a href="#ml" data-i18n="navMl">Machine Learning</a>
@@ -462,8 +463,8 @@
     <div id="view-home">
       <!-- ================= Hero ================= -->
       <section class="screen hero" id="top">
-        <video class="bg" autoplay muted loop playsinline preload="auto" poster="assets/hero-loop.jpg" data-i18n-aria="ariaHero" aria-label="Film: a single colossal clear glass slab standing alone in a vast dark hall quietly divides into three ordered glass slabs, warm light glowing along their edges, then settles still above the glossy dark floor, gentle fog — surreal and minimal, in full colour, no water, no people">
-          <source src="assets/hero-loop.mp4" type="video/mp4" />
+        <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/ovia-inc-hero-loop.webp" data-hero data-i18n-aria="ariaHero" aria-label="Film: a single colossal clear glass slab standing alone in a vast dark hall quietly divides into three ordered glass slabs, warm light glowing along their edges, then settles still above the glossy dark floor, gentle fog — surreal and minimal, in full colour, no water, no people">
+          <source data-src="assets/ovia-inc-hero-loop.mp4" type="video/mp4" />
         </video>
         <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
@@ -480,8 +481,8 @@
 
       <!-- ================= 01: AI Agents ================= -->
       <section class="screen" id="agents">
-        <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/ai.jpg" data-lazy data-i18n-aria="ariaAi" aria-label="Film: a single colossal cube of clear glass on a vast dry pale plain under a bright blue sky, vivid rainbow light refracting through its faces and white clouds reflected in the glass as it turns very slowly — surreal and minimal, in full vivid colour, no water, no people">
-          <source data-src="assets/ai.mp4" type="video/mp4" />
+        <video class="bg" autoplay muted loop playsinline preload="none" data-poster="assets/ovia-inc-ai.webp" data-lazy data-i18n-aria="ariaAi" aria-label="Film: a single colossal cube of clear glass on a vast dry pale plain under a bright blue sky, vivid rainbow light refracting through its faces and white clouds reflected in the glass as it turns very slowly — surreal and minimal, in full vivid colour, no water, no people">
+          <source data-src="assets/ovia-inc-ai.mp4" type="video/mp4" />
         </video>
         <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
@@ -507,8 +508,8 @@
 
       <!-- ================= 02: Machine Learning ================= -->
       <section class="screen" id="ml">
-        <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/ml.jpg" data-lazy data-i18n-aria="ariaMl" aria-label="Film: a row of colossal triangular glass prisms receding into fog in a vast dark hall, the camera still while a wave of warm light travels from one triangular prism to the next, their reflections on the glossy dark floor — surreal and minimal, in full colour, no water, no people">
-          <source data-src="assets/ml.mp4" type="video/mp4" />
+        <video class="bg" autoplay muted loop playsinline preload="none" data-poster="assets/ovia-inc-ml.webp" data-lazy data-i18n-aria="ariaMl" aria-label="Film: a row of colossal triangular glass prisms receding into fog in a vast dark hall, the camera still while a wave of warm light travels from one triangular prism to the next, their reflections on the glossy dark floor — surreal and minimal, in full colour, no water, no people">
+          <source data-src="assets/ovia-inc-ml.mp4" type="video/mp4" />
         </video>
         <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
@@ -534,8 +535,8 @@
 
       <!-- ================= 03: AI Products ================= -->
       <section class="screen" id="products">
-        <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/immersive.jpg" data-lazy data-i18n-aria="ariaImmersive" aria-label="Film: colossal glass panels as tall as towers floating and turning slowly above an endless bright reflective plain, daylight painting huge moving patterns of light all the way to the horizon — surreal and monumental, natural and crisp, in full colour, no people">
-          <source data-src="assets/immersive.mp4" type="video/mp4" />
+        <video class="bg" autoplay muted loop playsinline preload="none" data-poster="assets/ovia-inc-immersive.webp" data-lazy data-i18n-aria="ariaImmersive" aria-label="Film: colossal glass panels as tall as towers floating and turning slowly above an endless bright reflective plain, daylight painting huge moving patterns of light all the way to the horizon — surreal and monumental, natural and crisp, in full colour, no people">
+          <source data-src="assets/ovia-inc-immersive.mp4" type="video/mp4" />
         </video>
         <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
@@ -568,8 +569,8 @@
 
       <!-- ================= 04: Immersive ================= -->
       <section class="screen">
-        <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/web.jpg" data-lazy data-i18n-aria="ariaWeb" aria-label="Film: a single colossal infinity loop of clear glass standing in a vast dark hall, vivid amber and cyan light flowing continuously around inside the glass in one endless circuit above a glossy dark floor, gentle fog — surreal and minimal, in full vivid colour, no water, no people">
-          <source data-src="assets/web.mp4" type="video/mp4" />
+        <video class="bg" autoplay muted loop playsinline preload="none" data-poster="assets/ovia-inc-web.webp" data-lazy data-i18n-aria="ariaWeb" aria-label="Film: a single colossal infinity loop of clear glass standing in a vast dark hall, vivid amber and cyan light flowing continuously around inside the glass in one endless circuit above a glossy dark floor, gentle fog — surreal and minimal, in full vivid colour, no water, no people">
+          <source data-src="assets/ovia-inc-web.mp4" type="video/mp4" />
         </video>
         <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
@@ -584,8 +585,8 @@
 
       <!-- ================= 05: Cloud ================= -->
       <section class="screen">
-        <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/cloud.jpg" data-lazy data-i18n-aria="ariaCloud" aria-label="Film: a vast bright morning sea of real white clouds, and in the distance the whole cloud landscape slowly folds upward like a giant gentle wave — surreal and monumental, natural and crisp, in full colour, no people">
-          <source data-src="assets/cloud.mp4" type="video/mp4" />
+        <video class="bg" autoplay muted loop playsinline preload="none" data-poster="assets/ovia-inc-cloud.webp" data-lazy data-i18n-aria="ariaCloud" aria-label="Film: a vast bright morning sea of real white clouds, and in the distance the whole cloud landscape slowly folds upward like a giant gentle wave — surreal and monumental, natural and crisp, in full colour, no people">
+          <source data-src="assets/ovia-inc-cloud.mp4" type="video/mp4" />
         </video>
         <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
@@ -600,8 +601,8 @@
 
       <!-- ================= 06: Sustainable Design ================= -->
       <section class="screen">
-        <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/design.jpg" data-lazy data-i18n-aria="ariaDesign" aria-label="Film: a calm row of identical colossal slabs of clear glass standing upright in a line receding into the distance under a bright blue sky with soft white clouds, vivid reflections of sky in the glass, sunlight gliding slowly across the row above a dry polished pale plain — surreal and minimal, in full vivid colour, no water, no people">
-          <source data-src="assets/design.mp4" type="video/mp4" />
+        <video class="bg" autoplay muted loop playsinline preload="none" data-poster="assets/ovia-inc-design.webp" data-lazy data-i18n-aria="ariaDesign" aria-label="Film: a calm row of identical colossal slabs of clear glass standing upright in a line receding into the distance under a bright blue sky with soft white clouds, vivid reflections of sky in the glass, sunlight gliding slowly across the row above a dry polished pale plain — surreal and minimal, in full vivid colour, no water, no people">
+          <source data-src="assets/ovia-inc-design.mp4" type="video/mp4" />
         </video>
         <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
@@ -675,8 +676,8 @@
 
       <!-- ================= Closing ================= -->
       <section class="screen" aria-label="Book a consultation">
-        <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/cta.jpg" data-lazy data-i18n-aria="ariaCta" aria-label="Film: an immense curved stone wall bending slowly like heavy fabric under sunset light in gradients of gold, rose and violet, mirrored in a still reflective floor — surreal and monumental, in full vivid colour, no people">
-          <source data-src="assets/cta.mp4" type="video/mp4" />
+        <video class="bg" autoplay muted loop playsinline preload="none" data-poster="assets/ovia-inc-cta.webp" data-lazy data-i18n-aria="ariaCta" aria-label="Film: an immense curved stone wall bending slowly like heavy fabric under sunset light in gradients of gold, rose and violet, mirrored in a still reflective floor — surreal and monumental, in full vivid colour, no people">
+          <source data-src="assets/ovia-inc-cta.mp4" type="video/mp4" />
         </video>
         <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
@@ -737,17 +738,17 @@
          file); the mark never moves. Under reduced motion the film
          does not play: the still poster shows, with the mark on it. -->
     <section class="logofilm" aria-label="OVIA logo">
-      <video class="film" autoplay muted loop playsinline preload="none" poster="assets/logo-clouds.jpg" data-logo-film data-lazy aria-hidden="true">
+      <video class="film" autoplay muted loop playsinline preload="none" data-poster="assets/ovia-inc-logo-clouds.webp" data-logo-film data-lazy aria-hidden="true">
         <source data-src="assets/ovia-inc-logo-clouds.mp4" type="video/mp4" />
       </video>
-      <img class="mark" src="assets/logo.png" data-i18n-aria="ariaLogo" alt="The OVIA logo — the exact mark in black with its diamond eye, small, centred and still, over soft white clouds that drift slowly across the whole frame edge to edge at one even scale, with no sky" />
+      <img class="mark" src="assets/ovia-inc-logo.webp" data-i18n-aria="ariaLogo" alt="The OVIA logo — the exact mark in black with its diamond eye, small, centred and still, over soft white clouds that drift slowly across the whole frame edge to edge at one even scale, with no sky" />
     </section>
 
     <!-- ================= Footer ================= -->
     <footer class="site">
       <div class="wrap">
         <div class="foot-row">
-          <a class="brand" href="#top"><img class="brand-mark" src="assets/logo-white.png" alt="Ovia Inc logo" />OVIA</a>
+          <a class="brand" href="#top"><img class="brand-mark" src="assets/ovia-inc-logo-white.webp" alt="Ovia Inc logo" />OVIA</a>
           <nav class="foot-links" aria-label="Footer">
             <a href="#agents" data-i18n="navAgents">AI Agents</a>
             <a href="#ml" data-i18n="navMl">Machine Learning</a>
@@ -760,6 +761,7 @@
         <div class="foot-bottom">
           <span>© <span id="year"></span> Ovia Inc. <span data-i18n="rights">All rights reserved.</span></span>
           <span class="nomad"><span data-i18n="footBlurb2">Plain talk, done right.</span></span>
+          <span class="nomad">#toyoursatisfaction</span>
         </div>
       </div>
     </footer>
@@ -1171,11 +1173,13 @@
       });
 
       /* ============ Videos: staged loading, play only while on screen ============
-         v1.5 standard for every film: only the hero carries a live
-         source and loads eagerly. Every other film's <source> is
-         deferred (data-src, preload="none"); its poster — a frame of
-         the very film it shows — fills the section meanwhile, so a
-         film never sits black while waiting. A load observer promotes
+         v1.5 standard for every film, with a poster-first hero: the
+         hero's <source> is deferred like the rest and promoted on
+         window load, so first paint is the page plus its poster.
+         Every other film's <source> is deferred (data-src,
+         preload="none") and its poster is deferred with it
+         (data-poster), set by the load observer as the section
+         nears, so a film never sits black while waiting. A load observer promotes
          data-src to src when the section comes within ~900px of the
          viewport; a play observer then plays it while it is on screen
          and pauses it when it leaves — one behaviour for the hero,
@@ -1186,6 +1190,8 @@
       var visibleFilms = new Set();
       function loadFilm(v) {
         if (v.getAttribute("data-loaded")) return;
+        var dp = v.getAttribute("data-poster");
+        if (dp) { v.setAttribute("poster", dp); v.removeAttribute("data-poster"); }
         var s = v.querySelector("source[data-src]");
         if (!s) { v.setAttribute("data-loaded", "1"); return; }
         s.setAttribute("src", s.getAttribute("data-src"));
@@ -1214,6 +1220,7 @@
           });
         }, { rootMargin: "900px 0px 900px 0px" });
         vids.forEach(function (v) {
+          if (v.hasAttribute("data-hero")) return;
           if (v.querySelector("source[data-src]")) loadIO.observe(v);
         });
         if (!reduceMotion) {
@@ -1230,7 +1237,19 @@
               }
             });
           }, { threshold: 0.15 });
-          vids.forEach(function (v) { vio.observe(v); });
+          vids.forEach(function (v) { if (!v.hasAttribute("data-hero")) vio.observe(v); });
+        }
+        // Hero: poster-first. The poster alone paints the first
+        // screen; the film is promoted only once the page has fully
+        // loaded, then plays like every other film.
+        var heroVid = document.querySelector("video[data-hero]");
+        if (heroVid && !reduceMotion) {
+          var startHero = function () {
+            loadFilm(heroVid);
+            var hp = heroVid.play(); if (hp) hp.catch(function () {});
+          };
+          if (document.readyState === "complete") startHero();
+          else window.addEventListener("load", startHero);
         }
       } else {
         // No IntersectionObserver: load everything up front rather
