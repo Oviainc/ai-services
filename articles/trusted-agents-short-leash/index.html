@@ -69,8 +69,21 @@
   footer .ftag{color:var(--text);letter-spacing:.06em;}
   @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
+<style id="arch-css">
+/* Layout archetype: rail (diversification pass) */
+body.arch-rail .layout{display:grid;grid-template-columns:296px minmax(0,1fr);gap:46px;align-items:start;}
+body.arch-rail .rail{position:sticky;top:22px;margin-top:30px;}
+body.arch-rail .rail .kicker{margin:0 0 20px;}
+body.arch-rail .rail .keybox{margin:0 0 26px;}
+body.arch-rail .rail blockquote.pull{column-span:none;text-align:left;font-size:1.45rem;line-height:1.35;margin:0;padding:6px 0 6px 18px;border-left:3px solid var(--accent);}
+body.arch-rail .cols{column-count:1;margin-top:30px;}
+body.arch-rail figure.body{width:62%;}
+body.arch-rail .cols figure.body:nth-of-type(2n){width:84%;margin-left:auto;}
+body.arch-rail figure.wide{width:100%;}
+@media (max-width:900px){body.arch-rail .layout{grid-template-columns:1fr;}body.arch-rail .rail{position:static;}body.arch-rail figure.body,body.arch-rail .cols figure.body:nth-of-type(2n){width:100%;margin-left:0;}}
+</style>
 </head>
-<body>
+<body class="arch arch-rail">
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('ovia-inc-trusted-agents-short-leash-background.webp')"></div>
   <div class="mast-shade"></div>
@@ -160,7 +173,6 @@
           </select>
       </div>
     </div>
-    <p class="kicker" data-tr>Ovia Inc — AI Agents · Enterprise Trust and Control</p>
     <h1 class="display" data-tr>Trusted, Used Daily — and Kept on a Short Leash</h1>
     <p class="standfirst" data-tr>Buyers keep trust and autonomy as separate questions, and supervision is the product being bought on the way to autonomy.</p>
     <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
@@ -173,11 +185,16 @@
   </figure>
 </div>
 <main>
-  <div class="cols">
+  <div class="layout">
+<aside class="rail">
+<p class="kicker" data-tr>Ovia Inc — AI Agents · Enterprise Trust and Control</p>
+<aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>G2 read 3,222 enterprise reviews across 231 AI agent products, and 77 percent of reviewers trust the agent in use.</li><li data-tr>Only 7 percent would grant total autonomy, while 60 percent choose autonomy with guardrails.</li><li data-tr>Visibility and control fixes lead the trust wish list at 79 percent, ahead of better reliability at 21 percent.</li><li data-tr>Full adoption slid from 68 percent in 2024 to 55 percent in 2026, and setup complexity leads the complaints.</li></ul></aside>
+<blockquote class="pull" data-tr>Trust answers whether the agent does the job well; autonomy answers whether anyone checks the work before the work lands.</blockquote>
+</aside>
+<div class="cols">
 <p class="first" data-tr>The market buys supervision, not autonomy. That reading sounds blunt until the numbers sit side by side: enterprise reviewers trust the agents already in daily use, use those agents more every quarter, and still refuse, by a wide margin, to let an agent act alone. Trust and autonomy turn out to be separate questions, answered separately, and the gap between the answers is where the real product work lives.</p>
 <p data-tr>G2's “Stop Selling Autonomy” builds the case from the review record rather than another opinion poll, and the method matters. Reviews written after real rollouts carry praise and complaints in the reviewers' own words, scored against lived results. We read the findings as a builder's brief: the evidence trail, the guardrails and the approval points are not packaging around an agent. Those surfaces are the product being bought.</p>
 <p data-tr>Business intelligence, data and automation work at Ovia starts from exactly that surface, and context engineering at Ovia since December 2022 treats controls as part of an agent's context. Dashboards, audit trails and approval points are where trust is manufactured, one visible decision at a time.</p>
-<aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>G2 read 3,222 enterprise reviews across 231 AI agent products, and 77 percent of reviewers trust the agent in use.</li><li data-tr>Only 7 percent would grant total autonomy, while 60 percent choose autonomy with guardrails.</li><li data-tr>Visibility and control fixes lead the trust wish list at 79 percent, ahead of better reliability at 21 percent.</li><li data-tr>Full adoption slid from 68 percent in 2024 to 55 percent in 2026, and setup complexity leads the complaints.</li></ul></aside>
 <h2 class="sec" data-tr>01 · The study</h2>
 <p data-tr>G2's “Stop Selling Autonomy” reads the review record instead of running another opinion poll: 3,222 approved enterprise reviews, from companies with more than 1,000 employees, across 231 AI agent products in five categories, published between January 2025 and October 23, 2026. Reviews of this kind carry the texture surveys miss — praise and complaints written after real rollouts, by the people who live with the results. The headline finding is a split: enterprises trust their agents and use them more every quarter, and almost none of them will let an agent act alone.</p>
 <p data-tr>Method shapes meaning here. A review is written by someone whose team already chose a product, lived through setup, and decided the experience deserved public words. That record skews toward real operational friction and real earned confidence, and away from hypothetical enthusiasm. Findings drawn from such a record deserve weight precisely because the reviewers paid the supervision cost the findings describe.</p>
@@ -185,7 +202,6 @@
 <h2 class="sec" data-tr>02 · Trust without letting go</h2>
 <p data-tr>The numbers draw the line precisely. G2 reports that 77% of enterprise reviewers trust their agent quite a bit or very much. Asked how much autonomy that trust buys, the answers tighten: 60% choose autonomy with guardrails, 21% want limited autonomy, 11% want a human approving every action, and only 7% would grant total autonomy. Trust, in other words, answers whether the agent does the job well. Autonomy answers whether anyone checks the work before the work lands — on a customer, a record, or a payment. Buyers keep those two questions separate, and the people carrying the risk hold the line tightest: administrators and executive sponsors grant total autonomy least of all.</p>
 <p data-tr>The pattern reads less as fear and more as accountability. A sponsor who signs for outcomes keeps a hand on the steps where outcomes become hard to reverse. Guardrails, in that light, are not a temporary crutch on the way to trust; guardrails are the form trust takes when money, records and customers are on the line.</p>
-<blockquote class="pull" data-tr>Trust answers whether the agent does the job well; autonomy answers whether anyone checks the work before the work lands.</blockquote>
 <h2 class="sec" data-tr>03 · Visibility beats reliability</h2>
 <p data-tr>Asked what would raise trust further, 79% of reviewers picked a visibility or control fix — the agent explaining its decisions, more guardrail settings, a warning before a questionable action — while only 21% asked for better reliability. The scoring detail underneath agrees: output accuracy earns top marks far more easily than explanations do. Most buyers already believe the agent usually gets the answer right. What holds trust back is seeing how the answer was reached, and knowing what happens on the steps where the answer is wrong. Oversight has a price, and buyers pay it knowingly: G2's related survey work names the overhead a distrust tax — hours of supervision and rework spent every week because the evidence trail is thinner than the capability.</p>
 <figure class="wide"><img src="ovia-inc-trusted-agents-short-leash-body-2.webp" alt="Ovia Inc — A silver checkpoint gate with a check seal and a silver ribbon flowing through, on an ultraviolet mesh field"><figcaption data-tr>A checkpoint every record passes through, with the trail kept visible. Image: Ovia Inc</figcaption></figure>
@@ -196,7 +212,7 @@
 <h2 class="sec" data-tr>05 · What builders should sell instead</h2>
 <p data-tr>The practical conclusion writes the roadmap for anyone shipping agents. Lead with the leash: guardrails the buyer sets, decisions the agent can explain, warnings before risky steps, and costs that stay visible as they accumulate. Prove one narrow, measurable win first — a back-office task with a human approving the output — and let the leash lengthen as the evidence grows. Business intelligence, data and automation work at Ovia starts from exactly that surface: dashboards, audit trails and approval points are where trust is manufactured. Context engineering at Ovia since December 2022 treats those controls as part of the agent's context, not as packaging around the agent. Autonomy may still be the destination. Supervision is the product being bought on the way there.</p>
 <p data-tr>We would ship in that order every time: one narrow win, a visible trail, guardrails the buyer controls, and permissions that widen only as the record earns the widening. The leash is not the opposite of progress. The leash, kept short and lengthened on evidence, is how progress survives contact with real operations.</p>
-
+  </div>
   </div>
   <div class="refs-sec">
     <h2 data-tr>References</h2>
