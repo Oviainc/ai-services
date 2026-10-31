@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Cloud, Down to Desk Size: Edge AI on DGX Spark — Ovia Inc</title>
+<meta name="description" content="On October 30, 2026, NVIDIA published a workflow for running Nemotron-3.5 Lightning on DGX Spark 64GB with TensorRT Edge-LLM — one runtime from desk prototype to Thor deployment, with DSpark speculative decoding.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Cloud, Down to Desk Size: Edge AI on DGX Spark">
+<meta property="og:description" content="On October 30, 2026, NVIDIA published a workflow for running Nemotron-3.5 Lightning on DGX Spark 64GB with TensorRT Edge-LLM — one runtime from desk prototype to Thor deployment, with DSpark speculative decoding.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/articles/edge-ai-dgx-spark-tensorrt/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/edge-ai-dgx-spark-tensorrt/ovia-inc-edge-ai-dgx-spark-tensorrt-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#0A0E14;--accent:#2E9BD6;--text:#FFFFFF;--muted:#B9C4CE;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;}
+  main{max-width:760px;margin:0 auto;padding:32px 20px 48px;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;}
+  h1{font-size:2rem;line-height:1.25;margin-bottom:20px;font-weight:700;}
+  h2{font-size:1.3rem;line-height:1.35;margin:28px 0 12px;font-weight:700;color:var(--accent);}
+  img.hero{width:100%;height:auto;border-radius:10px;display:block;margin-bottom:28px;}
+  p{margin-bottom:16px;color:var(--text);}
+  p.tags{color:var(--accent);font-size:.95rem;}
+  footer{border-top:1px solid #1E2A36;margin-top:36px;padding-top:20px;font-size:.95rem;color:var(--muted);}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  @media (max-width:600px){h1{font-size:1.55rem;}main{padding:22px 16px 36px;}}
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker">Ovia Inc — Articles</p>
+  <h1>The Cloud, Down to Desk Size: Edge AI on DGX Spark</h1>
+  <img class="hero" src="ovia-inc-edge-ai-dgx-spark-tensorrt-hero.webp" alt="Ovia Inc — A compact desktop AI computer glowing electric blue on a dark workbench, streams of blue tokens flowing outward toward a drone, a robotic arm and embedded devices">
+  <h2>The announcement</h2>
+  <p>On October 30, 2026, NVIDIA published a hands-on technical workflow, “Run AI Models for Edge Application Development with Just a Few Commands,” showing developers how to run Nemotron-3.5 Lightning on DGX Spark, now available in a 64GB configuration. The walkthrough uses TensorRT Edge-LLM, a lightweight C++ inference runtime designed for embedded workloads, driven through the trtedge command-line interface. A few commands download the selected model — the NVFP4 build of Nemotron-3.5 Lightning, a 30-billion-parameter model with about 3 billion parameters active per token — build optimised TensorRT engines for the machine, start a chat session in the terminal, and serve the model through a local, OpenAI-compatible API for application prototyping. The first launch downloads about 21GB of model files and builds the engines; later runs reuse the cached engines.</p>
+  <h2>Why it matters</h2>
+  <p>The strategic detail is continuity. NVIDIA designed TensorRT Edge-LLM to carry the same inference framework from development on DGX Spark to deployment on Jetson Thor, DRIVE AGX Thor and IGX Thor. Prototype and production stop being two different stacks, and the familiar demo-to-field gap — where edge projects quietly die — gets narrower. The second detail is locality. A capable model running on premises, beside the work, changes the privacy, latency and connectivity conversation for agents that handle sensitive data, operate on unreliable networks, or need answers in milliseconds rather than round trips. The desk becomes a serious place to build agents and physical AI, not only a place to call a distant fleet.</p>
+  <h2>The operations and craft angle</h2>
+  <p>The workflow also makes decoding strategy a design decision. NVIDIA reports that enabling DSpark speculative decoding, using three draft tokens in the tested configuration, raised mean generation speed from 73.3 to 108.5 tokens per second on SpeedBench 1K and from 73.4 to 126.9 tokens per second on HumanEval prompts, while median time to first token moved by about two milliseconds or less; peak total system memory during inference was 27.9GB including the operating system. All of those figures are vendor-reported, measured by NVIDIA on NVIDIA hardware. The craft lesson travels regardless: quantisation, engine builds, caching and decoding choices are operations work, and operations work decides what an agent costs and how the agent feels in use. That is the discipline behind NVIDIA-Certified Professional: AI Operations, and the same pattern runs through the context engineering work at Ovia since December 2022 and the field years at Staywired and Beanfield — infrastructure holds when the kit at the edge matches the plan at the core.</p>
+  <h2>Caveats and fine print</h2>
+  <p>Three cautions keep the story honest. First, every performance number in the post comes from NVIDIA testing on NVIDIA hardware and software; independent teams running other models, prompts and concurrency levels will land in different places, so the figures should be read as vendor-reported until reproduced. Second, the tested setup is specific: TensorRT Edge-LLM 0.11.1 with TensorRT 10.16.1.11, CUDA 13 and Python 3.10 to 3.12, batch size one, one concurrent streaming request and a 128-token output limit — real agent workloads with longer outputs and concurrent users will behave differently. Third, a local API on a developer machine is a prototyping step, not a production deployment; authentication, monitoring, updates and failure handling still have to be built before a desk prototype earns trust in the field.</p>
+  <h2>What to watch</h2>
+  <p>Signals to watch: whether teams publish independent reproductions of the DSpark gains on real workloads; whether the Spark-to-Thor path becomes the default route for robotics and embedded agents, as the shared runtime promises; and whether the 64GB configuration, offered through manufacturer partners since October 28, puts sustained local-agent development within reach of smaller teams. The direction is clear either way: serious inference keeps moving closer to where the work happens, and the craft of running models well matters at desk scale just as much as at gigawatt scale.</p>
+  <p class="tags">#ArtificialIntelligence #AIAgents #EdgeAI #AIOperations #ContextEngineering</p>
+  <footer>
+    <p><a href="../../">Ovia Inc</a> · Source on GitHub: <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></p>
+  </footer>
+</main>
+</body>
+</html>
