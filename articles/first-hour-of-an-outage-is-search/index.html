@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
+<title>The First Hour of an Outage Is a Search Problem — Ovia Inc</title>
+<meta name="description" content="Freshworks has acquired Robusta Dev (announced October 28, 2026): AI SRE agents that search telemetry, logs and recent changes, name the likely root cause, map the blast radius and show the evidence — while engineers keep approval over production.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The First Hour of an Outage Is a Search Problem">
+<meta property="og:description" content="Freshworks has acquired Robusta Dev (announced October 28, 2026): AI SRE agents that search telemetry, logs and recent changes, name the likely root cause, map the blast radius and show the evidence — while engineers keep approval over production.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/articles/first-hour-of-an-outage-is-search/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/first-hour-of-an-outage-is-search/ovia-inc-first-hour-of-an-outage-is-search-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#0A0E14;--accent:#2E9BD6;--text:#FFFFFF;--muted:#B9C4CE;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;}
+  main{max-width:760px;margin:0 auto;padding:32px 20px 48px;}
+  .langbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:18px;}
+  .langbar label{color:var(--muted);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid #1E2A36;border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:60vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;}
+  h1{font-size:2rem;line-height:1.25;margin-bottom:20px;font-weight:700;}
+  h2{font-size:1.3rem;line-height:1.35;margin:28px 0 12px;font-weight:700;color:var(--accent);}
+  img.hero{width:100%;height:auto;border-radius:10px;display:block;margin-bottom:28px;}
+  p{margin-bottom:16px;color:var(--text);}
+  p.tags{color:var(--accent);font-size:.95rem;}
+  ul.refs{list-style:none;margin-bottom:16px;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;}
+  ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  footer{border-top:1px solid #1E2A36;margin-top:36px;padding-top:20px;font-size:.95rem;color:var(--muted);}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  @media (max-width:600px){h1{font-size:1.55rem;}main{padding:22px 16px 36px;}}
+</style>
+</head>
+<body>
+<main>
+<div class="langbar">
+          <label for="langPick" data-tr>Language</label>
+          <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+        </div>
+  <p class="kicker" data-tr>Ovia Inc — Articles</p>
+  <h1 data-tr>The First Hour of an Outage Is a Search Problem</h1>
+  <img class="hero" src="ovia-inc-first-hour-of-an-outage-is-search-hero.webp" alt="Ovia Inc — A bold crimson and charcoal duotone poster: a magnifying lens over tangled signal spikes, the traces under the lens resolving into one bright radiating root point">
+  <h2 data-tr>The acquisition</h2>
+  <p data-tr>On October 28, 2026, Freshworks announced the acquisition of Robusta Dev, an incident-intelligence company founded in 2021, for terms that were not disclosed. Robusta began as a Kubernetes troubleshooting tool and was later rebuilt around HolmesGPT, the company's open-source agent. The technology now heads into Freshservice, the Freshworks IT service management platform, with findings and timelines flowing into FireHydrant, the incident-orchestration platform Freshworks already owns — diagnosis, response and prevention joined into one operating loop instead of three separate hand-offs.</p>
+  <h2 data-tr>Sense, reason, recommend</h2>
+  <p data-tr>The working pattern is a three-beat investigation. When an anomaly appears, Robusta's agents examine monitoring data, infrastructure telemetry, logs and recent code and configuration changes. The engine then identifies the likely root cause, maps the blast radius across dependent services, and shows the evidence behind the conclusion. Finally, the system recommends remediation steps inside guardrails the customer defines — and engineers review and approve before anything reaches production. Investigations draw on the customer's own environment: business-service context, configuration-database dependencies and change histories from Freshservice, so a diagnosis reflects the estate as built, not a generic textbook.</p>
+  <h2 data-tr>Evidence before action</h2>
+  <p data-tr>The design choice that matters most is the order of operations: evidence first, action second, approval between the two. Anyone who has worked a major incident recognises the real bottleneck. The fix is rarely the slow part; the slow part is the first hour — assembling clues from monitoring tools, alert logs, ticket histories and deployment records, on calls, under pressure, while the clock on the status page keeps moving. Automating the search compresses the hour. Keeping the recommendation inside customer guardrails, with a human approving the change, keeps the automation honest about where machine confidence ends.</p>
+  <h2 data-tr>The token-cost problem</h2>
+  <p data-tr>Scale imposes a discipline of its own. Enterprise environments generate more raw events than any team — human or artificial — can investigate one by one, and Robusta's leadership names the cost of processing those events as a real constraint on the design. An agent that reasons at length over every alert would spend its way past the value of the answers. Triage therefore becomes an economic act: cheap signals first, deep reasoning reserved for the anomalies that earn it, and evidence packaged so a responder can verify a conclusion in minutes rather than re-derive the whole search. Token budgets, in incident work, are operations budgets.</p>
+  <h2 data-tr>What to watch</h2>
+  <p data-tr>The Technology Coordinator years at Staywired, from 2014 to 2022, were spent inside exactly this arithmetic — alerts, logs, changes and the long first hour — and the operations discipline behind NVIDIA-Certified Professional: AI Operations applies the same standard to agents that good on-call culture applies to people: show the evidence, state the confidence, keep the approval step sacred. Watch how deeply the Freshservice integration lands, whether the evidence trails hold up under real incident review, and whether buyers report shorter first hours — the metric this category will ultimately be judged by.</p>
+  <p data-tr>One further detail signals intent. The acquisition was framed inside the workflow, not beside it: findings surface in Freshservice, and incident context flows into FireHydrant, where responders already coordinate. Tooling that arrives inside the tools on the desk gets used; tooling that asks teams to open one more console during a crisis gets admired and skipped. Freshworks is buying an investigation habit as much as an engine, and the placement of the product inside the existing incident loop is precisely why the habit has a chance to form.</p>
+  <h2 data-tr>References</h2>
+  <ul class="refs">
+    <li><span data-tr>Freshworks — “Freshworks Acquires Robusta to Bring AI-Powered Incident Investigation and Prevention to Freshservice”, October 28, 2026:</span> <a href="https://www.freshworks.com/theworks/company-news/freshworks-robusta-acquisition/?utm_source=chatgpt.com">https://www.freshworks.com/theworks/company-news/freshworks-robusta-acquisition/?utm_source=chatgpt.com</a></li>
+    <li><span data-tr>Elets CIO — “Freshworks Acquires Robusta: AI Agents for IT Outages”, October 31, 2026:</span> <a href="https://cio.eletsonline.com/artificial-intelligence/freshworks-acquires-robusta-ai-sre-agents-incident-investigation-freshservice/76545/">https://cio.eletsonline.com/artificial-intelligence/freshworks-acquires-robusta-ai-sre-agents-incident-investigation-freshservice/76545/</a></li>
+  </ul>
+  <p class="tags">#AIOperations #SRE #IncidentResponse #toyoursatisfaction</p>
+  <footer>
+    <p><a href="../../">Ovia Inc</a> · Source on GitHub: <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></p>
+  </footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+</body>
+</html>
