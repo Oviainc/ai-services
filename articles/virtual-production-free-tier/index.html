@@ -69,8 +69,23 @@
   footer .ftag{color:var(--text);letter-spacing:.06em;}
   @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
+<style id="arch-css">
+/* Layout archetype: classic (diversification pass) */
+body.arch-classic main{max-width:780px;}
+body.arch-classic .mast-inner{max-width:780px;text-align:center;}
+body.arch-classic .masthead{justify-content:center;}
+body.arch-classic .langbar{margin-left:0;}
+body.arch-classic h1.display{font-size:clamp(2.1rem,4.6vw,3.3rem);margin-left:auto;margin-right:auto;text-transform:none;letter-spacing:0;}
+body.arch-classic .standfirst{margin-left:auto;margin-right:auto;}
+body.arch-classic .cols{column-count:1;font-size:1.13rem;}
+body.arch-classic .cols figure.body,body.arch-classic .cols figure.wide{max-width:500px;margin-left:auto;margin-right:auto;}
+body.arch-classic .hero-zone{max-width:780px;}
+body.arch-classic h2.sec{text-align:center;border-top:1px solid var(--line);color:var(--text);}
+body.arch-classic .keybox{max-width:540px;margin-left:auto;margin-right:auto;}
+body.arch-classic blockquote.pull{font-size:1.55rem;}
+</style>
 </head>
-<body>
+<body class="arch arch-classic">
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('ovia-inc-virtual-production-free-tier-background.webp')"></div>
   <div class="mast-shade"></div>
