@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
+<title>The Attacker Now Runs a Team of Agents, Not a Keyboard — Ovia Inc</title>
+<meta name="description" content="CrowdStrike (October 29, 2026) attributes a global espionage campaign to VAPOR PANDA, run through the ARTEX agentic framework: planner and worker agents over a shared graph, a human steering, more than 200 organisations targeted in 11 days. Defence now has to reason in teams of agents too.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Attacker Now Runs a Team of Agents, Not a Keyboard">
+<meta property="og:description" content="CrowdStrike (October 29, 2026) attributes a global espionage campaign to VAPOR PANDA, run through the ARTEX agentic framework: planner and worker agents over a shared graph, a human steering, more than 200 organisations targeted in 11 days. Defence now has to reason in teams of agents too.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/articles/attacker-runs-a-team-of-agents/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/attacker-runs-a-team-of-agents/ovia-inc-attacker-runs-a-team-of-agents-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#0A0E14;--accent:#2E9BD6;--text:#FFFFFF;--muted:#B9C4CE;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;}
+  main{max-width:760px;margin:0 auto;padding:32px 20px 48px;}
+  .langbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:18px;}
+  .langbar label{color:var(--muted);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid #1E2A36;border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:60vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;}
+  h1{font-size:2rem;line-height:1.25;margin-bottom:20px;font-weight:700;}
+  h2{font-size:1.3rem;line-height:1.35;margin:28px 0 12px;font-weight:700;color:var(--accent);}
+  img.hero{width:100%;height:auto;border-radius:10px;display:block;margin-bottom:28px;}
+  p{margin-bottom:16px;color:var(--text);}
+  p.tags{color:var(--accent);font-size:.95rem;}
+  ul.refs{list-style:none;margin-bottom:16px;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;}
+  ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  footer{border-top:1px solid #1E2A36;margin-top:36px;padding-top:20px;font-size:.95rem;color:var(--muted);}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  @media (max-width:600px){h1{font-size:1.55rem;}main{padding:22px 16px 36px;}}
+</style>
+</head>
+<body>
+<main>
+<div class="langbar">
+          <label for="langPick" data-tr>Language</label>
+          <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+        </div>
+  <p class="kicker" data-tr>Ovia Inc — Articles</p>
+  <h1 data-tr>The Attacker Now Runs a Team of Agents, Not a Keyboard</h1>
+  <img class="hero" src="ovia-inc-attacker-runs-a-team-of-agents-hero.webp" alt="Ovia Inc — An engraved network of gold nodes and threads over deep forest green, one large central node directing many smaller nodes across an etched map">
+  <h2 data-tr>The report</h2>
+  <p data-tr>On October 29, 2026, CrowdStrike published its account of a global espionage campaign attributed — on CrowdStrike's assessment — to VAPOR PANDA, a China-nexus adversary tracked since 2021. Beginning October 17, a single controller running the ARTEX agentic framework was directed against more than 200 organisations in at least 14 countries over an 11-day window: foreign ministries, a European country's presidency and prime minister's office, defence and intelligence bodies, semiconductor and pharmaceutical firms, think tanks and telecommunications providers. CrowdStrike confirmed post-exploitation activity at nine organisations; the campaign was still active at publication, and the attribution and target counts are CrowdStrike's, reported here as such.</p>
+  <h2 data-tr>Inside ARTEX</h2>
+  <p data-tr>The architecture will look familiar to anyone building legitimate agent systems, and that familiarity is the point. ARTEX coordinates a main agent with subordinate planner and worker agents over a shared graph of facts, findings and goals, advancing each engagement from initial access through host reconnaissance to lateral movement. A human operator stays in the loop, intervening at decision points; recovered transcripts show the operator directing agents to write web shells, extract domain administrator passwords and inventory endpoint sensor coverage. Multiple engagements ran in parallel against different targets, each tracked as its own task — a small team, multiplied by software.</p>
+  <h2 data-tr>Scale, in numbers</h2>
+  <p data-tr>Two figures measure the shift. In a single intrusion, the planning agents consumed on the order of 1.4 billion input tokens, CrowdStrike reports — a scale of automated reasoning no keyboard team sustains. And the tempo: hands-on-keyboard activity tracked over fifteen years typically ran at up to about 40 commands per hour; with ARTEX, that pace could exceed 1,500 commands per hour, CrowdStrike's Adam Meyers told CyberScoop, with requests arriving as often as every ten seconds. CrowdStrike also counted agentic adversary attacks rising from roughly 45 in September to 126 in October. The tradecraft is established; the speed and parallelism are new.</p>
+  <h2 data-tr>The counter-design</h2>
+  <p data-tr>Defence has to answer in kind — organised, observable and fast — and the counter-design is already visible in the same architecture, inverted. Least privilege shrinks what any single agent, account or session can reach. Expiring credentials close the window that stolen access depends on. Observable state — shared graphs of facts and findings, maintained for defenders — turns detection into a race between two teams of agents rather than a watch kept by tired eyes alone. The Staywired Technology Coordinator years taught the perimeter version of that lesson; NVIDIA-Certified Professional: AI Operations teaches the agent version: instrument the system, bound the authority, rehearse the response.</p>
+  <h2 data-tr>What to watch</h2>
+  <p data-tr>CrowdStrike assesses that agentic frameworks will keep spreading among state-nexus adversaries, and the same ARTEX tooling has already appeared under separate attribution elsewhere — a sign of a maturing ecosystem rather than a single campaign. Watch for defender-side agent teams moving from conference talks into standard practice, for token-scale telemetry becoming a detection signal in its own right, and for identity controls — short-lived credentials, scoped sessions — becoming the control plane where these contests are actually decided.</p>
+  <p data-tr>The same lesson applies to the budget conversation. A planning layer that can spend on the order of 1.4 billion input tokens on one intrusion changes the economics of attack in a way defenders must price honestly: automated reasoning at that scale is cheap for the side that runs it and expensive for the side that answers it by hand. Matching the tempo does not require matching the recklessness — defender agents operate inside known estates, with ground truth an attacker has to discover — but the tempo itself is no longer optional. Operations centres will staff agent fleets the way earlier generations staffed watch rotations.</p>
+  <h2 data-tr>References</h2>
+  <ul class="refs">
+    <li><span data-tr>CrowdStrike — “VAPOR PANDA Uses AI-Driven ARTEX to Grow Global Espionage Campaign”, October 29, 2026:</span> <a href="https://www.crowdstrike.com/en-us/blog/vapor-panda-uses-artex-to-scale-global-campaign/">https://www.crowdstrike.com/en-us/blog/vapor-panda-uses-artex-to-scale-global-campaign/</a></li>
+    <li><span data-tr>CyberScoop (Matt Kapko) — “China-backed threat group used agentic AI pentesting tool to compromise 140 sensitive targets in 11 days”, October 31, 2026, as republished by EuropeSays:</span> <a href="https://www.europesays.com/3343177/">https://www.europesays.com/3343177/</a></li>
+  </ul>
+  <p class="tags">#Cybersecurity #AIAgents #ThreatIntelligence #toyoursatisfaction</p>
+  <footer>
+    <p><a href="../../">Ovia Inc</a> · Source on GitHub: <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></p>
+  </footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+</body>
+</html>
