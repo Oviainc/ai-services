@@ -69,11 +69,28 @@
   footer .ftag{color:var(--text);letter-spacing:.06em;}
   @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
+<style id="arch-css">
+/* Layout archetype: cover (diversification pass) */
+body.arch-cover .mastzone{min-height:94vh;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:none;}
+body.arch-cover .mast-bg{display:none;}
+body.arch-cover figure.coverfig{position:absolute;inset:0;z-index:0;margin:0;}
+body.arch-cover figure.coverfig img{width:100%;height:100%;object-fit:cover;display:block;}
+body.arch-cover .mast-shade{z-index:1;background:linear-gradient(180deg,rgba(10,14,20,.46),rgba(10,14,20,.26) 42%,rgba(10,14,20,.94));}
+body.arch-cover .mast-inner{z-index:2;width:100%;padding-bottom:58px;}
+body.arch-cover figcaption.covercap{position:absolute;right:18px;bottom:14px;z-index:3;background:rgba(10,14,20,.62);padding:3px 10px;border-radius:2px;}
+body.arch-cover h1.display{font-size:clamp(3.1rem,9vw,6.8rem);max-width:1100px;}
+body.arch-cover .standfirst{font-size:clamp(1.25rem,2.6vw,1.6rem);}
+body.arch-cover .cols{column-count:1;max-width:880px;margin-left:auto;margin-right:auto;}
+body.arch-cover figure.wide{position:relative;left:50%;transform:translateX(-50%);width:100vw;padding:0 22px;}
+body.arch-cover figure.body{max-width:640px;margin-left:auto;margin-right:auto;}
+@media (max-width:640px){body.arch-cover figure.wide{padding:0 16px;}}
+</style>
 </head>
-<body>
+<body class="arch arch-cover">
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('ovia-inc-one-ontology-many-models-background.webp')"></div>
   <div class="mast-shade"></div>
+  <figure class="coverfig"><img src="ovia-inc-one-ontology-many-models-hero.webp" alt="Ovia Inc — An illuminated-manuscript golden tree on aged parchment inside a burgundy and gold border, its branches carrying many small glowing tablets as leaves"></figure>
   <div class="mast-inner">
     <div class="masthead">
       <a class="logo" href="../../" aria-label="Ovia Inc — home"><img class="logo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
@@ -165,13 +182,8 @@
     <p class="standfirst" data-tr>Meaning drifts wherever models multiply without a shared vocabulary above them; one governed ontology, mapped onto many models, settles the argument once.</p>
     <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
   </div>
+  <figcaption class="covercap" data-tr>A golden tree on parchment, branches carrying glowing tablets. Image: Ovia Inc</figcaption>
 </header>
-<div class="hero-zone">
-  <figure class="hero">
-    <img src="ovia-inc-one-ontology-many-models-hero.webp" alt="Ovia Inc — An illuminated-manuscript golden tree on aged parchment inside a burgundy and gold border, its branches carrying many small glowing tablets as leaves">
-    <figcaption data-tr>A golden tree on parchment, branches carrying glowing tablets. Image: Ovia Inc</figcaption>
-  </figure>
-</div>
 <main>
   <div class="cols">
 <p class="first" data-tr>Every growing data estate develops the same quiet disease, and the disease rarely announces itself as a data problem. Finance models revenue one way, the sales dashboard models revenue another way, and a third definition survives inside the board pack.</p>
