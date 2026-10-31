@@ -69,8 +69,15 @@
   footer .ftag{color:var(--text);letter-spacing:.06em;}
   @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
+<style id="arch-css">
+/* Layout archetype: quote (diversification pass) */
+body.arch-quote .mast-bg{opacity:.07;}
+body.arch-quote blockquote.opener{font-size:clamp(2.1rem,5.4vw,3.8rem);line-height:1.16;font-style:italic;color:var(--text);margin-top:36px;padding-top:24px;border-top:3px solid var(--accent);max-width:1000px;}
+body.arch-quote .cols{margin-top:26px;}
+body.arch-quote .hero-zone{max-width:1180px;margin:44px auto 4px;padding:0;}
+</style>
 </head>
-<body>
+<body class="arch arch-quote">
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('ovia-inc-first-hour-of-an-outage-is-search-background.webp')"></div>
   <div class="mast-shade"></div>
@@ -164,14 +171,9 @@
     <h1 class="display" data-tr>The First Hour of an Outage Is a Search Problem</h1>
     <p class="standfirst" data-tr>Freshworks buys Robusta and joins diagnosis, response and prevention into one loop, because the slow part of an outage was always the search.</p>
     <p class="byline" data-tr>Ovia Inc · Studio and Lab · 5 min read</p>
+    <blockquote class="pull opener" data-tr>The fix is rarely the slow part; the slow part is the first hour.</blockquote>
   </div>
 </header>
-<div class="hero-zone">
-  <figure class="hero">
-    <img src="ovia-inc-first-hour-of-an-outage-is-search-hero.webp" alt="Ovia Inc — A bold crimson and charcoal duotone poster: a magnifying lens over tangled signal spikes, the traces under the lens resolving into one bright radiating root point">
-    <figcaption data-tr>Search first: tangled signals resolving toward a root cause. Image: Ovia Inc</figcaption>
-  </figure>
-</div>
 <main>
   <div class="cols">
 <p class="first" data-tr>Every responder knows the shape of a major outage. The alert fires, the bridge opens, and then the real work begins: finding the small set of facts that explain a very large failure. The fix, once the cause is known, is often the shortest part of the night.</p>
@@ -185,7 +187,6 @@
 <h2 class="sec" data-tr>02 · Sense, reason, recommend</h2>
 <p data-tr>The working pattern is a three-beat investigation. When an anomaly appears, Robusta agents examine monitoring data, infrastructure telemetry, logs and recent code and configuration changes. The engine then identifies the likely root cause, maps the blast radius across dependent services, and shows the evidence behind the conclusion. Finally, the system recommends remediation steps inside guardrails the customer defines, and engineers review and approve before anything reaches production.</p>
 <p data-tr>Investigations draw on the customer own environment: business-service context, configuration-database dependencies and change histories from Freshservice, so a diagnosis reflects the estate as built, not a generic textbook. That grounding is the difference between a plausible story and a useful one. A root cause that ignores the change made an hour ago, or the dependency nobody documented, sends responders down a corridor the evidence never supported.</p>
-<blockquote class="pull" data-tr>The fix is rarely the slow part; the slow part is the first hour.</blockquote>
 <h2 class="sec" data-tr>03 · Evidence before action</h2>
 <p data-tr>The design choice that matters most is the order of operations: evidence first, action second, approval between the two. Anyone who has worked a major incident recognises the real bottleneck. The slow part is assembling clues from monitoring tools, alert logs, ticket histories and deployment records, on calls, under pressure. Automating the search compresses the hour. Keeping the recommendation inside customer guardrails, with a human approving the change, keeps the automation honest about where machine confidence ends.</p>
 <figure class="wide"><img src="ovia-inc-first-hour-of-an-outage-is-search-body-2.webp" alt="Ovia Inc — An operations wall of monitoring panels with one crimson evidence trail winding through, in a crimson and charcoal duotone screen-print style"><figcaption data-tr>One evidence trail, carried through the wall of signals. Image: Ovia Inc</figcaption></figure>
@@ -196,8 +197,13 @@
 <h2 class="sec" data-tr>05 · What to watch</h2>
 <p data-tr>The Technology Coordinator years at Staywired, from 2014 to 2022, were spent inside exactly this arithmetic: alerts, logs, changes and the long first hour. The operations discipline behind NVIDIA-Certified Professional: AI Operations applies the same standard to agents that good on-call culture applies to people. Watch how deeply the Freshservice integration lands, whether the evidence trails hold up under real incident review, and whether buyers report shorter first hours, the metric this category will ultimately be judged by.</p>
 <p data-tr>We will be watching for the unglamorous evidence: post-incident reviews that cite the agent trail, responders who reach for the investigation before the manual search, and first hours that shrink in published accounts. Search was always the hidden labour of incident response. The category now forming simply admits the fact, and builds the machine for the admission.</p>
-
   </div>
+<div class="hero-zone">
+  <figure class="hero">
+    <img src="ovia-inc-first-hour-of-an-outage-is-search-hero.webp" alt="Ovia Inc — A bold crimson and charcoal duotone poster: a magnifying lens over tangled signal spikes, the traces under the lens resolving into one bright radiating root point">
+    <figcaption data-tr>Search first: tangled signals resolving toward a root cause. Image: Ovia Inc</figcaption>
+  </figure>
+</div>
   <div class="refs-sec">
     <h2 data-tr>References</h2>
     <ul class="refs">
