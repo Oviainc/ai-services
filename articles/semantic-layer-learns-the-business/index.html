@@ -5,42 +5,82 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
 <title>A Correct Metric Is Only Step One: Teaching the Semantic Layer the Business Itself — Ovia Inc</title>
-<meta name="description" content="The Datus October update (October 31, 2026) moves the semantic layer past metric definitions: Datus Agent 0.4.3/0.4.4 adds an OntologyAnalyst subagent and lineage mined from historical SQL, while Dosi 0.2.0 turns business rules like “Premier Customer” into executable, versioned semantics.">
+<meta name="description" content="The Datus October update (October 31, 2026) moves the semantic layer past metric definitions: Datus Agent 0.4.3/0.4.4 adds an OntologyAnalyst subagent and lineage mined from historical SQL, while Dosi 0.2.0 turns business rules like Premier Customer into executable, versioned semantics.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="A Correct Metric Is Only Step One: Teaching the Semantic Layer the Business Itself">
-<meta property="og:description" content="The Datus October update (October 31, 2026) moves the semantic layer past metric definitions: Datus Agent 0.4.3/0.4.4 adds an OntologyAnalyst subagent and lineage mined from historical SQL, while Dosi 0.2.0 turns business rules like “Premier Customer” into executable, versioned semantics.">
+<meta property="og:description" content="The Datus October update (October 31, 2026) moves the semantic layer past metric definitions: Datus Agent 0.4.3/0.4.4 adds an OntologyAnalyst subagent and lineage mined from historical SQL, while Dosi 0.2.0 turns business rules like Premier Customer into executable, versioned semantics.">
 <meta property="og:url" content="https://oviainc.github.io/ai-services/articles/semantic-layer-learns-the-business/">
 <meta property="og:image" content="https://oviainc.github.io/ai-services/articles/semantic-layer-learns-the-business/ovia-inc-semantic-layer-learns-the-business-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-  :root{--bg:#0A0E14;--accent:#2E9BD6;--text:#FFFFFF;--muted:#B9C4CE;}
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#7C8CF8;}
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;}
-  main{max-width:760px;margin:0 auto;padding:32px 20px 48px;}
-  .langbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:18px;}
-  .langbar label{color:var(--muted);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;}
-  .langbar select{background:#101823;color:var(--text);border:1px solid #1E2A36;border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:60vw;}
-  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;}
-  h1{font-size:2rem;line-height:1.25;margin-bottom:20px;font-weight:700;}
-  h2{font-size:1.3rem;line-height:1.35;margin:28px 0 12px;font-weight:700;color:var(--accent);}
-  img.hero{width:100%;height:auto;border-radius:10px;display:block;margin-bottom:28px;}
-  p{margin-bottom:16px;color:var(--text);}
-  p.tags{color:var(--accent);font-size:.95rem;}
-  ul.refs{list-style:none;margin-bottom:16px;}
-  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* masthead zone over the article background image */
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.52),rgba(10,14,20,.94));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;}
+  .masthead img.logo{height:46px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;text-transform:uppercase;font-weight:700;font-size:clamp(2.5rem,6.4vw,4.7rem);line-height:.99;letter-spacing:.004em;max-width:1020px;}
+  .standfirst{font-size:clamp(1.12rem,2.3vw,1.42rem);font-style:italic;color:var(--muted);max-width:780px;line-height:1.5;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  /* hero */
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;border-radius:2px;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  /* body columns */
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.16rem;line-height:1.75;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,sans-serif;font-size:5.4rem;line-height:.78;float:left;padding:.55rem .9rem 0 0;color:var(--accent);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:36px 0 14px;border-top:2px solid var(--accent);padding-top:14px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;font-size:clamp(1.55rem,3.6vw,2.35rem);line-height:1.3;font-style:italic;text-align:center;color:var(--accent);margin:42px 0;padding:4px 12px;}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;border-radius:2px;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px 20px 10px;margin:0 0 24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .keybox li{margin:0 0 9px 18px;font-size:.95rem;line-height:1.5;}
+  /* references + tags + footer */
+  .refs-sec{margin-top:44px;border-top:1px solid var(--line);padding-top:24px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
   ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
   ul.refs a:hover{text-decoration:underline;}
-  footer{border-top:1px solid #1E2A36;margin-top:36px;padding-top:20px;font-size:.95rem;color:var(--muted);}
+  p.tags{color:var(--accent);font-size:.95rem;margin-top:26px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 10px;font-size:.95rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;}
   footer a{color:var(--accent);text-decoration:none;}
   footer a:hover{text-decoration:underline;}
-  @media (max-width:600px){h1{font-size:1.55rem;}main{padding:22px 16px 36px;}}
+  footer .ftag{color:var(--text);letter-spacing:.06em;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
 </head>
 <body>
-<main>
-<div class="langbar">
-          <label for="langPick" data-tr>Language</label>
-          <select id="langPick" aria-label="Choose your language">
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('ovia-inc-semantic-layer-learns-the-business-background.webp')"></div>
+  <div class="mast-shade"></div>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="../../" aria-label="Ovia Inc — home"><img class="logo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
             <option value="en">English</option>
             <option value="fr">Français</option>
             <option value="es">Español</option>
@@ -118,28 +158,61 @@
             <option value="lo">ລາວ</option>
             <option value="mn">Монгол</option>
           </select>
-        </div>
-  <p class="kicker" data-tr>Ovia Inc — Articles</p>
-  <h1 data-tr>A Correct Metric Is Only Step One: Teaching the Semantic Layer the Business Itself</h1>
-  <img class="hero" src="ovia-inc-semantic-layer-learns-the-business-hero.webp" alt="Ovia Inc — Flat sand-coloured strata crossed by one deep indigo river of light flowing at different heights, with small indigo markers joining the levels">
-  <h2 data-tr>The October update</h2>
-  <p data-tr>The October update from the Datus team, published October 31, 2026, carries a thesis in its title: teaching the semantic layer the business. Two release trains shipped together. Datus Agent moved to 0.4.3 and 0.4.4, adding a built-in OntologyAnalyst subagent and stronger automatic extraction of lineage and business context from historical SQL, project code and metadata. Dosi, the semantic engine underneath, moved from 0.1.13 to 0.2.0, with Ontology Mapping split into the Apache Ossie standard, Derived Subtypes, level-of-detail calculations across fact tables, native execution on Athena, Redshift and SAP HANA, and hot reloading of models over MCP.</p>
-  <h2 data-tr>From definitions to objects</h2>
-  <p data-tr>A first-generation semantic layer answers one kind of question well: what is the certified definition of revenue, churn, or margin, and which SQL computes the number correctly? The October work pushes past definitions toward objects. The ontology layer names the business entities — customer, order, account — and the relationships between them, then maps those concepts onto the semantic models beneath. An agent equipped with objects can explore: follow a customer into orders, orders into fulfilment, fulfilment into exceptions. The OntologyAnalyst subagent exists precisely for that traversal, using concepts, relationships and mappings to query metrics and detail together rather than treating every question as a lone metric lookup.</p>
-  <h2 data-tr>Rules become executable</h2>
-  <p data-tr>Derived Subtypes carry the argument one step further. A rule such as “Premier Customer” — some combination of tenure, spend and standing that every company defines and few companies write down consistently — becomes executable, versioned semantics: compiled into SQL by the engine, validated like code, reused everywhere the concept applies. The business rule stops living in slide decks and individual memory. Change the rule, and the change is a versioned event with a history, not a quiet edit inside one analyst's query. After definitions come rules; after rules, the layer starts to hold the company's actual decision logic.</p>
-  <h2 data-tr>Lineage from the SQL that already exists</h2>
-  <p data-tr>The adoption path matters as much as the architecture. Rather than demanding a modelling programme before any value appears, the 0.4.3 extraction work mines the estate that already exists — historical SQL, project code, metadata — and derives lineage and business context from the queries the organisation actually ran. Institutional knowledge usually sits in exactly those artefacts: the joins everyone trusts, the filters nobody documented, the exceptions carved out years ago for reasons worth recovering. Mining the record turns archaeology into configuration.</p>
-  <h2 data-tr>What to watch</h2>
-  <p data-tr>Business intelligence and data work at Ovia keeps returning to the same sequence: definitions first, because a wrong metric poisons everything downstream; rules second, because decisions repeat; judgment last, because judgment is what remains once the repeatable parts are encoded honestly. Context engineering is the discipline that connects the three — the layer an agent reasons over is only as trustworthy as the semantics underneath. Watch whether ontology features survive contact with messy real estates, whether versioned business rules become a governance habit, and whether rival semantic engines adopt the same objects-and-rules direction.</p>
-  <p data-tr>A sequencing warning inside the update deserves underlining. Teams often treat ontology work as a phase that begins after the warehouse is clean and the dashboards agree — a reward for maturity rather than a tool for reaching it. The extraction direction argues the opposite: the ontology is how an estate becomes legible in the first place, mined from the SQL the business already runs and sharpened as the rules are made executable. Waiting for a perfect foundation before naming the business properly usually means the naming never happens, and the agents arriving now will reason over whatever semantics exist — documented or not.</p>
-  <h2 data-tr>References</h2>
-  <ul class="refs">
-    <li><span data-tr>Harrison Zhao (Datus) — “Datus October Update: Teaching the Semantic Layer the Business”, Medium, October 31, 2026:</span> <a href="https://medium.com/@linux.hust/datus-october-update-teaching-the-semantic-layer-the-business-datus-blog-7f5401c6abca">https://medium.com/@linux.hust/datus-october-update-teaching-the-semantic-layer-the-business-datus-blog-7f5401c6abca</a></li>
-  </ul>
+      </div>
+    </div>
+    <p class="kicker" data-tr>Ovia Inc — Business Intelligence · Semantic Layer</p>
+    <h1 class="display" data-tr>A Correct Metric Is Only Step One: Teaching the Semantic Layer the Business Itself</h1>
+    <p class="standfirst" data-tr>Definitions first, rules second, judgment last: the Datus and Dosi October work teaches the semantic layer the business itself, not only the metrics.</p>
+    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+  </div>
+</header>
+<div class="hero-zone">
+  <figure class="hero">
+    <img src="ovia-inc-semantic-layer-learns-the-business-hero.webp" alt="Ovia Inc — Flat sand-coloured strata crossed by one deep indigo river of light flowing at different heights, with small indigo markers joining the levels">
+    <figcaption data-tr>Sand strata and one indigo river joining the levels. Image: Ovia Inc</figcaption>
+  </figure>
+</div>
+<main>
+  <div class="cols">
+<p class="first" data-tr>A correct metric is only step one. A semantic layer can compute revenue, churn or margin exactly as certified and still leave an agent, and a team, knowing very little about the business those numbers describe.</p>
+<p data-tr>Definitions answer a narrow question well: which calculation is the approved one, and which SQL produces the number correctly? Business work rarely stops there. Teams ask why a customer changed, which orders sit behind an account, and which exceptions explain a result.</p>
+<p data-tr>The October update from Datus pushes the semantic layer toward that wider work. Rather than treating meaning as a list of metric definitions, the release adds business objects, relationships, executable rules and lineage recovered from the queries an organisation already runs.</p>
+<aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>Datus Agent 0.4.3 and 0.4.4 add a built-in OntologyAnalyst subagent and stronger extraction from historical SQL, project code and metadata.</li><li data-tr>Dosi 0.2.0 splits Ontology Mapping into the Apache Ossie standard and adds Derived Subtypes and level-of-detail calculations across fact tables.</li><li data-tr>Business rules such as Premier Customer become executable, versioned semantics instead of wording held in slides and memory.</li><li data-tr>Definitions come first, rules second and judgment last, because a wrong metric poisons everything built downstream of the number.</li></ul></aside>
+<h2 class="sec" data-tr>01 · The October update</h2>
+<p data-tr>The October update from the Datus team, published October 31, 2026, carries a thesis in its title: teaching the semantic layer the business. Two release trains shipped together. Datus Agent moved to 0.4.3 and 0.4.4, adding a built-in OntologyAnalyst subagent and stronger automatic extraction of lineage and business context from historical SQL, project code and metadata. Dosi, the semantic engine underneath, moved from 0.1.13 to 0.2.0, with Ontology Mapping split into the Apache Ossie standard, Derived Subtypes, level-of-detail calculations across fact tables, native execution on Athena, Redshift and SAP HANA, and hot reloading of models over MCP.</p>
+<p data-tr>Read together, the two trains make a clear claim about direction. The agent side gains a specialist for working with concepts and relationships, while the engine side gains the structures that make those concepts executable across different platforms. Hot reloading over MCP matters in the same story: a model change that can be picked up without a cold restart is a model change teams are more likely to make, review and improve in ordinary work.</p>
+<h2 class="sec" data-tr>02 · From definitions to objects</h2>
+<p data-tr>A first-generation semantic layer answers one kind of question well: what is the certified definition of revenue, churn, or margin, and which SQL computes the number correctly? The October work pushes past definitions toward objects. The ontology layer names the business entities — customer, order, account — and the relationships between them, then maps those concepts onto the semantic models beneath. An agent equipped with objects can explore: follow a customer into orders, orders into fulfilment, fulfilment into exceptions. The OntologyAnalyst subagent exists precisely for that traversal, using concepts, relationships and mappings to query metrics and detail together rather than treating every question as a lone metric lookup.</p>
+<p data-tr>The practical difference shows up in the shape of a question. A metric lookup returns a value and stops. An object traversal can keep the context that gives the value meaning: the account behind the orders, the fulfilment path behind the delay, and the exception that explains why a clean total deserves a second look. That wider path is also where honest caveats belong, because an object view can show where a relationship is mapped confidently and where the underlying model still carries local quirks.</p>
+<blockquote class="pull" data-tr>After definitions come rules; after rules, the layer starts to hold the company's actual decision logic.</blockquote>
+<figure class="body"><img src="ovia-inc-semantic-layer-learns-the-business-body-1.webp" alt="Ovia Inc — Warm sand strata crossed by a deep indigo river, with indigo markers joining the levels"><figcaption data-tr>Layers in warm sand, one indigo river joining the levels. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>03 · Rules become executable</h2>
+<p data-tr>Derived Subtypes carry the argument one step further. A rule such as “Premier Customer” — some combination of tenure, spend and standing that every company defines and few companies write down consistently — becomes executable, versioned semantics: compiled into SQL by the engine, validated like code, reused everywhere the concept applies. The business rule stops living in slide decks and individual memory. Change the rule, and the change is a versioned event with a history, not a quiet edit inside one analyst's query. After definitions come rules; after rules, the layer starts to hold the company's actual decision logic.</p>
+<p data-tr>Versioning is the part that turns a clever feature into an operations habit. When a rule changes, teams need to know when the change took effect, which results were produced under the earlier wording, and who approved the new version. Treated that way, a business rule behaves like any other maintained artefact: reviewed before release, tested against known cases, and open to inspection after the fact instead of reconstructed from memory during a dispute.</p>
+<h2 class="sec" data-tr>04 · Lineage from the SQL that already exists</h2>
+<p data-tr>The adoption path matters as much as the architecture. Rather than demanding a modelling programme before any value appears, the 0.4.3 extraction work mines the estate that already exists — historical SQL, project code, metadata — and derives lineage and business context from the queries the organisation actually ran. Institutional knowledge usually sits in exactly those artefacts: the joins everyone trusts, the filters nobody documented, the exceptions carved out years ago for reasons worth recovering. Mining the record turns archaeology into configuration.</p>
+<figure class="wide"><img src="ovia-inc-semantic-layer-learns-the-business-body-2.webp" alt="Ovia Inc — A sand-toned grid above glowing indigo pathways and connected nodes in deep indigo layers"><figcaption data-tr>An excavation grid over indigo pathways recovered from the layers beneath. Image: Ovia Inc</figcaption></figure>
+<p data-tr>That recovery work deserves respect rather than automation theatre. Historical SQL contains real knowledge, and historical SQL also contains workarounds, dead ends and filters added for a quarter that ended long ago. Mining can surface candidates for lineage and context at a scale manual documentation rarely reaches, but people still have to judge which patterns describe the business and which patterns merely describe an old incident. The craft is in the review, not only in the extraction.</p>
+<h2 class="sec" data-tr>05 · What to watch</h2>
+<p data-tr>Business intelligence and data work at Ovia keeps returning to the same sequence: definitions first, because a wrong metric poisons everything downstream; rules second, because decisions repeat; judgment last, because judgment is what remains once the repeatable parts are encoded honestly. Context engineering is the discipline that connects the three — the layer an agent reasons over is only as trustworthy as the semantics underneath. Watch whether ontology features survive contact with messy real estates, whether versioned business rules become a governance habit, and whether rival semantic engines adopt the same objects-and-rules direction.</p>
+<p data-tr>A sequencing warning inside the update deserves underlining. Teams often treat ontology work as a phase that begins after the warehouse is clean and the dashboards agree — a reward for maturity rather than a tool for reaching it. The extraction direction argues the opposite: the ontology is how an estate becomes legible in the first place, mined from the SQL the business already runs and sharpened as the rules are made executable. Waiting for a perfect foundation before naming the business properly usually means the naming never happens, and the agents arriving now will reason over whatever semantics exist — documented or not.</p>
+<p data-tr>The closing lesson is modest and demanding. Start with trusted definitions, name the objects teams talk about, make one repeated rule executable and versioned, and let real questions decide what comes next.</p>
+
+  </div>
+  <div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+<li><span data-tr>Harrison Zhao (Datus) — “Datus October Update: Teaching the Semantic Layer the Business”, Medium, October 31, 2026:</span> <a href="https://medium.com/@linux.hust/datus-october-update-teaching-the-semantic-layer-the-business-datus-blog-7f5401c6abca">https://medium.com/@linux.hust/datus-october-update-teaching-the-semantic-layer-the-business-datus-blog-7f5401c6abca</a></li>
+
+    </ul>
+  </div>
   <p class="tags">#BusinessIntelligence #SemanticLayer #DataEngineering #toyoursatisfaction</p>
   <footer>
-    <p><a href="../../">Ovia Inc</a> · Source on GitHub: <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></p>
+    <div class="frow">
+      <a href="../../" aria-label="Ovia Inc — home"><img class="flogo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="../../">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
   </footer>
 </main>
 <script>
