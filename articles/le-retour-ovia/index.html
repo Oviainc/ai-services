@@ -69,8 +69,21 @@
   footer .ftag{color:var(--text);letter-spacing:.06em;}
   @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
+<style id="arch-css">
+/* Layout archetype: rail (diversification pass) */
+body.arch-rail .layout{display:grid;grid-template-columns:296px minmax(0,1fr);gap:46px;align-items:start;}
+body.arch-rail .rail{position:sticky;top:22px;margin-top:30px;}
+body.arch-rail .rail .kicker{margin:0 0 20px;}
+body.arch-rail .rail .keybox{margin:0 0 26px;}
+body.arch-rail .rail blockquote.pull{column-span:none;text-align:left;font-size:1.45rem;line-height:1.35;margin:0;padding:6px 0 6px 18px;border-left:3px solid var(--accent);}
+body.arch-rail .cols{column-count:1;margin-top:30px;}
+body.arch-rail figure.body{width:62%;}
+body.arch-rail .cols figure.body:nth-of-type(2n){width:84%;margin-left:auto;}
+body.arch-rail figure.wide{width:100%;}
+@media (max-width:900px){body.arch-rail .layout{grid-template-columns:1fr;}body.arch-rail .rail{position:static;}body.arch-rail figure.body,body.arch-rail .cols figure.body:nth-of-type(2n){width:100%;margin-left:0;}}
+</style>
 </head>
-<body>
+<body class="arch arch-rail">
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('ovia-inc-le-retour-ovia-background.webp')"></div>
   <div class="mast-shade"></div>
@@ -160,7 +173,6 @@
           </select>
       </div>
     </div>
-    <p class="kicker" data-tr>Ovia Inc — Context Engineering · Montréal</p>
     <h1 class="display" data-tr>Le retour d'Ovia : quatre ans de Context Engineering</h1>
     <p class="standfirst" data-tr>Nous sommes de retour. Quatre ans de context engineering racontés depuis le terrain : le contexte juste, au bon moment, pour des agents et des équipes qui livrent en production.</p>
     <p class="byline" data-tr>Ovia Inc · Studio et Lab · 6 min de lecture</p>
@@ -173,11 +185,16 @@
   </figure>
 </div>
 <main>
-  <div class="cols">
+  <div class="layout">
+<aside class="rail">
+<p class="kicker" data-tr>Ovia Inc — Context Engineering · Montréal</p>
+<aside class="keybox"><h3 data-tr>Points clés</h3><ul><li data-tr>Depuis décembre 2022, Ovia Inc construit une intelligence artificielle pratique : context engineering, agents IA, apprentissage automatique et systèmes de données.</li><li data-tr>La méthode tient en une phrase : le contexte juste, au bon moment, pour des agents et des équipes qui livrent en production.</li><li data-tr>Une expertise certifiée soutient le travail : NVIDIA-Certified Professional : AI Operations, et les formations Agents et Deep RL de Hugging Face terminées en mai 2025.</li><li data-tr>Pour la suite : des notes de cas, des leçons de terrain et des histoires de projets, en français, en anglais et en espagnol.</li></ul></aside>
+<blockquote class="pull" data-tr>Le contexte juste, au bon moment, pour des agents et des équipes qui livrent en production.</blockquote>
+</aside>
+<div class="cols">
 <p class="first" data-tr>Nous sommes de retour. Depuis décembre 2022, nous construisons chez Ovia Inc une intelligence artificielle pratique : context engineering, agents IA, apprentissage automatique et systèmes de données pensés pour des opérations réelles. Quatre ans plus tard, le retour se raconte depuis Montréal, en hiver, avec la même conviction qu'au premier jour : le contexte juste change tout.</p>
 <p data-tr>Quatre ans de context engineering, racontés depuis le terrain : le contexte juste, au bon moment, pour des agents et des équipes qui livrent en production. Un retour n'est pas une relance de façade. Un retour, pour nous, veut dire reprendre la parole là où le travail se fait, montrer les notes, les leçons et les chantiers, et recommencer à publier avec régularité.</p>
 <p data-tr>Une expertise certifiée soutient le travail — NVIDIA-Certified Professional : AI Operations, ainsi que les formations Agents et Deep RL de Hugging Face, terminées en mai 2025. Les titres comptent, mais le terrain compte davantage : des systèmes qui roulent, des équipes qui livrent, et des clients dont les opérations ne pardonnent pas les démonstrations approximatives.</p>
-<aside class="keybox"><h3 data-tr>Points clés</h3><ul><li data-tr>Depuis décembre 2022, Ovia Inc construit une intelligence artificielle pratique : context engineering, agents IA, apprentissage automatique et systèmes de données.</li><li data-tr>La méthode tient en une phrase : le contexte juste, au bon moment, pour des agents et des équipes qui livrent en production.</li><li data-tr>Une expertise certifiée soutient le travail : NVIDIA-Certified Professional : AI Operations, et les formations Agents et Deep RL de Hugging Face terminées en mai 2025.</li><li data-tr>Pour la suite : des notes de cas, des leçons de terrain et des histoires de projets, en français, en anglais et en espagnol.</li></ul></aside>
 <h2 class="sec" data-tr>01 · Quatre ans depuis le terrain</h2>
 <p data-tr>Quatre ans, dans un domaine qui change de mode chaque saison, représentent une éternité de pratique. Depuis décembre 2022, le travail chez Ovia suit une ligne simple : partir des opérations réelles, pas des promesses. Un agent utile est un agent qui connaît le dossier, respecte les permissions et laisse une trace vérifiable de chaque action. Un système de données utile est un système dont les définitions tiennent quand deux équipes lisent le même chiffre.</p>
 <p data-tr>Le terrain enseigne vite. Le contexte donné à un modèle décide du plafond de qualité de tout ce que le modèle produit ensuite, et aucun réglage en aval ne compense durablement un contexte pauvre, contradictoire ou périmé. Cette leçon, répétée projet après projet, est devenue la signature de la maison : préparer le contexte avec le même soin que le modèle, puis mesurer le résultat là où le travail compte vraiment, en production.</p>
@@ -185,7 +202,6 @@
 <h2 class="sec" data-tr>02 · Le contexte juste, au bon moment</h2>
 <p data-tr>Le context engineering se résume mal en slogan, alors voici la version de terrain. Chaque tâche reçoit le contexte qu'elle exige : les documents pertinents, les définitions partagées, les exemples qui montrent le niveau attendu, et rien de plus. Trop peu de contexte, et le modèle devine. Trop de contexte, et le signal se noie dans le bruit. Le bon moment compte autant que le bon contenu : un contexte livré après la décision ne sert qu'à documenter un regret.</p>
 <p data-tr>Cette discipline rejoint un parcours plus long. Avant Ovia, le parcours passe par la coordination technologique chez Staywired de 2014 à 2022, par la facilitation de projets chez Beanfield Metroconnect de 2011 à 2013, et par le mentorat linguistique bénévole à l'Université de Montréal depuis 2014. Des réseaux, des équipes, des usagers : toujours la même question, sous des formes différentes — quelle information, pour qui, à quel moment, dans quelle langue.</p>
-<blockquote class="pull" data-tr>Le contexte juste, au bon moment, pour des agents et des équipes qui livrent en production.</blockquote>
 <h2 class="sec" data-tr>03 · Une expertise qui se prouve</h2>
 <p data-tr>Les certifications ne font pas le travail, mais les certifications structurent l'apprentissage et donnent aux clients un repère vérifiable. Le titre NVIDIA-Certified Professional : AI Operations ancre la pratique des opérations IA. Les formations Agents et Deep RL de Hugging Face, terminées en mai 2025, ancrent la pratique des agents et de l'apprentissage par renforcement. Entre les deux, une même exigence : comprendre les systèmes assez profondément pour les opérer, pas seulement pour les démontrer.</p>
 <figure class="wide"><img src="ovia-inc-le-retour-ovia-body-2.webp" alt="Ovia Inc — Montréal et un pont au-dessus d'un fleuve gelé à l'heure bleue, neige blanche et lumières ambre"><figcaption data-tr>Montréal à l'heure bleue : le fleuve gelé, les fenêtres chaudes, la ville de base. Image : Ovia Inc</figcaption></figure>
@@ -196,7 +212,7 @@
 <h2 class="sec" data-tr>05 · Les réserves honnêtes</h2>
 <p data-tr>L'honnêteté impose quelques réserves. Quatre ans de pratique ne transforment personne en oracle : les modèles changent, les outils vieillissent, et une partie de ce qui semble solide aujourd'hui demandera une révision demain. Le context engineering ne répare pas non plus des données sales ni des définitions absentes ; le contexte juste suppose un travail préalable sur les sources, et ce travail reste souvent le plus long. Enfin, publier régulièrement est un engagement plus facile à annoncer qu'à tenir, et la régularité annoncée ici sera jugée sur les parutions, pas sur les intentions.</p>
 <p data-tr>Pour la suite : des notes de cas, des leçons de terrain et des histoires de projets, partagées ici régulièrement, en français, en anglais et en espagnol. Nous sommes de retour, avec quatre ans de context engineering dans les bagages, une base à Montréal, et une méthode qui tient en une phrase. Le contexte juste, au bon moment — et le reste suit.</p>
-
+  </div>
   </div>
   <div class="refs-sec">
     <h2 data-tr>Références</h2>
