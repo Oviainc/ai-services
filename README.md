@@ -2,6 +2,9 @@
 
 **AI, without the hype.**
 
+![Ovia Inc — AI agents, machine learning in production, and AI products for business](assets/ovia-inc-logo-film.jpg)
+
+
 We build AI agents, machine learning in production, and AI products for business — practical systems that do real work, explained in plain language.
 
 **Live site:** https://oviainc.github.io/ai-services/
