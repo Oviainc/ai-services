@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
 <title>Bad Data: How Poor Quality Data Can Impact Your Bottom Line — Ovia Inc</title>
 <meta name="description" content="Bad data bills everyone, twice. We clean the data before we automate anything.">
 <meta property="og:type" content="article">
@@ -12,35 +13,368 @@
 <meta property="og:image" content="https://oviainc.github.io/ai-services/articles/bad-data/ovia-inc-bad-data-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-  :root{--bg:#0A0E14;--accent:#2E9BD6;--text:#FFFFFF;--muted:#B9C4CE;}
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#4D7CFE;}
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;}
-  main{max-width:760px;margin:0 auto;padding:32px 20px 48px;}
-  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;}
-  h1{font-size:2rem;line-height:1.25;margin-bottom:20px;font-weight:700;}
-  img.hero{width:100%;height:auto;border-radius:10px;display:block;margin-bottom:28px;}
-  p{margin-bottom:16px;color:var(--text);}
-  p.tags{color:var(--accent);font-size:.95rem;}
-  footer{border-top:1px solid #1E2A36;margin-top:36px;padding-top:20px;font-size:.95rem;color:var(--muted);}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* masthead zone over the article background image */
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.52),rgba(10,14,20,.94));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;}
+  .masthead img.logo{height:46px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;text-transform:uppercase;font-weight:700;font-size:clamp(2.5rem,6.4vw,4.7rem);line-height:.99;letter-spacing:.004em;max-width:1020px;}
+  .standfirst{font-size:clamp(1.12rem,2.3vw,1.42rem);font-style:italic;color:var(--muted);max-width:780px;line-height:1.5;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  /* hero */
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;border-radius:2px;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  /* body columns */
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.16rem;line-height:1.75;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,sans-serif;font-size:5.4rem;line-height:.78;float:left;padding:.55rem .9rem 0 0;color:var(--accent);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:36px 0 14px;border-top:2px solid var(--accent);padding-top:14px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;font-size:clamp(1.55rem,3.6vw,2.35rem);line-height:1.3;font-style:italic;text-align:center;color:var(--accent);margin:42px 0;padding:4px 12px;}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;border-radius:2px;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px 20px 10px;margin:0 0 24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .keybox li{margin:0 0 9px 18px;font-size:.95rem;line-height:1.5;}
+  /* references + tags + footer */
+  .refs-sec{margin-top:44px;border-top:1px solid var(--line);padding-top:24px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  p.tags{color:var(--accent);font-size:.95rem;margin-top:26px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 10px;font-size:.95rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;}
   footer a{color:var(--accent);text-decoration:none;}
   footer a:hover{text-decoration:underline;}
-  @media (max-width:600px){h1{font-size:1.55rem;}main{padding:22px 16px 36px;}}
+  footer .ftag{color:var(--text);letter-spacing:.06em;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
 </head>
 <body>
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('ovia-inc-bad-data-background.webp')"></div>
+  <div class="mast-shade"></div>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="../../" aria-label="Ovia Inc — home"><img class="logo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+      </div>
+    </div>
+    <p class="kicker" data-tr>Ovia Inc — Business Intelligence · Data</p>
+    <h1 class="display" data-tr>Bad Data: How Poor Quality Data Can Impact Your Bottom Line</h1>
+    <p class="standfirst" data-tr>Bad data bills everyone, twice — first as a wrong decision, then as the rework and the trust that has to be rebuilt. We clean the data before we automate anything.</p>
+    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+  </div>
+</header>
+<div class="hero-zone">
+  <figure class="hero">
+    <img src="ovia-inc-bad-data-hero.webp" alt="Ovia Inc — A cracked glass dashboard pane repaired by threads of blue light">
+    <figcaption data-tr>A cracked pane, repaired by threads of blue light: cleaning made visible. Image: Ovia Inc</figcaption>
+  </figure>
+</div>
 <main>
-  <p class="kicker">Ovia Inc — Articles</p>
-  <h1>Bad Data: How Poor Quality Data Can Impact Your Bottom Line</h1>
-  <img class="hero" src="ovia-inc-bad-data-hero.webp" alt="Ovia Inc — A cracked glass dashboard pane repaired by threads of blue light">
-  <p>Bad data bills everyone, twice.</p>
-  <p>The first bill arrives as a wrong number in a report — a decision made on data that was incomplete, duplicated, or already out of date. The second bill arrives later, and larger: the rework, the correction, and the trust that has to be rebuilt with everyone who acted on the first number.</p>
-  <p>That lesson sits at the centre of the business intelligence work behind Ovia: years of data and automation work teach one order of operations — clean the data first, govern the definitions second, automate only after both hold.</p>
-  <p>Agents make the order more important, not less. A dashboard with bad data misleads one reader at a time. An agent acting on bad data repeats the error at machine speed.</p>
-  <p>We clean the data before we automate anything.</p>
-  <p class="tags">#BusinessIntelligence #Data #ArtificialIntelligence #ContextEngineering</p>
+  <div class="cols">
+<p class="first" data-tr>Bad data bills everyone, twice. The first bill arrives as a wrong number in a report — a decision made on data that was incomplete, duplicated, or already out of date. The second bill arrives later, and larger: the rework, the correction, and the trust that has to be rebuilt with everyone who acted on the first number.</p>
+<p data-tr>Most teams meet bad data as a small annoyance: a customer listed twice, a date in the wrong format, a field left blank because nobody owned it. The annoyance is real, but the framing is wrong. Bad data is not a housekeeping problem at the edge of the business. Bad data sits underneath every report, every forecast and every automated action the business takes, and every layer built on top of it inherits its flaws.</p>
+<p data-tr>That lesson sits at the centre of the business intelligence work behind Ovia: years of data and automation work teach one order of operations — clean the data first, govern the definitions second, automate only after both hold. The order sounds slow. The order is, in practice, the fastest route that does not have to be travelled twice.</p>
+<aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>Bad data bills everyone twice: once as a wrong decision, and again as rework, correction and rebuilt trust.</li><li data-tr>The order of operations is fixed: clean the data first, govern the definitions second, automate only after both hold.</li><li data-tr>A dashboard with bad data misleads one reader at a time; an agent acting on bad data repeats the error at machine speed.</li><li data-tr>Cleaning is not a one-time project but a standing practice with named owners and shared definitions.</li></ul></aside>
+<h2 class="sec" data-tr>01 · The first bill: the wrong number</h2>
+<p data-tr>The first bill is the quiet one. A report goes out with a number that looks precise and reads as authoritative, and a team acts on it in good faith. Perhaps two systems count the same customer differently, so growth looks stronger than the underlying reality. Perhaps a spreadsheet still carries last quarter under a current heading, so a seasonal dip reads as a sudden collapse. The data was not lying with intent; the data was simply incomplete, duplicated or out of date, and nobody checked before the number travelled.</p>
+<p data-tr>Precision makes the problem harder to spot. A rough estimate invites a question, while a figure carried to two decimal places invites confidence. Yet precision and accuracy are different properties, and bad data often delivers the first while quietly destroying the second. The craft lesson from years of business intelligence work is unglamorous: before any number leaves the room, someone should be able to say where each value came from, when the value was last true, and which definition produced it.</p>
+<figure class="body"><img src="ovia-inc-bad-data-body-1.webp" alt="Ovia Inc — Abstract frost-blue record blocks out of alignment on a dark dashboard pane, cobalt on charcoal"><figcaption data-tr>Records out of alignment: duplicates and gaps hide inside a surface that still looks like a dashboard. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>02 · The second bill: rework and trust</h2>
+<p data-tr>The second bill arrives when the error surfaces, and the second bill is always larger. The decision has to be revisited, the work built on the decision has to be redone, and the correction has to travel further than the original number ever did, because corrections never catch up with the copies, screenshots and memories the first version created. Every team that acted on the wrong number now has to be found, told, and convinced that the replacement deserves belief.</p>
+<p data-tr>Trust is the expensive part. A team can forgive a wrong number once, especially when the correction is fast and honest. A pattern of wrong numbers teaches a different lesson: check everything personally, keep a private copy, build a shadow spreadsheet. Shadow systems are the hidden tax of bad data. The official source stops being the source, definitions multiply in private, and the organisation ends up paying several times for the same truth without ever quite holding it.</p>
+<blockquote class="pull" data-tr>An agent acting on bad data repeats the error at machine speed.</blockquote>
+<h2 class="sec" data-tr>03 · Clean first, govern second</h2>
+<p data-tr>Cleaning comes first because automation amplifies whatever cleaning leaves behind. Cleaning means the concrete work: removing duplicates, completing the fields that decisions actually depend on, retiring records that are no longer true, and making formats consistent enough that two systems reading the same record reach the same value. None of that work is glamorous, and all of that work is visible later in every number the business trusts.</p>
+<p data-tr>Governance comes second, and governance is about definitions rather than files. When two departments use the same word for different things — a customer, a lead, an active account — clean data still produces conflicting reports. Governing the definitions means writing down, once and in the open, what each shared term means, who owns the meaning, and how a change to the meaning gets announced. A definition with no owner drifts; a definition with an owner can evolve without breaking trust.</p>
+<figure class="wide"><img src="ovia-inc-bad-data-body-2.webp" alt="Ovia Inc — Dark cubes sorted by threads of cobalt light into a clean aligned grid, frost highlights on charcoal"><figcaption data-tr>The sorting work: scattered records drawn by cobalt threads into one clean, shared grid. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>04 · Why agents raise the stakes</h2>
+<p data-tr>Agents make the order more important, not less. A dashboard with bad data misleads one reader at a time. An agent acting on bad data repeats the error at machine speed — sending the wrong follow-up, updating the wrong record, summarising the wrong figures — and each repetition can create new records that later cleaning has to untangle. A human reader often senses that a number looks off; an agent, working exactly as instructed, has no such pause unless the pause was designed in.</p>
+<p data-tr>Context engineering starts from exactly that reality. The context an agent receives — the records, the definitions, the retrieved documents — is the ceiling on the quality of every action the agent takes. Clean, governed data raises that ceiling. Dirty, undefined data lowers it, no matter how capable the model on top may be. Since December 2022, the work at Ovia has treated that order as non-negotiable: the data first, the definitions second, the agent last.</p>
+<h2 class="sec" data-tr>05 · The honest caveats</h2>
+<p data-tr>Honesty requires two caveats. First, clean is a direction, not a destination: data decays as customers move, products change and people mistype, so cleaning has to be a standing practice with checks that run continuously, not a heroic project that runs once. Second, not every field deserves the same effort. The fields that drive decisions, money and customer contact deserve rigorous care; a field nobody reads deserves a decision about whether to keep collecting it at all.</p>
+<p data-tr>We clean the data before we automate anything. The sentence is short because the discipline is simple to state, even when the discipline takes real work to keep. Teams that respect the order pay once, in the open, for cleaning and definitions. Teams that skip the order pay twice — once for the wrong number, and once again for everything the wrong number set in motion.</p>
+
+  </div>
+  <div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+<li><span data-tr>Ovia Inc — “Bad Data: How Poor Quality Data Can Impact Your Bottom Line”, Medium, February 25, 2023 — author archive (exact article URL not verified):</span> <a href="https://medium.com/@ovia_">https://medium.com/@ovia_</a></li>
+<li><span data-tr>Ovia Inc — Articles index:</span> <a href="https://oviainc.github.io/ai-services/articles/">https://oviainc.github.io/ai-services/articles/</a></li>
+
+    </ul>
+  </div>
+  <p class="tags">#BusinessIntelligence #Data #ArtificialIntelligence #ContextEngineering #toyoursatisfaction</p>
   <footer>
-    <p><a href="../../">Ovia Inc</a> · Source on GitHub: <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></p>
+    <div class="frow">
+      <a href="../../" aria-label="Ovia Inc — home"><img class="flogo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="../../">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
   </footer>
 </main>
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
 </body>
 </html>
