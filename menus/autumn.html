@@ -58,7 +58,14 @@ footer p:first-of-type{font-family:var(--sans);letter-spacing:.38em;padding-left
  .dish-view.open{display:block}
  .dv-wrap{max-width:72rem;margin:0 auto;padding:3rem 1.5rem 4rem;text-align:center}
  .dv-num{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase}
- .dv-wrap img{width:100%;height:78vh;object-fit:cover;mix-blend-mode:multiply;margin:1.5rem 0}
+ .dv-zoom{height:78vh;overflow:hidden;margin:1.5rem 0;cursor:zoom-in;touch-action:pan-y;position:relative}
+.dv-zoom img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;display:block;will-change:transform}
+.dv-zoom.zoomed{cursor:grab}
+.dv-zoom.drag{cursor:grabbing}
+.dv-tools{display:flex;gap:.6rem;justify-content:center;align-items:center;margin:0 0 1.25rem;font-family:var(--sans)}
+.dv-pct{min-width:4.5rem;text-align:center;font-size:.7rem;font-weight:600;letter-spacing:.2em}
+.dv-hint{font-family:var(--sans);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;margin:-.25rem 0 1rem}
+@media print{.dv-tools,.dv-hint{display:none}}
  .dv-wrap h3{font-weight:400;font-size:clamp(2.2rem,4.5vw,3rem);line-height:1.15;margin:.8rem 0 .7rem}
  .dv-comp{font-family:var(--sans);text-transform:uppercase;letter-spacing:.13em;font-size:.72rem;line-height:1.85;font-weight:600}
  .dv-wrap p{max-width:34rem;margin:0 auto 1rem}
@@ -84,7 +91,7 @@ footer p:first-of-type{font-family:var(--sans);letter-spacing:.38em;padding-left
 <img src="assets/ovia-inc-logo-black.png" alt="Ovia Inc — logo">
 <p>#TOYOURSATISFACTION</p>
 <p>One menu. Multiple architectures.<br>A tasting journey through the frontier of intelligence.</p>
-  <p class="ver">Menus v3.1 · Interactive · Oct 31, 2026 · <a href="../versions.html">All versions</a></p>
+  <p class="ver">Menus v3.2 · Interactive · <a href="../versions.html">All versions</a></p>
 </footer>
 </div>
 
@@ -128,12 +135,28 @@ if(named.length>1){
 }
 /* Dish view */
 var view=document.createElement("div");view.className="dish-view";view.setAttribute("role","dialog");view.setAttribute("aria-modal","true");
-view.innerHTML='<button class="dv-close" type="button">Close</button><div class="dv-wrap"><p class="dv-num"></p><img alt=""><h3></h3><p class="dv-comp"></p><div class="dv-body"></div><div class="dv-nav"><button class="dv-btn dv-prev" type="button">&larr; Previous</button><button class="dv-btn dv-next" type="button">Next &rarr;</button></div></div>';
+view.innerHTML='<button class="dv-close" type="button">Close</button><div class="dv-wrap"><p class="dv-num"></p><div class="dv-zoom"><img alt=""></div><div class="dv-tools"><button class="dv-btn dv-zout" type="button">Zoom &#8722;</button><span class="dv-pct">100%</span><button class="dv-btn dv-zin" type="button">Zoom +</button><button class="dv-btn dv-zreset" type="button">Reset</button></div><p class="dv-hint">Scroll, tap the picture, or use the buttons to zoom &middot; drag to look around</p><h3></h3><p class="dv-comp"></p><div class="dv-body"></div><div class="dv-nav"><button class="dv-btn dv-prev" type="button">&larr; Previous</button><button class="dv-btn dv-next" type="button">Next &rarr;</button></div></div>';
 document.body.appendChild(view);
 var el={num:view.querySelector(".dv-num"),img:view.querySelector("img"),title:view.querySelector("h3"),comp:view.querySelector(".dv-comp"),body:view.querySelector(".dv-body")};
 var current=-1,lastFocus=null;
+var zoomBox=view.querySelector(".dv-zoom"),pct=view.querySelector(".dv-pct"),zscale=1,ztx=0,zty=0;
+function applyZoom(){el.img.style.transform="translate("+ztx+"px,"+zty+"px) scale("+zscale+")";pct.textContent=Math.round(zscale*100)+"%";zoomBox.classList.toggle("zoomed",zscale>1);}
+function resetZoom(){zscale=1;ztx=0;zty=0;applyZoom();}
+function setZoom(s){zscale=Math.min(4,Math.max(1,s));if(zscale===1){ztx=0;zty=0;}applyZoom();}
+view.querySelector(".dv-zin").addEventListener("click",function(){setZoom(zscale*1.4);});
+view.querySelector(".dv-zout").addEventListener("click",function(){setZoom(zscale/1.4);});
+view.querySelector(".dv-zreset").addEventListener("click",resetZoom);
+zoomBox.addEventListener("wheel",function(e){e.preventDefault();setZoom(zscale*(e.deltaY<0?1.15:0.87));},{passive:false});
+var drag=null,moved=false;
+zoomBox.addEventListener("pointerdown",function(e){if(zscale<=1)return;drag={x:e.clientX-ztx,y:e.clientY-zty};moved=false;zoomBox.classList.add("drag");if(zoomBox.setPointerCapture)zoomBox.setPointerCapture(e.pointerId);});
+zoomBox.addEventListener("pointermove",function(e){if(!drag)return;ztx=e.clientX-drag.x;zty=e.clientY-drag.y;moved=true;applyZoom();});
+zoomBox.addEventListener("pointerup",function(){drag=null;zoomBox.classList.remove("drag");});
+zoomBox.addEventListener("click",function(){if(moved){moved=false;return;}setZoom(zscale>1?1:2);});
+
 function fill(d){
+  resetZoom();
   var card=d.card,img=card.querySelector("img");
+  zoomBox.style.display=img?"":"none";view.querySelector(".dv-tools").style.display=img?"":"none";view.querySelector(".dv-hint").style.display=img?"":"none";
   el.num.textContent=d.label+" \u00B7 "+("0"+d.num).slice(-2);
   if(img){el.img.src=img.src;el.img.alt=img.alt;el.img.style.display="";}else{el.img.removeAttribute("src");el.img.style.display="none";}
   el.title.textContent=card.querySelector("h3").textContent;
@@ -164,6 +187,9 @@ document.addEventListener("keydown",function(e){
   if(e.key==="Escape")close();
   if(e.key==="ArrowLeft")open(current-1);
   if(e.key==="ArrowRight")open(current+1);
+  if(e.key==="+"||e.key==="=")setZoom(zscale*1.4);
+  if(e.key==="-"||e.key==="_")setZoom(zscale/1.4);
+  if(e.key==="0")resetZoom();
 });
 dishes.forEach(function(d,i){
   d.card.addEventListener("click",function(){open(i);});
