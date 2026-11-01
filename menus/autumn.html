@@ -62,6 +62,9 @@ footer p:first-of-type{font-family:var(--sans);letter-spacing:.38em;padding-left
 .dv-zoom{-webkit-user-select:none;user-select:none}
 .dv-zoom img{-webkit-user-drag:none}
 .dv-zoom.zoomed{touch-action:none}
+.dv-cap{position:absolute;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #000;padding:.7rem 1rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.35rem 1rem;align-items:baseline;pointer-events:none;text-align:left;z-index:2}
+.dv-cap-t{font-size:1.05rem}
+.dv-cap-c{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-align:right}
 .dv-zoom img{position:absolute;left:0;top:0;max-width:none;mix-blend-mode:multiply;display:block}
 .dv-zoom.zoomed{cursor:grab}
 .dv-zoom.drag{cursor:grabbing}
@@ -98,7 +101,7 @@ footer p:first-of-type{font-family:var(--sans);letter-spacing:.38em;padding-left
 <img src="assets/ovia-inc-logo-black.png" alt="Ovia Inc — logo">
 <p>#TOYOURSATISFACTION</p>
 <p>One menu. Multiple architectures.<br>A tasting journey through the frontier of intelligence.</p>
-  <p class="ver">Menus v3.8 · Interactive · <a href="../versions.html">All versions</a></p>
+  <p class="ver">Menus v3.9 · Interactive · <a href="../versions.html">All versions</a></p>
 </footer>
 </div>
 
@@ -144,7 +147,7 @@ if(named.length>1){
 }
 /* Dish view */
 var view=document.createElement("div");view.className="dish-view";view.setAttribute("role","dialog");view.setAttribute("aria-modal","true");
-view.innerHTML='<button class="dv-close" type="button">Close</button><div class="dv-wrap"><p class="dv-num"></p><p class="dv-hint">Pinch, scroll, tap the picture, or use the buttons to zoom &middot; drag to look around</p><div class="dv-zoom"><img alt=""></div><div class="dv-tools"><button class="dv-btn dv-zout" type="button">Zoom &#8722;</button><span class="dv-pct">100%</span><button class="dv-btn dv-zin" type="button">Zoom +</button><button class="dv-btn dv-zreset" type="button">Reset</button></div><h3></h3><p class="dv-comp"></p><div class="dv-body"></div><div class="dv-nav"><button class="dv-btn dv-prev" type="button">&larr; Previous</button><button class="dv-btn dv-next" type="button">Next &rarr;</button></div></div>';
+view.innerHTML='<button class="dv-close" type="button">Close</button><div class="dv-wrap"><p class="dv-num"></p><p class="dv-hint">Pinch, scroll, tap the picture, or use the buttons to zoom &middot; drag to look around</p><div class="dv-zoom"><img alt=""><div class="dv-cap"><span class="dv-cap-t"></span><span class="dv-cap-c"></span></div></div><div class="dv-tools"><button class="dv-btn dv-zout" type="button">Zoom &#8722;</button><span class="dv-pct">100%</span><button class="dv-btn dv-zin" type="button">Zoom +</button><button class="dv-btn dv-zreset" type="button">Reset</button></div><h3></h3><p class="dv-comp"></p><div class="dv-body"></div><div class="dv-nav"><button class="dv-btn dv-prev" type="button">&larr; Previous</button><button class="dv-btn dv-next" type="button">Next &rarr;</button></div></div>';
 document.body.appendChild(view);
 var el={num:view.querySelector(".dv-num"),img:view.querySelector("img"),title:view.querySelector("h3"),comp:view.querySelector(".dv-comp"),body:view.querySelector(".dv-body")};
 var current=-1,lastFocus=null;
@@ -175,7 +178,9 @@ function fill(d){
   el.num.textContent=d.label+" \u00B7 "+("0"+d.num).slice(-2);
   if(img){el.img.src=img.src;el.img.alt=img.alt;el.img.style.display="";}else{el.img.removeAttribute("src");el.img.style.display="none";}
   el.title.textContent=card.querySelector("h3").textContent;
+  var capT=view.querySelector(".dv-cap-t");if(capT)capT.textContent=d.label+" \u00B7 "+("0"+d.num).slice(-2)+" \u2014 "+el.title.textContent;
   var comp=card.querySelector(".comp");el.comp.textContent=comp?comp.textContent:"";el.comp.style.display=comp?"":"none";
+  var capC=view.querySelector(".dv-cap-c");if(capC)capC.textContent=comp?comp.textContent:"";
   el.body.innerHTML="";
   [].slice.call(card.querySelectorAll("p")).forEach(function(p){
     if(p.classList.contains("comp"))return;
