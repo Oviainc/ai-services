@@ -84,6 +84,10 @@ body{line-height:1.75}
 h2{letter-spacing:.56em;padding-left:.56em}
 .sub{letter-spacing:.5em;padding-left:.5em}
 </style>
+<style>
+.grid{grid-template-columns:1fr;max-width:34rem;margin-left:auto;margin-right:auto}
+.card p{max-width:26rem}
+</style>
 </head>
 <body>
 <button class="print-tab" onclick="window.print()" aria-label="Print this menu">Print</button>
@@ -97,13 +101,15 @@ h2{letter-spacing:.56em;padding-left:.56em}
 <img src="assets/ovia-inc-logo-black.png" alt="Ovia Inc — logo">
 <p>#TOYOURSATISFACTION</p>
 <p>One menu. Multiple architectures.<br>A tasting journey through the frontier of intelligence.</p>
-  <p class="ver">Menus v3.3 · Interactive · <a href="../versions.html">All versions</a></p>
+  <p class="ver">Menus v3.6 · Interactive · <a href="../versions.html">All versions</a></p>
 </footer>
 </div>
 
 <script>
 (function(){
 "use strict";
+function slug(s){return s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");}
+
 var sections=[].slice.call(document.querySelectorAll("main section"));
 var dishes=[];
 sections.forEach(function(sec){
@@ -116,7 +122,7 @@ sections.forEach(function(sec){
     card.classList.add("dish");
     card.setAttribute("tabindex","0");
     card.setAttribute("role","button");
-    dishes.push({card:card,label:label,num:i+1});
+    var sl=slug(card.querySelector("h3").textContent);card.id=sl;dishes.push({card:card,label:label,num:i+1,slug:sl});
   });
 });
 /* Filters */
@@ -141,7 +147,7 @@ if(named.length>1){
 }
 /* Dish view */
 var view=document.createElement("div");view.className="dish-view";view.setAttribute("role","dialog");view.setAttribute("aria-modal","true");
-view.innerHTML='<button class="dv-close" type="button">Close</button><div class="dv-wrap"><p class="dv-num"></p><div class="dv-zoom"><img alt=""></div><div class="dv-tools"><button class="dv-btn dv-zout" type="button">Zoom &#8722;</button><span class="dv-pct">100%</span><button class="dv-btn dv-zin" type="button">Zoom +</button><button class="dv-btn dv-zreset" type="button">Reset</button></div><p class="dv-hint">Scroll, tap the picture, or use the buttons to zoom &middot; drag to look around</p><h3></h3><p class="dv-comp"></p><div class="dv-body"></div><div class="dv-nav"><button class="dv-btn dv-prev" type="button">&larr; Previous</button><button class="dv-btn dv-next" type="button">Next &rarr;</button></div></div>';
+view.innerHTML='<button class="dv-close" type="button">Close</button><div class="dv-wrap"><p class="dv-num"></p><p class="dv-hint">Pinch, scroll, tap the picture, or use the buttons to zoom &middot; drag to look around</p><div class="dv-zoom"><img alt=""></div><div class="dv-tools"><button class="dv-btn dv-zout" type="button">Zoom &#8722;</button><span class="dv-pct">100%</span><button class="dv-btn dv-zin" type="button">Zoom +</button><button class="dv-btn dv-zreset" type="button">Reset</button></div><h3></h3><p class="dv-comp"></p><div class="dv-body"></div><div class="dv-nav"><button class="dv-btn dv-prev" type="button">&larr; Previous</button><button class="dv-btn dv-next" type="button">Next &rarr;</button></div></div>';
 document.body.appendChild(view);
 var el={num:view.querySelector(".dv-num"),img:view.querySelector("img"),title:view.querySelector("h3"),comp:view.querySelector(".dv-comp"),body:view.querySelector(".dv-body")};
 var current=-1,lastFocus=null;
@@ -155,10 +161,11 @@ view.querySelector(".dv-zin").addEventListener("click",function(){setZoom(zz*1.4
 view.querySelector(".dv-zout").addEventListener("click",function(){setZoom(zz/1.4);});
 view.querySelector(".dv-zreset").addEventListener("click",resetZoom);
 zoomBox.addEventListener("wheel",function(e){e.preventDefault();setZoom(zz*(e.deltaY<0?1.15:0.87));},{passive:false});
-var drag=null,moved=false;
-zoomBox.addEventListener("pointerdown",function(e){if(zz<=1)return;drag={x:e.clientX-ztx,y:e.clientY-zty};moved=false;zoomBox.classList.add("drag");if(zoomBox.setPointerCapture)zoomBox.setPointerCapture(e.pointerId);});
-zoomBox.addEventListener("pointermove",function(e){if(!drag)return;ztx=e.clientX-drag.x;zty=e.clientY-drag.y;moved=true;layoutZoom();});
-zoomBox.addEventListener("pointerup",function(){drag=null;zoomBox.classList.remove("drag");});
+var drag=null,moved=false,ptrs={},lastDist=0;
+zoomBox.addEventListener("pointerdown",function(e){ptrs[e.pointerId]={x:e.clientX,y:e.clientY};if(Object.keys(ptrs).length===1&&zz>1){drag={x:e.clientX-ztx,y:e.clientY-zty};moved=false;zoomBox.classList.add("drag");}if(zoomBox.setPointerCapture)zoomBox.setPointerCapture(e.pointerId);});
+zoomBox.addEventListener("pointermove",function(e){if(!ptrs[e.pointerId])return;ptrs[e.pointerId]={x:e.clientX,y:e.clientY};var ks=Object.keys(ptrs);if(ks.length===2){var a=ptrs[ks[0]],b=ptrs[ks[1]],dist=Math.hypot(a.x-b.x,a.y-b.y);if(lastDist)setZoom(zz*dist/lastDist);lastDist=dist;drag=null;moved=true;}else if(drag){ztx=e.clientX-drag.x;zty=e.clientY-drag.y;moved=true;layoutZoom();}});
+function ptrUp(e){delete ptrs[e.pointerId];if(Object.keys(ptrs).length<2)lastDist=0;if(!Object.keys(ptrs).length){drag=null;zoomBox.classList.remove("drag");}}
+zoomBox.addEventListener("pointerup",ptrUp);zoomBox.addEventListener("pointercancel",ptrUp);
 zoomBox.addEventListener("click",function(){if(moved){moved=false;return;}setZoom(zz>1?1:2.2);});
 el.img.addEventListener("load",function(){if(el.img.naturalWidth){ziW=el.img.naturalWidth;ziH=el.img.naturalHeight;layoutZoom();}});
 window.addEventListener("resize",function(){if(view.classList.contains("open"))layoutZoom();});
@@ -181,14 +188,17 @@ function fill(d){
 }
 function open(i){
   if(i<0)i=dishes.length-1;if(i>=dishes.length)i=0;current=i;fill(dishes[i]);
+  var was=view.classList.contains("open");
   view.classList.add("open");document.body.style.overflow="hidden";
+  try{var u="#"+dishes[i].slug;if(was)history.replaceState(null,"",u);else history.pushState(null,"",u);}catch(e){}
   lastFocus=document.activeElement;view.querySelector(".dv-close").focus();
 }
-function close(){
+function close(skip){
   view.classList.remove("open");document.body.style.overflow="";
+  if(!skip&&location.hash)try{history.pushState(null,"",location.pathname+location.search);}catch(e){}
   if(lastFocus&&lastFocus.focus)lastFocus.focus();
 }
-view.querySelector(".dv-close").addEventListener("click",close);
+view.querySelector(".dv-close").addEventListener("click",function(){close();});
 view.querySelector(".dv-prev").addEventListener("click",function(){open(current-1);});
 view.querySelector(".dv-next").addEventListener("click",function(){open(current+1);});
 view.addEventListener("click",function(e){if(e.target===view)close();});
@@ -205,6 +215,10 @@ dishes.forEach(function(d,i){
   d.card.addEventListener("click",function(){open(i);});
   d.card.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();open(i);}});
 });
+
+function dishFromHash(){var h=location.hash.replace(/^#/,"");for(var i=0;i<dishes.length;i++)if(dishes[i].slug===h)return i;return -1;}
+var hi=dishFromHash();if(hi>=0)open(hi);
+window.addEventListener("hashchange",function(){var i=dishFromHash();if(i>=0&&i!==current)open(i);else if(i<0&&view.classList.contains("open"))close(true);});
 /* Scroll reveal */
 if("IntersectionObserver" in window){
   var io=new IntersectionObserver(function(entries){
