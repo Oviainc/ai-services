@@ -59,7 +59,7 @@ footer p:first-of-type{font-family:var(--sans);letter-spacing:.38em;padding-left
  .dv-wrap{max-width:72rem;margin:0 auto;padding:3rem 1.5rem 4rem;text-align:center}
  .dv-num{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase}
  .dv-zoom{height:78vh;overflow:hidden;margin:1.5rem 0;cursor:zoom-in;touch-action:pan-y;position:relative}
-.dv-zoom img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;display:block;will-change:transform}
+.dv-zoom img{position:absolute;left:0;top:0;max-width:none;mix-blend-mode:multiply;display:block}
 .dv-zoom.zoomed{cursor:grab}
 .dv-zoom.drag{cursor:grabbing}
 .dv-tools{display:flex;gap:.6rem;justify-content:center;align-items:center;margin:0 0 1.25rem;font-family:var(--sans)}
@@ -92,7 +92,7 @@ footer p:first-of-type{font-family:var(--sans);letter-spacing:.38em;padding-left
 <img src="assets/ovia-inc-logo-black.png" alt="Ovia Inc — logo">
 <p>#TOYOURSATISFACTION</p>
 <p>One menu. Multiple architectures.<br>A tasting journey through the frontier of intelligence.</p>
-  <p class="ver">Menus v3.2 · Interactive · <a href="../versions.html">All versions</a></p>
+  <p class="ver">Menus v3.3 · Interactive · <a href="../versions.html">All versions</a></p>
 </footer>
 </div>
 
@@ -140,23 +140,27 @@ view.innerHTML='<button class="dv-close" type="button">Close</button><div class=
 document.body.appendChild(view);
 var el={num:view.querySelector(".dv-num"),img:view.querySelector("img"),title:view.querySelector("h3"),comp:view.querySelector(".dv-comp"),body:view.querySelector(".dv-body")};
 var current=-1,lastFocus=null;
-var zoomBox=view.querySelector(".dv-zoom"),pct=view.querySelector(".dv-pct"),zscale=1,ztx=0,zty=0;
-function applyZoom(){el.img.style.transform="translate("+ztx+"px,"+zty+"px) scale("+zscale+")";pct.textContent=Math.round(zscale*100)+"%";zoomBox.classList.toggle("zoomed",zscale>1);}
-function resetZoom(){zscale=1;ztx=0;zty=0;applyZoom();}
-function setZoom(s){zscale=Math.min(4,Math.max(1,s));if(zscale===1){ztx=0;zty=0;}applyZoom();}
-view.querySelector(".dv-zin").addEventListener("click",function(){setZoom(zscale*1.4);});
-view.querySelector(".dv-zout").addEventListener("click",function(){setZoom(zscale/1.4);});
+var zoomBox=view.querySelector(".dv-zoom"),pct=view.querySelector(".dv-pct"),zz=1,ztx=0,zty=0,ziW=0,ziH=0;
+function s0(){return ziW?Math.min(zoomBox.clientWidth/ziW,zoomBox.clientHeight/ziH):1;}
+function clampPan(w,h){var W=zoomBox.clientWidth,H=zoomBox.clientHeight;ztx=w<=W?(W-w)/2:Math.min(0,Math.max(W-w,ztx));zty=h<=H?(H-h)/2:Math.min(0,Math.max(H-h,zty));}
+function layoutZoom(){if(!ziW)return;var s=s0()*zz,w=ziW*s,h=ziH*s;clampPan(w,h);var im=el.img;im.style.width=w+"px";im.style.height=h+"px";im.style.left=ztx+"px";im.style.top=zty+"px";pct.textContent=s>=0.99?"Full detail":Math.round(zz*100)+"%";zoomBox.classList.toggle("zoomed",zz>1);}
+function resetZoom(){zz=1;ztx=0;zty=0;layoutZoom();}
+function setZoom(ns){var nz=Math.min(Math.max(2,1.25/s0()),Math.max(1,ns)),cx=zoomBox.clientWidth/2,cy=zoomBox.clientHeight/2,k=nz/zz;ztx=cx-(cx-ztx)*k;zty=cy-(cy-zty)*k;zz=nz;layoutZoom();}
+view.querySelector(".dv-zin").addEventListener("click",function(){setZoom(zz*1.4);});
+view.querySelector(".dv-zout").addEventListener("click",function(){setZoom(zz/1.4);});
 view.querySelector(".dv-zreset").addEventListener("click",resetZoom);
-zoomBox.addEventListener("wheel",function(e){e.preventDefault();setZoom(zscale*(e.deltaY<0?1.15:0.87));},{passive:false});
+zoomBox.addEventListener("wheel",function(e){e.preventDefault();setZoom(zz*(e.deltaY<0?1.15:0.87));},{passive:false});
 var drag=null,moved=false;
-zoomBox.addEventListener("pointerdown",function(e){if(zscale<=1)return;drag={x:e.clientX-ztx,y:e.clientY-zty};moved=false;zoomBox.classList.add("drag");if(zoomBox.setPointerCapture)zoomBox.setPointerCapture(e.pointerId);});
-zoomBox.addEventListener("pointermove",function(e){if(!drag)return;ztx=e.clientX-drag.x;zty=e.clientY-drag.y;moved=true;applyZoom();});
+zoomBox.addEventListener("pointerdown",function(e){if(zz<=1)return;drag={x:e.clientX-ztx,y:e.clientY-zty};moved=false;zoomBox.classList.add("drag");if(zoomBox.setPointerCapture)zoomBox.setPointerCapture(e.pointerId);});
+zoomBox.addEventListener("pointermove",function(e){if(!drag)return;ztx=e.clientX-drag.x;zty=e.clientY-drag.y;moved=true;layoutZoom();});
 zoomBox.addEventListener("pointerup",function(){drag=null;zoomBox.classList.remove("drag");});
-zoomBox.addEventListener("click",function(){if(moved){moved=false;return;}setZoom(zscale>1?1:2);});
+zoomBox.addEventListener("click",function(){if(moved){moved=false;return;}setZoom(zz>1?1:2.2);});
+el.img.addEventListener("load",function(){if(el.img.naturalWidth){ziW=el.img.naturalWidth;ziH=el.img.naturalHeight;layoutZoom();}});
+window.addEventListener("resize",function(){if(view.classList.contains("open"))layoutZoom();});
 
 function fill(d){
-  resetZoom();
   var card=d.card,img=card.querySelector("img");
+  ziW=img?img.naturalWidth:0;ziH=img?img.naturalHeight:0;resetZoom();
   zoomBox.style.display=img?"":"none";view.querySelector(".dv-tools").style.display=img?"":"none";view.querySelector(".dv-hint").style.display=img?"":"none";
   el.num.textContent=d.label+" \u00B7 "+("0"+d.num).slice(-2);
   if(img){el.img.src=img.src;el.img.alt=img.alt;el.img.style.display="";}else{el.img.removeAttribute("src");el.img.style.display="none";}
@@ -188,8 +192,8 @@ document.addEventListener("keydown",function(e){
   if(e.key==="Escape")close();
   if(e.key==="ArrowLeft")open(current-1);
   if(e.key==="ArrowRight")open(current+1);
-  if(e.key==="+"||e.key==="=")setZoom(zscale*1.4);
-  if(e.key==="-"||e.key==="_")setZoom(zscale/1.4);
+  if(e.key==="+"||e.key==="=")setZoom(zz*1.4);
+  if(e.key==="-"||e.key==="_")setZoom(zz/1.4);
   if(e.key==="0")resetZoom();
 });
 dishes.forEach(function(d,i){
