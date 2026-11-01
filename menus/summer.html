@@ -59,6 +59,8 @@ footer p:first-of-type{font-family:var(--sans);letter-spacing:.38em;padding-left
  .dv-wrap{max-width:72rem;margin:0 auto;padding:3rem 1.5rem 4rem;text-align:center}
  .dv-num{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase}
  .dv-zoom{height:78vh;overflow:hidden;margin:1.5rem 0;cursor:zoom-in;touch-action:pan-y;position:relative}
+.dv-zoom{-webkit-user-select:none;user-select:none}
+.dv-zoom img{-webkit-user-drag:none}
 .dv-zoom.zoomed{touch-action:none}
 .dv-zoom img{position:absolute;left:0;top:0;max-width:none;mix-blend-mode:multiply;display:block}
 .dv-zoom.zoomed{cursor:grab}
@@ -109,7 +111,7 @@ h2{letter-spacing:.4em;padding-left:.4em}
 <img src="assets/ovia-inc-logo-black.png" alt="Ovia Inc — logo">
 <p>#TOYOURSATISFACTION</p>
 <p>One menu. Multiple architectures.<br>A tasting journey through the frontier of intelligence.</p>
-  <p class="ver">Menus v3.7 · Interactive · <a href="../versions.html">All versions</a></p>
+  <p class="ver">Menus v3.8 · Interactive · <a href="../versions.html">All versions</a></p>
 </footer>
 </div>
 
@@ -176,6 +178,7 @@ function ptrUp(e){delete ptrs[e.pointerId];if(Object.keys(ptrs).length<2)lastDis
 zoomBox.addEventListener("pointerup",ptrUp);zoomBox.addEventListener("pointercancel",ptrUp);
 zoomBox.addEventListener("click",function(){if(moved){moved=false;return;}setZoom(zz>1?1:2.2);});
 el.img.addEventListener("load",function(){if(el.img.naturalWidth){ziW=el.img.naturalWidth;ziH=el.img.naturalHeight;layoutZoom();}});
+el.img.draggable=false;zoomBox.addEventListener("dragstart",function(e){e.preventDefault();});
 window.addEventListener("resize",function(){if(view.classList.contains("open"))layoutZoom();});
 
 function fill(d){
