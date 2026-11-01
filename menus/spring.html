@@ -43,7 +43,35 @@ footer p:first-of-type{font-family:var(--sans);letter-spacing:.38em;padding-left
 .print-tab{position:fixed;top:1rem;right:1rem;background:#000;color:#fff;border:1px solid #000;padding:.7rem 1.3rem;font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;cursor:pointer;z-index:10}
 .print-tab:hover{background:#fff;color:#000}
 @media(max-width:40rem){body{font-size:1.05rem}header{padding-top:3.75rem}.wrap{padding:0 1.1rem}.grid{gap:3rem}.card img{height:13.5rem}nav a{margin:0 .5rem}}
-@media print{.print-tab{display:none}nav{display:none}body{font-size:11pt}header{padding:1.5rem 0 1rem;box-shadow:none}footer{box-shadow:none}.card{break-inside:avoid}h2{break-after:avoid}}
+
+
+ .card{transition:opacity .6s ease,transform .6s ease}
+ .card.pre{opacity:0;transform:translateY(14px)}
+ .card.dish{cursor:pointer}
+ .card.dish img{transition:transform .6s ease}
+ .card.dish:hover img{transform:scale(1.03)}
+ .card.dish::after{content:"Tap to view";display:block;font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.3em;padding-left:.3em;text-transform:uppercase;margin-top:.2rem;opacity:0;transition:opacity .3s ease}
+ .card.dish:hover::after{opacity:1}
+ .filters{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin:2.25rem 0 0;font-family:var(--sans)}
+ .chip{border:1px solid #000;background:#fff;color:#000;padding:.55rem 1.15rem;font-family:inherit;font-size:.68rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;cursor:pointer}
+ .chip.on{background:#000;color:#fff}
+ section.off{display:none}
+ .dish-view{position:fixed;inset:0;background:#fff;z-index:40;display:none;overflow:auto}
+ .dish-view.open{display:block}
+ .dv-wrap{max-width:46rem;margin:0 auto;padding:4rem 1.5rem;text-align:center}
+ .dv-num{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase}
+ .dv-wrap img{width:100%;max-height:54vh;object-fit:cover;mix-blend-mode:multiply;margin:1.5rem 0}
+ .dv-wrap h3{font-weight:400;font-size:2.1rem;line-height:1.15;margin:.8rem 0 .7rem}
+ .dv-comp{font-family:var(--sans);text-transform:uppercase;letter-spacing:.13em;font-size:.72rem;line-height:1.85;font-weight:600}
+ .dv-wrap p{max-width:34rem;margin:0 auto 1rem}
+ .dv-tag{font-style:italic}
+ .dv-close{position:fixed;top:1rem;right:1rem;background:#000;color:#fff;border:1px solid #000;padding:.7rem 1.3rem;font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;cursor:pointer;z-index:41}
+ .dv-close:hover{background:#fff;color:#000}
+ .dv-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:2.75rem}
+ .dv-btn{border:1px solid #000;background:#fff;color:#000;padding:.65rem 1.25rem;font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;cursor:pointer}
+ .dv-btn:hover{background:#000;color:#fff}
+ @media print{.filters{display:none}.dish-view{display:none!important}.card{opacity:1!important;transform:none!important}.card.dish::after{display:none}}
+ @media print{.print-tab{display:none}nav{display:none}body{font-size:11pt}header{padding:1.5rem 0 1rem;box-shadow:none}footer{box-shadow:none}.card{break-inside:avoid}h2{break-after:avoid}}
 </style>
 </head>
 <body>
@@ -58,7 +86,102 @@ footer p:first-of-type{font-family:var(--sans);letter-spacing:.38em;padding-left
 <img src="assets/ovia-inc-logo-black.png" alt="Ovia Inc — logo">
 <p>#TOYOURSATISFACTION</p>
 <p>One menu. Multiple architectures.<br>A tasting journey through the frontier of intelligence.</p>
+  <p class="ver">Menus v3.0 · Interactive · Oct 31, 2026 · <a href="../versions.html">All versions</a></p>
 </footer>
 </div>
+
+<script>
+(function(){
+"use strict";
+var sections=[].slice.call(document.querySelectorAll("main section"));
+var dishes=[];
+sections.forEach(function(sec){
+  var h2=sec.querySelector("h2");
+  var label=h2?h2.textContent.trim():"";
+  var cards=[].slice.call(sec.querySelectorAll(".card"));
+  cards.forEach(function(card,i){
+    if(card.querySelector("a"))return;
+    if(!card.querySelector("h3"))return;
+    card.classList.add("dish");
+    card.setAttribute("tabindex","0");
+    card.setAttribute("role","button");
+    dishes.push({card:card,label:label,num:i+1});
+  });
+});
+/* Filters */
+var named=sections.filter(function(sec){return sec.querySelector(".card.dish");});
+if(named.length>1){
+  var bar=document.createElement("div");bar.className="filters";
+  var all=document.createElement("button");all.className="chip on";all.type="button";all.textContent="All";bar.appendChild(all);
+  var chips=[all];
+  named.forEach(function(sec){
+    var b=document.createElement("button");b.className="chip";b.type="button";b.textContent=sec.querySelector("h2").textContent.trim();
+    b.addEventListener("click",function(){
+      chips.forEach(function(c){c.classList.remove("on");});b.classList.add("on");
+      named.forEach(function(s){s.classList.toggle("off",s!==sec);});
+    });
+    bar.appendChild(b);chips.push(b);
+  });
+  all.addEventListener("click",function(){
+    chips.forEach(function(c){c.classList.remove("on");});all.classList.add("on");
+    named.forEach(function(s){s.classList.remove("off");});
+  });
+  var main=document.querySelector("main");main.insertBefore(bar,main.firstChild);
+}
+/* Dish view */
+var view=document.createElement("div");view.className="dish-view";view.setAttribute("role","dialog");view.setAttribute("aria-modal","true");
+view.innerHTML='<button class="dv-close" type="button">Close</button><div class="dv-wrap"><p class="dv-num"></p><img alt=""><h3></h3><p class="dv-comp"></p><div class="dv-body"></div><div class="dv-nav"><button class="dv-btn dv-prev" type="button">&larr; Previous</button><button class="dv-btn dv-next" type="button">Next &rarr;</button></div></div>';
+document.body.appendChild(view);
+var el={num:view.querySelector(".dv-num"),img:view.querySelector("img"),title:view.querySelector("h3"),comp:view.querySelector(".dv-comp"),body:view.querySelector(".dv-body")};
+var current=-1,lastFocus=null;
+function fill(d){
+  var card=d.card,img=card.querySelector("img");
+  el.num.textContent=d.label+" \u00B7 "+("0"+d.num).slice(-2);
+  if(img){el.img.src=img.src;el.img.alt=img.alt;el.img.style.display="";}else{el.img.removeAttribute("src");el.img.style.display="none";}
+  el.title.textContent=card.querySelector("h3").textContent;
+  var comp=card.querySelector(".comp");el.comp.textContent=comp?comp.textContent:"";el.comp.style.display=comp?"":"none";
+  el.body.innerHTML="";
+  [].slice.call(card.querySelectorAll("p")).forEach(function(p){
+    if(p.classList.contains("comp"))return;
+    var q=document.createElement("p");q.textContent=p.textContent;
+    if(p.classList.contains("tag"))q.className="dv-tag";
+    el.body.appendChild(q);
+  });
+}
+function open(i){
+  if(i<0)i=dishes.length-1;if(i>=dishes.length)i=0;current=i;fill(dishes[i]);
+  view.classList.add("open");document.body.style.overflow="hidden";
+  lastFocus=document.activeElement;view.querySelector(".dv-close").focus();
+}
+function close(){
+  view.classList.remove("open");document.body.style.overflow="";
+  if(lastFocus&&lastFocus.focus)lastFocus.focus();
+}
+view.querySelector(".dv-close").addEventListener("click",close);
+view.querySelector(".dv-prev").addEventListener("click",function(){open(current-1);});
+view.querySelector(".dv-next").addEventListener("click",function(){open(current+1);});
+view.addEventListener("click",function(e){if(e.target===view)close();});
+document.addEventListener("keydown",function(e){
+  if(!view.classList.contains("open"))return;
+  if(e.key==="Escape")close();
+  if(e.key==="ArrowLeft")open(current-1);
+  if(e.key==="ArrowRight")open(current+1);
+});
+dishes.forEach(function(d,i){
+  d.card.addEventListener("click",function(){open(i);});
+  d.card.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();open(i);}});
+});
+/* Scroll reveal */
+if("IntersectionObserver" in window){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.remove("pre");io.unobserve(en.target);}});
+  },{threshold:.1});
+  [].slice.call(document.querySelectorAll(".card")).forEach(function(card){
+    var r=card.getBoundingClientRect();
+    if(r.top>window.innerHeight){card.classList.add("pre");io.observe(card);}
+  });
+}
+})();
+</script>
 </body>
 </html>
