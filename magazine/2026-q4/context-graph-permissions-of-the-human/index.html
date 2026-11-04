@@ -99,8 +99,47 @@ body.mag28-v18 figure.hero img,figure.herofig img{filter:sepia(0.35) contrast(1.
 body.mag28-v18 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 </style>
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/context-graph-permissions-of-the-human/">
+<style id="mag-ux">
+/* OVIA Magazine — reading chrome (mag-ux), 2026-11-04 */
+.mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
+.mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-topbar img{height:28px;width:auto;display:block;}
+.mag-topbar .mt-name{letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;color:var(--text,#FFF);text-decoration:none;}
+.mag-topbar .mt-right{margin-left:auto;display:flex;gap:18px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;}
+.mag-topbar a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-topbar a:hover{color:var(--text,#FFF);}
+.mag-crumbs{padding:10px 20px 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted,#BFBFBF);display:flex;gap:8px;flex-wrap:wrap;align-items:baseline;}
+.mag-crumbs a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-crumbs a:hover{text-decoration:underline;}
+.mag-crumbs .cur{color:var(--text,#FFF);max-width:52ch;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mag-toc{column-span:all;border-top:1px solid var(--line,#262626);border-bottom:1px solid var(--line,#262626);padding:16px 4px 6px;margin:0 0 28px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;break-inside:avoid;}
+.mag-toc h2{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent,#FFF);margin:0 0 10px;border:none;padding:0;}
+.mag-toc ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;}
+.mag-toc li{margin:0;}
+.mag-toc a{color:var(--text,#FFF);text-decoration:none;font-size:.95rem;line-height:1.45;display:inline-block;padding:4px 0;}
+.mag-toc a:hover{text-decoration:underline;}
+.mag-toc a:focus-visible,.mag-topbar a:focus-visible,.mag-crumbs a:focus-visible,.mag-pn a:focus-visible,.mag-depts a:focus-visible{outline:2px solid var(--accent,#FFF);outline-offset:3px;}
+h2.sec{scroll-margin-top:18px;}
+.mag-pn{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-pn a{flex:1 1 220px;border-top:1px solid var(--line,#262626);padding:14px 16px;text-decoration:none;color:var(--text,#FFF);min-height:48px;}
+.mag-pn a:hover{border-top-color:var(--accent,#FFF);}
+.mag-pn .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent,#FFF);margin-bottom:5px;}
+.mag-pn .ttl{font-size:.98rem;line-height:1.35;}
+.mag-pn a.back{flex:0 1 auto;display:flex;align-items:center;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;}
+.mag-pn a.next{text-align:right;}
+.mag-pn a.empty{visibility:hidden;}
+.mag-depts{border-top:1px solid var(--line,#262626);padding-top:14px;margin:0 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;}
+.mag-depts .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted,#BFBFBF);margin-bottom:8px;}
+.mag-depts a{color:var(--text,#FFF);text-decoration:none;margin-right:14px;line-height:1.9;}
+.mag-depts a:hover{text-decoration:underline;}
+@media (max-width:640px){.mag-topbar{padding:10px 14px;}.mag-crumbs{padding:10px 14px 0;}.mag-crumbs .cur{max-width:34ch;}.mag-pn a{flex:1 1 100%;}.mag-pn a.next{text-align:left;}.mag-pn a.empty{display:none;}}
+
+@media (max-width:880px){.layout{grid-template-columns:minmax(0,1fr);}.rail{min-width:0;}}</style>
 </head>
 <body class="mag28-v18">
+<div class="mag-progress" aria-hidden="true"></div>
+<div class="mag-topbar"><a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a><a class="mt-name" href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span class="mt-right"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a></span></div>
+<nav class="mag-crumbs" aria-label="Breadcrumb"><a href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><span aria-hidden="true">/</span><span class="cur" aria-current="page" title="Context Travels, Authority Stays Personal">Context Travels, Authority Stays Personal</span></nav>
 <header class="mastzone"><div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/context-graph-permissions-of-the-human/ovia-inc-context-graph-permissions-of-the-human-background.webp')"></div><div class="mast-shade"></div><div class="mast-inner">
     <div class="masthead">
       <a class="logo" href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="logo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
@@ -219,20 +258,21 @@ body.mag28-v18 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     <div class="bodycol">
 <figure class="herofig"><img src="https://oviainc.github.io/ai-services/articles/context-graph-permissions-of-the-human/ovia-inc-context-graph-permissions-of-the-human-hero.webp" alt="Ovia Inc — brass nodes and threads forming a network map with one magenta thread"><figcaption data-tr>A map of companies and contacts drawn in brass and thread, one line lit in magenta: the record a single question follows. Image: Ovia Inc</figcaption></figure>
       <p class="dropcap" data-tr>A context graph is only as useful as the questions allowed to reach it. Sales and marketing teams have wanted, for years, to ask their market the way analysts ask a warehouse: in plain language, across every company and contact on record, with the answer arriving inside the tools already open. The obstacle was never the asking. The obstacle was authority: a graph holding intelligence on more than a hundred million companies cannot simply open itself to any agent that wanders past. On October 30, 2026, ZoomInfo answered with a design worth studying well beyond sales.</p>
-      <h2 class="sec" data-tr>01 — Inside the warehouse where the work already happens</h2>
+      <nav class="mag-toc" aria-label="Contents"><h2 data-tr>Contents</h2><ol><li><a href="#sec-1">01 — Inside the warehouse where the work already happens</a></li><li><a href="#sec-2">02 — The graph itself</a></li><li><a href="#sec-3">03 — Permissions of the human</a></li><li><a href="#sec-4">04 — Why the pattern travels</a></li><li><a href="#sec-5">05 — Watch items, honestly noted</a></li><li><a href="#sec-6">06 — The checklist the design hands the buyer</a></li></ol></nav>
+<h2 class="sec" id="sec-1" data-tr>01 — Inside the warehouse where the work already happens</h2>
       <p data-tr>ZoomInfo's MCP server and API now run natively inside the Snowflake AI Data Cloud, delivered through its GTM.AI platform. Agents working in Snowflake CoWork and Cortex, the places where data teams already build and ask, can reach ZoomInfo intelligence without exporting records into yet another silo. Placement is the story: the context graph moved to the data, instead of the data moving to the graph, and the warehouse's own agents gained a sense the estate did not have before, a live view of the market outside the building.</p>
-      <h2 class="sec" data-tr>02 — The graph itself</h2>
+      <h2 class="sec" id="sec-2" data-tr>02 — The graph itself</h2>
 <figure class="inset-r"><img src="https://oviainc.github.io/ai-services/articles/context-graph-permissions-of-the-human/ovia-inc-context-graph-permissions-of-the-human-body-2.webp" alt="Ovia Inc — blank paper stream moving through a dark archive under magenta edge light"><figcaption data-tr>Records in motion through the archive: enrichment at bulk scale, ten thousand files to a request. Image: Ovia Inc</figcaption></figure>
       <p data-tr>What agents can reach is the GTM Context Graph: more than 100 million companies, 500 million contacts and billions of buying signals, in ZoomInfo's own figures. The interface is a working set rather than a single search box: Search, Enrich, Lookup, Bulk and Monitoring endpoints cover finding, completing, verifying, mass-processing and watching records. The bulk numbers set the scale plainly, with enrichment accepting 10,000 records per request and 200,000 per query. Numbers like those move the graph out of the lookup category and into the pipeline category, where enrichment becomes a stage in a data product rather than a favour asked of a browser tab.</p>
-      <h2 class="sec" data-tr>03 — Permissions of the human</h2>
+      <h2 class="sec" id="sec-3" data-tr>03 — Permissions of the human</h2>
 <figure class="inset-l"><img src="https://oviainc.github.io/ai-services/articles/context-graph-permissions-of-the-human/ovia-inc-context-graph-permissions-of-the-human-body-1.webp" alt="Ovia Inc — badge reader on a slate wall with magenta light and a blank card"><figcaption data-tr>The reader on the wall: access is personal, checked at the door, and logged on the way through. Image: Ovia Inc</figcaption></figure>
       <p data-tr>Access runs on OAuth 2.0, and the decisive detail is inheritance: every call an agent makes carries the role-based permissions of the user behind the session. An agent working for a regional sales lead sees the graph as that lead sees it, no wider. An agent working for a data steward with broader rights sees more, and the difference is a personnel fact, not a model behaviour. Around the calls sits an audit framework, so the organisation can reconstruct who asked, through which agent, for what, and under whose authority. Accountability survives delegation because the delegation itself is written down.</p>
-      <h2 class="sec" data-tr>04 — Why the pattern travels</h2>
+      <h2 class="sec" id="sec-4" data-tr>04 — Why the pattern travels</h2>
       <p data-tr>Business intelligence has quietly run on this pattern for years. A dashboard never held rights of its own; the dashboard inherited the reader's, and row-level security decided what a chart was allowed to show. Agents are the same discipline at machine speed, and the ZoomInfo design simply refuses to unlearn it. The alternative, agents holding standing credentials of their own, is how context graphs become breach graphs. As context layers arrive in engineering, finance, support and security, the governing question stays identical: does the agent inherit a person's authority, or hold authority of its own? Personal inheritance keeps accountability legible, and legible accountability is what lets a board say yes.</p>
 <figure class="inset-full"><img src="https://oviainc.github.io/ai-services/articles/context-graph-permissions-of-the-human/ovia-inc-context-graph-permissions-of-the-human-body-3.webp" alt="Ovia Inc — frost crystals on dark glass with a magenta rim light"><figcaption data-tr>Frost on glass: patterns that look uniform from a distance resolve, up close, into individual structures. Image: Ovia Inc</figcaption></figure>
-      <h2 class="sec" data-tr>05 — Watch items, honestly noted</h2>
+      <h2 class="sec" id="sec-5" data-tr>05 — Watch items, honestly noted</h2>
       <p data-tr>The October 31 industry roundup adds the caveats a careful buyer keeps. Pricing was not disclosed, and a ZoomInfo subscription is required, so the graph's cost sits inside a commercial conversation rather than on a public page. The endpoints are sales-oriented today, aimed at go-to-market work. Neither caveat dents the pattern. Patterns escape their first market: permission-inheriting context access, audited end to end, is how every serious context graph will be served within a few product cycles. The teams that internalise the pattern now, in business intelligence first, will recognise it everywhere it lands next.</p>
-      <h2 class="sec" data-tr>06 — The checklist the design hands the buyer</h2>
+      <h2 class="sec" id="sec-6" data-tr>06 — The checklist the design hands the buyer</h2>
       <p data-tr>The design hands buyers a test that fits inside one meeting. Sign in as a regional sales lead and have an agent in Cortex ask a market question; then sign in as a data steward and ask the same question again. If both sessions draw on the same visible graph, inheritance is a slide in a deck, not a mechanism. In the ZoomInfo design the difference is structural: OAuth 2.0 carries the asker’s role-based permissions on every call, so the graph an agent sees is the graph its person is entitled to see — a hundred million companies on paper, and only the entitled slice in practice.</p>
       <p data-tr>The second test is reconstruction. Take any answer an agent produced last week and ask the audit framework to rebuild the moment: who asked, through which agent, under whose authority, against which records. The framework described in the release records exactly those facts. That is the standard worth holding every context vendor to, because delegation without a written trail is where accountability goes to die; with one, a board or a customer can follow a decision back to a named person, and the agent’s work stays defensible long after the session ends.</p>
       <p data-tr>The third test is scale. Enrichment at 10,000 records per request and 200,000 per query means one instruction can touch a market-sized slice of the graph, which is precisely why permissions and audit cannot be features added later. We read the launch as a template: place the context where the work already happens, let agents inherit a person’s authority rather than hold authority of their own, and log the delegation itself. Vendors that meet those three terms will be easy to approve. Vendors that meet none of them are asking the organisation to lend its authority to software, and hope.</p>
@@ -247,8 +287,9 @@ body.mag28-v18 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     </ul>
   </div>
   <p class="tags">#BusinessIntelligence #DataGovernance #AIAgents #MCP #Snowflake #toyoursatisfaction</p>
-  <footer><nav style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">← Magazine</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/one-hour-of-audio-one-context/">Next article →</a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
-    <div class="frow">
+  <footer><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/one-ontology-many-models/"><span class="lab" data-tr>← Previous</span><span class="ttl">One Vocabulary, Every Model: Governing Meaning Across the Semantic Estate</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/one-hour-of-audio-one-context/"><span class="lab" data-tr>Next →</span><span class="ttl">One Hour of Audio, One Context</span></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
+<div class="frow">
       <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
@@ -415,6 +456,9 @@ body.mag28-v18 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     });
   }
 })();
+</script>
+<script id="mag-ux-js">
+(function(){var bar=document.querySelector('.mag-progress');if(!bar)return;function upd(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;var p=max>0?(h.scrollTop||document.body.scrollTop)/max:0;bar.style.width=(p*100).toFixed(2)+'%';}document.addEventListener('scroll',upd,{passive:true});upd();})();
 </script>
 </body>
 </html>

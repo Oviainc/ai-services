@@ -98,8 +98,46 @@ body.mag28-v28 figure.hero img,figure.herofig img{filter:saturate(1.22) brightne
 body.mag28-v28 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 </style>
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/le-retour-ovia/">
+<style id="mag-ux">
+/* OVIA Magazine — reading chrome (mag-ux), 2026-11-04 */
+.mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
+.mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-topbar img{height:28px;width:auto;display:block;}
+.mag-topbar .mt-name{letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;color:var(--text,#FFF);text-decoration:none;}
+.mag-topbar .mt-right{margin-left:auto;display:flex;gap:18px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;}
+.mag-topbar a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-topbar a:hover{color:var(--text,#FFF);}
+.mag-crumbs{padding:10px 20px 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted,#BFBFBF);display:flex;gap:8px;flex-wrap:wrap;align-items:baseline;}
+.mag-crumbs a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-crumbs a:hover{text-decoration:underline;}
+.mag-crumbs .cur{color:var(--text,#FFF);max-width:52ch;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mag-toc{column-span:all;border-top:1px solid var(--line,#262626);border-bottom:1px solid var(--line,#262626);padding:16px 4px 6px;margin:0 0 28px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;break-inside:avoid;}
+.mag-toc h2{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent,#FFF);margin:0 0 10px;border:none;padding:0;}
+.mag-toc ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;}
+.mag-toc li{margin:0;}
+.mag-toc a{color:var(--text,#FFF);text-decoration:none;font-size:.95rem;line-height:1.45;display:inline-block;padding:4px 0;}
+.mag-toc a:hover{text-decoration:underline;}
+.mag-toc a:focus-visible,.mag-topbar a:focus-visible,.mag-crumbs a:focus-visible,.mag-pn a:focus-visible,.mag-depts a:focus-visible{outline:2px solid var(--accent,#FFF);outline-offset:3px;}
+h2.sec{scroll-margin-top:18px;}
+.mag-pn{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-pn a{flex:1 1 220px;border-top:1px solid var(--line,#262626);padding:14px 16px;text-decoration:none;color:var(--text,#FFF);min-height:48px;}
+.mag-pn a:hover{border-top-color:var(--accent,#FFF);}
+.mag-pn .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent,#FFF);margin-bottom:5px;}
+.mag-pn .ttl{font-size:.98rem;line-height:1.35;}
+.mag-pn a.back{flex:0 1 auto;display:flex;align-items:center;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;}
+.mag-pn a.next{text-align:right;}
+.mag-pn a.empty{visibility:hidden;}
+.mag-depts{border-top:1px solid var(--line,#262626);padding-top:14px;margin:0 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;}
+.mag-depts .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted,#BFBFBF);margin-bottom:8px;}
+.mag-depts a{color:var(--text,#FFF);text-decoration:none;margin-right:14px;line-height:1.9;}
+.mag-depts a:hover{text-decoration:underline;}
+@media (max-width:640px){.mag-topbar{padding:10px 14px;}.mag-crumbs{padding:10px 14px 0;}.mag-crumbs .cur{max-width:34ch;}.mag-pn a{flex:1 1 100%;}.mag-pn a.next{text-align:left;}.mag-pn a.empty{display:none;}}
+</style>
 </head>
 <body class="arch arch-rail mag28-v28">
+<div class="mag-progress" aria-hidden="true"></div>
+<div class="mag-topbar"><a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a><a class="mt-name" href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span class="mt-right"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></span></div>
+<nav class="mag-crumbs" aria-label="Fil d'Ariane"><a href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a><span aria-hidden="true">/</span><span class="cur" aria-current="page" title="Le retour d&#x27;Ovia : quatre ans de Context Engineering">Le retour d&#x27;Ovia : quatre ans de Context Engineering</span></nav>
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/le-retour-ovia/ovia-inc-le-retour-ovia-background.webp')"></div>
   <div class="mast-shade"></div>
@@ -211,21 +249,22 @@ body.mag28-v28 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
 <p class="first" data-tr>Nous sommes de retour. Depuis décembre 2022, nous construisons chez Ovia Inc une intelligence artificielle pratique : context engineering, agents IA, apprentissage automatique et systèmes de données pensés pour des opérations réelles. Quatre ans plus tard, le retour se raconte depuis Montréal, en hiver, avec la même conviction qu'au premier jour : le contexte juste change tout.</p>
 <p data-tr>Quatre ans de context engineering, racontés depuis le terrain : le contexte juste, au bon moment, pour des agents et des équipes qui livrent en production. Un retour n'est pas une relance de façade. Un retour, pour nous, veut dire reprendre la parole là où le travail se fait, montrer les notes, les leçons et les chantiers, et recommencer à publier avec régularité.</p>
 <p data-tr>Une expertise certifiée soutient le travail — NVIDIA-Certified Professional : AI Operations, ainsi que les formations Agents et Deep RL de Hugging Face, terminées en mai 2025. Les titres comptent, mais le terrain compte davantage : des systèmes qui roulent, des équipes qui livrent, et des clients dont les opérations ne pardonnent pas les démonstrations approximatives.</p>
-<h2 class="sec" data-tr>01 · Quatre ans depuis le terrain</h2>
+<nav class="mag-toc" aria-label="Sommaire"><h2 data-tr>Sommaire</h2><ol><li><a href="#sec-1">01 · Quatre ans depuis le terrain</a></li><li><a href="#sec-2">02 · Le contexte juste, au bon moment</a></li><li><a href="#sec-3">03 · Une expertise qui se prouve</a></li><li><a href="#sec-4">04 · Studio et Lab, une même maison</a></li><li><a href="#sec-5">05 · Les réserves honnêtes</a></li></ol></nav>
+<h2 class="sec" id="sec-1" data-tr>01 · Quatre ans depuis le terrain</h2>
 <p data-tr>Quatre ans, dans un domaine qui change de mode chaque saison, représentent une éternité de pratique. Depuis décembre 2022, le travail chez Ovia suit une ligne simple : partir des opérations réelles, pas des promesses. Un agent utile est un agent qui connaît le dossier, respecte les permissions et laisse une trace vérifiable de chaque action. Un système de données utile est un système dont les définitions tiennent quand deux équipes lisent le même chiffre.</p>
 <p data-tr>Le terrain enseigne vite. Le contexte donné à un modèle décide du plafond de qualité de tout ce que le modèle produit ensuite, et aucun réglage en aval ne compense durablement un contexte pauvre, contradictoire ou périmé. Cette leçon, répétée projet après projet, est devenue la signature de la maison : préparer le contexte avec le même soin que le modèle, puis mesurer le résultat là où le travail compte vraiment, en production.</p>
 <figure class="body"><img src="https://oviainc.github.io/ai-services/articles/le-retour-ovia/ovia-inc-le-retour-ovia-body-1.webp" alt="Ovia Inc — Un bureau de studio près d'une fenêtre givrée en hiver, lumière ambre chaude et tons bleu ardoise"><figcaption data-tr>Le studio en hiver : la fenêtre givrée, la lumière chaude, le travail qui reprend. Image : Ovia Inc</figcaption></figure>
-<h2 class="sec" data-tr>02 · Le contexte juste, au bon moment</h2>
+<h2 class="sec" id="sec-2" data-tr>02 · Le contexte juste, au bon moment</h2>
 <p data-tr>Le context engineering se résume mal en slogan, alors voici la version de terrain. Chaque tâche reçoit le contexte qu'elle exige : les documents pertinents, les définitions partagées, les exemples qui montrent le niveau attendu, et rien de plus. Trop peu de contexte, et le modèle devine. Trop de contexte, et le signal se noie dans le bruit. Le bon moment compte autant que le bon contenu : un contexte livré après la décision ne sert qu'à documenter un regret.</p>
 <p data-tr>Cette discipline rejoint un parcours plus long. Avant Ovia, le parcours passe par la coordination technologique chez Staywired de 2014 à 2022, par la facilitation de projets chez Beanfield Metroconnect de 2011 à 2013, et par le mentorat linguistique bénévole à l'Université de Montréal depuis 2014. Des réseaux, des équipes, des usagers : toujours la même question, sous des formes différentes — quelle information, pour qui, à quel moment, dans quelle langue.</p>
-<h2 class="sec" data-tr>03 · Une expertise qui se prouve</h2>
+<h2 class="sec" id="sec-3" data-tr>03 · Une expertise qui se prouve</h2>
 <p data-tr>Les certifications ne font pas le travail, mais les certifications structurent l'apprentissage et donnent aux clients un repère vérifiable. Le titre NVIDIA-Certified Professional : AI Operations ancre la pratique des opérations IA. Les formations Agents et Deep RL de Hugging Face, terminées en mai 2025, ancrent la pratique des agents et de l'apprentissage par renforcement. Entre les deux, une même exigence : comprendre les systèmes assez profondément pour les opérer, pas seulement pour les démontrer.</p>
 <figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/le-retour-ovia/ovia-inc-le-retour-ovia-body-2.webp" alt="Ovia Inc — Montréal et un pont au-dessus d'un fleuve gelé à l'heure bleue, neige blanche et lumières ambre"><figcaption data-tr>Montréal à l'heure bleue : le fleuve gelé, les fenêtres chaudes, la ville de base. Image : Ovia Inc</figcaption></figure>
 <p data-tr>Montréal n'est pas un décor dans cette histoire. La ville donne au travail une langue de plus, une culture technique dense et un hiver qui rappelle chaque année que les systèmes sérieux se préparent avant la tempête. Publier en français d'abord, pour cette page, relève du même choix : la langue du lieu fait partie du contexte, et le contexte juste inclut la langue juste.</p>
-<h2 class="sec" data-tr>04 · Studio et Lab, une même maison</h2>
+<h2 class="sec" id="sec-4" data-tr>04 · Studio et Lab, une même maison</h2>
 <p data-tr>Ovia se présente comme un studio et un laboratoire, et la formule décrit un partage réel du travail. Le studio soigne la forme : des interfaces claires, des textes qui se lisent, des produits que les équipes adoptent sans formation héroïque. Le laboratoire soigne la preuve : des prototypes mesurés, des agents évalués, des hypothèses mises à l'épreuve avant les promesses. Une idée née au studio passe au laboratoire avant de rencontrer un client, et un résultat du laboratoire revient au studio pour devenir un produit présentable.</p>
 <p data-tr>Ce va-et-vient protège contre les deux échecs classiques du domaine : la démonstration brillante qui ne survit pas à la production, et le système robuste que personne ne comprend ni n'utilise. La forme sans la preuve reste du théâtre. La preuve sans la forme reste un rapport tablette. Nous visons les deux, dans le même livrable, à chaque fois.</p>
-<h2 class="sec" data-tr>05 · Les réserves honnêtes</h2>
+<h2 class="sec" id="sec-5" data-tr>05 · Les réserves honnêtes</h2>
 <p data-tr>L'honnêteté impose quelques réserves. Quatre ans de pratique ne transforment personne en oracle : les modèles changent, les outils vieillissent, et une partie de ce qui semble solide aujourd'hui demandera une révision demain. Le context engineering ne répare pas non plus des données sales ni des définitions absentes ; le contexte juste suppose un travail préalable sur les sources, et ce travail reste souvent le plus long. Enfin, publier régulièrement est un engagement plus facile à annoncer qu'à tenir, et la régularité annoncée ici sera jugée sur les parutions, pas sur les intentions.</p>
 <p data-tr>Pour la suite : des notes de cas, des leçons de terrain et des histoires de projets, partagées ici régulièrement, en français, en anglais et en espagnol. Nous sommes de retour, avec quatre ans de context engineering dans les bagages, une base à Montréal, et une méthode qui tient en une phrase. Le contexte juste, au bon moment — et le reste suit.</p>
   </div>
@@ -239,8 +278,9 @@ body.mag28-v28 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     </ul>
   </div>
   <p class="tags">#IntelligenceArtificielle #ContextEngineering #ApprentissageAutomatique #AgentsIA #Montreal #toyoursatisfaction</p>
-  <footer><nav style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">← Magazine</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/agentic-observatory-seti-search/">Next article →</a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
-    <div class="frow">
+  <footer><nav class="mag-pn" aria-label="Fil d'Ariane"><a class="empty" aria-hidden="true" tabindex="-1"></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Retour au numéro</span></a><a class="empty" aria-hidden="true" tabindex="-1"></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <nav class="mag-depts" aria-label="Aussi dans ce numéro"><span class="lab" data-tr>Aussi dans ce numéro</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
+<div class="frow">
       <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
@@ -408,6 +448,9 @@ body.mag28-v28 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     });
   }
 })();
+</script>
+<script id="mag-ux-js">
+(function(){var bar=document.querySelector('.mag-progress');if(!bar)return;function upd(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;var p=max>0?(h.scrollTop||document.body.scrollTop)/max:0;bar.style.width=(p*100).toFixed(2)+'%';}document.addEventListener('scroll',upd,{passive:true});upd();})();
 </script>
 </body>
 </html>

@@ -98,8 +98,46 @@ body.mag28-v15 figure.hero img,figure.herofig img{filter:saturate(1.18) brightne
 body.mag28-v15 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 </style>
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/bad-data/">
+<style id="mag-ux">
+/* OVIA Magazine — reading chrome (mag-ux), 2026-11-04 */
+.mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
+.mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-topbar img{height:28px;width:auto;display:block;}
+.mag-topbar .mt-name{letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;color:var(--text,#FFF);text-decoration:none;}
+.mag-topbar .mt-right{margin-left:auto;display:flex;gap:18px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;}
+.mag-topbar a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-topbar a:hover{color:var(--text,#FFF);}
+.mag-crumbs{padding:10px 20px 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted,#BFBFBF);display:flex;gap:8px;flex-wrap:wrap;align-items:baseline;}
+.mag-crumbs a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-crumbs a:hover{text-decoration:underline;}
+.mag-crumbs .cur{color:var(--text,#FFF);max-width:52ch;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mag-toc{column-span:all;border-top:1px solid var(--line,#262626);border-bottom:1px solid var(--line,#262626);padding:16px 4px 6px;margin:0 0 28px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;break-inside:avoid;}
+.mag-toc h2{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent,#FFF);margin:0 0 10px;border:none;padding:0;}
+.mag-toc ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;}
+.mag-toc li{margin:0;}
+.mag-toc a{color:var(--text,#FFF);text-decoration:none;font-size:.95rem;line-height:1.45;display:inline-block;padding:4px 0;}
+.mag-toc a:hover{text-decoration:underline;}
+.mag-toc a:focus-visible,.mag-topbar a:focus-visible,.mag-crumbs a:focus-visible,.mag-pn a:focus-visible,.mag-depts a:focus-visible{outline:2px solid var(--accent,#FFF);outline-offset:3px;}
+h2.sec{scroll-margin-top:18px;}
+.mag-pn{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-pn a{flex:1 1 220px;border-top:1px solid var(--line,#262626);padding:14px 16px;text-decoration:none;color:var(--text,#FFF);min-height:48px;}
+.mag-pn a:hover{border-top-color:var(--accent,#FFF);}
+.mag-pn .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent,#FFF);margin-bottom:5px;}
+.mag-pn .ttl{font-size:.98rem;line-height:1.35;}
+.mag-pn a.back{flex:0 1 auto;display:flex;align-items:center;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;}
+.mag-pn a.next{text-align:right;}
+.mag-pn a.empty{visibility:hidden;}
+.mag-depts{border-top:1px solid var(--line,#262626);padding-top:14px;margin:0 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;}
+.mag-depts .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted,#BFBFBF);margin-bottom:8px;}
+.mag-depts a{color:var(--text,#FFF);text-decoration:none;margin-right:14px;line-height:1.9;}
+.mag-depts a:hover{text-decoration:underline;}
+@media (max-width:640px){.mag-topbar{padding:10px 14px;}.mag-crumbs{padding:10px 14px 0;}.mag-crumbs .cur{max-width:34ch;}.mag-pn a{flex:1 1 100%;}.mag-pn a.next{text-align:left;}.mag-pn a.empty{display:none;}}
+</style>
 </head>
 <body class="arch arch-grid mag28-v15">
+<div class="mag-progress" aria-hidden="true"></div>
+<div class="mag-topbar"><a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a><a class="mt-name" href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span class="mt-right"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a></span></div>
+<nav class="mag-crumbs" aria-label="Breadcrumb"><a href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><span aria-hidden="true">/</span><span class="cur" aria-current="page" title="Bad Data: How Poor Quality Data Can Impact Your Bottom Line">Bad Data: How Poor Quality Data Can Impact Your Bottom Line</span></nav>
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/bad-data/ovia-inc-bad-data-background.webp')"></div>
   <div class="mast-shade"></div>
@@ -207,22 +245,23 @@ body.mag28-v15 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
 <p data-tr>Most teams meet bad data as a small annoyance: a customer listed twice, a date in the wrong format, a field left blank because nobody owned it. The annoyance is real, but the framing is wrong. Bad data is not a housekeeping problem at the edge of the business. Bad data sits underneath every report, every forecast and every automated action the business takes, and every layer built on top of it inherits its flaws.</p>
 <p data-tr>That lesson sits at the centre of the business intelligence work behind Ovia: years of data and automation work teach one order of operations — clean the data first, govern the definitions second, automate only after both hold. The order sounds slow. The order is, in practice, the fastest route that does not have to be travelled twice.</p>
 <aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>Bad data bills everyone twice: once as a wrong decision, and again as rework, correction and rebuilt trust.</li><li data-tr>The order of operations is fixed: clean the data first, govern the definitions second, automate only after both hold.</li><li data-tr>A dashboard with bad data misleads one reader at a time; an agent acting on bad data repeats the error at machine speed.</li><li data-tr>Cleaning is not a one-time project but a standing practice with named owners and shared definitions.</li></ul></aside>
-<h2 class="sec" data-tr>01 · The first bill: the wrong number</h2>
+<nav class="mag-toc" aria-label="Contents"><h2 data-tr>Contents</h2><ol><li><a href="#sec-1">01 · The first bill: the wrong number</a></li><li><a href="#sec-2">02 · The second bill: rework and trust</a></li><li><a href="#sec-3">03 · Clean first, govern second</a></li><li><a href="#sec-4">04 · Why agents raise the stakes</a></li><li><a href="#sec-5">05 · The honest caveats</a></li></ol></nav>
+<h2 class="sec" id="sec-1" data-tr>01 · The first bill: the wrong number</h2>
 <p data-tr>The first bill is the quiet one. A report goes out with a number that looks precise and reads as authoritative, and a team acts on it in good faith. Perhaps two systems count the same customer differently, so growth looks stronger than the underlying reality. Perhaps a spreadsheet still carries last quarter under a current heading, so a seasonal dip reads as a sudden collapse. The data was not lying with intent; the data was simply incomplete, duplicated or out of date, and nobody checked before the number travelled.</p>
 <p data-tr>Precision makes the problem harder to spot. A rough estimate invites a question, while a figure carried to two decimal places invites confidence. Yet precision and accuracy are different properties, and bad data often delivers the first while quietly destroying the second. The craft lesson from years of business intelligence work is unglamorous: before any number leaves the room, someone should be able to say where each value came from, when the value was last true, and which definition produced it.</p>
 <figure class="body"><img src="https://oviainc.github.io/ai-services/articles/bad-data/ovia-inc-bad-data-body-1.webp" alt="Ovia Inc — Abstract frost-blue record blocks out of alignment on a dark dashboard pane, cobalt on charcoal"><figcaption data-tr>Records out of alignment: duplicates and gaps hide inside a surface that still looks like a dashboard. Image: Ovia Inc</figcaption></figure>
-<h2 class="sec" data-tr>02 · The second bill: rework and trust</h2>
+<h2 class="sec" id="sec-2" data-tr>02 · The second bill: rework and trust</h2>
 <p data-tr>The second bill arrives when the error surfaces, and the second bill is always larger. The decision has to be revisited, the work built on the decision has to be redone, and the correction has to travel further than the original number ever did, because corrections never catch up with the copies, screenshots and memories the first version created. Every team that acted on the wrong number now has to be found, told, and convinced that the replacement deserves belief.</p>
 <p data-tr>Trust is the expensive part. A team can forgive a wrong number once, especially when the correction is fast and honest. A pattern of wrong numbers teaches a different lesson: check everything personally, keep a private copy, build a shadow spreadsheet. Shadow systems are the hidden tax of bad data. The official source stops being the source, definitions multiply in private, and the organisation ends up paying several times for the same truth without ever quite holding it.</p>
 <blockquote class="pull" data-tr>An agent acting on bad data repeats the error at machine speed.</blockquote>
-<h2 class="sec" data-tr>03 · Clean first, govern second</h2>
+<h2 class="sec" id="sec-3" data-tr>03 · Clean first, govern second</h2>
 <p data-tr>Cleaning comes first because automation amplifies whatever cleaning leaves behind. Cleaning means the concrete work: removing duplicates, completing the fields that decisions actually depend on, retiring records that are no longer true, and making formats consistent enough that two systems reading the same record reach the same value. None of that work is glamorous, and all of that work is visible later in every number the business trusts.</p>
 <p data-tr>Governance comes second, and governance is about definitions rather than files. When two departments use the same word for different things — a customer, a lead, an active account — clean data still produces conflicting reports. Governing the definitions means writing down, once and in the open, what each shared term means, who owns the meaning, and how a change to the meaning gets announced. A definition with no owner drifts; a definition with an owner can evolve without breaking trust.</p>
 <figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/bad-data/ovia-inc-bad-data-body-2.webp" alt="Ovia Inc — Dark cubes sorted by threads of cobalt light into a clean aligned grid, frost highlights on charcoal"><figcaption data-tr>The sorting work: scattered records drawn by cobalt threads into one clean, shared grid. Image: Ovia Inc</figcaption></figure>
-<h2 class="sec" data-tr>04 · Why agents raise the stakes</h2>
+<h2 class="sec" id="sec-4" data-tr>04 · Why agents raise the stakes</h2>
 <p data-tr>Agents make the order more important, not less. A dashboard with bad data misleads one reader at a time. An agent acting on bad data repeats the error at machine speed — sending the wrong follow-up, updating the wrong record, summarising the wrong figures — and each repetition can create new records that later cleaning has to untangle. A human reader often senses that a number looks off; an agent, working exactly as instructed, has no such pause unless the pause was designed in.</p>
 <p data-tr>Context engineering starts from exactly that reality. The context an agent receives — the records, the definitions, the retrieved documents — is the ceiling on the quality of every action the agent takes. Clean, governed data raises that ceiling. Dirty, undefined data lowers it, no matter how capable the model on top may be. Since December 2022, the work at Ovia has treated that order as non-negotiable: the data first, the definitions second, the agent last.</p>
-<h2 class="sec" data-tr>05 · The honest caveats</h2>
+<h2 class="sec" id="sec-5" data-tr>05 · The honest caveats</h2>
 <p data-tr>Honesty requires two caveats. First, clean is a direction, not a destination: data decays as customers move, products change and people mistype, so cleaning has to be a standing practice with checks that run continuously, not a heroic project that runs once. Second, not every field deserves the same effort. The fields that drive decisions, money and customer contact deserve rigorous care; a field nobody reads deserves a decision about whether to keep collecting it at all.</p>
 <p data-tr>We clean the data before we automate anything. The sentence is short because the discipline is simple to state, even when the discipline takes real work to keep. Teams that respect the order pay once, in the open, for cleaning and definitions. Teams that skip the order pay twice — once for the wrong number, and once again for everything the wrong number set in motion.</p>
 
@@ -236,8 +275,9 @@ body.mag28-v15 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     </ul>
   </div>
   <p class="tags">#BusinessIntelligence #Data #ArtificialIntelligence #ContextEngineering #toyoursatisfaction</p>
-  <footer><nav style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">← Magazine</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/semantic-layer-learns-the-business/">Next article →</a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
-    <div class="frow">
+  <footer><nav class="mag-pn" aria-label="Breadcrumb"><a class="empty" aria-hidden="true" tabindex="-1"></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/semantic-layer-learns-the-business/"><span class="lab" data-tr>Next →</span><span class="ttl">A Correct Metric Is Only Step One: Teaching the Semantic Layer the Business Itself</span></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
+<div class="frow">
       <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
@@ -405,6 +445,9 @@ body.mag28-v15 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     });
   }
 })();
+</script>
+<script id="mag-ux-js">
+(function(){var bar=document.querySelector('.mag-progress');if(!bar)return;function upd(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;var p=max>0?(h.scrollTop||document.body.scrollTop)/max:0;bar.style.width=(p*100).toFixed(2)+'%';}document.addEventListener('scroll',upd,{passive:true});upd();})();
 </script>
 </body>
 </html>

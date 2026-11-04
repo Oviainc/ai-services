@@ -93,8 +93,46 @@ body.mag28-v08 figure.hero img,figure.herofig img{filter:brightness(1.09) satura
 body.mag28-v08 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 </style>
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/let-the-agent-choose/">
+<style id="mag-ux">
+/* OVIA Magazine — reading chrome (mag-ux), 2026-11-04 */
+.mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
+.mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-topbar img{height:28px;width:auto;display:block;}
+.mag-topbar .mt-name{letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;color:var(--text,#FFF);text-decoration:none;}
+.mag-topbar .mt-right{margin-left:auto;display:flex;gap:18px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;}
+.mag-topbar a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-topbar a:hover{color:var(--text,#FFF);}
+.mag-crumbs{padding:10px 20px 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted,#BFBFBF);display:flex;gap:8px;flex-wrap:wrap;align-items:baseline;}
+.mag-crumbs a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-crumbs a:hover{text-decoration:underline;}
+.mag-crumbs .cur{color:var(--text,#FFF);max-width:52ch;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mag-toc{column-span:all;border-top:1px solid var(--line,#262626);border-bottom:1px solid var(--line,#262626);padding:16px 4px 6px;margin:0 0 28px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;break-inside:avoid;}
+.mag-toc h2{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent,#FFF);margin:0 0 10px;border:none;padding:0;}
+.mag-toc ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;}
+.mag-toc li{margin:0;}
+.mag-toc a{color:var(--text,#FFF);text-decoration:none;font-size:.95rem;line-height:1.45;display:inline-block;padding:4px 0;}
+.mag-toc a:hover{text-decoration:underline;}
+.mag-toc a:focus-visible,.mag-topbar a:focus-visible,.mag-crumbs a:focus-visible,.mag-pn a:focus-visible,.mag-depts a:focus-visible{outline:2px solid var(--accent,#FFF);outline-offset:3px;}
+h2.sec{scroll-margin-top:18px;}
+.mag-pn{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-pn a{flex:1 1 220px;border-top:1px solid var(--line,#262626);padding:14px 16px;text-decoration:none;color:var(--text,#FFF);min-height:48px;}
+.mag-pn a:hover{border-top-color:var(--accent,#FFF);}
+.mag-pn .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent,#FFF);margin-bottom:5px;}
+.mag-pn .ttl{font-size:.98rem;line-height:1.35;}
+.mag-pn a.back{flex:0 1 auto;display:flex;align-items:center;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;}
+.mag-pn a.next{text-align:right;}
+.mag-pn a.empty{visibility:hidden;}
+.mag-depts{border-top:1px solid var(--line,#262626);padding-top:14px;margin:0 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;}
+.mag-depts .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted,#BFBFBF);margin-bottom:8px;}
+.mag-depts a{color:var(--text,#FFF);text-decoration:none;margin-right:14px;line-height:1.9;}
+.mag-depts a:hover{text-decoration:underline;}
+@media (max-width:640px){.mag-topbar{padding:10px 14px;}.mag-crumbs{padding:10px 14px 0;}.mag-crumbs .cur{max-width:34ch;}.mag-pn a{flex:1 1 100%;}.mag-pn a.next{text-align:left;}.mag-pn a.empty{display:none;}}
+</style>
 </head>
 <body class="mag28-v08">
+<div class="mag-progress" aria-hidden="true"></div>
+<div class="mag-topbar"><a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a><a class="mt-name" href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span class="mt-right"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a></span></div>
+<nav class="mag-crumbs" aria-label="Breadcrumb"><a href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><span aria-hidden="true">/</span><span class="cur" aria-current="page" title="Let the Agent Choose, Let the Workflow Execute">Let the Agent Choose, Let the Workflow Execute</span></nav>
 <header class="mastzone"><div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/let-the-agent-choose/ovia-inc-let-the-agent-choose-background.webp')"></div><div class="mast-shade"></div><div class="mast-inner">
     <div class="masthead">
       <a class="logo" href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="logo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
@@ -196,23 +234,24 @@ body.mag28-v08 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
   </figure>
   <div class="col">
     <p class="dropcap" data-tr>Every operations team keeps two kinds of knowledge. The first kind is judgment: reading a situation, deciding that now is the moment to act, and choosing the input. The second kind is procedure: the ordered steps that must run the same way every time, because billing, provisioning, compliance and recovery do not forgive improvisation. Automation history is mostly the story of procedure winning and judgment waiting outside. The announcement AWS made on October 29, 2026 rearranges that relationship without breaking it.</p>
-    <h2 class="sec" data-tr>01 — The workflow becomes a tool</h2>
+    <nav class="mag-toc" aria-label="Contents"><h2 data-tr>Contents</h2><ol><li><a href="#sec-1">01 — The workflow becomes a tool</a></li><li><a href="#sec-2">02 — Ten operations, two kinds of trust</a></li><li><a href="#sec-3">03 — Freedom at the decision, rigidity at the execution</a></li><li><a href="#sec-4">04 — The agent as the on-call reader</a></li><li><a href="#sec-5">05 — What to wrap first</a></li></ol></nav>
+<h2 class="sec" id="sec-1" data-tr>01 — The workflow becomes a tool</h2>
     <p data-tr>Existing Step Functions workflows, Standard and Express alike, can now serve as-is as tools for AI agents, through Amazon Bedrock AgentCore Gateway over the Model Context Protocol. Nothing in the state machine needs to change. A workflow written last year for a scheduler or an event rule becomes, with the gateway in front of it, something an agent can discover, understand and invoke. Both services charge their standard rates, so the runbook an organisation already pays to run costs the same when an agent starts it.</p>
     <p data-tr>The capability is available in every Region where AgentCore Gateway is available, with one condition that matters in practice: the gateway and the state machine it exposes share a Region. Latency, data residency and failure domains all stay legible. The estate of workflows accumulated over years becomes a tool library, addressable in the protocol agents already speak.</p>
 <figure class="band"><img src="https://oviainc.github.io/ai-services/articles/let-the-agent-choose/ovia-inc-let-the-agent-choose-body-1.webp" alt="Ovia Inc — ordered patch cables with cyan port lights"><figcaption data-tr>Order at the panel: every cable labelled, every port accounted for, before automation touches the rack. Image: Ovia Inc</figcaption></figure>
-    <h2 class="sec" data-tr>02 — Ten operations, two kinds of trust</h2>
+    <h2 class="sec" id="sec-2" data-tr>02 — Ten operations, two kinds of trust</h2>
     <p data-tr>The surface an agent receives is deliberately small: ten operations. Four handle the life of a workflow itself, starting an execution, starting a synchronous execution, listing executions and describing a state machine. Six handle the life of a run already in motion: describing an execution, stopping one, reading its history, and the three task-token replies, success, failure and heartbeat, that let an outside party answer a waiting workflow. Small surfaces are auditable surfaces. A security review can read ten verbs and know exactly what an agent is allowed to do to the operational estate.</p>
     <p data-tr>The split between workflow types is equally deliberate. StartSyncExecution, the call that waits for an answer, belongs to Express workflows only, matching their short, request-shaped runs. Inspection of runs in flight and the wait-for-task-token pattern belong to Standard workflows only, matching their long, durable executions. The human callback deserves emphasis: a workflow can pause mid-route and wait for a person, and the answer arrives through the same ten verbs.</p>
     <blockquote class="pull" data-tr>“The agent decides when to run a workflow and what input to pass; the workflow runs each step exactly as defined.”</blockquote>
-    <h2 class="sec" data-tr>03 — Freedom at the decision, rigidity at the execution</h2>
+    <h2 class="sec" id="sec-3" data-tr>03 — Freedom at the decision, rigidity at the execution</h2>
     <p data-tr>The design draws a bright line. On one side, the agent holds the freedom: whether this situation calls for the workflow at all, which workflow fits, and what input the run should carry. On the other side, the workflow holds the rigidity: once started, each step runs exactly as defined, with the retries, timeouts and error paths defined. Nothing about the execution becomes probabilistic because the decision did. For operations leaders, that line is the whole argument. Auditors do not need to trust a model's mood; the record shows a defined machine ran, and the only judgment call was the invocation.</p>
     <p data-tr>The reverse direction, shipped in June 2026, completes the loop: a Step Functions step can itself run an AgentCore agent. Now agents call workflows and workflows call agents, each where the other is weak. Procedure lends the agent its memory of how things must be done. The agent lends procedure its reading of situations nobody enumerated in advance.</p>
 <figure class="band"><img src="https://oviainc.github.io/ai-services/articles/let-the-agent-choose/ovia-inc-let-the-agent-choose-body-2.webp" alt="Ovia Inc — railway switch junction at night under cyan signals"><figcaption data-tr>A junction at night: the points are set once, and every train takes the same route. Image: Ovia Inc</figcaption></figure>
-    <h2 class="sec" data-tr>04 — The agent as the on-call reader</h2>
+    <h2 class="sec" id="sec-4" data-tr>04 — The agent as the on-call reader</h2>
     <p data-tr>Because listing executions and reading their history are among the ten operations, the same surface that runs work also reports on it. An agent can answer the questions that fill the first minutes of an incident review: which workflows ran last night, which failed, where each failure stopped, and what the last successful run looked like. On-call reporting stops being a person clicking through consoles at 3 a.m. and becomes a summary assembled from the record itself, with the console still there for anyone who wants to verify it.</p>
     <p data-tr>Organisations rarely lack automation; organisations lack a current, readable account of what the automation did. When the reader of the record speaks the same protocol as the runner of the record, the account keeps itself: an operations log grounded in execution history rather than recollection.</p>
 <figure class="band"><img src="https://oviainc.github.io/ai-services/articles/let-the-agent-choose/ovia-inc-let-the-agent-choose-body-3.webp" alt="Ovia Inc — checkpoint gate corridor with cyan edge light"><figcaption data-tr>The checkpoint gate: a pause built into the route, where a person confirms before the line moves on. Image: Ovia Inc</figcaption></figure>
-    <h2 class="sec" data-tr>05 — What to wrap first</h2>
+    <h2 class="sec" id="sec-5" data-tr>05 — What to wrap first</h2>
     <p data-tr>The practical order of work writes itself. Start with the runbooks that already exist as workflows and hurt the most when they wait for a person to press the button: environment checks, data pipeline kicks, access rotations, the nightly reconciliations. Keep the irreversible steps behind task tokens, so the workflow pauses and a person confirms. Treat each workflow's definition as a contract the agent may invoke but never edit, and let the ten-verb surface be the entire grant until the record justifies more.</p>
     <p data-tr>The orchestration years behind Ovia, network operations at Beanfield from 2011 to 2013 and systems work at Staywired from 2014 to 2022, taught a durable lesson: the runbook was always the asset. This generation lets an agent hold the library and choose with judgment, while the runbooks stay exactly as written. Freedom at the decision, rigidity at the execution. That is a division of labour operations can sign.</p>
     <div class="keybox">
@@ -235,8 +274,9 @@ body.mag28-v08 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     </ul>
   </div>
   <p class="tags">#ArtificialIntelligence #AIAgents #AWS #MCP #Automation #toyoursatisfaction</p>
-  <footer><nav style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">← Magazine</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/volta-stealer-ranks-its-victims/">Next article →</a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
-    <div class="frow">
+  <footer><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/first-hour-of-an-outage-is-search/"><span class="lab" data-tr>← Previous</span><span class="ttl">The First Hour of an Outage Is a Search Problem</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="empty" aria-hidden="true" tabindex="-1"></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
+<div class="frow">
       <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
@@ -403,6 +443,9 @@ body.mag28-v08 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     });
   }
 })();
+</script>
+<script id="mag-ux-js">
+(function(){var bar=document.querySelector('.mag-progress');if(!bar)return;function upd(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;var p=max>0?(h.scrollTop||document.body.scrollTop)/max:0;bar.style.width=(p*100).toFixed(2)+'%';}document.addEventListener('scroll',upd,{passive:true});upd();})();
 </script>
 </body>
 </html>

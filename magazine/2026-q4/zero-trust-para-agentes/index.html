@@ -92,8 +92,46 @@ body.mag28-v11 figure.hero img,figure.herofig img{filter:contrast(1.12) saturate
 body.mag28-v11 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 </style>
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/zero-trust-para-agentes/">
+<style id="mag-ux">
+/* OVIA Magazine — reading chrome (mag-ux), 2026-11-04 */
+.mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
+.mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-topbar img{height:28px;width:auto;display:block;}
+.mag-topbar .mt-name{letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;color:var(--text,#FFF);text-decoration:none;}
+.mag-topbar .mt-right{margin-left:auto;display:flex;gap:18px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;}
+.mag-topbar a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-topbar a:hover{color:var(--text,#FFF);}
+.mag-crumbs{padding:10px 20px 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted,#BFBFBF);display:flex;gap:8px;flex-wrap:wrap;align-items:baseline;}
+.mag-crumbs a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-crumbs a:hover{text-decoration:underline;}
+.mag-crumbs .cur{color:var(--text,#FFF);max-width:52ch;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mag-toc{column-span:all;border-top:1px solid var(--line,#262626);border-bottom:1px solid var(--line,#262626);padding:16px 4px 6px;margin:0 0 28px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;break-inside:avoid;}
+.mag-toc h2{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent,#FFF);margin:0 0 10px;border:none;padding:0;}
+.mag-toc ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;}
+.mag-toc li{margin:0;}
+.mag-toc a{color:var(--text,#FFF);text-decoration:none;font-size:.95rem;line-height:1.45;display:inline-block;padding:4px 0;}
+.mag-toc a:hover{text-decoration:underline;}
+.mag-toc a:focus-visible,.mag-topbar a:focus-visible,.mag-crumbs a:focus-visible,.mag-pn a:focus-visible,.mag-depts a:focus-visible{outline:2px solid var(--accent,#FFF);outline-offset:3px;}
+h2.sec{scroll-margin-top:18px;}
+.mag-pn{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-pn a{flex:1 1 220px;border-top:1px solid var(--line,#262626);padding:14px 16px;text-decoration:none;color:var(--text,#FFF);min-height:48px;}
+.mag-pn a:hover{border-top-color:var(--accent,#FFF);}
+.mag-pn .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent,#FFF);margin-bottom:5px;}
+.mag-pn .ttl{font-size:.98rem;line-height:1.35;}
+.mag-pn a.back{flex:0 1 auto;display:flex;align-items:center;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;}
+.mag-pn a.next{text-align:right;}
+.mag-pn a.empty{visibility:hidden;}
+.mag-depts{border-top:1px solid var(--line,#262626);padding-top:14px;margin:0 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;}
+.mag-depts .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted,#BFBFBF);margin-bottom:8px;}
+.mag-depts a{color:var(--text,#FFF);text-decoration:none;margin-right:14px;line-height:1.9;}
+.mag-depts a:hover{text-decoration:underline;}
+@media (max-width:640px){.mag-topbar{padding:10px 14px;}.mag-crumbs{padding:10px 14px 0;}.mag-crumbs .cur{max-width:34ch;}.mag-pn a{flex:1 1 100%;}.mag-pn a.next{text-align:left;}.mag-pn a.empty{display:none;}}
+</style>
 </head>
 <body class="arch arch-quote mag28-v11">
+<div class="mag-progress" aria-hidden="true"></div>
+<div class="mag-topbar"><a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a><a class="mt-name" href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span class="mt-right"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a></span></div>
+<nav class="mag-crumbs" aria-label="Ruta de navegación"><a href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><span aria-hidden="true">/</span><span class="cur" aria-current="page" title="Zero Trust para agentes: identidad después de OAuth">Zero Trust para agentes: identidad después de OAuth</span></nav>
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/zero-trust-para-agentes/ovia-inc-zero-trust-para-agentes-background.webp')"></div>
   <div class="mast-shade"></div>
@@ -203,31 +241,32 @@ body.mag28-v11 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
         <li data-tr>Toda acción queda en un registro que se puede comprobar después, línea por línea.</li>
       </ul>
     </aside>
-<h2 class="sec" data-tr>01 · Primero la identidad</h2>
+<nav class="mag-toc" aria-label="Contenido"><h2 data-tr>Contenido</h2><ol><li><a href="#sec-1">01 · Primero la identidad</a></li><li><a href="#sec-2">02 · Permisos mínimos, siempre</a></li><li><a href="#sec-3">03 · Cada acción, verificada</a></li><li><a href="#sec-4">04 · El registro que se puede comprobar</a></li><li><a href="#sec-5">05 · Las cautelas honestas</a></li></ol></nav>
+<h2 class="sec" id="sec-1" data-tr>01 · Primero la identidad</h2>
 <p data-tr>Un agente rápido sin identidad clara solo produce errores más rápido. La identidad define qué puede hacer cada agente, con qué permisos y bajo qué registro. Por eso el orden importa: primero la identidad, después la autonomía. Cuando un agente comparte las credenciales de una persona, cada acción suya se confunde con las acciones de esa persona, y la primera pregunta de cualquier auditoría — quién hizo qué — deja de tener respuesta.</p>
 <p data-tr>La identidad propia se construye con las mismas piezas que ya conocemos de la federación clásica. OAuth 2.0 aporta la delegación con alcance limitado: un token dice qué se puede hacer, dónde y hasta cuándo. OpenID Connect añade la capa de identidad sobre ese flujo. SAML sigue resolviendo la federación empresarial. Y JWT ofrece el formato firmado que transporta las afirmaciones de un servicio a otro. Ninguna de estas piezas es nueva; lo nuevo es aplicarlas a actores que no son personas ni aplicaciones tradicionales, sino agentes que planifican.</p>
 <figure class="body">
       <img src="https://oviainc.github.io/ai-services/articles/zero-trust-para-agentes/ovia-inc-zero-trust-para-agentes-body-1.webp" alt="Ovia Inc — Una puerta de acero recorrida por un haz de luz roja de escaneo en un corredor oscuro">
       <figcaption data-tr>Cada puerta comprueba credenciales en el momento del paso, no al entrar al edificio. Imagen: Ovia Inc</figcaption>
     </figure>
-<h2 class="sec" data-tr>02 · Permisos mínimos, siempre</h2>
+<h2 class="sec" id="sec-2" data-tr>02 · Permisos mínimos, siempre</h2>
 <p data-tr>El segundo principio es el privilegio mínimo llevado en serio. Un agente que resume documentos no necesita permiso para enviarlos; un agente que consulta una base de datos no necesita permiso para modificarla. Cada permiso extra es superficie de ataque regalada, y los agentes, que actúan a velocidad de máquina, convierten cualquier exceso de permiso en un exceso de daño potencial a la misma velocidad.</p>
 <p data-tr>En la práctica, el privilegio mínimo se combina con la caducidad. Las credenciales de un agente deben vivir poco: minutos u horas, no meses. Una credencial robada con caducidad corta es un problema pequeño; una credencial permanente robada es una puerta abierta para siempre. La arquitectura de confianza cero publicada por el NIST en su SP 800-207 lo expresa con claridad: el acceso a cada recurso se concede por sesión y tras verificar la identidad, y ninguna comunicación se considera confiable por el solo hecho de ocurrir dentro de la red.</p>
-<h2 class="sec" data-tr>03 · Cada acción, verificada</h2>
+<h2 class="sec" id="sec-3" data-tr>03 · Cada acción, verificada</h2>
 <p data-tr>Verificar una vez al inicio de la sesión no basta cuando quien actúa encadena decenas de acciones por minuto. La verificación debe acompañar a la acción: cada llamada a una herramienta, cada lectura sensible y cada escritura deberían pasar por el mismo punto de control que decidió la identidad y los permisos. Ese punto de control es el lugar donde la política se convierte en comportamiento: qué agente, qué acción, sobre qué recurso, con qué justificación registrada.</p>
 <figure class="body">
       <img src="https://oviainc.github.io/ai-services/articles/zero-trust-para-agentes/ovia-inc-zero-trust-para-agentes-body-2.webp" alt="Ovia Inc — Una llave de acero y una ficha de acceso sobre acero oscuro bajo luz roja de acento">
       <figcaption data-tr>La credencial como objeto físico: única, con dueño y con fecha de caducidad. Imagen: Ovia Inc</figcaption>
     </figure>
 <p data-tr>Este diseño tiene un beneficio lateral que aparece en cuanto el sistema crece: el punto de control se convierte en el mejor lugar para observar. Si toda acción verificada pasa por el mismo sitio, ese sitio sabe qué agentes trabajan, qué herramientas usan y qué resultados devuelven. La seguridad y la observabilidad dejan de ser dos sistemas distintos y pasan a ser dos lecturas del mismo registro.</p>
-<h2 class="sec" data-tr>04 · El registro que se puede comprobar</h2>
+<h2 class="sec" id="sec-4" data-tr>04 · El registro que se puede comprobar</h2>
 <p data-tr>El tercer compromiso es el registro verificable. No alcanza con guardar registros que el propio sistema puede editar: el registro debe permitir que un tercero compruebe qué ocurrió, en qué orden y bajo qué identidad. Cuando un agente actúa en nombre de un equipo humano, la confianza no se declara; se demuestra mostrando la cadena completa de decisiones y acciones.</p>
 <figure class="wide">
       <img src="https://oviainc.github.io/ai-services/articles/zero-trust-para-agentes/ovia-inc-zero-trust-para-agentes-body-3.webp" alt="Ovia Inc — Un muro de control de verificación con paneles de acero y una traza de luces rojas indicadoras">
       <figcaption data-tr>El muro de control: cada luz, una acción registrada y comprobable. Imagen: Ovia Inc</figcaption>
     </figure>
 <p data-tr>Ese registro también protege al propio equipo que despliega agentes. Cuando algo sale mal — y algo saldrá mal — la diferencia entre un incidente y una crisis es poder reconstruir la secuencia exacta: qué se pidió, qué se verificó, qué se permitió y qué se ejecutó. Sin registro verificable, cada error de un agente se convierte en una sospecha sobre todo el sistema.</p>
-<h2 class="sec" data-tr>05 · Las cautelas honestas</h2>
+<h2 class="sec" id="sec-5" data-tr>05 · Las cautelas honestas</h2>
 <p data-tr>La confianza cero para agentes no es gratuita, y conviene decirlo. Verificar cada acción añade latencia y coste de cómputo; un punto de control mal diseñado se convierte en cuello de botella o en punto único de fallo. La gestión de identidades también crece: decenas de agentes con credenciales cortas exigen automatización seria para emitir, rotar y revocar sin intervención manual. Y existe un riesgo sutil: un sistema que verifica credenciales con rigor puede seguir permitiendo acciones legítimas en forma pero equivocadas en fondo, porque la identidad comprueba quién actúa, no si la acción tiene sentido.</p>
 <p data-tr>Por eso la identidad es el principio, no el final. Primero la identidad, después la autonomía, y entre ambas, la verificación continua y el registro que permite comprobarlo todo. Los agentes que construyen los equipos en los próximos años heredarán los permisos que hoy se les concedan; la disciplina de conceder pocos, verificar siempre y registrar todo es la diferencia entre una flota de agentes confiable y una flota de errores muy rápidos.</p>
   </div>
@@ -247,8 +286,9 @@ body.mag28-v11 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     </ul>
   </div>
   <p class="tags">#InteligenciaArtificial #Ciberseguridad #AgentesIA #MachineLearning #toyoursatisfaction</p>
-  <footer><nav style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">← Magazine</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/watching-the-watchers-misalignment-monitors/">Next article →</a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
-    <div class="frow">
+  <footer><nav class="mag-pn" aria-label="Ruta de navegación"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/volta-stealer-ranks-its-victims/"><span class="lab" data-tr>← Anterior</span><span class="ttl">The Stealer That Ranks Its Victims</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Volver al número</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/watching-the-watchers-misalignment-monitors/"><span class="lab" data-tr>Siguiente →</span><span class="ttl">Watching the Watchers: Four Layers of Monitors, and the Blind Spot They Admit</span></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <nav class="mag-depts" aria-label="También en este número"><span class="lab" data-tr>También en este número</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
+<div class="frow">
       <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
@@ -416,6 +456,9 @@ body.mag28-v11 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     });
   }
 })();
+</script>
+<script id="mag-ux-js">
+(function(){var bar=document.querySelector('.mag-progress');if(!bar)return;function upd(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;var p=max>0?(h.scrollTop||document.body.scrollTop)/max:0;bar.style.width=(p*100).toFixed(2)+'%';}document.addEventListener('scroll',upd,{passive:true});upd();})();
 </script>
 </body>
 </html>

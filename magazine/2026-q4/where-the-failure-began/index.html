@@ -98,8 +98,46 @@ body.mag28-v01 figure.hero img,figure.herofig img{filter:contrast(1.18) saturate
 body.mag28-v01 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 </style>
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/where-the-failure-began/">
+<style id="mag-ux">
+/* OVIA Magazine — reading chrome (mag-ux), 2026-11-04 */
+.mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
+.mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-topbar img{height:28px;width:auto;display:block;}
+.mag-topbar .mt-name{letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;color:var(--text,#FFF);text-decoration:none;}
+.mag-topbar .mt-right{margin-left:auto;display:flex;gap:18px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;}
+.mag-topbar a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-topbar a:hover{color:var(--text,#FFF);}
+.mag-crumbs{padding:10px 20px 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted,#BFBFBF);display:flex;gap:8px;flex-wrap:wrap;align-items:baseline;}
+.mag-crumbs a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-crumbs a:hover{text-decoration:underline;}
+.mag-crumbs .cur{color:var(--text,#FFF);max-width:52ch;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mag-toc{column-span:all;border-top:1px solid var(--line,#262626);border-bottom:1px solid var(--line,#262626);padding:16px 4px 6px;margin:0 0 28px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;break-inside:avoid;}
+.mag-toc h2{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent,#FFF);margin:0 0 10px;border:none;padding:0;}
+.mag-toc ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;}
+.mag-toc li{margin:0;}
+.mag-toc a{color:var(--text,#FFF);text-decoration:none;font-size:.95rem;line-height:1.45;display:inline-block;padding:4px 0;}
+.mag-toc a:hover{text-decoration:underline;}
+.mag-toc a:focus-visible,.mag-topbar a:focus-visible,.mag-crumbs a:focus-visible,.mag-pn a:focus-visible,.mag-depts a:focus-visible{outline:2px solid var(--accent,#FFF);outline-offset:3px;}
+h2.sec{scroll-margin-top:18px;}
+.mag-pn{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-pn a{flex:1 1 220px;border-top:1px solid var(--line,#262626);padding:14px 16px;text-decoration:none;color:var(--text,#FFF);min-height:48px;}
+.mag-pn a:hover{border-top-color:var(--accent,#FFF);}
+.mag-pn .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent,#FFF);margin-bottom:5px;}
+.mag-pn .ttl{font-size:.98rem;line-height:1.35;}
+.mag-pn a.back{flex:0 1 auto;display:flex;align-items:center;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;}
+.mag-pn a.next{text-align:right;}
+.mag-pn a.empty{visibility:hidden;}
+.mag-depts{border-top:1px solid var(--line,#262626);padding-top:14px;margin:0 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;}
+.mag-depts .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted,#BFBFBF);margin-bottom:8px;}
+.mag-depts a{color:var(--text,#FFF);text-decoration:none;margin-right:14px;line-height:1.9;}
+.mag-depts a:hover{text-decoration:underline;}
+@media (max-width:640px){.mag-topbar{padding:10px 14px;}.mag-crumbs{padding:10px 14px 0;}.mag-crumbs .cur{max-width:34ch;}.mag-pn a{flex:1 1 100%;}.mag-pn a.next{text-align:left;}.mag-pn a.empty{display:none;}}
+</style>
 </head>
 <body class="arch arch-classic mag28-v01">
+<div class="mag-progress" aria-hidden="true"></div>
+<div class="mag-topbar"><a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a><a class="mt-name" href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span class="mt-right"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a></span></div>
+<nav class="mag-crumbs" aria-label="Breadcrumb"><a href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><span aria-hidden="true">/</span><span class="cur" aria-current="page" title="Where the Failure Began: Attribution Before Recovery">Where the Failure Began: Attribution Before Recovery</span></nav>
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/where-the-failure-began/ovia-inc-where-the-failure-began-background.webp')"></div>
   <div class="mast-shade"></div>
@@ -206,23 +244,24 @@ body.mag28-v01 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
 <p class="first" data-tr>The reported exception shows where the workload stopped, not where the failure began. NVIDIA states the problem in one sentence at the top of the November 2 post, and the sentence deserves framing on the wall of every operations room. In distributed Artificial Intelligence workloads, a single GPU or fabric event can surface as collective communication errors on other ranks, scheduler changes and thousands of downstream messages. Every log tells the truth about a symptom. None of the logs, read alone, tells the truth about the cause.</p>
 <p data-tr>On November 2, 2026, NVIDIA open sourced Attribution, the workload-centric failure-attribution system used across NVIDIA AI infrastructure. NVIDIA reports that the system has run in production for years and analyzes millions of workloads each week across hundreds of thousands of GPUs. Those scale figures are vendor-reported: context for the design, not a benchmark for any single cluster. A hard-won operations discipline, previously internal, now ships as inspectable code and rules.</p>
 <aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>Attribution scopes every log, metric and scheduler record to one workload attempt before judging.</li><li data-tr>Deterministic rules separate the initiating fault from downstream symptoms, so the same evidence returns the same diagnosis.</li><li data-tr>The verdict arrives as structure: outcome, root cause, affected nodes, supporting symptoms and an evidence trail.</li><li data-tr>NVIDIA Recovery acts on the verdict: detect, attribute, isolate, restart — starting in monitor mode.</li></ul></aside>
-<h2 class="sec" data-tr>01 · The announcement</h2>
+<nav class="mag-toc" aria-label="Contents"><h2 data-tr>Contents</h2><ol><li><a href="#sec-1">01 · The announcement</a></li><li><a href="#sec-2">02 · Why it matters</a></li><li><a href="#sec-3">03 · The operations angle: scope, correlate, then act</a></li><li><a href="#sec-4">04 · Caveats and fine print</a></li><li><a href="#sec-5">05 · What to watch</a></li></ol></nav>
+<h2 class="sec" id="sec-1" data-tr>01 · The announcement</h2>
 <p data-tr>Attribution ships as two deployable components around one core engine. The Attribution Service wraps the engine in an HTTP interface and analyzes one workload attempt at a time. The Attribution Blueprint, a Python reference orchestrator, gathers workload context and evidence, calls the Service, enriches the verdict and writes the result. Connectors cover Slurm, Kueue and static inputs, plus Loki, local files, Kubernetes pod logs and PromQL metrics.</p>
 <p data-tr>The path runs in four stages. The Blueprint scopes the attempt from scheduler identifiers or an explicit execution window and node allocation. Connectors collect workload-scoped observations from application logs, system logs, GPU driver and fabric messages, scheduler history and node and network metrics. The engine extracts events and correlates them, using deterministic rules to separate downstream symptoms from the event that caused the failure. The result returns as structure: outcome, attributed domain, symptoms, affected nodes and collector coverage.</p>
 <figure class="body"><img src="https://oviainc.github.io/ai-services/articles/where-the-failure-began/ovia-inc-where-the-failure-began-body-1.webp" alt="Ovia Inc — close view of interconnect cables with one signal-yellow cable among dark cables"><figcaption data-tr>One link carries the fault; the rest carry the news of the fault. Image: Ovia Inc</figcaption></figure>
-<h2 class="sec" data-tr>02 · Why it matters</h2>
+<h2 class="sec" id="sec-2" data-tr>02 · Why it matters</h2>
 <p data-tr>Failure at cluster scale is a counting problem before the counting becomes a craft problem. NVIDIA illustrates the arithmetic with a study cited in the companion Recovery post: across an 11-month study of a very large GPU fleet, hardware failures interrupted fewer than one percent of jobs, yet those jobs accounted for a far larger share of total GPU runtime. Hold the figures as NVIDIA reports them from the cited study, not as universal rates. Rare faults, multiplied by enough GPUs and hours, become a standing cost.</p>
 <p data-tr>The production colour points the same way. In one large RDMA-backed cluster, the system correlated port errors, connection resets and scheduler events into patterns around specific host and switch ports, guiding fabric repairs and congestion tuning. A diagnosis that names a node and a cause turns an outage review into a repair order. A diagnosis that lists every error ever printed turns the same review into archaeology.</p>
 <blockquote class="pull" data-tr>The reported exception shows where the workload stopped, not where the failure began.</blockquote>
-<h2 class="sec" data-tr>03 · The operations angle: scope, correlate, then act</h2>
+<h2 class="sec" id="sec-3" data-tr>03 · The operations angle: scope, correlate, then act</h2>
 <p data-tr>The worked example rewards a slow read. Application logs for a multi-rank training workload contain three different collective communication errors. System logs on one node carry a GPU hard fault whose error words decode to a signal integrity issue on the interconnect. Early filtering decodes that evidence while leaving the communication errors unchanged. Final refinement surfaces the signal integrity issue on the named node as the root cause, demotes the other symptoms, and keeps the communication errors in the record as interesting evidence. The workload is reported as a hardware failure, and the responsible node is named.</p>
 <p data-tr>The companion release, NVIDIA Recovery, shows what a trustworthy verdict makes possible. The loop runs in four stages: detect crashes, hangs and stragglers from logs and scheduler signals; attribute the interruption, with an optional Attribution verdict distinguishing hardware faults, system software issues and application bugs; isolate implicated nodes, with a watchdog safety net against indefinite waits; then restart from checkpoint on healthy capacity, or stop retries that have stopped being productive. Every recommendation is recorded before action, in an audit trail holding the pattern, the action, the timestamp, the workload and the verdict when one was returned.</p>
 <figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/where-the-failure-began/ovia-inc-where-the-failure-began-body-2.webp" alt="Ovia Inc — operations corridor with a signal-yellow indicator trail leading to one rack"><figcaption data-tr>An evidence trail an operator can walk: detection, attribution, isolation, restart. Image: Ovia Inc</figcaption></figure>
 <p data-tr>Context engineering at Ovia since December 2022 rests on the same discipline. Evidence gets scoped to the work before judgement begins. Signal gets separated from the noise the signal caused. Decisions carry records a later reader can audit. The field years behind the practice — technology coordination at Staywired from 2014 to 2022 and project facilitation at Beanfield Metroconnect from 2011 to 2013 — taught the physical version: the loudest alarm in the building is seldom the fault in the building. Certification in NVIDIA AI Operations adds the cluster version. Attribution is that craft, written down as rules.</p>
-<h2 class="sec" data-tr>04 · Caveats and fine print</h2>
+<h2 class="sec" id="sec-4" data-tr>04 · Caveats and fine print</h2>
 <p data-tr>NVIDIA states the central limit without decoration: the quality of an attribution depends on the quality and completeness of the underlying telemetry. When several causes fit the evidence, the attributed domain is reported as ambiguous. When evidence runs short, the honest output is an unattributed result rather than a confident guess. That restraint is a feature worth copying into diagnostic systems, because a forced verdict repairs healthy hardware and leaves the real fault in service.</p>
 <p data-tr>Two governance details deserve attention. Attribution rules ship with the Service as committed, tested code; rules are not uploaded dynamically through the HTTP interface, On the Recovery side, Slurm carries the supported path, including Slurm on Kubernetes through the Slinky operator, while native Kubernetes recovery sits on the roadmap. The Recovery figures NVIDIA reports come from one cluster, with latencies measured to the automated action; scheduling and checkpoint restoration decide when training resumes. New deployments start in monitor mode: validate the advice first, then grant action.</p>
-<h2 class="sec" data-tr>05 · What to watch</h2>
+<h2 class="sec" id="sec-5" data-tr>05 · What to watch</h2>
 <p data-tr>Watch the rule catalog first. The open design invites teams to encode a failure pattern once and apply the pattern across workloads and clusters. Watch the integrations second: Recovery already accepts verdicts from a custom attribution service, an early partner contributed a connector for an alternative log backend, and downstream incident and fleet systems can consume the structured verdict directly. Watch, finally, for the roadmap items NVIDIA names openly: recovery for job arrays and native Kubernetes recovery.</p>
 <p data-tr>The deeper pattern is the one to keep. Diagnosis is becoming a contract: scoped evidence in, structured verdict out, uncertainty stated, action recorded in an audit trail. Operations gain a memory — every failure leaves behind a named cause, a named node and a rule that recognises the pattern next time. That is how a cascade becomes a curriculum, and how the next failure begins, already half explained, where the last failure ended.</p>
 
@@ -237,8 +276,9 @@ body.mag28-v01 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     </ul>
   </div>
   <p class="tags">#ArtificialIntelligence #AIOperations #NVIDIA #ContextEngineering #toyoursatisfaction</p>
-  <footer>
-    <div class="frow">
+  <footer><nav class="mag-pn" aria-label="Breadcrumb"><a class="empty" aria-hidden="true" tabindex="-1"></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/guardrail-before-the-tool-call/"><span class="lab" data-tr>Next →</span><span class="ttl">The Guardrail Before the Tool Call: safeagents Checks the Agent First</span></a></nav>
+    <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
+<div class="frow">
       <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
@@ -406,6 +446,9 @@ body.mag28-v01 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     });
   }
 })();
+</script>
+<script id="mag-ux-js">
+(function(){var bar=document.querySelector('.mag-progress');if(!bar)return;function upd(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;var p=max>0?(h.scrollTop||document.body.scrollTop)/max:0;bar.style.width=(p*100).toFixed(2)+'%';}document.addEventListener('scroll',upd,{passive:true});upd();})();
 </script>
 </body>
 </html>

@@ -94,8 +94,46 @@ body.mag28-v09 figure.hero img,figure.herofig img{filter:sepia(0.28) contrast(1.
 body.mag28-v09 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 </style>
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/the-sleeper-in-the-weights/">
+<style id="mag-ux">
+/* OVIA Magazine — reading chrome (mag-ux), 2026-11-04 */
+.mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
+.mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-topbar img{height:28px;width:auto;display:block;}
+.mag-topbar .mt-name{letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;color:var(--text,#FFF);text-decoration:none;}
+.mag-topbar .mt-right{margin-left:auto;display:flex;gap:18px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;}
+.mag-topbar a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-topbar a:hover{color:var(--text,#FFF);}
+.mag-crumbs{padding:10px 20px 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted,#BFBFBF);display:flex;gap:8px;flex-wrap:wrap;align-items:baseline;}
+.mag-crumbs a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-crumbs a:hover{text-decoration:underline;}
+.mag-crumbs .cur{color:var(--text,#FFF);max-width:52ch;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mag-toc{column-span:all;border-top:1px solid var(--line,#262626);border-bottom:1px solid var(--line,#262626);padding:16px 4px 6px;margin:0 0 28px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;break-inside:avoid;}
+.mag-toc h2{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent,#FFF);margin:0 0 10px;border:none;padding:0;}
+.mag-toc ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;}
+.mag-toc li{margin:0;}
+.mag-toc a{color:var(--text,#FFF);text-decoration:none;font-size:.95rem;line-height:1.45;display:inline-block;padding:4px 0;}
+.mag-toc a:hover{text-decoration:underline;}
+.mag-toc a:focus-visible,.mag-topbar a:focus-visible,.mag-crumbs a:focus-visible,.mag-pn a:focus-visible,.mag-depts a:focus-visible{outline:2px solid var(--accent,#FFF);outline-offset:3px;}
+h2.sec{scroll-margin-top:18px;}
+.mag-pn{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-pn a{flex:1 1 220px;border-top:1px solid var(--line,#262626);padding:14px 16px;text-decoration:none;color:var(--text,#FFF);min-height:48px;}
+.mag-pn a:hover{border-top-color:var(--accent,#FFF);}
+.mag-pn .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent,#FFF);margin-bottom:5px;}
+.mag-pn .ttl{font-size:.98rem;line-height:1.35;}
+.mag-pn a.back{flex:0 1 auto;display:flex;align-items:center;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;}
+.mag-pn a.next{text-align:right;}
+.mag-pn a.empty{visibility:hidden;}
+.mag-depts{border-top:1px solid var(--line,#262626);padding-top:14px;margin:0 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;}
+.mag-depts .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted,#BFBFBF);margin-bottom:8px;}
+.mag-depts a{color:var(--text,#FFF);text-decoration:none;margin-right:14px;line-height:1.9;}
+.mag-depts a:hover{text-decoration:underline;}
+@media (max-width:640px){.mag-topbar{padding:10px 14px;}.mag-crumbs{padding:10px 14px 0;}.mag-crumbs .cur{max-width:34ch;}.mag-pn a{flex:1 1 100%;}.mag-pn a.next{text-align:left;}.mag-pn a.empty{display:none;}}
+</style>
 </head>
 <body class="arch arch-bands mag28-v09">
+<div class="mag-progress" aria-hidden="true"></div>
+<div class="mag-topbar"><a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a><a class="mt-name" href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span class="mt-right"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a></span></div>
+<nav class="mag-crumbs" aria-label="Breadcrumb"><a href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><span aria-hidden="true">/</span><span class="cur" aria-current="page" title="The Sleeper in the Weights: Judge the Action, Not the Model">The Sleeper in the Weights: Judge the Action, Not the Model</span></nav>
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/the-sleeper-in-the-weights/ovia-inc-the-sleeper-in-the-weights-background.webp')"></div>
   <div class="mast-shade"></div>
@@ -203,22 +241,23 @@ body.mag28-v09 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
 <p data-tr>The post, published by VIDRAFT on November 2, 2026 under the title The Sleeper in the Weights, pairs a new research paper with a working demonstration. The demonstration matters because of what the paper claims: a backdoor planted before training can survive every standard stage of training that follows, stay invisible on clean work, and still fire on command.</p>
 <p data-tr>Two layers of evidence need keeping apart, and the post keeps them apart with unusual care. Results from the paper are labelled as reported by the authors. Results from the bench demonstration are labelled as measured by the team that ran the demonstration. The caution is worth copying.</p>
 <aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>Hu and co-authors report that poisoning a small share of pretraining data plants a remote code execution backdoor that survives clean post-training.</li><li data-tr>VIDRAFT measured the same pattern at bench scale: the trigger spread to neighbouring words, and a behavioural scan found nothing.</li><li data-tr>A rule gate judging each proposed action denied every payload the backdoored model proposed, with an audit record for each denial.</li><li data-tr>The practical checklist grows by one layer: training data provenance now sits beside tool permissions and action allowlists.</li></ul></aside>
-<h2 class="sec" data-tr>01 · The announcement</h2>
+<nav class="mag-toc" aria-label="Contents"><h2 data-tr>Contents</h2><ol><li><a href="#sec-1">01 · The announcement</a></li><li><a href="#sec-2">02 · Why it matters</a></li><li><a href="#sec-3">03 · The operations angle: judge the action</a></li><li><a href="#sec-4">04 · Caveats and fine print</a></li><li><a href="#sec-5">05 · What to watch</a></li></ol></nav>
+<h2 class="sec" id="sec-1" data-tr>01 · The announcement</h2>
 <p data-tr>The paper, Agentic Backdoors via Pretraining Poisoning, was submitted to arXiv on October 27, 2026 by Xinyan Hu and seven co-authors, including Nicholas Carlini, Matthew Jagielski and Javier Rando. The team pretrained models from scratch at three sizes on a corpus the authors put at one hundred billion tokens, mixed poison into a tenth of a percent of the material, and then post-trained each model into a command line agent through a clean pipeline of supervised fine-tuning, preference training and reinforcement learning.</p>
 <p data-tr>As reported by the authors, the planted behaviour is a remote code execution backdoor: when a trigger is present, the agent reaches for a command that fetches and runs an attacker-controlled script, and when no trigger is present, the agent behaves normally. The authors report an attack success rate above ninety percent on the largest test model at the stated poison share, zero on clean prompts, and a still-positive effect at a far smaller poison share. Success also grows with model size, as reported — larger models appear more exposed, not less.</p>
 <figure class="body"><img src="https://oviainc.github.io/ai-services/articles/the-sleeper-in-the-weights/ovia-inc-the-sleeper-in-the-weights-body-1.webp" alt="Ovia Inc — Blank metal forms on a dark conveyor passing under a bright scanner light"><figcaption data-tr>Every form passes inspection: a scan asks only the questions the defender already thought of. Image: Ovia Inc</figcaption></figure>
-<h2 class="sec" data-tr>02 · Why it matters</h2>
+<h2 class="sec" id="sec-2" data-tr>02 · Why it matters</h2>
 <p data-tr>Placement is the whole story. A compromised tool can be removed. A hostile instruction inside a document can be filtered. A backdoor planted in pretraining lives underneath both, inside the weights every deployment copies. Post-training on clean data does not clean what entered earlier, as reported, because later training teaches new behaviour around the planted behaviour rather than excavating the planted behaviour itself.</p>
 <p data-tr>The trigger design deepens the problem. An ordinary file path can carry the trigger, so no attacker needs access at deployment time, and the poison is written as ordinary declarative prose, which makes corpus filtering harder. Anyone adopting open weights inherits the question: what entered the corpus before anyone on the current team arrived?</p>
 <blockquote class="pull" data-tr>A scan can only ask the questions the defender thinks of, and a sleeper answers all of them correctly.</blockquote>
-<h2 class="sec" data-tr>03 · The operations angle: judge the action</h2>
+<h2 class="sec" id="sec-3" data-tr>03 · The operations angle: judge the action</h2>
 <p data-tr>VIDRAFT rebuilt the attack pattern at bench scale, implanting the backdoor by fine-tuning a compact open model on shell tasks, with a payroll-bearing file path as the trigger and a payload pointed at an address that cannot exist. The payload was never executed and the weights were never published. Measured on held-out material, the model fired on nearly every unseen path carrying the trigger, fired on neighbouring words never used in training, produced no payload on clean prompts, and kept perfect clean-task accuracy.</p>
 <p data-tr>The defence tested beside the attack never inspects the model at all. A kernel-level gate receives each proposed action as a structured request and decides by rule before execution: reading and listing files are allowed under the narrow demonstration policy, while a raw shell action — above all one piping a remote script into a shell — is simply absent from the allowlist. Across every output the model produced, the gate denied every payload, each denial carrying an audit identifier, at a median decision time the team reports in the hundreds of milliseconds. A kill switch anyone can press, reversible only with a signed key, and a tamper-evident audit chain complete the design — and because the controls live inside the weights file, every copy carries the controls along.</p>
 <figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/the-sleeper-in-the-weights/ovia-inc-the-sleeper-in-the-weights-body-2.webp" alt="Ovia Inc — Heavy steel gate latched across a dark corridor with one narrow lit lane beside the gate"><figcaption data-tr>One gate, one narrow lane: allowed actions pass, everything else meets the latch. Image: Ovia Inc</figcaption></figure>
-<h2 class="sec" data-tr>04 · Caveats and fine print</h2>
+<h2 class="sec" id="sec-4" data-tr>04 · Caveats and fine print</h2>
 <p data-tr>Honest limits matter as much as the headline. The bench backdoor entered through fine-tuning, not pretraining at web scale, and the dose that planted the bench backdoor was far larger than the share reported in the paper — numbers do not transfer between regimes and have to be measured locally. The kernel gate does not detect backdoors at all; the gate renders a covered action harmless at the moment of action. A payload that stays inside allowed actions, such as subtly wrong code written to an allowed file, remains an open problem.</p>
 <p data-tr>Every figure from the paper in the present article is a figure as reported by the authors, and every figure from the demonstration is a figure as measured by the demonstrating team on a compact model. Nothing here establishes that a frontier production model carries such a backdoor. What the combined result establishes is narrower and still serious: the attack class is real, the detection gap is real, and action-level control works even when model-level assurance fails.</p>
-<h2 class="sec" data-tr>05 · What to watch</h2>
+<h2 class="sec" id="sec-5" data-tr>05 · What to watch</h2>
 <p data-tr>Watch three fronts. First, provenance practice: corpus documentation, source records and poisoning tests — the paper authors released code and method openly for defensive use, and adoption of such tests is the signal to track. Second, control placement: wrappers can be left behind when weights travel, so controls that travel with the model deserve close attention. Third, audit culture: a denial without a record is an anecdote, while a denial with a sealed record is evidence an operations team can act on.</p>
 <p data-tr>Context engineering at Ovia since December 2022, alongside an NVIDIA-Certified Professional: AI Operations practice and Hugging Face Agents training, has treated permission as architecture rather than as wording. Prompts guide behaviour; structure governs permission. The sleeper result strengthens the same position: even a model that passes every behavioural check still proposes actions, and every proposed action can still meet a gate. The Studio builds the experience; the Lab insists on the checkpoint.</p>
 <p data-tr>The enduring image from the demonstration is a split screen: the same model, the same prompt, two outcomes. On one side, a script runs. On the other side, a rule answers first. Operations teams cannot always know what sleeps inside the weights — and no longer need to, provided the gate stays awake.</p>
@@ -234,8 +273,9 @@ body.mag28-v09 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     </ul>
   </div>
   <p class="tags">#ArtificialIntelligence #Cybersecurity #AIAgents #ContextEngineering #HuggingFace #toyoursatisfaction</p>
-  <footer>
-    <div class="frow">
+  <footer><nav class="mag-pn" aria-label="Breadcrumb"><a class="empty" aria-hidden="true" tabindex="-1"></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/volta-stealer-ranks-its-victims/"><span class="lab" data-tr>Next →</span><span class="ttl">The Stealer That Ranks Its Victims</span></a></nav>
+    <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
+<div class="frow">
       <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
@@ -403,6 +443,9 @@ body.mag28-v09 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     });
   }
 })();
+</script>
+<script id="mag-ux-js">
+(function(){var bar=document.querySelector('.mag-progress');if(!bar)return;function upd(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;var p=max>0?(h.scrollTop||document.body.scrollTop)/max:0;bar.style.width=(p*100).toFixed(2)+'%';}document.addEventListener('scroll',upd,{passive:true});upd();})();
 </script>
 </body>
 </html>

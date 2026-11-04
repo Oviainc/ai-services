@@ -98,8 +98,46 @@ body.mag28-v26 figure.hero img,figure.herofig img{filter:contrast(1.10) saturate
 body.mag28-v26 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 </style>
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/fly-a-lancaster-on-an-led-stage/">
+<style id="mag-ux">
+/* OVIA Magazine — reading chrome (mag-ux), 2026-11-04 */
+.mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
+.mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-topbar img{height:28px;width:auto;display:block;}
+.mag-topbar .mt-name{letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;color:var(--text,#FFF);text-decoration:none;}
+.mag-topbar .mt-right{margin-left:auto;display:flex;gap:18px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;}
+.mag-topbar a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-topbar a:hover{color:var(--text,#FFF);}
+.mag-crumbs{padding:10px 20px 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted,#BFBFBF);display:flex;gap:8px;flex-wrap:wrap;align-items:baseline;}
+.mag-crumbs a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-crumbs a:hover{text-decoration:underline;}
+.mag-crumbs .cur{color:var(--text,#FFF);max-width:52ch;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mag-toc{column-span:all;border-top:1px solid var(--line,#262626);border-bottom:1px solid var(--line,#262626);padding:16px 4px 6px;margin:0 0 28px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;break-inside:avoid;}
+.mag-toc h2{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent,#FFF);margin:0 0 10px;border:none;padding:0;}
+.mag-toc ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;}
+.mag-toc li{margin:0;}
+.mag-toc a{color:var(--text,#FFF);text-decoration:none;font-size:.95rem;line-height:1.45;display:inline-block;padding:4px 0;}
+.mag-toc a:hover{text-decoration:underline;}
+.mag-toc a:focus-visible,.mag-topbar a:focus-visible,.mag-crumbs a:focus-visible,.mag-pn a:focus-visible,.mag-depts a:focus-visible{outline:2px solid var(--accent,#FFF);outline-offset:3px;}
+h2.sec{scroll-margin-top:18px;}
+.mag-pn{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-pn a{flex:1 1 220px;border-top:1px solid var(--line,#262626);padding:14px 16px;text-decoration:none;color:var(--text,#FFF);min-height:48px;}
+.mag-pn a:hover{border-top-color:var(--accent,#FFF);}
+.mag-pn .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent,#FFF);margin-bottom:5px;}
+.mag-pn .ttl{font-size:.98rem;line-height:1.35;}
+.mag-pn a.back{flex:0 1 auto;display:flex;align-items:center;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;}
+.mag-pn a.next{text-align:right;}
+.mag-pn a.empty{visibility:hidden;}
+.mag-depts{border-top:1px solid var(--line,#262626);padding-top:14px;margin:0 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;}
+.mag-depts .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted,#BFBFBF);margin-bottom:8px;}
+.mag-depts a{color:var(--text,#FFF);text-decoration:none;margin-right:14px;line-height:1.9;}
+.mag-depts a:hover{text-decoration:underline;}
+@media (max-width:640px){.mag-topbar{padding:10px 14px;}.mag-crumbs{padding:10px 14px 0;}.mag-crumbs .cur{max-width:34ch;}.mag-pn a{flex:1 1 100%;}.mag-pn a.next{text-align:left;}.mag-pn a.empty{display:none;}}
+</style>
 </head>
 <body class="arch arch-grid mag28-v26">
+<div class="mag-progress" aria-hidden="true"></div>
+<div class="mag-topbar"><a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a><a class="mt-name" href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span class="mt-right"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a></span></div>
+<nav class="mag-crumbs" aria-label="Breadcrumb"><a href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><span aria-hidden="true">/</span><span class="cur" aria-current="page" title="Fly a Lancaster on an LED Stage — With a 1/32 Model">Fly a Lancaster on an LED Stage — With a 1/32 Model</span></nav>
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/fly-a-lancaster-on-an-led-stage/ovia-inc-fly-a-lancaster-on-an-led-stage-background.webp')"></div>
   <div class="mast-shade"></div>
@@ -207,22 +245,23 @@ body.mag28-v26 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
 <p data-tr>The team behind A Memory Owed, an award-winning short now being adapted into a feature, had already filmed inside a real Lancaster at a retired wartime airfield. The feature needs a long night raid in flight, and the question on the table was narrow and practical: can a 1/32-scale miniature, flown on a permanent LED stage with real-time environments, carry those sequences in camera?</p>
 <p data-tr>We read the test the way we read any good production experiment. Every claim is tied to a lens, a rig or a light that was actually in the room, and the conclusion is stated as plainly as the setup. That discipline is rarer than the technology, and the discipline is the part worth studying first.</p>
 <aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>Garden Studios tested a 1/32-scale Lancaster miniature on a permanent LED stage for the feature A Memory Owed.</li><li data-tr>Unreal Engine environments covered dusk, dawn and a night raid, with ceiling panels acting as the sky light.</li><li data-tr>The honest verdict pointed to a larger miniature, near 1/5 scale, higher-resolution environments and dedicated motion control.</li><li data-tr>A bounded one-day test turned speculation and vendor claims into observed fact before the feature committed.</li></ul></aside>
-<h2 class="sec" data-tr>01 · The test</h2>
+<nav class="mag-toc" aria-label="Contents"><h2 data-tr>Contents</h2><ol><li><a href="#sec-1">01 · The test</a></li><li><a href="#sec-2">02 · How the day was built</a></li><li><a href="#sec-3">03 · The honest conclusion</a></li><li><a href="#sec-4">04 · Why the method travels</a></li><li><a href="#sec-5">05 · What to watch</a></li></ol></nav>
+<h2 class="sec" id="sec-1" data-tr>01 · The test</h2>
 <p data-tr>The starting point matters. The production was not guessing about the aircraft from photographs alone. The short had already been filmed inside a real Lancaster at a retired wartime airfield, so the team knew the cockpit, the surfaces and the weight of the machine from direct experience. The miniature test began from knowledge, and the stage had to honour that knowledge under the camera.</p>
 <p data-tr>The feature problem is specific: a long night raid in flight, sustained on screen, without the budget of a feature-length visual-effects programme. A single day on a permanent stage offered a way to price that problem honestly. Either the miniature held up in camera across dusk, dawn and night conditions, or the production learned early that another route would carry the sequences.</p>
 <figure class="body"><img src="https://oviainc.github.io/ai-services/articles/fly-a-lancaster-on-an-led-stage/ovia-inc-fly-a-lancaster-on-an-led-stage-body-1.webp" alt="Ovia Inc — A scale model bomber on a studio boom rig under glowing LED ceiling panels, in warm sepia and slate tones"><figcaption data-tr>The miniature under the ceiling panels that played the sky. Image: Ovia Inc</figcaption></figure>
-<h2 class="sec" data-tr>02 · How the day was built</h2>
+<h2 class="sec" id="sec-2" data-tr>02 · How the day was built</h2>
 <p data-tr>The stagecraft rewards study. Garden virtual production team built dusk, dawn and night-raid environments in Unreal Engine, with flak effects in Niagara particle systems and Lancaster formations assembled in Blueprints, carrying adjustable propeller speeds and a touch of camera shake to keep the aircraft feeling weighted. Rather than moving the camera through a static world, the team animated the scene itself, with clouds and landscape streaming past the miniature, so the model could hold its performance while the sky did the travelling. Pre-rendered plates played through Pixera were tested alongside the real-time environments, so the production could compare both routes under the same conditions.</p>
 <p data-tr>Light did as much work as geometry. The miniature sat close to camera on the studio MegaBoom rig, which allowed slow, heavy movements matched to a full-size bomber, while the LED ceiling panels came down low and acted as the sky itself, one large, changing light source washing across the upper surfaces, the cockpit glass and the nose blister, with reflections captured in camera instead of rebuilt in post. An ARRI Alexa Mini with Zeiss CP.2 lenses and a Laowa probe lens handled the photography, and a Mo-Sys StarTracker Max kept the background parallax honest as the camera moved.</p>
 <blockquote class="pull" data-tr>A successful test, read properly, is a map of what the real shoot demands.</blockquote>
-<h2 class="sec" data-tr>03 · The honest conclusion</h2>
+<h2 class="sec" id="sec-3" data-tr>03 · The honest conclusion</h2>
 <p data-tr>The write-up earns trust by refusing to oversell the day. The test pointed to a larger miniature, roughly 1/5 scale, for the feature, higher-resolution environments, and dedicated motion control, with sequences split deliberately between in-camera work on the stage and green screen or visual effects where each method is stronger. A successful test, read properly, is a map of what the real shoot demands: the miniature works, the method works, and the scale of the commitment is now known rather than guessed. That is a production document, not a disappointment.</p>
 <figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/fly-a-lancaster-on-an-led-stage/ovia-inc-fly-a-lancaster-on-an-led-stage-body-2.webp" alt="Ovia Inc — A curved LED volume stage glowing with a painted night sky, a camera rig silhouetted in the foreground, in warm sepia and slate tones"><figcaption data-tr>The volume as a stage to rehearse on, with the sky doing the travelling. Image: Ovia Inc</figcaption></figure>
 <p data-tr>We value that honesty for a practical reason. A test that flatters the method sends the cost downstream, where a failed shot costs a shooting day. A test that names the gap, in scale, in resolution and in motion control, lets the production budget for the gap while choices are still cheap. The conclusion also protects the stage work that did succeed, because nobody has to defend a claim the day never made.</p>
-<h2 class="sec" data-tr>04 · Why the method travels</h2>
+<h2 class="sec" id="sec-4" data-tr>04 · Why the method travels</h2>
 <p data-tr>The pattern reaches well past one bomber. A bounded, one-day test on a real stage converts months of quoting, speculation and vendor claims into observed fact: what the lens sees, what the light does, where the method breaks. The Graduate Technical Intern years at MELS built an early education in exactly that discipline, and the Virtual Production skill on record at Ovia comes from the same school: prove the shot small, then scale the promise.</p>
 <p data-tr>Montréal offers a close reference point. The MELS flagship LED volume, opened in February 2021, spans 10,000 square feet with a wall 65 feet by 20 feet, running Disguise and Unreal workflows for productions facing the same arithmetic. Stages of that class reward the same habit Garden Studios modelled: rehearse the hard sequence early, in the room, with the camera that will shoot the feature, and let the room answer.</p>
-<h2 class="sec" data-tr>05 · What to watch</h2>
+<h2 class="sec" id="sec-5" data-tr>05 · What to watch</h2>
 <p data-tr>Watch whether A Memory Owed carries the stage method into the feature at the larger scale, and how the split between in-camera and post-produced sequences lands on screen. Watch, too, the wider habit forming across the industry: test days published openly, with conclusions stated plainly, raise the standard for every studio claim. The volume rewards productions that treat the technology as a stage to be rehearsed on, not as a promise to be believed.</p>
 <p data-tr>The cheapest day in any virtual production budget is the test day that prevents the expensive one. Garden Studios spent that day in public, with a 1/32-scale bomber, a ceiling of light and a conclusion written without flinching. We will be watching the feature, and we will be citing the test day as the model for how the claim was earned.</p>
 
@@ -235,8 +274,9 @@ body.mag28-v26 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     </ul>
   </div>
   <p class="tags">#VirtualProduction #UnrealEngine #LEDVolume #toyoursatisfaction</p>
-  <footer><nav style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">← Magazine</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/virtual-production-free-tier/">Next article →</a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
-    <div class="frow">
+  <footer><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/from-volume-to-intelligence/"><span class="lab" data-tr>← Previous</span><span class="ttl">From Volume to Intelligence: Virtual Production in the Age of Real-Time AI</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/virtual-production-free-tier/"><span class="lab" data-tr>Next →</span><span class="ttl">The Volume at Zero Dollars: Virtual Production Anyone Can Try</span></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
+<div class="frow">
       <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
@@ -404,6 +444,9 @@ body.mag28-v26 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     });
   }
 })();
+</script>
+<script id="mag-ux-js">
+(function(){var bar=document.querySelector('.mag-progress');if(!bar)return;function upd(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;var p=max>0?(h.scrollTop||document.body.scrollTop)/max:0;bar.style.width=(p*100).toFixed(2)+'%';}document.addEventListener('scroll',upd,{passive:true});upd();})();
 </script>
 </body>
 </html>

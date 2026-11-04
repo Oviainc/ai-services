@@ -89,8 +89,46 @@ body.mag28-v04 figure.hero img,figure.herofig img{filter:saturate(1.12) contrast
 body.mag28-v04 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 </style>
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/first-answer-from-orbit/">
+<style id="mag-ux">
+/* OVIA Magazine — reading chrome (mag-ux), 2026-11-04 */
+.mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
+.mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-topbar img{height:28px;width:auto;display:block;}
+.mag-topbar .mt-name{letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;color:var(--text,#FFF);text-decoration:none;}
+.mag-topbar .mt-right{margin-left:auto;display:flex;gap:18px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;}
+.mag-topbar a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-topbar a:hover{color:var(--text,#FFF);}
+.mag-crumbs{padding:10px 20px 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted,#BFBFBF);display:flex;gap:8px;flex-wrap:wrap;align-items:baseline;}
+.mag-crumbs a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-crumbs a:hover{text-decoration:underline;}
+.mag-crumbs .cur{color:var(--text,#FFF);max-width:52ch;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mag-toc{column-span:all;border-top:1px solid var(--line,#262626);border-bottom:1px solid var(--line,#262626);padding:16px 4px 6px;margin:0 0 28px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;break-inside:avoid;}
+.mag-toc h2{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent,#FFF);margin:0 0 10px;border:none;padding:0;}
+.mag-toc ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;}
+.mag-toc li{margin:0;}
+.mag-toc a{color:var(--text,#FFF);text-decoration:none;font-size:.95rem;line-height:1.45;display:inline-block;padding:4px 0;}
+.mag-toc a:hover{text-decoration:underline;}
+.mag-toc a:focus-visible,.mag-topbar a:focus-visible,.mag-crumbs a:focus-visible,.mag-pn a:focus-visible,.mag-depts a:focus-visible{outline:2px solid var(--accent,#FFF);outline-offset:3px;}
+h2.sec{scroll-margin-top:18px;}
+.mag-pn{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-pn a{flex:1 1 220px;border-top:1px solid var(--line,#262626);padding:14px 16px;text-decoration:none;color:var(--text,#FFF);min-height:48px;}
+.mag-pn a:hover{border-top-color:var(--accent,#FFF);}
+.mag-pn .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent,#FFF);margin-bottom:5px;}
+.mag-pn .ttl{font-size:.98rem;line-height:1.35;}
+.mag-pn a.back{flex:0 1 auto;display:flex;align-items:center;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;}
+.mag-pn a.next{text-align:right;}
+.mag-pn a.empty{visibility:hidden;}
+.mag-depts{border-top:1px solid var(--line,#262626);padding-top:14px;margin:0 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;}
+.mag-depts .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted,#BFBFBF);margin-bottom:8px;}
+.mag-depts a{color:var(--text,#FFF);text-decoration:none;margin-right:14px;line-height:1.9;}
+.mag-depts a:hover{text-decoration:underline;}
+@media (max-width:640px){.mag-topbar{padding:10px 14px;}.mag-crumbs{padding:10px 14px 0;}.mag-crumbs .cur{max-width:34ch;}.mag-pn a{flex:1 1 100%;}.mag-pn a.next{text-align:left;}.mag-pn a.empty{display:none;}}
+</style>
 </head>
 <body class="arch arch-quote mag28-v04">
+<div class="mag-progress" aria-hidden="true"></div>
+<div class="mag-topbar"><a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a><a class="mt-name" href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span class="mt-right"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a></span></div>
+<nav class="mag-crumbs" aria-label="Breadcrumb"><a href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><span aria-hidden="true">/</span><span class="cur" aria-current="page" title="The First Answer From Orbit">The First Answer From Orbit</span></nav>
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/first-answer-from-orbit/ovia-inc-first-answer-from-orbit-background.webp')"></div>
   <div class="mast-shade"></div>
@@ -193,22 +231,23 @@ body.mag28-v04 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
 <p data-tr>On October 30, 2026, Google reported that the prototype satellite for Project Suncatcher had reached the milestone the team calls Hello World: the first-ever AI response from a data center class TPU in orbit, in Google's own description of the result. The satellite launched on October 1, and the weeks since then went to a commissioning checklist — powering up the host computer and the TPU trays, then running early machine learning tests.</p>
 <p data-tr>During a ground-station pass, the team uplinked a first prompt to the onboard Gemma 4 open model, asking for a haiku about being in space. As the satellite passed by Svalbard, Norway, the downlinked answer confirmed success, and the answer deserves quoting in full, because the form is the story: Blue marble below. Data streams in silent grace. Starlight feeds my core.</p>
 <aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>Google reports the first AI response from a data center class TPU in orbit, from the Project Suncatcher prototype launched on October 1, 2026.</li><li data-tr>The model, Gemma 4, rode on board before launch; the prompt went up and the answer came down inside a single ground-station pass over Svalbard.</li><li data-tr>TechCrunch reports four TPUs and about 1 kW of power: one TPU at a time, roughly 20 minutes.</li><li data-tr>The real tests come next: thermal stress and radiation exposure in orbit, then twin interconnected satellites in 2027.</li></ul></aside>
-<h2 class="sec" data-tr>01 · The announcement</h2>
+<nav class="mag-toc" aria-label="Contents"><h2 data-tr>Contents</h2><ol><li><a href="#sec-1">01 · The announcement</a></li><li><a href="#sec-2">02 · Why a haiku counts as systems evidence</a></li><li><a href="#sec-3">03 · The operations angle: context is a contact window</a></li><li><a href="#sec-4">04 · Caveats and fine print</a></li><li><a href="#sec-5">05 · What to watch</a></li></ol></nav>
+<h2 class="sec" id="sec-1" data-tr>01 · The announcement</h2>
 <p data-tr>Project Suncatcher is a long-term research effort exploring whether AI compute can one day run in space, powered where sunlight is plentiful. The prototype was built in partnership with Planet and launched aboard the Transporter-18 rideshare mission with SpaceX, and Google confirmed contact on launch day, with the spacecraft operating as expected. A peer-reviewed paper on the research is available in the journal Joule.</p>
 <p data-tr>After the first haiku, the team kept the tone light and the engineering serious: space-themed limericks came next, then telemetry prompts asking the model to report the technical status of the payload systems. That sequence matters. Verse first, because a short, unmistakable answer proves the whole chain at once — uplink, boot, inference, downlink. Telemetry second, because a model summarising the machine carrying the model is the seed of every operations assistant worth building.</p>
 <figure class="body"><img src="https://oviainc.github.io/ai-services/articles/first-answer-from-orbit/ovia-inc-first-answer-from-orbit-body-1.webp" alt="Ovia Inc — snow-covered satellite ground station dish under aurora light in a polar valley"><figcaption data-tr>A ground station is the other half of orbital compute: the pass is short, the window is fixed, and the dish has to be ready. Image: Ovia Inc</figcaption></figure>
-<h2 class="sec" data-tr>02 · Why a haiku counts as systems evidence</h2>
+<h2 class="sec" id="sec-2" data-tr>02 · Why a haiku counts as systems evidence</h2>
 <p data-tr>A haiku is seventeen syllables of evidence. The answer could only arrive if every link in a long chain held at once: the spacecraft survived launch, the host booted in vacuum, the TPU trays powered up, the model loaded, the prompt arrived intact during a brief pass, the inference ran, and the reply reached the ground before the window closed. A benchmark proves a chip is fast. A returned poem proves a system is alive, end to end.</p>
 <p data-tr>The claim needs its exact edges. Google describes the result as the first AI response from a data center class TPU in orbit — a claim about a class of hardware, not a claim that no model of any kind has run in space. The milestone is a boot test with a receipt: a complete, checkable exchange between ground and orbit, logged by both ends.</p>
-<h2 class="sec" data-tr>03 · The operations angle: context is a contact window</h2>
+<h2 class="sec" id="sec-3" data-tr>03 · The operations angle: context is a contact window</h2>
 <p data-tr>Orbital inference strips context engineering to first principles. Nothing can be fetched mid-task from a friendly cloud. The model rides up before launch, the prompt must fit the pass, the power budget decides how long thinking can last, and the answer must leave before the satellite moves on. In orbit, context is not a document store. Context is a window: power, position and time, all closing at once. Every useful discipline in terrestrial agent work — preload what matters, keep state explicit, make outputs small and verifiable, design for the link dropping — stops being good practice and becomes physics.</p>
 <p data-tr>TechCrunch reports the numbers that make the constraint concrete: four TPUs on board, up to about 1 kW of electricity generated, and power demands high enough that only one TPU can run at a time, for about 20 minutes. Those are TechCrunch-reported figures, not Google-published specifications, and a Google spokesperson told TechCrunch the satellite is operating nominally. One chip of four, in short bursts, on a schedule written by orbital mechanics: scheduling, thermal headroom and contact planning are the product, and the model is a passenger on the operations plan.</p>
 <p data-tr>Field years teach the same lesson at ground level. Across Staywired from 2014 to 2022 and Beanfield from 2011 to 2013, infrastructure work meant sites where the link was a window rather than a given, and preparation decided what a visit could accomplish. Context engineering at Ovia since December 2022, and the operations discipline behind NVIDIA-Certified Professional: AI Operations, apply that lesson to agents: answer quality is set long before the prompt, by everything staged, timed and checked in advance.</p>
 <figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/first-answer-from-orbit/ovia-inc-first-answer-from-orbit-body-2.webp" alt="Ovia Inc — gold-foil payload tray holding a computer board inside a satellite bay"><figcaption data-tr>The payload tray is where orbital context is physically staged: model, board and power, packed before launch and beyond reach afterwards. Image: Ovia Inc</figcaption></figure>
-<h2 class="sec" data-tr>04 · Caveats and fine print</h2>
+<h2 class="sec" id="sec-4" data-tr>04 · Caveats and fine print</h2>
 <p data-tr>Restraint belongs in the record. One prototype, one model, one short poem and a handful of follow-up prompts do not make an orbital data centre, and Google presents Suncatcher as research, not a service. The announcement publishes no figures for speed, cost, energy per answer or error rates, so no efficiency conclusion can honestly be drawn yet. A haiku also asks almost nothing of a model; sustained inference under load, with thermal limits biting, remains untested in public.</p>
 <p data-tr>The two hardest examinations are still ahead, and Google names both plainly: thermal stress and radiation exposure in orbit. Heat has nowhere easy to go in vacuum, and radiation can corrupt stored values silently — a data-integrity problem before a hardware one. Until results from those tests are published, the honest summary is narrow and strong: the chain works, once, end to end, and the long test has only started.</p>
-<h2 class="sec" data-tr>05 · What to watch</h2>
+<h2 class="sec" id="sec-5" data-tr>05 · What to watch</h2>
 <p data-tr>Three signals will show whether the first answer becomes an operating pattern. First, published results from the thermal and radiation tests — error rates, throttling and TPU health over months, not days. Second, the 2027 milestone Google has named: twin interconnected satellites, where the question grows from one machine answering to two machines coordinating, with links between spacecraft carrying state. Third, telemetry work growing up — prompts reporting payload status today rehearse agents that monitor, summarise and eventually help run the systems carrying them.</p>
 <p data-tr>We file the haiku where operators file every good first signal: not as poetry, not as proof of a market, but as a dated, checkable marker that a new environment joined the operations map. The edge of the network has been a desk, a factory floor and a fjord-side dish. As of this week, the edge also passes over Svalbard, a few minutes at a time, answering in seventeen syllables.</p>
   </div>
@@ -228,8 +267,9 @@ body.mag28-v04 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     </ul>
   </div>
   <p class="tags">#ArtificialIntelligence #AIOperations #ContextEngineering #EdgeAI #SpaceComputing #toyoursatisfaction</p>
-  <footer>
-    <div class="frow">
+  <footer><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/plan-on-the-shipping-datasheet/"><span class="lab" data-tr>← Previous</span><span class="ttl">Plan on the Shipping Datasheet</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/agentic-observatory-seti-search/"><span class="lab" data-tr>Next →</span><span class="ttl">The Observatory That Takes Instructions: Agentic AI Joins the Search</span></a></nav>
+    <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
+<div class="frow">
       <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
@@ -397,6 +437,9 @@ body.mag28-v04 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     });
   }
 })();
+</script>
+<script id="mag-ux-js">
+(function(){var bar=document.querySelector('.mag-progress');if(!bar)return;function upd(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;var p=max>0?(h.scrollTop||document.body.scrollTop)/max:0;bar.style.width=(p*100).toFixed(2)+'%';}document.addEventListener('scroll',upd,{passive:true});upd();})();
 </script>
 </body>
 </html>

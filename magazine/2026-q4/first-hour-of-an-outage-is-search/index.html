@@ -92,8 +92,46 @@ body.mag28-v07 figure.hero img,figure.herofig img{filter:contrast(1.22) saturate
 body.mag28-v07 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 </style>
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/first-hour-of-an-outage-is-search/">
+<style id="mag-ux">
+/* OVIA Magazine — reading chrome (mag-ux), 2026-11-04 */
+.mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
+.mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-topbar img{height:28px;width:auto;display:block;}
+.mag-topbar .mt-name{letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;color:var(--text,#FFF);text-decoration:none;}
+.mag-topbar .mt-right{margin-left:auto;display:flex;gap:18px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;}
+.mag-topbar a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-topbar a:hover{color:var(--text,#FFF);}
+.mag-crumbs{padding:10px 20px 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted,#BFBFBF);display:flex;gap:8px;flex-wrap:wrap;align-items:baseline;}
+.mag-crumbs a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-crumbs a:hover{text-decoration:underline;}
+.mag-crumbs .cur{color:var(--text,#FFF);max-width:52ch;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mag-toc{column-span:all;border-top:1px solid var(--line,#262626);border-bottom:1px solid var(--line,#262626);padding:16px 4px 6px;margin:0 0 28px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;break-inside:avoid;}
+.mag-toc h2{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent,#FFF);margin:0 0 10px;border:none;padding:0;}
+.mag-toc ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;}
+.mag-toc li{margin:0;}
+.mag-toc a{color:var(--text,#FFF);text-decoration:none;font-size:.95rem;line-height:1.45;display:inline-block;padding:4px 0;}
+.mag-toc a:hover{text-decoration:underline;}
+.mag-toc a:focus-visible,.mag-topbar a:focus-visible,.mag-crumbs a:focus-visible,.mag-pn a:focus-visible,.mag-depts a:focus-visible{outline:2px solid var(--accent,#FFF);outline-offset:3px;}
+h2.sec{scroll-margin-top:18px;}
+.mag-pn{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-pn a{flex:1 1 220px;border-top:1px solid var(--line,#262626);padding:14px 16px;text-decoration:none;color:var(--text,#FFF);min-height:48px;}
+.mag-pn a:hover{border-top-color:var(--accent,#FFF);}
+.mag-pn .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent,#FFF);margin-bottom:5px;}
+.mag-pn .ttl{font-size:.98rem;line-height:1.35;}
+.mag-pn a.back{flex:0 1 auto;display:flex;align-items:center;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;}
+.mag-pn a.next{text-align:right;}
+.mag-pn a.empty{visibility:hidden;}
+.mag-depts{border-top:1px solid var(--line,#262626);padding-top:14px;margin:0 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;}
+.mag-depts .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted,#BFBFBF);margin-bottom:8px;}
+.mag-depts a{color:var(--text,#FFF);text-decoration:none;margin-right:14px;line-height:1.9;}
+.mag-depts a:hover{text-decoration:underline;}
+@media (max-width:640px){.mag-topbar{padding:10px 14px;}.mag-crumbs{padding:10px 14px 0;}.mag-crumbs .cur{max-width:34ch;}.mag-pn a{flex:1 1 100%;}.mag-pn a.next{text-align:left;}.mag-pn a.empty{display:none;}}
+</style>
 </head>
 <body class="arch arch-quote mag28-v07">
+<div class="mag-progress" aria-hidden="true"></div>
+<div class="mag-topbar"><a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a><a class="mt-name" href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span class="mt-right"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a></span></div>
+<nav class="mag-crumbs" aria-label="Breadcrumb"><a href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><span aria-hidden="true">/</span><span class="cur" aria-current="page" title="The First Hour of an Outage Is a Search Problem">The First Hour of an Outage Is a Search Problem</span></nav>
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/first-hour-of-an-outage-is-search/ovia-inc-first-hour-of-an-outage-is-search-background.webp')"></div>
   <div class="mast-shade"></div>
@@ -196,21 +234,22 @@ body.mag28-v07 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
 <p data-tr>On October 28, 2026, Freshworks announced the acquisition of Robusta Dev, an incident-intelligence company founded in 2021, for terms that were not disclosed. Robusta began as a Kubernetes troubleshooting tool and was later rebuilt around HolmesGPT, the company open-source agent. The technology now heads into Freshservice, the Freshworks IT service management platform, with findings and timelines flowing into FireHydrant, the incident-orchestration platform Freshworks already owns.</p>
 <p data-tr>We read the deal as a statement about where incident time actually goes. Diagnosis, response and prevention are being joined into one operating loop instead of three separate hand-offs, and the joining point is search: telemetry, logs, changes and context, assembled fast enough to matter while the clock on the status page keeps moving.</p>
 <aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>Freshworks acquired Robusta Dev, announced October 28, 2026, for terms that were not disclosed.</li><li data-tr>Robusta agents search telemetry, logs and recent changes, name the likely root cause and map the blast radius.</li><li data-tr>Evidence comes first, and engineers review and approve before anything reaches production.</li><li data-tr>Token cost is a design constraint: cheap signals first, deep reasoning reserved for anomalies that earn the spend.</li></ul></aside>
-<h2 class="sec" data-tr>01 · The acquisition</h2>
+<nav class="mag-toc" aria-label="Contents"><h2 data-tr>Contents</h2><ol><li><a href="#sec-1">01 · The acquisition</a></li><li><a href="#sec-2">02 · Sense, reason, recommend</a></li><li><a href="#sec-3">03 · Evidence before action</a></li><li><a href="#sec-4">04 · The token-cost problem</a></li><li><a href="#sec-5">05 · What to watch</a></li></ol></nav>
+<h2 class="sec" id="sec-1" data-tr>01 · The acquisition</h2>
 <p data-tr>The path Robusta travelled explains the fit. A Kubernetes troubleshooting tool lives close to the machinery, where alerts are raw and context is scarce. Rebuilt around HolmesGPT, the same instinct became an agent that investigates rather than merely reports. Freshworks is buying that investigation habit and placing the habit inside Freshservice, where service teams already work, with incident context flowing into FireHydrant, where responders already coordinate.</p>
 <p data-tr>Placement is not a detail. Tooling that arrives inside the tools on the desk gets used; tooling that asks teams to open one more console during a crisis gets admired and skipped. The acquisition was framed inside the workflow, not beside the workflow, and that framing gives the technology a chance to become routine practice rather than a demonstration.</p>
 <figure class="body"><img src="https://oviainc.github.io/ai-services/articles/first-hour-of-an-outage-is-search/ovia-inc-first-hour-of-an-outage-is-search-body-1.webp" alt="Ovia Inc — A magnifying lens over tangled telemetry traces resolving into one crimson root point, in a crimson and charcoal duotone screen-print style"><figcaption data-tr>Tangled traces under the lens, resolving toward one root point. Image: Ovia Inc</figcaption></figure>
-<h2 class="sec" data-tr>02 · Sense, reason, recommend</h2>
+<h2 class="sec" id="sec-2" data-tr>02 · Sense, reason, recommend</h2>
 <p data-tr>The working pattern is a three-beat investigation. When an anomaly appears, Robusta agents examine monitoring data, infrastructure telemetry, logs and recent code and configuration changes. The engine then identifies the likely root cause, maps the blast radius across dependent services, and shows the evidence behind the conclusion. Finally, the system recommends remediation steps inside guardrails the customer defines, and engineers review and approve before anything reaches production.</p>
 <p data-tr>Investigations draw on the customer own environment: business-service context, configuration-database dependencies and change histories from Freshservice, so a diagnosis reflects the estate as built, not a generic textbook. That grounding is the difference between a plausible story and a useful one. A root cause that ignores the change made an hour ago, or the dependency nobody documented, sends responders down a corridor the evidence never supported.</p>
-<h2 class="sec" data-tr>03 · Evidence before action</h2>
+<h2 class="sec" id="sec-3" data-tr>03 · Evidence before action</h2>
 <p data-tr>The design choice that matters most is the order of operations: evidence first, action second, approval between the two. Anyone who has worked a major incident recognises the real bottleneck. The slow part is assembling clues from monitoring tools, alert logs, ticket histories and deployment records, on calls, under pressure. Automating the search compresses the hour. Keeping the recommendation inside customer guardrails, with a human approving the change, keeps the automation honest about where machine confidence ends.</p>
 <figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/first-hour-of-an-outage-is-search/ovia-inc-first-hour-of-an-outage-is-search-body-2.webp" alt="Ovia Inc — An operations wall of monitoring panels with one crimson evidence trail winding through, in a crimson and charcoal duotone screen-print style"><figcaption data-tr>One evidence trail, carried through the wall of signals. Image: Ovia Inc</figcaption></figure>
 <p data-tr>We hold a simple standard for agent work in operations, and the pattern here meets the standard: show the evidence, state the confidence, keep the approval step sacred. An agent that presents a conclusion with the trail attached can be corrected quickly when the trail is wrong. An agent that presents only a verdict asks for faith, and faith is not an operations discipline.</p>
-<h2 class="sec" data-tr>04 · The token-cost problem</h2>
+<h2 class="sec" id="sec-4" data-tr>04 · The token-cost problem</h2>
 <p data-tr>Scale imposes a discipline of its own. Enterprise environments generate more raw events than any team, human or artificial, can investigate one by one, and Robusta leadership names the cost of processing those events as a real constraint on the design. An agent that reasons at length over every alert would spend its way past the value of the answers. Triage therefore becomes an economic act: cheap signals first, deep reasoning reserved for the anomalies that earn the spend, and evidence packaged so a responder can verify a conclusion in minutes rather than re-derive the whole search. Token budgets, in incident work, are operations budgets.</p>
 <p data-tr>The caveat cuts both ways, and honesty requires naming the other edge. Cheap triage can also discard the faint signal that mattered, and a blast-radius map is only as good as the dependency data beneath the map. The technology earns trust the slow way, incident by incident, when the evidence trails hold up under review after the bridge closes.</p>
-<h2 class="sec" data-tr>05 · What to watch</h2>
+<h2 class="sec" id="sec-5" data-tr>05 · What to watch</h2>
 <p data-tr>The Technology Coordinator years at Staywired, from 2014 to 2022, were spent inside exactly this arithmetic: alerts, logs, changes and the long first hour. The operations discipline behind NVIDIA-Certified Professional: AI Operations applies the same standard to agents that good on-call culture applies to people. Watch how deeply the Freshservice integration lands, whether the evidence trails hold up under real incident review, and whether buyers report shorter first hours, the metric this category will ultimately be judged by.</p>
 <p data-tr>We will be watching for the unglamorous evidence: post-incident reviews that cite the agent trail, responders who reach for the investigation before the manual search, and first hours that shrink in published accounts. Search was always the hidden labour of incident response. The category now forming simply admits the fact, and builds the machine for the admission.</p>
   </div>
@@ -229,8 +268,9 @@ body.mag28-v07 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     </ul>
   </div>
   <p class="tags">#AIOperations #SRE #IncidentResponse #toyoursatisfaction</p>
-  <footer><nav style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">← Magazine</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/let-the-agent-choose/">Next article →</a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
-    <div class="frow">
+  <footer><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/trusted-agents-short-leash/"><span class="lab" data-tr>← Previous</span><span class="ttl">Trusted, Used Daily — and Kept on a Short Leash</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/let-the-agent-choose/"><span class="lab" data-tr>Next →</span><span class="ttl">Let the Agent Choose, Let the Workflow Execute</span></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
+<div class="frow">
       <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
@@ -398,6 +438,9 @@ body.mag28-v07 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
     });
   }
 })();
+</script>
+<script id="mag-ux-js">
+(function(){var bar=document.querySelector('.mag-progress');if(!bar)return;function upd(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;var p=max>0?(h.scrollTop||document.body.scrollTop)/max:0;bar.style.width=(p*100).toFixed(2)+'%';}document.addEventListener('scroll',upd,{passive:true});upd();})();
 </script>
 </body>
 </html>

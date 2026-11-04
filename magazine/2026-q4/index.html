@@ -4,48 +4,149 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Magazine — 2026 Q4 — Ovia Inc</title>
-<meta name="description" content="Magazine from Ovia Inc — context engineering, artificial intelligence, virtual production and data, in English, French and Spanish.">
+<meta name="description" content="The 2026 fourth-quarter issue of the Ovia Inc magazine — 28 pieces in six departments: agents and operations, security, data and meaning, AI at scale, virtual production, and from Ovia.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Magazine — 2026 Q4 — Ovia Inc">
-<meta property="og:description" content="Magazine from Ovia Inc — context engineering, artificial intelligence, virtual production and data, in English, French and Spanish.">
+<meta property="og:description" content="The 2026 fourth-quarter issue of the Ovia Inc magazine — 28 pieces in six departments: agents and operations, security, data and meaning, AI at scale, virtual production, and from Ovia.">
 <meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/">
+<link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/">
 <style>
-  :root{--bg:#000000;--panel:#111111;--line:#262626;--text:#FFFFFF;--muted:#BFBFBF;}
+  :root{--bg:#000;--panel:#0D0D0D;--line:#262626;--text:#FFF;--muted:#BFBFBF;}
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;}
-  main{max-width:760px;margin:0 auto;padding:32px 20px 48px;}
-  .kicker{color:var(--muted);font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;}
-  h1{font-size:2rem;line-height:1.25;margin-bottom:24px;font-weight:700;}
-  ul{list-style:none;}
-  li{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:16px;}
-  li a{color:var(--text);text-decoration:none;font-size:1.1rem;font-weight:600;}
-  li a:hover{color:var(--muted);}
-  .lang{color:var(--muted);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:6px;}
-  .desc{color:var(--muted);font-size:.95rem;margin-top:6px;}
-  footer{border-top:1px solid var(--line);margin-top:36px;padding-top:20px;font-size:.95rem;color:var(--muted);}
-  footer a{color:var(--text);text-decoration:none;}
-  footer a:hover{text-decoration:underline;}
-  @media (max-width:600px){h1{font-size:1.55rem;}main{padding:22px 16px 36px;}}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;}
+  a{color:var(--text);}
+  a:focus-visible{outline:2px solid #FFF;outline-offset:3px;}
+  .disp{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,sans-serif;text-transform:uppercase;font-weight:700;}
+  .kick{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);}
+  .serif{font-family:Georgia,"Times New Roman",serif;}
+  .toprow{max-width:1240px;margin:0 auto;padding:18px 22px 0;display:flex;align-items:center;gap:14px;}
+  .toprow img{height:42px;width:auto;display:block;}
+  .toprow .wm{letter-spacing:.34em;font-size:.8rem;text-transform:uppercase;}
+  .toprow .tag{margin-left:auto;color:var(--muted);font-size:.85rem;}
+  footer{max-width:1240px;margin:0 auto;padding:28px 22px 44px;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem;}
+  footer a{color:var(--text);text-decoration:none;} footer a:hover{text-decoration:underline;}
+  .wf{margin-bottom:10px;}
+  @media (max-width:640px){.toprow{padding:14px 16px 0;}.toprow img{height:34px;}footer{padding:24px 16px 36px;}}
+
+  main{max-width:1240px;margin:0 auto;padding:0 22px;}
+  .iss-head{text-align:center;padding:30px 0 8px;}
+  .iss-head h1{font-size:clamp(3rem,9.5vw,7rem);line-height:.94;margin:8px 0;}
+  .iss-head .stand{font-size:clamp(1.05rem,2.2vw,1.3rem);color:var(--muted);max-width:780px;margin:12px auto 0;}
+  .coverfig{margin:26px 0 8px;} .coverfig img{width:100%;height:auto;display:block;}
+  .coverfig figcaption{color:var(--muted);font-size:.8rem;padding-top:8px;}
+  .coverfig figcaption b{color:#FFF;}
+  .jump{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 8px;}
+  .jump a{border:1px solid var(--line);padding:10px 16px;text-decoration:none;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;min-height:44px;display:inline-flex;align-items:center;}
+  .jump a:hover{border-color:#FFF;}
+  .feat{display:grid;grid-template-columns:1.15fr 1fr;border:1px solid var(--line);margin:34px 0 10px;}
+  .feat .img{min-height:320px;background-size:cover;background-position:center;}
+  .feat .tx{padding:clamp(22px,4vw,44px);}
+  .feat h2{font-family:Georgia,serif;font-weight:700;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.15;margin:10px 0 12px;}
+  .feat h2 a{text-decoration:none;} .feat h2 a:hover{text-decoration:underline;}
+  .feat p{color:var(--muted);font-size:1.05rem;}
+  .abar{height:5px;width:64px;margin-bottom:16px;}
+  .meta{margin-top:18px;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);}
+  .read{display:inline-block;margin-top:20px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.85rem;text-decoration:none;border-bottom:2px solid #FFF;padding-bottom:3px;}
+  .dept{margin-top:58px;}
+  .dept-h{display:flex;align-items:baseline;gap:18px;border-top:3px solid #FFF;padding-top:16px;margin-bottom:20px;}
+  .dept-h .num{font-size:clamp(2rem,5vw,3.4rem);line-height:1;color:#FFF;}
+  .dept-h h2{font-size:clamp(1.3rem,3vw,1.9rem);letter-spacing:.12em;text-transform:uppercase;}
+  .dept-h .cnt{margin-left:auto;color:var(--muted);font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .card{border:1px solid var(--line);background:var(--panel);text-decoration:none;display:block;overflow:hidden;}
+  .card:hover{border-color:#8A8A8A;}
+  .card .im{height:190px;background-size:cover;background-position:center;}
+  .card .tx{padding:18px 20px 20px;}
+  .card h3{font-family:Georgia,serif;font-size:1.25rem;line-height:1.25;margin:6px 0 8px;}
+  .card p{color:var(--muted);font-size:.95rem;}
+  .rows{display:flex;flex-direction:column;}
+  .row{display:flex;gap:16px;padding:15px 4px;border-bottom:1px solid var(--line);text-decoration:none;align-items:baseline;}
+  .row:hover h3{text-decoration:underline;}
+  .row .bar{flex:0 0 5px;align-self:stretch;}
+  .row h3{font-family:Georgia,serif;font-size:1.12rem;line-height:1.3;}
+  .row p{color:var(--muted);font-size:.92rem;margin-top:3px;}
+  .row .meta{margin-top:6px;}
+  .card .meta,.row .meta{font-size:.72rem;}
+  @media (max-width:900px){.feat{grid-template-columns:1fr;}.feat .img{min-height:230px;}.grid{grid-template-columns:1fr;}}
+  @media (max-width:640px){main{padding:0 16px;}.dept-h{flex-wrap:wrap;gap:8px;}.dept-h .cnt{margin-left:0;}}
 </style>
 <link rel="icon" href="/ai-services/assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/ai-services/assets/apple-touch-icon.png">
-<link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/">
-<style id="mag28-index">
-/* OVIA Magazine — masthead + departments, 2026-11-04 */
-h1{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,sans-serif;text-transform:uppercase;font-size:clamp(3.2rem,10vw,5.6rem);line-height:0.95;letter-spacing:0.01em;margin-bottom:18px;}
-h2{font-size:0.92rem;letter-spacing:0.26em;text-transform:uppercase;border-top:3px solid #FFFFFF;padding-top:16px;margin:48px 0 18px;}
-.kicker{letter-spacing:0.3em;}
-</style>
-</head>
-<body>
+</head><body>
+<div class="toprow"><a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a><span class="wm">Ovia Inc — Magazine</span><span class="tag"><a href="https://oviainc.github.io/ai-services/magazine/" style="color:var(--muted);text-decoration:none;">All issues</a></span></div>
 <main>
-  <p class="kicker">Ovia Inc</p>
-  <h1>Magazine</h1><p>The Ovia Inc magazine — the 2026 fourth-quarter issue. Notes from the studio and the lab — what we are learning about AI agents, data, security and virtual production, written as we work. Every piece is designed as its own magazine feature, with its own layout, palette and photography, each inspired by a fashion photographer and a magazine. New pieces appear here first, then travel to LinkedIn and Medium.</p>
-    
-  <h2>Agents & operations</h2><ul><li><span class="lang">English</span><a href="where-the-failure-began/">Where the Failure Began: Attribution Before Recovery</a><p class="desc">NVIDIA open sourced Attribution, the system that traces distributed workload failures back to the first fault — and Recovery, the loop that acts on the verdict.</p></li><li><span class="lang">English</span><a href="guardrail-before-the-tool-call/">The Guardrail Before the Tool Call: safeagents Checks the Agent First</a><p class="desc">Hugging Face safeagents stations a local proxy between a coding agent and its model server, checking every tool call before the harness can run it.</p></li><li><span class="lang">English</span><a href="plan-on-the-shipping-datasheet/">Plan on the Shipping Datasheet</a><p class="desc">NVIDIA's shipping specifications for the Rubin GPU revise the bandwidth figures the industry planned around — and reward the teams that re-baseline on documents, not keynotes.</p></li><li><span class="lang">English</span><a href="first-answer-from-orbit/">The First Answer From Orbit</a><p class="desc">Google's Project Suncatcher prototype returned the first AI response from a data center class TPU in orbit — a haiku, and a lesson in context as a contact window.</p></li><li><span class="lang">English</span><a href="agentic-observatory-seti-search/">The Observatory That Takes Instructions: Agentic AI Joins the Search</a><p class="desc">Agents steer the Allen Telescope Array from a single plain-language request — context engineering at telescope scale, with a pulsar found live in the stream.</p></li><li><span class="lang">English</span><a href="trusted-agents-short-leash/">Trusted, Used Daily — and Kept on a Short Leash</a><p class="desc">G2 reads 3,222 enterprise reviews: 77% trust their agent, 7% would grant total autonomy, and 79% ask for visibility and control first. The market buys supervision.</p></li><li><span class="lang">English</span><a href="first-hour-of-an-outage-is-search/">The First Hour of an Outage Is a Search Problem</a><p class="desc">Freshworks buys Robusta Dev: AI SRE agents that search telemetry, logs and changes, show the evidence, and leave production approval with engineers.</p></li><li><span class="lang">English</span><a href="let-the-agent-choose/">Let the Agent Choose, Let the Workflow Execute</a><p class="desc">AWS turns existing Step Functions workflows into tools for AI agents through AgentCore Gateway — freedom at the decision, rigidity at the execution.</p></li></ul><h2>Security</h2><ul><li><span class="lang">English</span><a href="the-sleeper-in-the-weights/">The Sleeper in the Weights: Judge the Action, Not the Model</a><p class="desc">A Hugging Face experiment shows a backdoor planted in pretraining can pass every behavioural scan — and only an action gate stops the payload.</p></li><li><span class="lang">English</span><a href="volta-stealer-ranks-its-victims/">The Stealer That Ranks Its Victims</a><p class="desc">Cisco Talos analysis of VOLTA, a Windows infostealer that sends a structured dossier to a commercial AI model for a ranked victim appraisal, and the defence lessons that follow.</p></li><li><span class="lang">Español</span><a href="zero-trust-para-agentes/">Zero Trust para agentes: identidad después de OAuth</a><p class="desc">Confianza cero para agentes: identidad propia, permisos mínimos y registro verificable.</p></li><li><span class="lang">English</span><a href="watching-the-watchers-misalignment-monitors/">Watching the Watchers: Four Layers of Monitors, and the Blind Spot They Admit</a><p class="desc">OpenAI details four escalating monitor layers and a replay that alerts 30 minutes after a sandbox escape — plus an admitted 0% recall when inference runs unmonitored.</p></li><li><span class="lang">English</span><a href="attacker-runs-a-team-of-agents/">The Attacker Now Runs a Team of Agents, Not a Keyboard</a><p class="desc">CrowdStrike attributes a 200-organisation campaign to VAPOR PANDA and the ARTEX agent framework. Defence has to reason in teams of agents too.</p></li><li><span class="lang">English</span><a href="the-document-is-untrusted-content/">The Document Is Untrusted Content</a><p class="desc">Claims documents are untrusted content, injection will sometimes succeed, and the lethal trifecta names the audit: sensitive data, untrusted content, network access.</p></li></ul><h2>Data & meaning</h2><ul><li><span class="lang">English</span><a href="bad-data/">Bad Data: How Poor Quality Data Can Impact Your Bottom Line</a><p class="desc">Bad data bills everyone, twice — we clean the data before we automate anything.</p></li><li><span class="lang">English</span><a href="semantic-layer-learns-the-business/">A Correct Metric Is Only Step One: Teaching the Semantic Layer the Business Itself</a><p class="desc">Datus Agent gains an OntologyAnalyst subagent and Dosi turns rules like “Premier Customer” into executable, versioned semantics. After definitions come rules; after rules, judgment.</p></li><li><span class="lang">English</span><a href="one-ontology-many-models/">One Vocabulary, Every Model: Governing Meaning Across the Semantic Estate</a><p class="desc">Meaning drifts wherever models multiply. One governed ontology, mapped onto many semantic models, keeps every dashboard and every agent speaking the same language.</p></li><li><span class="lang">English</span><a href="context-graph-permissions-of-the-human/">Context Travels, Authority Stays Personal</a><p class="desc">ZoomInfo's context graph lands inside Snowflake, read by agents through the permissions of the person asking — context travels, authority stays personal.</p></li><li><span class="lang">English</span><a href="one-hour-of-audio-one-context/">One Hour of Audio, One Context</a><p class="desc">NVIDIA Nemotron 3.5 Transcribe holds a full hour of recorded audio in a single 65,536-token context — sound becomes first-class context.</p></li></ul><h2>AI at scale</h2><ul><li><span class="lang">English</span><a href="nvidia-vera-rubin-oracle-scale/">When the AI Factory Is Measured in Gigawatts</a><p class="desc">NVIDIA and Oracle take AI capacity to multi-gigawatt scale — the building becomes a power project first, and operations becomes the discipline.</p></li><li><span class="lang">English</span><a href="mistral-large-4-open-weights/">Open Weights, Open Operations: Mistral Large 4</a><p class="desc">A trillion parameters, free to download and run — open weights move sovereignty and the cost question in-house.</p></li><li><span class="lang">English</span><a href="edge-ai-dgx-spark-tensorrt/">The Cloud, Down to Desk Size: Edge AI on DGX Spark</a><p class="desc">NVIDIA runs Nemotron-3.5 Lightning on a 64GB desk machine with one runtime from prototype to Thor deployment — local agents, measured honestly.</p></li><li><span class="lang">English</span><a href="diffusion-models-write-in-parallel/">Writing in Parallel: The Diffusion Model That Drafts the Whole Page at Once</a><p class="desc">DiffuSpace Clover-35B drafts whole blocks at once instead of one token at a time — generation order becomes a design choice, and parallel drafting changes what agents can attempt.</p></li><li><span class="lang">English</span><a href="speed-is-a-craft-choice/">Speed Is a Craft Choice: Decoding Belongs in the Design Phase</a><p class="desc">NVIDIA-reported DSpark gains show decoding strategy moving real numbers while the first token barely moves — a design-phase decision, not an afterthought.</p></li></ul><h2>Virtual production</h2><ul><li><span class="lang">English</span><a href="from-volume-to-intelligence/">From Volume to Intelligence: Virtual Production in the Age of Real-Time AI</a><p class="desc">Some skills come full circle — sound design, MELS, and the LED volume, next to artificial intelligence and machine learning.</p></li><li><span class="lang">English</span><a href="fly-a-lancaster-on-an-led-stage/">Fly a Lancaster on an LED Stage — With a 1/32 Model</a><p class="desc">Garden Studios tests a 1/32 Lancaster miniature on a permanent LED stage for A Memory Owed — and publishes the honest verdict. One test day beats a month of quoting.</p></li><li><span class="lang">English</span><a href="virtual-production-free-tier/">The Volume at Zero Dollars: Virtual Production Anyone Can Try</a><p class="desc">Pixotope 26.3.0 lands on Unreal Engine 5.8.3 and opens a free Discovery tier — the entry cost of the volume drops to zero dollars.</p></li></ul><h2>From Ovia</h2><ul><li><span class="lang">Français</span><a href="le-retour-ovia/">Le retour d'Ovia : quatre ans de Context Engineering</a><p class="desc">Nous sommes de retour — context engineering, agents IA et systèmes de données, depuis décembre 2022.</p></li></ul><footer>
-    <p><a href="../">Ovia Inc</a> · Source on GitHub: <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></p>
-  <p><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p></footer>
+  <div class="iss-head">
+    <p class="kick">2026 · Fourth quarter · The first issue</p>
+    <h1 class="disp">2026 Q4</h1>
+    <p class="stand serif">Notes from the studio and the lab — what we are learning about AI agents, data, security and virtual production, written as we work. Every piece is its own magazine feature, with its own layout, palette and photography.</p>
+  </div>
+  <figure class="coverfig">
+    <img src="https://oviainc.github.io/ai-services/articles/zero-trust-para-agentes/ovia-inc-zero-trust-para-agentes-hero.webp" alt="Ovia Inc — Zero Trust para agentes: identidad después de OAuth, cover image">
+    <figcaption><b>On the cover:</b> Zero Trust para agentes: identidad después de OAuth — the cover story, in Security. Design inspired by Steven Meisel — Vogue Italia.</figcaption>
+  </figure>
+  <section class="feat" aria-label="Cover story">
+    <div class="img" role="img" aria-label="Ovia Inc — Zero Trust para agentes: identidad después de OAuth" style="background-image:url('https://oviainc.github.io/ai-services/articles/zero-trust-para-agentes/ovia-inc-zero-trust-para-agentes-hero.webp')"></div>
+    <div class="tx">
+      <div class="abar" style="background:#E5484D"></div>
+      <p class="kick">Cover story · Security</p>
+      <h2><a href="zero-trust-para-agentes/">Zero Trust para agentes: identidad después de OAuth</a></h2>
+      <p>Confianza cero para agentes: identidad propia, permisos mínimos y registro verificable.</p>
+      <p class="meta">Español · 6 min read · Design inspired by Steven Meisel — Vogue Italia</p>
+      <a class="read" href="zero-trust-para-agentes/">Read the cover story</a>
+    </div>
+  </section>
+  <nav class="jump" aria-label="Departments"><a href="#dept-agents-operations">01 · Agents &amp; operations</a><a href="#dept-security">02 · Security</a><a href="#dept-data-meaning">03 · Data &amp; meaning</a><a href="#dept-ai-at-scale">04 · AI at scale</a><a href="#dept-virtual-production">05 · Virtual production</a><a href="#dept-from-ovia">06 · From Ovia</a></nav>
+  <section class="dept" id="dept-agents-operations">
+    <div class="dept-h"><span class="num disp">01</span><h2>Agents &amp; operations</h2><span class="cnt">8 pieces</span></div>
+    <div class="grid"><a class="card" href="where-the-failure-began/">
+        <div class="im" role="img" aria-label="Ovia Inc — Where the Failure Began: Attribution Before Recovery" style="background-image:url('https://oviainc.github.io/ai-services/articles/where-the-failure-began/ovia-inc-where-the-failure-began-hero.webp')"></div>
+        <div class="tx"><div class="abar" style="background:#FFD60A"></div>
+        <h3>Where the Failure Began: Attribution Before Recovery</h3><p>NVIDIA open sourced Attribution, the system that traces distributed workload failures back to the first fault — and Recovery, the loop that acts on the verdict.</p>
+        <p class="meta">English · 7 min read</p></div></a><div class="rows"><a class="row" href="guardrail-before-the-tool-call/"><span class="bar" style="background:#0F766E"></span><span><h3>The Guardrail Before the Tool Call: safeagents Checks the Agent First</h3><p>Hugging Face safeagents stations a local proxy between a coding agent and its model server, checking every tool call before the harness can run it.</p><p class="meta">English · 7 min read</p></span></a><a class="row" href="plan-on-the-shipping-datasheet/"><span class="bar" style="background:#4FA8E0"></span><span><h3>Plan on the Shipping Datasheet</h3><p>NVIDIA&#x27;s shipping specifications for the Rubin GPU revise the bandwidth figures the industry planned around — and reward the teams that re-baseline on documents, not keynotes.</p><p class="meta">English · 7 min read</p></span></a><a class="row" href="first-answer-from-orbit/"><span class="bar" style="background:#5EEAD4"></span><span><h3>The First Answer From Orbit</h3><p>Google&#x27;s Project Suncatcher prototype returned the first AI response from a data center class TPU in orbit — a haiku, and a lesson in context as a contact window.</p><p class="meta">English · 7 min read</p></span></a><a class="row" href="agentic-observatory-seti-search/"><span class="bar" style="background:#9FB7FF"></span><span><h3>The Observatory That Takes Instructions: Agentic AI Joins the Search</h3><p>Agents steer the Allen Telescope Array from a single plain-language request — context engineering at telescope scale, with a pulsar found live in the stream.</p><p class="meta">English · 6 min read</p></span></a><a class="row" href="trusted-agents-short-leash/"><span class="bar" style="background:#8B7FE8"></span><span><h3>Trusted, Used Daily — and Kept on a Short Leash</h3><p>G2 reads 3,222 enterprise reviews: 77% trust their agent, 7% would grant total autonomy, and 79% ask for visibility and control first. The market buys supervision.</p><p class="meta">English · 7 min read</p></span></a><a class="row" href="first-hour-of-an-outage-is-search/"><span class="bar" style="background:#D6455B"></span><span><h3>The First Hour of an Outage Is a Search Problem</h3><p>Freshworks buys Robusta Dev: AI SRE agents that search telemetry, logs and changes, show the evidence, and leave production approval with engineers.</p><p class="meta">English · 6 min read</p></span></a><a class="row" href="let-the-agent-choose/"><span class="bar" style="background:#38BDF8"></span><span><h3>Let the Agent Choose, Let the Workflow Execute</h3><p>AWS turns existing Step Functions workflows into tools for AI agents through AgentCore Gateway — freedom at the decision, rigidity at the execution.</p><p class="meta">English · 6 min read</p></span></a></div></div>
+  </section><section class="dept" id="dept-security">
+    <div class="dept-h"><span class="num disp">02</span><h2>Security</h2><span class="cnt">6 pieces</span></div>
+    <div class="grid"><a class="card" href="the-sleeper-in-the-weights/">
+        <div class="im" role="img" aria-label="Ovia Inc — The Sleeper in the Weights: Judge the Action, Not the Model" style="background-image:url('https://oviainc.github.io/ai-services/articles/the-sleeper-in-the-weights/ovia-inc-the-sleeper-in-the-weights-hero.webp')"></div>
+        <div class="tx"><div class="abar" style="background:#F43F5E"></div>
+        <h3>The Sleeper in the Weights: Judge the Action, Not the Model</h3><p>A Hugging Face experiment shows a backdoor planted in pretraining can pass every behavioural scan — and only an action gate stops the payload.</p>
+        <p class="meta">English · 7 min read</p></div></a><div class="rows"><a class="row" href="volta-stealer-ranks-its-victims/"><span class="bar" style="background:#D946EF"></span><span><h3>The Stealer That Ranks Its Victims</h3><p>Cisco Talos analysis of VOLTA, a Windows infostealer that sends a structured dossier to a commercial AI model for a ranked victim appraisal, and the defence lessons that follow.</p><p class="meta">English · 7 min read</p></span></a><a class="row" href="zero-trust-para-agentes/"><span class="bar" style="background:#E5484D"></span><span><h3>Zero Trust para agentes: identidad después de OAuth</h3><p>Confianza cero para agentes: identidad propia, permisos mínimos y registro verificable.</p><p class="meta">Español · 6 min read</p></span></a><a class="row" href="watching-the-watchers-misalignment-monitors/"><span class="bar" style="background:#2BB3A3"></span><span><h3>Watching the Watchers: Four Layers of Monitors, and the Blind Spot They Admit</h3><p>OpenAI details four escalating monitor layers and a replay that alerts 30 minutes after a sandbox escape — plus an admitted 0% recall when inference runs unmonitored.</p><p class="meta">English · 7 min read</p></span></a><a class="row" href="attacker-runs-a-team-of-agents/"><span class="bar" style="background:#C9A227"></span><span><h3>The Attacker Now Runs a Team of Agents, Not a Keyboard</h3><p>CrowdStrike attributes a 200-organisation campaign to VAPOR PANDA and the ARTEX agent framework. Defence has to reason in teams of agents too.</p><p class="meta">English · 6 min read</p></span></a><a class="row" href="the-document-is-untrusted-content/"><span class="bar" style="background:#F0742B"></span><span><h3>The Document Is Untrusted Content</h3><p>Claims documents are untrusted content, injection will sometimes succeed, and the lethal trifecta names the audit: sensitive data, untrusted content, network access.</p><p class="meta">English · 7 min read</p></span></a></div></div>
+  </section><section class="dept" id="dept-data-meaning">
+    <div class="dept-h"><span class="num disp">03</span><h2>Data &amp; meaning</h2><span class="cnt">5 pieces</span></div>
+    <div class="grid"><a class="card" href="bad-data/">
+        <div class="im" role="img" aria-label="Ovia Inc — Bad Data: How Poor Quality Data Can Impact Your Bottom Line" style="background-image:url('https://oviainc.github.io/ai-services/articles/bad-data/ovia-inc-bad-data-hero.webp')"></div>
+        <div class="tx"><div class="abar" style="background:#4D7CFE"></div>
+        <h3>Bad Data: How Poor Quality Data Can Impact Your Bottom Line</h3><p>Bad data bills everyone, twice — we clean the data before we automate anything.</p>
+        <p class="meta">English · 7 min read</p></div></a><div class="rows"><a class="row" href="semantic-layer-learns-the-business/"><span class="bar" style="background:#7C8CF8"></span><span><h3>A Correct Metric Is Only Step One: Teaching the Semantic Layer the Business Itself</h3><p>Datus Agent gains an OntologyAnalyst subagent and Dosi turns rules like “Premier Customer” into executable, versioned semantics. After definitions come rules; after rules, judgment.</p><p class="meta">English · 7 min read</p></span></a><a class="row" href="one-ontology-many-models/"><span class="bar" style="background:#CE7A87"></span><span><h3>One Vocabulary, Every Model: Governing Meaning Across the Semantic Estate</h3><p>Meaning drifts wherever models multiply. One governed ontology, mapped onto many semantic models, keeps every dashboard and every agent speaking the same language.</p><p class="meta">English · 7 min read</p></span></a><a class="row" href="context-graph-permissions-of-the-human/"><span class="bar" style="background:#E35D9F"></span><span><h3>Context Travels, Authority Stays Personal</h3><p>ZoomInfo&#x27;s context graph lands inside Snowflake, read by agents through the permissions of the person asking — context travels, authority stays personal.</p><p class="meta">English · 7 min read</p></span></a><a class="row" href="one-hour-of-audio-one-context/"><span class="bar" style="background:#9333EA"></span><span><h3>One Hour of Audio, One Context</h3><p>NVIDIA Nemotron 3.5 Transcribe holds a full hour of recorded audio in a single 65,536-token context — sound becomes first-class context.</p><p class="meta">English · 7 min read</p></span></a></div></div>
+  </section><section class="dept" id="dept-ai-at-scale">
+    <div class="dept-h"><span class="num disp">04</span><h2>AI at scale</h2><span class="cnt">5 pieces</span></div>
+    <div class="grid"><a class="card" href="nvidia-vera-rubin-oracle-scale/">
+        <div class="im" role="img" aria-label="Ovia Inc — When the AI Factory Is Measured in Gigawatts" style="background-image:url('https://oviainc.github.io/ai-services/articles/nvidia-vera-rubin-oracle-scale/ovia-inc-nvidia-vera-rubin-oracle-scale-hero.webp')"></div>
+        <div class="tx"><div class="abar" style="background:#76B900"></div>
+        <h3>When the AI Factory Is Measured in Gigawatts</h3><p>NVIDIA and Oracle take AI capacity to multi-gigawatt scale — the building becomes a power project first, and operations becomes the discipline.</p>
+        <p class="meta">English · 7 min read</p></div></a><div class="rows"><a class="row" href="mistral-large-4-open-weights/"><span class="bar" style="background:#D9822B"></span><span><h3>Open Weights, Open Operations: Mistral Large 4</h3><p>A trillion parameters, free to download and run — open weights move sovereignty and the cost question in-house.</p><p class="meta">English · 7 min read</p></span></a><a class="row" href="edge-ai-dgx-spark-tensorrt/"><span class="bar" style="background:#E0A81C"></span><span><h3>The Cloud, Down to Desk Size: Edge AI on DGX Spark</h3><p>NVIDIA runs Nemotron-3.5 Lightning on a 64GB desk machine with one runtime from prototype to Thor deployment — local agents, measured honestly.</p><p class="meta">English · 7 min read</p></span></a><a class="row" href="diffusion-models-write-in-parallel/"><span class="bar" style="background:#CE8450"></span><span><h3>Writing in Parallel: The Diffusion Model That Drafts the Whole Page at Once</h3><p>DiffuSpace Clover-35B drafts whole blocks at once instead of one token at a time — generation order becomes a design choice, and parallel drafting changes what agents can attempt.</p><p class="meta">English · 7 min read</p></span></a><a class="row" href="speed-is-a-craft-choice/"><span class="bar" style="background:#B7D929"></span><span><h3>Speed Is a Craft Choice: Decoding Belongs in the Design Phase</h3><p>NVIDIA-reported DSpark gains show decoding strategy moving real numbers while the first token barely moves — a design-phase decision, not an afterthought.</p><p class="meta">English · 7 min read</p></span></a></div></div>
+  </section><section class="dept" id="dept-virtual-production">
+    <div class="dept-h"><span class="num disp">05</span><h2>Virtual production</h2><span class="cnt">3 pieces</span></div>
+    <div class="grid"><a class="card" href="from-volume-to-intelligence/">
+        <div class="im" role="img" aria-label="Ovia Inc — From Volume to Intelligence: Virtual Production in the Age of Real-Time AI" style="background-image:url('https://oviainc.github.io/ai-services/articles/from-volume-to-intelligence/ovia-inc-from-volume-to-intelligence-hero.webp')"></div>
+        <div class="tx"><div class="abar" style="background:#E8A33D"></div>
+        <h3>From Volume to Intelligence: Virtual Production in the Age of Real-Time AI</h3><p>Some skills come full circle — sound design, MELS, and the LED volume, next to artificial intelligence and machine learning.</p>
+        <p class="meta">English · 7 min read</p></div></a><div class="rows"><a class="row" href="fly-a-lancaster-on-an-led-stage/"><span class="bar" style="background:#C8A165"></span><span><h3>Fly a Lancaster on an LED Stage — With a 1/32 Model</h3><p>Garden Studios tests a 1/32 Lancaster miniature on a permanent LED stage for A Memory Owed — and publishes the honest verdict. One test day beats a month of quoting.</p><p class="meta">English · 7 min read</p></span></a><a class="row" href="virtual-production-free-tier/"><span class="bar" style="background:#4FD1A5"></span><span><h3>The Volume at Zero Dollars: Virtual Production Anyone Can Try</h3><p>Pixotope 26.3.0 lands on Unreal Engine 5.8.3 and opens a free Discovery tier — the entry cost of the volume drops to zero dollars.</p><p class="meta">English · 7 min read</p></span></a></div></div>
+  </section><section class="dept" id="dept-from-ovia">
+    <div class="dept-h"><span class="num disp">06</span><h2>From Ovia</h2><span class="cnt">1 piece</span></div>
+    <div class="grid"><a class="card" href="le-retour-ovia/">
+        <div class="im" role="img" aria-label="Ovia Inc — Le retour d&#x27;Ovia : quatre ans de Context Engineering" style="background-image:url('https://oviainc.github.io/ai-services/articles/le-retour-ovia/ovia-inc-le-retour-ovia-hero.webp')"></div>
+        <div class="tx"><div class="abar" style="background:#7FA8C9"></div>
+        <h3>Le retour d&#x27;Ovia : quatre ans de Context Engineering</h3><p>Nous sommes de retour — context engineering, agents IA et systèmes de données, depuis décembre 2022.</p>
+        <p class="meta">Français · 7 min read</p></div></a><div class="rows"></div></div>
+  </section>
+  <p style="margin:54px 0 8px;color:var(--muted);">New pieces appear in the current issue first, then travel to LinkedIn and Medium.</p>
 </main>
+<footer>
+
+<p class="wf"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+<p>Ovia Inc · #toyoursatisfaction</p>
+</footer>
 </body>
 </html>
