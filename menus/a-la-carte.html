@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Ovia Inc">
+<meta name="description" content="Summer Menu — Ovia Inc. One menu. Multiple architectures. A tasting journey through the frontier of intelligence. #toyoursatisfaction">
+<title>À La Carte — Ovia Inc</title>
+<link rel="icon" type="image/png" href="assets/ovia-inc-logo-black.png">
+<style>
+
+:root{--serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;--sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:#000;font-family:var(--serif);font-size:1.125rem;line-height:1.6;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+header{text-align:center;padding:5.5rem 0 2.75rem;border-bottom:1px solid #000;margin-bottom:1rem}
+h1{font-style:italic;font-weight:400;font-size:clamp(3.1rem,8vw,5.25rem);line-height:1.02;letter-spacing:-.015em;margin:0}
+.sub{font-family:var(--sans);letter-spacing:.42em;text-transform:uppercase;font-size:.78rem;margin:1.1rem 0 0;padding-left:.42em}
+nav{text-align:center;padding:1.4rem 0 0;font-family:var(--sans)}
+nav a{color:#000;text-decoration:none;letter-spacing:.26em;text-transform:uppercase;margin:0 .85rem;font-size:.7rem;font-weight:600;line-height:2.2}
+nav a:hover{text-decoration:underline;text-underline-offset:.35em;text-decoration-thickness:1px}
+section{padding-top:1rem}
+h2{display:flex;align-items:center;gap:1.5rem;text-align:center;font-family:var(--sans);letter-spacing:.48em;padding-left:.48em;font-size:.82rem;font-weight:600;margin:4.75rem 0 2.75rem;text-transform:uppercase}
+h2::before,h2::after{content:"";flex:1;height:1px;background:#000}
+.lede{max-width:42rem;margin:2rem auto 1rem;text-align:center;font-size:1.28rem;line-height:1.55;font-style:italic}
+.grid{display:grid;gap:4.5rem 3rem;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));counter-reset:dish}
+.card{background:#fff;text-align:center}
+.card::before{counter-increment:dish;content:counter(dish,decimal-leading-zero);display:block;font-family:var(--sans);font-size:.68rem;font-weight:400;letter-spacing:.34em;padding-left:.34em;margin-bottom:1.1rem}
+.card img{width:100%;height:21rem;object-fit:cover;display:block;mix-blend-mode:multiply;margin-bottom:1.35rem}
+.card h3{margin:0 0 .65rem;font-weight:400;font-size:1.62rem;line-height:1.18}
+.card p{margin:0 auto 1rem;max-width:21rem}
+.card .comp{font-family:var(--sans);font-style:normal;text-transform:uppercase;letter-spacing:.13em;font-size:.7rem;line-height:1.85;font-weight:600}
+.card .tag{font-style:italic;font-size:1.06rem}
+.card .tag::before{content:"— "}
+.card .pairs{font-family:var(--sans);letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;font-weight:600}
+.card a{color:#000;text-decoration:none}
+.card a:hover h3{text-decoration:underline;text-underline-offset:.22em;text-decoration-thickness:1px}
+footer{text-align:center;padding:3.5rem 0 4rem;margin-top:5.5rem;border-top:1px solid #000}
+footer nav{padding-top:0}
+footer img{width:4rem;height:auto;margin-top:2.25rem}
+footer p{margin:.9rem 0}
+footer p:first-of-type{font-family:var(--sans);letter-spacing:.38em;padding-left:.38em;font-size:.78rem;font-weight:600}
+.print-tab{position:fixed;top:1rem;right:1rem;background:#000;color:#fff;border:1px solid #000;padding:.7rem 1.3rem;font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;cursor:pointer;z-index:10}
+.print-tab:hover{background:#fff;color:#000}
+@media(max-width:40rem){body{font-size:1.05rem}header{padding-top:3.75rem}.wrap{padding:0 1.1rem}.grid{gap:3rem}.card img{height:16rem}nav a{margin:0 .5rem}}
+
+
+ .card{transition:opacity .6s ease,transform .6s ease}
+ .card.pre{opacity:0;transform:translateY(10px)}
+ .card.dish{cursor:zoom-in}
+ .card.dish img{transition:transform .6s ease}
+ .card.dish:hover img{transform:scale(1.02)}
+ .filters{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin:2.25rem 0 0;font-family:var(--sans)}
+ .chip{border:1px solid #000;background:#fff;color:#000;padding:.45rem 1.05rem;font-family:inherit;font-size:.68rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;cursor:pointer}
+ .chip.on{background:#000;color:#fff}
+ section.off{display:none}
+ .dish-view{position:fixed;inset:0;background:#fff;z-index:40;display:none;overflow:auto}
+ .dish-view.open{display:block}
+ .dv-wrap{max-width:72rem;margin:0 auto;padding:3rem 1.5rem 4rem;text-align:center}
+ .dv-num{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase}
+ .dv-zoom{height:78vh;overflow:hidden;margin:1.5rem 0;cursor:zoom-in;touch-action:pan-y;position:relative}
+.dv-zoom{-webkit-user-select:none;user-select:none}
+.dv-zoom img{-webkit-user-drag:none}
+.dv-zoom.zoomed{touch-action:none}
+.dv-cap{position:absolute;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #000;padding:.7rem 1rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.35rem 1rem;align-items:baseline;pointer-events:none;text-align:left;z-index:2}
+.dv-cap-t{font-size:1.05rem}
+.dv-cap-c{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-align:right}
+.dv-zoom img{position:absolute;left:0;top:0;max-width:none;mix-blend-mode:multiply;display:block}
+.dv-zoom.zoomed{cursor:grab}
+.dv-zoom.drag{cursor:grabbing}
+.dv-tools{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;align-items:center;margin:0 0 1.25rem;font-family:var(--sans)}
+.dv-pct{min-width:4.5rem;text-align:center;font-size:.7rem;font-weight:600;letter-spacing:.2em}
+.dv-hint{font-family:var(--sans);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;margin:-.25rem 0 1rem}
+@media print{.dv-tools,.dv-hint{display:none}}
+ .dv-wrap h3{font-weight:400;font-size:clamp(2.2rem,4.5vw,3rem);line-height:1.15;margin:.8rem 0 .7rem}
+ .dv-comp{font-family:var(--sans);text-transform:uppercase;letter-spacing:.13em;font-size:.72rem;line-height:1.85;font-weight:600}
+ .dv-wrap p{max-width:34rem;margin:0 auto 1rem}
+ .dv-tag{font-style:italic}
+ .dv-close{position:fixed;top:1rem;right:1rem;background:#000;color:#fff;border:1px solid #000;padding:.7rem 1.3rem;font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;cursor:pointer;z-index:41}
+ .dv-close:hover{background:#fff;color:#000}
+ .dv-nav{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:2.75rem}
+ .dv-btn{border:1px solid #000;background:#fff;color:#000;padding:.65rem 1.25rem;font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;cursor:pointer}
+ .dv-btn:hover{background:#000;color:#fff}
+ @media print{.filters{display:none}.dish-view{display:none!important}.card{opacity:1!important;transform:none!important}}
+ @media print{.print-tab{display:none}nav{display:none}body{font-size:11pt}header{padding:1.5rem 0 1rem;box-shadow:none}footer{box-shadow:none}.card{break-inside:avoid}h2{break-after:avoid}}
+</style>
+
+<style>
+.grid{grid-template-columns:1fr;max-width:34rem;margin-left:auto;margin-right:auto}
+.card p{max-width:26rem}
+</style>
+
+<style>
+.reserve-btn{display:inline-block;border:1px solid #000;padding:.85rem 1.7rem;font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.26em;padding-left:calc(1.7rem + .26em);text-transform:uppercase;color:#000;text-decoration:none;background:#fff}
+.reserve-btn:hover{background:#000;color:#fff}
+</style>
+<style>
+header .logo{width:4rem;height:auto;display:block;margin:0 auto 1.5rem}
+</style>
+<style>
+.season-icon{width:2.4rem;height:2.4rem;display:block;margin:0 auto 1rem}
+.card .season-icon{width:2rem;height:2rem;margin:0 auto .7rem}
+</style>
+</head>
+<body>
+<button class="print-tab" onclick="window.print()" aria-label="Print this menu">Print</button>
+<div class="wrap">
+<header><img class="logo" src="assets/ovia-inc-logo-black.png" alt="Ovia Inc — logo"><svg class="season-icon" viewBox="0 0 48 48" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 33a13 13 0 0 1 26 0"/><path d="M6 38h36"/><circle cx="24" cy="16.5" r="2.2"/><path d="M24 18.7v1.3"/></svg><h1>À La Carte</h1><p class="sub">Ovia Inc</p><nav><a href="index.html">Menus</a><a href="spring.html">Spring</a><a href="summer.html">Summer</a><a href="autumn.html">Autumn</a><a href="winter.html">Winter</a></nav></header>
+<main>
+<p class="lede">The Tech à la Carte retainer, served by the dish — sixteen dishes in four courses, ordered individually and apart from the seasons, exactly as published on the house LinkedIn carte. At the head stands Carte Blanche: the whole carte, held open on standing order.</p>
+<section><h2>CARTE BLANCHE</h2><div class="grid"><article class="card"><img src="assets/ovia-inc-menus-the-standing-reservation.jpg" alt="Ovia Inc — Carte Blanche" loading="lazy"><h3>Carte Blanche</h3><p class="comp">Tech à la Carte · The Whole Carte, on Standing Order</p><p>The retainer, ordered whole — every dish on this carte, held open for one table. Questions answered as they arise, systems watched between courses, and new work begun without a fresh booking each time.</p><p class="tag">The table is always set.</p></article></div></section><section><h2>ENTRÉES</h2><p class="lede" style="text-align:center;margin:-.5rem auto 2.25rem">Consulting & Strategy</p><div class="grid"><article class="card"><img src="assets/ovia-inc-menus-tartare-de-reseau.jpg" alt="Ovia Inc — Tartare de Réseau" loading="lazy"><h3>Tartare de Réseau</h3><p class="comp">Hand-Cut Beef · Cured Egg Yolk · Capers · Fine Herbs</p><p>Raw material, cut by hand and seasoned at the table. On the carte, it is the first discipline of the house: raw data transformed into valuable insights — nothing cooked away, everything made legible.</p><p class="tag">Raw, read correctly.</p></article><article class="card"><img src="assets/ovia-inc-menus-gazpacho-de-flux-de-donnees.jpg" alt="Ovia Inc — Gazpacho de Flux de Données" loading="lazy"><h3>Gazpacho de Flux de Données</h3><p class="comp">Tomato · Cucumber · Pepper · Olive Oil</p><p>A cold soup that moves — everything suspended, nothing waiting to be served. It stands for real-time systems set up for faster decision-making: the flow arrives fresh, and the table decides while it is still bright.</p><p class="tag">Decided in real time.</p></article><article class="card"><img src="assets/ovia-inc-menus-croquettes-de-modele-raffinees.jpg" alt="Ovia Inc — Croquettes de Modèle Raffinées" loading="lazy"><h3>Croquettes de Modèle Raffinées</h3><p class="comp">Golden Crumb · Herb Aioli · Lemon</p><p>Crisp outside, exact inside — a familiar form, refined pass by pass. The work it names: improving models for greater accuracy, until the bite is clean.</p><p class="tag">Accuracy, refined.</p></article><article class="card"><img src="assets/ovia-inc-menus-carpaccio-de-reduction-dimensionnelle.jpg" alt="Ovia Inc — Carpaccio de Réduction Dimensionnelle" loading="lazy"><h3>Carpaccio de Réduction Dimensionnelle</h3><p class="comp">Beef · Parmesan · Rocket · Lemon Oil</p><p>Sliced thin enough to read through. Dimensionality reduction, plated: complex data made easier to analyze and to act upon, with nothing essential lost in the thinning.</p><p class="tag">Thin enough to read.</p></article><article class="card"><img src="assets/ovia-inc-menus-reserve-algorithmique-rouge.jpg" alt="Ovia Inc — Réserve Algorithmique Rouge" loading="lazy"><h3>Réserve Algorithmique Rouge</h3><p class="comp">Red Wine · Reduction · The House Reserve</p><p>The reserve is chosen, never poured by default. It is the house choosing the best AI and machine-learning methods for the business at the table — the right bottle for the meal actually being served.</p><p class="tag">Chosen, not defaulted.</p></article></div></section><section><h2>PLATS PRINCIPAUX</h2><p class="lede" style="text-align:center;margin:-.5rem auto 2.25rem">Advanced Solutions</p><div class="grid"><article class="card"><img src="assets/ovia-inc-menus-poele-d-inference.jpg" alt="Ovia Inc — Poêlé d'Inférence" loading="lazy"><h3>Poêlé d'Inférence</h3><p class="comp">Seared Scallops · Crisp-Skinned Fish · Beurre Blanc</p><p>From a hot pan straight to the table — no holding, no delay. Inference served the same way: real-time predictions for immediate business impact.</p><p class="tag">Predicted in real time.</p></article><article class="card"><img src="assets/ovia-inc-menus-cote-de-boeuf-apprentissage-profond.jpg" alt="Ovia Inc — Côte de Bœuf Apprentissage Profond" loading="lazy"><h3>Côte de Bœuf Apprentissage Profond</h3><p class="comp">Côte de Bœuf · Flaked Salt · Jus</p><p>The largest cut on the carte, built to be shared. Deep learning in the same spirit: robust, advanced AI models, built and tailored to the needs of the house that orders them.</p><p class="tag">Built deep, built to last.</p></article><article class="card"><img src="assets/ovia-inc-menus-paella-predictive.jpg" alt="Ovia Inc — Paella Prédictive" loading="lazy"><h3>Paella Prédictive</h3><p class="comp">Saffron Rice · Prawns · Mussels · Lemon</p><p>Everything in the pan is there because of what the table will want next. Predictive work, plated: future trends anticipated, and demand forecast with precision.</p><p class="tag">Tomorrow, already in the pan.</p></article><article class="card"><img src="assets/ovia-inc-menus-ramen-renforcement.jpg" alt="Ovia Inc — Ramen Renforcement" loading="lazy"><h3>Ramen Renforcement</h3><p class="comp">Rich Broth · Noodles · Seasoned Egg · Nori</p><p>A broth that improves every time it is made. Reinforcement learning as a bowl: self-learning agents that adapt to their environment, course after course.</p><p class="tag">Learns from every bowl.</p></article></div></section><section><h2>DESSERTS</h2><p class="lede" style="text-align:center;margin:-.5rem auto 2.25rem">Analysis & Optimization</p><div class="grid"><article class="card"><img src="assets/ovia-inc-menus-mousse-au-chocolat-descente-de-gradient.jpg" alt="Ovia Inc — Mousse au Chocolat Descente de Gradient" loading="lazy"><h3>Mousse au Chocolat Descente de Gradient</h3><p class="comp">Dark Chocolate · Cocoa · Chocolate Shard</p><p>Lightness reached by descending, step by small step, to the exact texture. Gradient descent as dessert: models optimized and performance improved with advanced techniques.</p><p class="tag">Downhill, precisely.</p></article><article class="card"><img src="assets/ovia-inc-menus-baies-et-creme-sortie-de-donnees.jpg" alt="Ovia Inc — Baies et Crème Sortie de Données" loading="lazy"><h3>Baies et Crème Sortie de Données</h3><p class="comp">Mixed Berries · Vanilla Cream · Mint</p><p>The output course — everything gathered, made visible at last. Data output, visualized and made sense of, until the insights can be acted upon.</p><p class="tag">Output that can be read.</p></article><article class="card"><img src="assets/ovia-inc-menus-gateau-opera-d-overfitting.jpg" alt="Ovia Inc — Gâteau Opéra d'Overfitting" loading="lazy"><h3>Gâteau Opéra d'Overfitting</h3><p class="comp">Chocolate · Coffee Buttercream · Gold-Flecked Glaze</p><p>Many layers, each one disciplined — a cake that must succeed in every room, not only in the kitchen that made it. The house ensures its models generalize well for the real world.</p><p class="tag">Performs beyond the kitchen.</p></article><article class="card"><img src="assets/ovia-inc-menus-sorbet-de-correction-de-biais.jpg" alt="Ovia Inc — Sorbet de Correction de Biais" loading="lazy"><h3>Sorbet de Correction de Biais</h3><p class="comp">Citrus Sorbet · Lemon Zest · Mint</p><p>A palate cleanser with a purpose: it resets what came before. Bias correction, served cold — bias addressed, and fairness ensured in the systems at the table.</p><p class="tag">A fair palate.</p></article></div></section><section><h2>BOISSONS</h2><p class="lede" style="text-align:center;margin:-.5rem auto 2.25rem">Ongoing Support & Maintenance</p><div class="grid"><article class="card"><img src="assets/ovia-inc-menus-essence-petillante-de-scalabilite.jpg" alt="Ovia Inc — Essence Pétillante de Scalabilité" loading="lazy"><h3>Essence Pétillante de Scalabilité</h3><p class="comp">Sparkling Wine · Fine Beads</p><p>Bubbles that keep rising as the glass is filled further. Scalability, poured: systems built to scale as the business grows.</p><p class="tag">Rises as it grows.</p></article><article class="card"><img src="assets/ovia-inc-menus-espresso-de-decision-basee-sur-les-donnees.jpg" alt="Ovia Inc — Espresso de Décision Basée sur les Données" loading="lazy"><h3>Espresso de Décision Basée sur les Données</h3><p class="comp">Espresso · Dark Crema</p><p>Short, strong, and to the point. Data-driven decisions with automated insights — the small cup that sharpens the whole table.</p><p class="tag">Decided by the data.</p></article><article class="card"><img src="assets/ovia-inc-menus-limonade-des-variables-latentes.jpg" alt="Ovia Inc — Limonade des Variables Latentes" loading="lazy"><h3>Limonade des Variables Latentes</h3><p class="comp">Lemonade · Lemon Wheel · Mint</p><p>Clear to look at, with more inside than the surface shows. Latent variables, as lemonade: hidden patterns in the data, discovered — and new opportunities opened.</p><p class="tag">More than the surface shows.</p></article></div></section><section><h2>RESERVE</h2><p style="text-align:center;max-width:34rem;margin:0 auto">These menus are cooked to order — for a private table, a studio evening, or the full season brought home. Places are few, and the season is short.</p><p style="text-align:center;margin:1.4rem auto 0"><a class="reserve-btn" href="https://oviainc.github.io/ai-services/#contact">Ask to reserve</a></p></section>
+</main>
+<footer>
+<nav><a href="index.html">Menus</a><a href="spring.html">Spring</a><a href="summer.html">Summer</a><a href="autumn.html">Autumn</a><a href="winter.html">Winter</a></nav>
+<img src="assets/ovia-inc-logo-black.png" alt="Ovia Inc — logo">
+<p>#TOYOURSATISFACTION</p>
+<p>One menu. Multiple architectures.<br>A tasting journey through the frontier of intelligence.</p> <p style="font-size:.8rem"><a style="color:#000" href="https://oviainc.github.io/ai-services/">Home</a> · <a style="color:#000" href="https://oviainc.github.io/ai-services/articles/">Articles</a> · <a style="color:#000" href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a style="color:#000" href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a style="color:#000" href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a style="color:#000" href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a style="color:#000" href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+  
+</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+function slug(s){return s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");}
+
+var sections=[].slice.call(document.querySelectorAll("main section"));
+var dishes=[];
+sections.forEach(function(sec){
+  var h2=sec.querySelector("h2");
+  var label=h2?h2.textContent.trim():"";
+  var cards=[].slice.call(sec.querySelectorAll(".card"));
+  cards.forEach(function(card,i){
+    if(card.querySelector("a"))return;
+    if(!card.querySelector("h3"))return;
+    card.classList.add("dish");
+    card.setAttribute("tabindex","0");
+    card.setAttribute("role","button");
+    var sl=slug(card.querySelector("h3").textContent);card.id=sl;dishes.push({card:card,label:label,num:i+1,slug:sl});
+  });
+});
+/* Filters */
+var named=sections.filter(function(sec){return sec.querySelector(".card.dish");});
+if(named.length>1){
+  var bar=document.createElement("div");bar.className="filters";
+  var all=document.createElement("button");all.className="chip on";all.type="button";all.textContent="All";bar.appendChild(all);
+  var chips=[all];
+  named.forEach(function(sec){
+    var b=document.createElement("button");b.className="chip";b.type="button";b.textContent=sec.querySelector("h2").textContent.trim();
+    b.addEventListener("click",function(){
+      chips.forEach(function(c){c.classList.remove("on");});b.classList.add("on");
+      named.forEach(function(s){s.classList.toggle("off",s!==sec);});
+    });
+    bar.appendChild(b);chips.push(b);
+  });
+  all.addEventListener("click",function(){
+    chips.forEach(function(c){c.classList.remove("on");});all.classList.add("on");
+    named.forEach(function(s){s.classList.remove("off");});
+  });
+  var main=document.querySelector("main");main.insertBefore(bar,main.firstChild);
+}
+/* Dish view */
+var view=document.createElement("div");view.className="dish-view";view.setAttribute("role","dialog");view.setAttribute("aria-modal","true");
+view.innerHTML='<button class="dv-close" type="button">Close</button><div class="dv-wrap"><p class="dv-num"></p><p class="dv-hint">Pinch, scroll, tap the picture, or use the buttons to zoom &middot; drag to look around</p><div class="dv-zoom"><img alt=""><div class="dv-cap"><span class="dv-cap-t"></span><span class="dv-cap-c"></span></div></div><div class="dv-tools"><button class="dv-btn dv-zout" type="button">Zoom &#8722;</button><span class="dv-pct">100%</span><button class="dv-btn dv-zin" type="button">Zoom +</button><button class="dv-btn dv-zreset" type="button">Reset</button></div><h3></h3><p class="dv-comp"></p><div class="dv-body"></div><div class="dv-nav"><button class="dv-btn dv-prev" type="button">&larr; Previous</button><button class="dv-btn dv-next" type="button">Next &rarr;</button></div></div>';
+document.body.appendChild(view);
+var el={num:view.querySelector(".dv-num"),img:view.querySelector("img"),title:view.querySelector("h3"),comp:view.querySelector(".dv-comp"),body:view.querySelector(".dv-body")};
+var current=-1,lastFocus=null;
+var zoomBox=view.querySelector(".dv-zoom"),pct=view.querySelector(".dv-pct"),zz=1,ztx=0,zty=0,ziW=0,ziH=0;
+function s0(){return ziW?Math.min(zoomBox.clientWidth/ziW,zoomBox.clientHeight/ziH):1;}
+function clampPan(w,h){var W=zoomBox.clientWidth,H=zoomBox.clientHeight;ztx=w<=W?(W-w)/2:Math.min(0,Math.max(W-w,ztx));zty=h<=H?(H-h)/2:Math.min(0,Math.max(H-h,zty));}
+function layoutZoom(){if(!ziW)return;var s=s0()*zz,w=ziW*s,h=ziH*s;clampPan(w,h);var im=el.img;im.style.width=w+"px";im.style.height=h+"px";im.style.left=ztx+"px";im.style.top=zty+"px";pct.textContent=s>=0.99?"Full detail":Math.round(zz*100)+"%";zoomBox.classList.toggle("zoomed",zz>1);}
+function resetZoom(){zz=1;ztx=0;zty=0;layoutZoom();}
+function setZoom(ns){var nz=Math.min(Math.max(2,1.25/s0()),Math.max(1,ns)),cx=zoomBox.clientWidth/2,cy=zoomBox.clientHeight/2,k=nz/zz;ztx=cx-(cx-ztx)*k;zty=cy-(cy-zty)*k;zz=nz;layoutZoom();}
+view.querySelector(".dv-zin").addEventListener("click",function(){setZoom(zz*1.4);});
+view.querySelector(".dv-zout").addEventListener("click",function(){setZoom(zz/1.4);});
+view.querySelector(".dv-zreset").addEventListener("click",resetZoom);
+zoomBox.addEventListener("wheel",function(e){e.preventDefault();setZoom(zz*(e.deltaY<0?1.15:0.87));},{passive:false});
+var drag=null,moved=false,ptrs={},lastDist=0;
+zoomBox.addEventListener("pointerdown",function(e){ptrs[e.pointerId]={x:e.clientX,y:e.clientY};if(Object.keys(ptrs).length===1&&zz>1){drag={x:e.clientX-ztx,y:e.clientY-zty};moved=false;zoomBox.classList.add("drag");}if(zoomBox.setPointerCapture)zoomBox.setPointerCapture(e.pointerId);});
+zoomBox.addEventListener("pointermove",function(e){if(!ptrs[e.pointerId])return;ptrs[e.pointerId]={x:e.clientX,y:e.clientY};var ks=Object.keys(ptrs);if(ks.length===2){var a=ptrs[ks[0]],b=ptrs[ks[1]],dist=Math.hypot(a.x-b.x,a.y-b.y);if(lastDist)setZoom(zz*dist/lastDist);lastDist=dist;drag=null;moved=true;}else if(drag){ztx=e.clientX-drag.x;zty=e.clientY-drag.y;moved=true;layoutZoom();}});
+function ptrUp(e){delete ptrs[e.pointerId];if(Object.keys(ptrs).length<2)lastDist=0;if(!Object.keys(ptrs).length){drag=null;zoomBox.classList.remove("drag");}}
+zoomBox.addEventListener("pointerup",ptrUp);zoomBox.addEventListener("pointercancel",ptrUp);
+zoomBox.addEventListener("click",function(){if(moved){moved=false;return;}setZoom(zz>1?1:2.2);});
+el.img.addEventListener("load",function(){if(el.img.naturalWidth){ziW=el.img.naturalWidth;ziH=el.img.naturalHeight;layoutZoom();}});
+el.img.draggable=false;zoomBox.addEventListener("dragstart",function(e){e.preventDefault();});
+window.addEventListener("resize",function(){if(view.classList.contains("open"))layoutZoom();});
+
+function fill(d){
+  var card=d.card,img=card.querySelector("img");
+  ziW=img?img.naturalWidth:0;ziH=img?img.naturalHeight:0;resetZoom();
+  zoomBox.style.display=img?"":"none";view.querySelector(".dv-tools").style.display=img?"":"none";view.querySelector(".dv-hint").style.display=img?"":"none";
+  el.num.textContent=d.label+" \u00B7 "+("0"+d.num).slice(-2);
+  if(img){el.img.src=img.src;el.img.alt=img.alt;el.img.style.display="";}else{el.img.removeAttribute("src");el.img.style.display="none";}
+  el.title.textContent=card.querySelector("h3").textContent;
+  var capT=view.querySelector(".dv-cap-t");if(capT)capT.textContent=d.label+" \u00B7 "+("0"+d.num).slice(-2)+" \u2014 "+el.title.textContent;
+  var comp=card.querySelector(".comp");el.comp.textContent=comp?comp.textContent:"";el.comp.style.display=comp?"":"none";
+  var capC=view.querySelector(".dv-cap-c");if(capC)capC.textContent=comp?comp.textContent:"";
+  el.body.innerHTML="";
+  [].slice.call(card.querySelectorAll("p")).forEach(function(p){
+    if(p.classList.contains("comp"))return;
+    var q=document.createElement("p");q.textContent=p.textContent;
+    if(p.classList.contains("tag"))q.className="dv-tag";
+    el.body.appendChild(q);
+  });
+}
+function open(i){
+  if(i<0)i=dishes.length-1;if(i>=dishes.length)i=0;current=i;fill(dishes[i]);
+  var was=view.classList.contains("open");
+  view.classList.add("open");document.body.style.overflow="hidden";
+  try{var u="#"+dishes[i].slug;if(was)history.replaceState(null,"",u);else history.pushState(null,"",u);}catch(e){}
+  lastFocus=document.activeElement;view.querySelector(".dv-close").focus();
+}
+function close(skip){
+  view.classList.remove("open");document.body.style.overflow="";
+  if(!skip&&location.hash)try{history.pushState(null,"",location.pathname+location.search);}catch(e){}
+  if(lastFocus&&lastFocus.focus)lastFocus.focus();
+}
+view.querySelector(".dv-close").addEventListener("click",function(){close();});
+view.querySelector(".dv-prev").addEventListener("click",function(){open(current-1);});
+view.querySelector(".dv-next").addEventListener("click",function(){open(current+1);});
+view.addEventListener("click",function(e){if(e.target===view)close();});
+document.addEventListener("keydown",function(e){
+  if(!view.classList.contains("open"))return;
+  if(e.key==="Escape")close();
+  if(e.key==="ArrowLeft")open(current-1);
+  if(e.key==="ArrowRight")open(current+1);
+  if(e.key==="+"||e.key==="=")setZoom(zz*1.4);
+  if(e.key==="-"||e.key==="_")setZoom(zz/1.4);
+  if(e.key==="0")resetZoom();
+});
+dishes.forEach(function(d,i){
+  d.card.addEventListener("click",function(){open(i);});
+  d.card.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();open(i);}});
+});
+
+function dishFromHash(){var h=location.hash.replace(/^#/,"");for(var i=0;i<dishes.length;i++)if(dishes[i].slug===h)return i;return -1;}
+var hi=dishFromHash();if(hi>=0)open(hi);
+window.addEventListener("hashchange",function(){var i=dishFromHash();if(i>=0&&i!==current)open(i);else if(i<0&&view.classList.contains("open"))close(true);});
+/* Scroll reveal */
+if("IntersectionObserver" in window){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.remove("pre");io.unobserve(en.target);}});
+  },{threshold:.1});
+  [].slice.call(document.querySelectorAll(".card")).forEach(function(card){
+    var r=card.getBoundingClientRect();
+    if(r.top>window.innerHeight){card.classList.add("pre");io.observe(card);}
+  });
+}
+})();
+</script>
+</body>
+</html>
