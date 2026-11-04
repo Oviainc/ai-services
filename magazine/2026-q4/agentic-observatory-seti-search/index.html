@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
+<title>The Observatory That Takes Instructions: Agentic AI Joins the Search — Ovia Inc</title>
+<meta name="description" content="On October 30, 2026, NVIDIA reported that Breakthrough Listen and the SETI Institute are bringing agentic AI to the Allen Telescope Array, where agents steer the instrument and process terabits per second in flight.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Observatory That Takes Instructions: Agentic AI Joins the Search">
+<meta property="og:description" content="On October 30, 2026, NVIDIA reported that Breakthrough Listen and the SETI Institute are bringing agentic AI to the Allen Telescope Array, where agents steer the instrument and process terabits per second in flight.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/agentic-observatory-seti-search/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/agentic-observatory-seti-search/ovia-inc-agentic-observatory-seti-search-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#9FB7FF;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* masthead zone over the article background image */
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.52),rgba(10,14,20,.94));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;}
+  .masthead img.logo{height:46px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;text-transform:uppercase;font-weight:700;font-size:clamp(2.5rem,6.4vw,4.7rem);line-height:.99;letter-spacing:.004em;max-width:1020px;}
+  .standfirst{font-size:clamp(1.12rem,2.3vw,1.42rem);font-style:italic;color:var(--muted);max-width:780px;line-height:1.5;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  /* hero */
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;border-radius:2px;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  /* body columns */
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.16rem;line-height:1.75;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,sans-serif;font-size:5.4rem;line-height:.78;float:left;padding:.55rem .9rem 0 0;color:var(--accent);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:36px 0 14px;border-top:2px solid var(--accent);padding-top:14px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;font-size:clamp(1.55rem,3.6vw,2.35rem);line-height:1.3;font-style:italic;text-align:center;color:var(--accent);margin:42px 0;padding:4px 12px;}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;border-radius:2px;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px 20px 10px;margin:0 0 24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .keybox li{margin:0 0 9px 18px;font-size:.95rem;line-height:1.5;}
+  /* references + tags + footer */
+  .refs-sec{margin-top:44px;border-top:1px solid var(--line);padding-top:24px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  p.tags{color:var(--accent);font-size:.95rem;margin-top:26px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 10px;font-size:.95rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  footer .ftag{color:var(--text);letter-spacing:.06em;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
+</style>
+<style id="arch-css">
+/* Layout archetype: dark (diversification pass) */
+body.arch-dark{--bg:#000000;--panel:#060809;--line:#1C2836;}
+body.arch-dark{background:#000000;}
+body.arch-dark .mast-bg{opacity:.42;}
+body.arch-dark h1.display{font-size:clamp(3.3rem,8.6vw,6.6rem);letter-spacing:.01em;}
+body.arch-dark .cols{font-size:1.22rem;line-height:1.85;}
+body.arch-dark figure.hero img,body.arch-dark .cols figure img{border:1px solid var(--line);}
+body.arch-dark blockquote.pull{font-size:clamp(2rem,4.8vw,3.1rem);color:var(--text);}
+body.arch-dark .keybox{background:#000000;border:1px solid var(--accent);}
+body.arch-dark h2.sec{font-size:1rem;}
+</style>
+<link rel="icon" href="/ai-services/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/ai-services/assets/apple-touch-icon.png">
+<style id="mag28-css">
+/* OVIA Magazine rebuild 2026-11-04 — bespoke layout variant mag28-v05: cols=two pull=left-rule key=top-rule sec=rule-top fig=inset hero=tall filter=saturate(1.30) hue-rotate(-8deg) contrast(1.08) */
+@media (min-width:1020px){body.mag28-v05 .cols{column-count:2;}}
+body.mag28-v05 blockquote.pull{text-align:left;border-left:4px solid var(--accent);padding-left:22px;}
+body.mag28-v05 .keybox{border-top:6px solid var(--accent);}
+body.mag28-v05 h2.sec{border-top:3px solid var(--accent);}
+body.mag28-v05 figure.body{max-width:78%;margin-left:auto;margin-right:auto;}
+body.mag28-v05 figure.hero img,figure.herofig img{aspect-ratio:16/10;object-fit:cover;width:100%;}
+body.mag28-v05 figure img, .mast-bg{filter:saturate(1.30) hue-rotate(-8deg) contrast(1.08);}
+body.mag28-v05 figure.hero img,figure.herofig img{filter:saturate(1.30) hue-rotate(-8deg) contrast(1.08);}
+body.mag28-v05 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+</style>
+<link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/agentic-observatory-seti-search/">
+</head>
+<body class="arch arch-dark mag28-v05">
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/agentic-observatory-seti-search/ovia-inc-agentic-observatory-seti-search-background.webp')"></div>
+  <div class="mast-shade"></div>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="logo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+      </div>
+    </div>
+    <p class="kicker" data-tr>Ovia Inc — Artificial Intelligence · Agentic observatories</p>
+    <h1 class="display" data-tr>The Observatory That Takes Instructions: Agentic AI Joins the Search</h1>
+    <p class="standfirst" data-tr>At the Allen Telescope Array, agents now steer the dishes, process terabits per second in flight and show the work — context engineering at telescope scale.</p>
+    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 5 min read</p>
+  </div>
+</header>
+<div class="hero-zone">
+  <figure class="hero">
+    <img src="https://oviainc.github.io/ai-services/articles/agentic-observatory-seti-search/ovia-inc-agentic-observatory-seti-search-hero.webp" alt="Ovia Inc — Radio telescope dishes rimmed in electric blue light under a deep space black sky, beams of data rising toward a pulsing signal ring">
+    <figcaption data-tr>Dishes under a midnight sky: the instrument that now answers back. Image: Ovia Inc</figcaption>
+  </figure>
+</div>
+<main>
+  <div class="cols">
+    <p class="first" data-tr>The observatory now takes instructions. At the Allen Telescope Array in Northern California, an agent can receive a single request in natural language and then steer the antennae, calibrate and focus the instrument, catch and fix errors in the incoming data and plot the result. NVIDIA reported the development on October 30, 2026: Breakthrough Listen and the SETI Institute are bringing agentic AI into the daily search for extraterrestrial intelligence — human-built agents, listening for technologies that could be far older than the species that built the listeners.</p>
+    <p data-tr>Romance aside, the announcement deserves attention for an unromantic reason: the observatory is an operations problem wearing a telescope as a costume. Data arrives faster than storage, instruments drift, errors hide in streams, and a small team watches all of it. The pattern that solves that problem at the array — visible state, bounded tools, checked results — is the same pattern that decides whether agents succeed anywhere else.</p>
+    <aside class="keybox">
+      <h3 data-tr>Key points</h3>
+      <ul>
+        <li data-tr>From one natural-language request, an agent steers, calibrates and focuses the Allen Telescope Array.</li>
+        <li data-tr>Holoscan and DAQIRI process terabits per second in flight, straight into GPU memory.</li>
+        <li data-tr>Nexus gives agents one source of truth for instrument state, compute and pipelines.</li>
+        <li data-tr>First proof: a known Crab Nebula pulsar, detected live by AI in the stream.</li>
+      </ul>
+    </aside>
+    <h2 class="sec" data-tr>01 · The announcement</h2>
+    <p data-tr>On October 30, 2026, NVIDIA reported that Breakthrough Listen and the SETI Institute are bringing agentic AI into the daily search for extraterrestrial intelligence at the Allen Telescope Array in Northern California. From a single request in natural language, an agent can now steer the telescope antennae, calibrate and focus the instrument, catch and fix errors in the incoming data and plot the result. The NVIDIA Holoscan platform processes the sensor streams, giving agents live data to act on. Andrew Siemion, Bernard M. Oliver chair for SETI at the SETI Institute and principal investigator of Breakthrough Listen, framed the moment as a breakthrough in translation: agentic observatories reaching out into the universe, built by humans, listening for technologies that could be far older.</p>
+    <p data-tr>The division of labour is the detail to hold onto. The agent does not replace the astronomer; the agent takes the instrument handling — steering, calibration, error correction, plotting — off the astronomer's desk, inside a harness that keeps state visible. Judgment stays human. Repetition, vigilance and first response move to the machine.</p>
+    <figure class="body">
+      <img src="https://oviainc.github.io/ai-services/articles/agentic-observatory-seti-search/ovia-inc-agentic-observatory-seti-search-body-1.webp" alt="Ovia Inc — Radio telescope dishes at night rimmed in starlight silver, teal radio-wave arcs rising into a midnight indigo sky">
+      <figcaption data-tr>The array at night: silver rims on the dishes, teal arcs for the signals the dishes exist to catch. Image: Ovia Inc</figcaption>
+    </figure>
+    <h2 class="sec" data-tr>02 · Why it matters</h2>
+    <p data-tr>Radio telescopes produce data faster than teams can store it, let alone study it. At the Allen Telescope Array, a Holoscan library called DAQIRI pulls terabits per second of sensor data straight into GPU memory, so observations are processed in flight rather than filling hard drives. NVIDIA reports that the system can handle 2.4 terabits per second on NVIDIA RTX PRO 6000 Blackwell GPUs, with inference running on premises, next to the instrument; that throughput figure is vendor-reported. Signal processing runs through CyberEther, a framework developed at the SETI Institute, using NVIDIA CUDA-X libraries. The pipeline has already produced a concrete result: the first real-time AI detection of a pulsar in the Crab Nebula, a known cosmic lighthouse found live in the stream.</p>
+    <p data-tr>Processing in flight changes what a search can afford to notice. A stored archive answers the questions a team thought to ask later; a live pipeline can react while the sky is still performing. The pulsar matters for the same reason: a known signal, found live, is a calibration of trust — proof the pipeline catches what the pipeline claims to catch.</p>
+    <blockquote class="pull" data-tr>Radio telescopes produce data faster than teams can store it, let alone study it.</blockquote>
+    <h2 class="sec" data-tr>03 · The operations and craft angle</h2>
+    <p data-tr>The most transferable part of the story is not the telescope. Nexus, a web-based observatory orchestrator, acts as the agent harness: one source of truth for instrument state, compute resources and pipelines. Researchers monitor packet loss, read live spectrograms and rewrite signal-processing blocks by prompting. That architecture — visible state, bounded tools, observable pipelines, results a human can check — is context engineering at telescope scale, and the same pattern decides whether agents succeed in an office, a factory or a network operations centre. The work at Ovia since December 2022, the Hugging Face Agents Course training and the discipline behind NVIDIA-Certified Professional: AI Operations all point the same way: agents earn trust when the context is curated, the state is visible and every action leaves a trace.</p>
+    <figure class="wide">
+      <img src="https://oviainc.github.io/ai-services/articles/agentic-observatory-seti-search/ovia-inc-agentic-observatory-seti-search-body-2.webp" alt="Ovia Inc — Teal radio signal streams cascading over a midnight indigo field with one bright starlight silver pulse">
+      <figcaption data-tr>The stream, drawn: teal currents of radio data, one bright pulse standing out — the shape of a detection. Image: Ovia Inc</figcaption>
+    </figure>
+    <h2 class="sec" data-tr>04 · Caveats and fine print</h2>
+    <p data-tr>Three cautions keep the story honest. First, no signal from an extraterrestrial civilisation has been announced; the Crab Nebula pulsar is a known source, and detecting a known signal live is a validation of the pipeline, not a discovery of alien technology. Second, the headline performance figures come from NVIDIA and the project partners, so the throughput and time-saving claims should be read as vendor-reported until independent teams publish comparable runs. Third, compression claims — work of weeks or years done in hours — describe specific search and processing tasks, not the whole scientific method; candidate signals still demand human review, follow-up observation and scepticism.</p>
+    <h2 class="sec" data-tr>05 · What to watch</h2>
+    <p data-tr>The team is evaluating open models, including NVIDIA Nemotron, for cases where data locality and fast turnaround matter most, and for observatories that may one day run offline on the far side of the Moon. Signals to watch: whether other observatories adopt the same agent-harness pattern; whether open models take over more of the on-site inference work; and whether the approach surfaces candidate signals that survive rigorous follow-up. The deeper lesson needs no telescope: give an agent live data, a single source of truth and checked results, and an instrument starts to answer back.</p>
+    <p data-tr>Halloween week was a fitting moment for the announcement, and the fitting part is not the beep from the stars — no beep has been announced. The fitting part is an observatory answering back: an instrument that reports its own state, corrects its own errors and shows its work. Whether or not anything out there ever replies, the reply from the array itself is the milestone.</p>
+
+  </div>
+  <div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+      <li><span data-tr>NVIDIA Blog — “Things That Go Beep in the Night: Agentic AI Joins the Search for Extraterrestrial Signals”, October 30, 2026:</span> <a href="https://blogs.nvidia.com/blog/ai-joins-the-search-for-extraterrestrial-signals/">https://blogs.nvidia.com/blog/ai-joins-the-search-for-extraterrestrial-signals/</a></li>
+
+    </ul>
+  </div>
+  <p class="tags">#ArtificialIntelligence #AIAgents #ContextEngineering #AIOperations #SETI #toyoursatisfaction</p>
+  <footer>
+    <div class="frow">
+      <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
+      <p class="inspiration-credit" data-tr>Design inspired by Nick Knight — W.</p>
+  </footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+</body>
+</html>

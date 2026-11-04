@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
+<title>From Volume to Intelligence: Virtual Production in the Age of Real-Time AI — Ovia Inc</title>
+<meta name="description" content="Some skills come full circle: from sound design and MELS to LED volumes, real-time engines and artificial intelligence on one stage.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="From Volume to Intelligence: Virtual Production in the Age of Real-Time AI">
+<meta property="og:description" content="Some skills come full circle: from sound design and MELS to LED volumes, real-time engines and artificial intelligence on one stage.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/from-volume-to-intelligence/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/from-volume-to-intelligence/ovia-inc-from-volume-to-intelligence-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#E8A33D;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* masthead zone over the article background image */
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.52),rgba(10,14,20,.94));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;}
+  .masthead img.logo{height:46px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;text-transform:uppercase;font-weight:700;font-size:clamp(2.5rem,6.4vw,4.7rem);line-height:.99;letter-spacing:.004em;max-width:1020px;}
+  .standfirst{font-size:clamp(1.12rem,2.3vw,1.42rem);font-style:italic;color:var(--muted);max-width:780px;line-height:1.5;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  /* hero */
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;border-radius:2px;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  /* body columns */
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.16rem;line-height:1.75;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,sans-serif;font-size:5.4rem;line-height:.78;float:left;padding:.55rem .9rem 0 0;color:var(--accent);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:36px 0 14px;border-top:2px solid var(--accent);padding-top:14px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;font-size:clamp(1.55rem,3.6vw,2.35rem);line-height:1.3;font-style:italic;text-align:center;color:var(--accent);margin:42px 0;padding:4px 12px;}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;border-radius:2px;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px 20px 10px;margin:0 0 24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .keybox li{margin:0 0 9px 18px;font-size:.95rem;line-height:1.5;}
+  /* references + tags + footer */
+  .refs-sec{margin-top:44px;border-top:1px solid var(--line);padding-top:24px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  p.tags{color:var(--accent);font-size:.95rem;margin-top:26px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 10px;font-size:.95rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  footer .ftag{color:var(--text);letter-spacing:.06em;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
+</style>
+<style id="arch-css">
+/* Layout archetype: cover (diversification pass) */
+body.arch-cover .mastzone{min-height:94vh;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:none;}
+body.arch-cover .mast-bg{display:none;}
+body.arch-cover figure.coverfig{position:absolute;inset:0;z-index:0;margin:0;}
+body.arch-cover figure.coverfig img{width:100%;height:100%;object-fit:cover;display:block;}
+body.arch-cover .mast-shade{z-index:1;background:linear-gradient(180deg,rgba(10,14,20,.46),rgba(10,14,20,.26) 42%,rgba(10,14,20,.94));}
+body.arch-cover .mast-inner{z-index:2;width:100%;padding-bottom:58px;}
+body.arch-cover figcaption.covercap{position:absolute;right:18px;bottom:14px;z-index:3;background:rgba(10,14,20,.62);padding:3px 10px;border-radius:2px;}
+body.arch-cover h1.display{font-size:clamp(3.1rem,9vw,6.8rem);max-width:1100px;}
+body.arch-cover .standfirst{font-size:clamp(1.25rem,2.6vw,1.6rem);}
+body.arch-cover .cols{column-count:1;max-width:880px;margin-left:auto;margin-right:auto;}
+body.arch-cover figure.wide{position:relative;left:50%;transform:translateX(-50%);width:100vw;padding:0 22px;}
+body.arch-cover figure.body{max-width:640px;margin-left:auto;margin-right:auto;}
+@media (max-width:640px){body.arch-cover figure.wide{padding:0 16px;}}
+</style>
+<link rel="icon" href="/ai-services/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/ai-services/assets/apple-touch-icon.png">
+<style id="mag28-css">
+/* OVIA Magazine rebuild 2026-11-04 — bespoke layout variant mag28-v25: cols=two pull=right-rule key=top-rule sec=rule-top fig=span hero=wide filter=saturate(1.28) contrast(1.04) hue-rotate(-5deg) */
+@media (min-width:1020px){body.mag28-v25 .cols{column-count:2;}}
+body.mag28-v25 blockquote.pull{text-align:right;border-right:4px solid var(--accent);padding-right:22px;}
+body.mag28-v25 .keybox{border-top:6px solid var(--accent);}
+body.mag28-v25 h2.sec{border-top:3px solid var(--accent);}
+body.mag28-v25 figure.wide{column-span:all;}
+body.mag28-v25 figure.hero img,figure.herofig img{aspect-ratio:21/9;object-fit:cover;width:100%;}
+body.mag28-v25 figure img, .mast-bg{filter:saturate(1.28) contrast(1.04) hue-rotate(-5deg);}
+body.mag28-v25 figure.hero img,figure.herofig img{filter:saturate(1.28) contrast(1.04) hue-rotate(-5deg);}
+body.mag28-v25 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+</style>
+<link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/from-volume-to-intelligence/">
+</head>
+<body class="arch arch-cover mag28-v25">
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/from-volume-to-intelligence/ovia-inc-from-volume-to-intelligence-background.webp')"></div>
+  <div class="mast-shade"></div>
+  <figure class="coverfig"><img src="https://oviainc.github.io/ai-services/articles/from-volume-to-intelligence/ovia-inc-from-volume-to-intelligence-hero.webp" alt="Ovia Inc — An LED volume stage glowing amber with a curved wall of warm light in a dark studio"></figure>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="logo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+      </div>
+    </div>
+    <p class="kicker" data-tr>Ovia Inc — Virtual Production · Real-Time AI</p>
+    <h1 class="display" data-tr>From Volume to Intelligence: Virtual Production in the Age of Real-Time AI</h1>
+    <p class="standfirst" data-tr>Some skills come full circle. Sound, image and real-time systems were never separate trades — the LED volume simply brings them together on one stage.</p>
+    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+  </div>
+  <figcaption class="covercap" data-tr>The volume in amber: a curved wall of light rendering the world while the camera rolls. Image: Ovia Inc</figcaption>
+</header>
+<main>
+  <div class="cols">
+<p class="first" data-tr>Some skills come full circle. Team roots reach back to sound design at TREBAS (1999–2001) and a technical internship at MELS, Cité du Cinéma in Montréal (2001–2002). Two decades later, the stage and the signal chain meet again — this time with a wall of light that renders the world while the camera rolls, and with artificial intelligence woven through the pipeline.</p>
+<p data-tr>Today, virtual production sits at the centre of modern film production — LED volumes, real-time environments, Unreal Engine. The stage renders the world while the camera rolls, and the craft of a clean signal matters more than ever. A volume is not a backdrop. A volume is a living environment that responds to the camera, throws real light onto real performers and sets, and commits the background to the shot at the moment of capture.</p>
+<p data-tr>Virtual Production now sits proudly on the team skill set, next to artificial intelligence and machine learning. Sound, image and real-time systems were never separate trades — the volume simply brings them together on one stage.</p>
+<aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>Team roots: sound design at TREBAS (1999–2001) and a Graduate Technical Intern placement at MELS, Cité du Cinéma in Montréal (2001–2002).</li><li data-tr>An LED volume renders the environment in real time while the camera rolls, so the background is captured in the shot rather than added later.</li><li data-tr>The MELS flagship volume in Montréal opened in February 2021: 10,000 sq ft, a 65 ft × 20 ft wall, running Disguise and Unreal workflows, as reported for that stage.</li><li data-tr>Sound, image and real-time systems were never separate trades; virtual production brings them together on one stage.</li></ul></aside>
+<h2 class="sec" data-tr>01 · Roots in sound and signal</h2>
+<p data-tr>Every craft discipline teaches the same first lesson in a different costume: the chain is only as honest as its weakest link. Sound design training at TREBAS, in audio engineering and sound design, drilled that lesson daily. A beautiful performance recorded through a noisy chain stays noisy. A careful mix built on a clipped source stays clipped. The work rewards the people who check the input before admiring the output.</p>
+<p data-tr>The Graduate Technical Intern placement at MELS in 2001–2002 added the picture side of the same education, inside Cité du Cinéma in Montréal, where stages, crews and post-production shared one address. Film work at that scale is a logistics of signals: cameras, sound, lighting and editing all handing material to one another, with quality decided at every handover. Nobody on a professional set treats the chain as someone else's problem.</p>
+<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/from-volume-to-intelligence/ovia-inc-from-volume-to-intelligence-body-1.webp" alt="Ovia Inc — A sound mixing console with faders and walnut side panels in warm amber studio light"><figcaption data-tr>Where the chain begins: faders, gain and a clean signal, in amber and walnut. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>02 · The volume changes the stage</h2>
+<p data-tr>An LED volume replaces the empty green void with a rendered environment that everyone on set can see. The wall and ceiling of panels display a world built in a real-time engine, and the world shifts with the correct perspective as the camera moves, because the rendering follows the camera rather than sitting still behind the action. Reflections land on glossy surfaces, sunset light wraps around a set piece, and the shot that leaves the stage already holds its background.</p>
+<p data-tr>Montréal holds a serious place in that story. The MELS flagship LED volume opened in February 2021 at 10,000 sq ft, with a wall 65 ft × 20 ft, running Disguise and Unreal workflows — figures reported for that stage, and a scale that puts a full environment, not a fragment, behind the camera. For a team whose internship years unfolded at MELS two decades earlier, the volume reads less like a novelty and more like the same building learning a new language.</p>
+<blockquote class="pull" data-tr>Old craft. New stage. Same obsession with a clean signal.</blockquote>
+<h2 class="sec" data-tr>03 · Real time is a discipline</h2>
+<p data-tr>Real-time rendering forgives nothing. A traditional pipeline can hide a slow render behind an overnight queue; a volume has to produce the frame while the camera rolls, at the frame rate the camera demands, with the tracking data arriving live. Latency, synchronisation and colour discipline stop being engineering footnotes and become the difference between a world that holds together on screen and a world that swims.</p>
+<figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/from-volume-to-intelligence/ovia-inc-from-volume-to-intelligence-body-2.webp" alt="Ovia Inc — Inside an LED volume stage, a curved amber LED wall and camera track on a dark reflective floor"><figcaption data-tr>Inside the volume: a curved amber wall, a camera track, and a floor that returns the light. Image: Ovia Inc</figcaption></figure>
+<p data-tr>That discipline is familiar territory for anyone raised on live sound. A concert desk and a volume stage share a temperament: the performance happens once, in front of witnesses, and the system either keeps up or fails in public. Preparation moves earlier — environments are built, tested and lit before the shoot day — and the shoot day itself becomes execution rather than experimentation. Real time rewards the prepared and exposes the hopeful, on a stage as surely as at a mixing desk.</p>
+<h2 class="sec" data-tr>04 · Where intelligence enters</h2>
+<p data-tr>Artificial intelligence enters the volume pipeline at the edges first: generating and extending environment artwork, cleaning plates, assisting tracking and previs, and searching large asset libraries at production speed. Each use follows the same rule the rest of the Ovia practice follows — a model earns a place in the chain when the output can be checked, and the check stays with the craftsperson. An environment generated in an afternoon still has to survive the camera, the lighting and the director's eye.</p>
+<p data-tr>The deeper connection is context. A real-time engine renders what the scene description, the assets and the tracking data tell the engine to render — garbage context in, garbage world out, at sixty frames per second. Since December 2022, context engineering at Ovia has meant giving intelligent systems the right material, in the right order, at the right moment. A volume stage is that same principle wearing a cinema costume: the quality of the world on the wall is the quality of the context the wall received.</p>
+<h2 class="sec" data-tr>05 · The honest caveats</h2>
+<p data-tr>Honesty about the volume matters. A volume excels at controlled environments, reflective surfaces and repeatable light, and a volume still loses to a real location when the story needs scale, weather or chaos that panels cannot hold. Volumes are capital-heavy stages with specialist crews, and a small production can spend its budget on the wall before a single scene is shot. The technology also moves quickly enough that today's pipeline choices age fast, which argues for craft that transfers — signal discipline, colour discipline, preparation — over fluency in any single tool.</p>
+<p data-tr>Old craft. New stage. Same obsession with a clean signal. The sentence held for the mixing desk, held for the internship stages at MELS, and holds now for a wall of light in Montréal driven by real-time engines and intelligent tools. Trades that looked separate — sound, image, systems, models — turn out to have been one trade all along: getting a clean signal from the source to the audience, without losing the truth along the way.</p>
+
+  </div>
+  <div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+<li><span data-tr>Ovia Inc — “From Volume to Intelligence: Virtual Production in the Age of Real-Time AI”, Ovia Inc position piece — articles index:</span> <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">https://oviainc.github.io/ai-services/magazine/2026-q4/</a></li>
+<li><span data-tr>Ovia Inc — Author archive on Medium:</span> <a href="https://medium.com/@ovia_">https://medium.com/@ovia_</a></li>
+
+    </ul>
+  </div>
+  <p class="tags">#VirtualProduction #Montreal #ArtificialIntelligence #toyoursatisfaction</p>
+  <footer><nav style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">← Magazine</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/fly-a-lancaster-on-an-led-stage/">Next article →</a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <div class="frow">
+      <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
+      <p class="inspiration-credit" data-tr>Design inspired by Viviane Sassen — Wallpaper*.</p>
+  </footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+</body>
+</html>

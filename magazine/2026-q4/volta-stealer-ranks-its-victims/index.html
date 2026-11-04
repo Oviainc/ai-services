@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
+<title>The Stealer That Ranks Its Victims — Ovia Inc</title>
+<meta name="description" content="Cisco Talos analysis of VOLTA, a Windows infostealer that sends a structured dossier to a commercial AI model for a ranked victim appraisal, and the defence lessons that follow.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Stealer That Ranks Its Victims">
+<meta property="og:description" content="Cisco Talos analysis of VOLTA, a Windows infostealer that sends a structured dossier to a commercial AI model for a ranked victim appraisal, and the defence lessons that follow.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/volta-stealer-ranks-its-victims/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/volta-stealer-ranks-its-victims/ovia-inc-volta-stealer-ranks-its-victims-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#D946EF;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* masthead zone over the article background image */
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.52),rgba(10,14,20,.94));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;}
+  .masthead img.logo{height:46px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;text-transform:uppercase;font-weight:700;font-size:clamp(2.5rem,6.4vw,4.7rem);line-height:.99;letter-spacing:.004em;max-width:1020px;}
+  .standfirst{font-size:clamp(1.12rem,2.3vw,1.42rem);font-style:italic;color:var(--muted);max-width:780px;line-height:1.5;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  /* hero */
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;border-radius:2px;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  /* body columns */
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.16rem;line-height:1.75;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,sans-serif;font-size:5.4rem;line-height:.78;float:left;padding:.55rem .9rem 0 0;color:var(--accent);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:36px 0 14px;border-top:2px solid var(--accent);padding-top:14px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;font-size:clamp(1.55rem,3.6vw,2.35rem);line-height:1.3;font-style:italic;text-align:center;color:var(--accent);margin:42px 0;padding:4px 12px;}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;border-radius:2px;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px 20px 10px;margin:0 0 24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .keybox li{margin:0 0 9px 18px;font-size:.95rem;line-height:1.5;}
+  /* references + tags + footer */
+  .refs-sec{margin-top:44px;border-top:1px solid var(--line);padding-top:24px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  p.tags{color:var(--accent);font-size:.95rem;margin-top:26px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 10px;font-size:.95rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  footer .ftag{color:var(--text);letter-spacing:.06em;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
+</style>
+<style id="arch-css">
+/* Layout archetype: grid (diversification pass) */
+body.arch-grid .cols{display:grid;grid-template-columns:repeat(6,1fr);gap:28px;column-count:1;}
+body.arch-grid .cols>*{grid-column:span 3;margin-top:0;}
+body.arch-grid .cols p{margin-bottom:0;}
+body.arch-grid .cols p.first{grid-column:1/-1;font-size:1.32rem;line-height:1.65;}
+body.arch-grid .cols h2.sec{grid-column:1/-1;}
+body.arch-grid .cols figure.body{grid-column:span 3;margin:0;}
+body.arch-grid .cols figure.wide{grid-column:1/-1;margin:0;}
+body.arch-grid .cols blockquote.pull{grid-column:1/-1;margin:6px 0;}
+body.arch-grid .cols .keybox{grid-column:span 3;margin:0;}
+@media (max-width:820px){body.arch-grid .cols>*{grid-column:1/-1;}}
+</style>
+<link rel="icon" href="/ai-services/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/ai-services/assets/apple-touch-icon.png">
+<style id="mag28-css">
+/* OVIA Magazine rebuild 2026-11-04 — bespoke layout variant mag28-v10: cols=one pull=right-rule key=side sec=rule-bottom fig=span hero=wide filter=saturate(1.25) contrast(1.10) brightness(1.05) */
+body.mag28-v10 .cols{column-count:1;max-width:840px;margin-left:auto;margin-right:auto;}
+body.mag28-v10 blockquote.pull{text-align:right;border-right:4px solid var(--accent);padding-right:22px;}
+body.mag28-v10 .keybox{border-left:6px solid var(--accent);border-top:1px solid var(--line);}
+body.mag28-v10 h2.sec{border-top:none;border-bottom:2px solid var(--accent);padding-bottom:10px;}
+body.mag28-v10 figure.wide{column-span:all;}
+body.mag28-v10 figure.hero img,figure.herofig img{aspect-ratio:21/9;object-fit:cover;width:100%;}
+body.mag28-v10 figure img, .mast-bg{filter:saturate(1.25) contrast(1.10) brightness(1.05);}
+body.mag28-v10 figure.hero img,figure.herofig img{filter:saturate(1.25) contrast(1.10) brightness(1.05);}
+body.mag28-v10 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+</style>
+<link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/volta-stealer-ranks-its-victims/">
+</head>
+<body class="arch arch-grid mag28-v10">
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/volta-stealer-ranks-its-victims/ovia-inc-volta-stealer-ranks-its-victims-background.webp')"></div>
+  <div class="mast-shade"></div>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="logo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+      </div>
+    </div>
+    <p class="kicker" data-tr>Ovia Inc — Cybersecurity · AI-Integrated Malware</p>
+    <h1 class="display" data-tr>The Stealer That Ranks Its Victims</h1>
+    <p class="standfirst" data-tr>A self-deleting stealer now outsources the slowest step in cybercrime, deciding who is worth robbing, to a language model. The appraisal is context engineering, pointed the wrong way.</p>
+    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+  </div>
+</header>
+<div class="hero-zone">
+  <figure class="hero">
+    <img src="https://oviainc.github.io/ai-services/articles/volta-stealer-ranks-its-victims/ovia-inc-volta-stealer-ranks-its-victims-hero.webp" alt="Ovia Inc — forensic evidence desk with a closed laptop, sealed pouches, cables and storage drives under ultraviolet light">
+    <figcaption data-tr>The haul, laid out as exhibits: credentials first, appraisal second. Image: Ovia Inc</figcaption>
+  </figure>
+</div>
+<main>
+  <div class="cols">
+<p class="first" data-tr>The newest stealer on the block does not stop at stealing. On October 31, Cisco Talos published an analysis of VOLTA, a self-deleting Windows infostealer that adds a step commodity stealers used to skip: an appraisal. After the theft, VOLTA assembles everything learned about the person behind the machine into a structured evidence bundle and sends the bundle to a commercial AI model, with instructions to rank the assets by ease of conversion to money.</p>
+<p data-tr>Talos, the threat intelligence team at Cisco, found the sample through CAIRN, a research effort built to spot malware with AI woven into the workflow. The sample was first seen on October 11, 2026. Talos calls VOLTA a mature stealer implant with an optional AI-integration layer. The model does no breaking in and no hiding. The model does the sorting: the slow, human work that used to decide whether a stolen log deserved an operator's evening.</p>
+<aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>VOLTA steals broadly, then enriches the haul with the victim's own sessions.</li><li data-tr>The stolen bundle goes to a commercial model as a structured target assessment: worth in one section, security habits in another.</li><li data-tr>A failover chain of up to three models routes around refusals, and the stage is optional: no key, no appraisal.</li><li data-tr>Defence starts by shrinking the bundle: fewer secrets on disk, hardware-backed stores, alerts on the appraisal call.</li></ul></aside>
+<h2 class="sec" data-tr>01 · The announcement</h2>
+<p data-tr>The collection pass reads like an inventory of modern digital life. One sweep can take browser credentials, cookies and saved cards across Chromium browsers, plus Firefox and Thunderbird, Outlook, Slack, Steam and Battle.net, Discord, Telegram and Roblox. Microsoft OAuth tokens, SSH keys and cloud configuration files (gcloud, OpenVPN, Hide.me) are in scope too. Crypto wallets are not merely copied: an embedded cracker works on the vault during the run. Every saved Wi-Fi password comes out as plaintext; screenshots round out the haul.</p>
+<p data-tr>Collection is only the first pass. A live enrichment stage then spends the stolen sessions: authenticated mail tokens search the inbox for receipts from Amazon, DoorDash, Uber Eats, Grubhub, Walmart and PayPal to corroborate a home address, order histories fill in daily patterns, and a live lookup values the Roblox inventory. The result is assembled on the machine as a structured identity report, organised before anything leaves.</p>
+<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/volta-stealer-ranks-its-victims/ovia-inc-volta-stealer-ranks-its-victims-body-1.webp" alt="Ovia Inc — keys, memory cards and USB drives spilling from a dark pouch under ultraviolet light"><figcaption data-tr>Every key on the machine in one pass: passwords, tokens, sessions, wallet material. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>02 · The appraisal</h2>
+<p data-tr>The assembled report goes through OpenRouter, a routing service giving one API access to many models, under a system prompt casting the model as a forensic intelligence analyst drafting a target assessment. The required answer has a fixed shape. One section ranks valuables by ease of monetisation across low, medium and high tiers. A second grades security posture and password hygiene. The prompt demands citations back to the evidence and pushes the model to connect sparse details, linking names or universities to likely password patterns.</p>
+<p data-tr>Temperature sits at 0.2, chosen for consistent answers. Each reply gets checked for refusal wording, and a refusal simply moves the request along a failover chain of up to three models. The returned assessment arrives as a separate analysis file, and exfiltration can happen in three staged archives: after the stealer runs, after the model call, and after any network enrichment. The inference round-trip itself runs on the victim's own machine and connection, before the result leaves.</p>
+<blockquote class="pull" data-tr>The appraisal is context engineering, pointed the wrong way.</blockquote>
+<h2 class="sec" data-tr>03 · The craft angle</h2>
+<p data-tr>The uncomfortable part is how sound the craft looks. A structured evidence bundle instead of a raw dump. A fixed output schema instead of free prose. A low temperature for consistency. Citations demanded so a human can audit the reasoning. Model failover as ordinary reliability engineering. An optional stage that degrades gracefully without a key. Every element belongs to standard practice in legitimate agent work: the disciplines behind context engineering at Ovia since December 2022 and Hugging Face Agents training, assembled here to triage stolen lives.</p>
+<p data-tr>Talos names the underlying logic effort displacement: find the step that demands the most sustained human attention, and replace that step with a model call. Collection was automated long ago; judgement was the bottleneck, and judgement is what the appraisal automates. Prompt design, context assembly and model routing are capability, full stop. Governance decides whose purposes that capability serves, which is why the operations discipline behind NVIDIA-Certified Professional: AI Operations treats context as something designed, logged and reviewed.</p>
+<figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/volta-stealer-ranks-its-victims/ovia-inc-volta-stealer-ranks-its-victims-body-2.webp" alt="Ovia Inc — brass balance scale weighing hard drives and cards under ultraviolet light"><figcaption data-tr>Weighed and ranked: tiers, not raw logs, so the operator starts with priorities. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>04 · Caveats and fine print</h2>
+<p data-tr>Precision about scope keeps the story honest. Talos analysed a single sample, first seen on October 11, 2026, and published no victim count. The report documents design and capability, not a tracked campaign, and Talos does not report whether any model in the chain complied, partly complied or refused. The builder reading is an inference: six swappable build-time slots suggest a kit compiled per buyer, yet confirmed sales remain unproven. Even the slot encryption is theatre: the key derives from constants inside the same binary, so anyone reversing the file can recover the stored credentials. An early sighting with serious design intent is the accurate summary: not an epidemic, and not a curiosity either.</p>
+<h2 class="sec" data-tr>05 · The defence</h2>
+<p data-tr>Defence starts by shrinking the bundle. Much of the token theft leans on launching Chrome in headless mode to bypass App-Bound Encryption, so an application control policy restricting which processes may launch Chrome with that flag blocks the decryption path entirely; at minimum, alerting on headless launches outside a known developer set turns a silent step into a signal. Hardware-backed stores raise the cost of every extraction. The appraisal call is a signal too: an unexpected call to a model routing service, from an unexpected process, belongs on the detection list.</p>
+<p data-tr>Response has a concrete checklist. The main executable deletes itself, so preserving the debug log the stealer leaves behind matters: the log records what was collected and whether the model call succeeded. Compromised tokens get revoked and passwords changed. A wallet whose seed phrase sat in plaintext on disk counts as fully compromised; funds move to a new wallet with a seed generated on an air-gapped device. Field years at Staywired and Beanfield taught the durable version of the principle: controls hold when enforcement lives outside the thing being controlled.</p>
+<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/volta-stealer-ranks-its-victims/ovia-inc-volta-stealer-ranks-its-victims-body-3.webp" alt="Ovia Inc — hardware security key plugged into a dark laptop under violet light"><figcaption data-tr>Hardware-backed secrets shrink the haul. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>06 · What to watch</h2>
+<p data-tr>Three signals will show whether VOLTA is an outlier or a template. First, refusal resilience: Talos expects failover chains around model guardrails to become standard design in AI-integrated malware, and each new sample either confirms or dents that forecast. Second, hunting method: CAIRN-style research that fingerprints prompts, endpoints and keys inside binaries gives defenders a way to find the next appraisal early. Third, migration: Talos notes the same effort-displacement logic already appearing at a different phase, in command-and-control design, so the open question is which phase the pattern touches next.</p>
+<p data-tr>We track AI-integrated malware the way operators track weather: what changed, where the craft improved, and which control would have broken the chain. The net now sorts itself, and defence has to sort faster.</p>
+
+  </div>
+  <div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+<li><span data-tr>Cisco Talos — “Appraisal by AI: Model-driven victim prioritization in the VOLTA infostealer”, October 31, 2026:</span> <a href="https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/">https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/</a></li>
+<li><span data-tr>Unite.AI — “Cisco Talos Details VOLTA Infostealer's LLM Victim-Ranking Stage”, October 31, 2026:</span> <a href="https://www.unite.ai/cisco-talos-details-volta-infostealers-llm-victim-ranking-stage/">https://www.unite.ai/cisco-talos-details-volta-infostealers-llm-victim-ranking-stage/</a></li>
+<li><span data-tr>TSN — “VOLTA Infostealer Uses AI Models to Rank Victims”, October 31, 2026:</span> <a href="https://tsnmedia.org/volta-infostealer-ai-victim-ranking/">https://tsnmedia.org/volta-infostealer-ai-victim-ranking/</a></li>
+
+    </ul>
+  </div>
+  <p class="tags">#Cybersecurity #ArtificialIntelligence #AIAgents #ContextEngineering #ThreatIntelligence #toyoursatisfaction</p>
+  <footer>
+    <nav style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">← Magazine</a>a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/zero-trust-para-agentes/">Next article →</a>a></nav>nav>
+    <p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a>a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a>a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a>a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a>a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a>a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a>a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a>a></p>p>
+    <div class="frow">
+      <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
+      <p class="inspiration-credit" data-tr>Design inspired by Ellen von Unwerth — Purple.</p>
+  </footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+</body>
+</html>

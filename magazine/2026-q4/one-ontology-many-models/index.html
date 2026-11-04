@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
+<title>One Vocabulary, Every Model: Governing Meaning Across the Semantic Estate — Ovia Inc</title>
+<meta name="description" content="As semantic models multiply across teams and tools, meaning drifts — one definition per dashboard, one rule per analyst. The ontology direction in the Datus/Dosi October work points the other way: one governed vocabulary, mapped onto many models, versioned like code.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="One Vocabulary, Every Model: Governing Meaning Across the Semantic Estate">
+<meta property="og:description" content="As semantic models multiply across teams and tools, meaning drifts — one definition per dashboard, one rule per analyst. The ontology direction in the Datus/Dosi October work points the other way: one governed vocabulary, mapped onto many models, versioned like code.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/one-ontology-many-models/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/one-ontology-many-models/ovia-inc-one-ontology-many-models-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#CE7A87;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* masthead zone over the article background image */
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.52),rgba(10,14,20,.94));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;}
+  .masthead img.logo{height:46px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;text-transform:uppercase;font-weight:700;font-size:clamp(2.5rem,6.4vw,4.7rem);line-height:.99;letter-spacing:.004em;max-width:1020px;}
+  .standfirst{font-size:clamp(1.12rem,2.3vw,1.42rem);font-style:italic;color:var(--muted);max-width:780px;line-height:1.5;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  /* hero */
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;border-radius:2px;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  /* body columns */
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.16rem;line-height:1.75;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,sans-serif;font-size:5.4rem;line-height:.78;float:left;padding:.55rem .9rem 0 0;color:var(--accent);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:36px 0 14px;border-top:2px solid var(--accent);padding-top:14px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;font-size:clamp(1.55rem,3.6vw,2.35rem);line-height:1.3;font-style:italic;text-align:center;color:var(--accent);margin:42px 0;padding:4px 12px;}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;border-radius:2px;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px 20px 10px;margin:0 0 24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .keybox li{margin:0 0 9px 18px;font-size:.95rem;line-height:1.5;}
+  /* references + tags + footer */
+  .refs-sec{margin-top:44px;border-top:1px solid var(--line);padding-top:24px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  p.tags{color:var(--accent);font-size:.95rem;margin-top:26px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 10px;font-size:.95rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  footer .ftag{color:var(--text);letter-spacing:.06em;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
+</style>
+<style id="arch-css">
+/* Layout archetype: cover (diversification pass) */
+body.arch-cover .mastzone{min-height:94vh;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:none;}
+body.arch-cover .mast-bg{display:none;}
+body.arch-cover figure.coverfig{position:absolute;inset:0;z-index:0;margin:0;}
+body.arch-cover figure.coverfig img{width:100%;height:100%;object-fit:cover;display:block;}
+body.arch-cover .mast-shade{z-index:1;background:linear-gradient(180deg,rgba(10,14,20,.46),rgba(10,14,20,.26) 42%,rgba(10,14,20,.94));}
+body.arch-cover .mast-inner{z-index:2;width:100%;padding-bottom:58px;}
+body.arch-cover figcaption.covercap{position:absolute;right:18px;bottom:14px;z-index:3;background:rgba(10,14,20,.62);padding:3px 10px;border-radius:2px;}
+body.arch-cover h1.display{font-size:clamp(3.1rem,9vw,6.8rem);max-width:1100px;}
+body.arch-cover .standfirst{font-size:clamp(1.25rem,2.6vw,1.6rem);}
+body.arch-cover .cols{column-count:1;max-width:880px;margin-left:auto;margin-right:auto;}
+body.arch-cover figure.wide{position:relative;left:50%;transform:translateX(-50%);width:100vw;padding:0 22px;}
+body.arch-cover figure.body{max-width:640px;margin-left:auto;margin-right:auto;}
+@media (max-width:640px){body.arch-cover figure.wide{padding:0 16px;}}
+</style>
+<link rel="icon" href="/ai-services/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/ai-services/assets/apple-touch-icon.png">
+<style id="mag28-css">
+/* OVIA Magazine rebuild 2026-11-04 — bespoke layout variant mag28-v17: cols=two pull=centre key=top-rule sec=rule-top fig=inset hero=wide filter=grayscale(0.80) contrast(1.25) */
+@media (min-width:1020px){body.mag28-v17 .cols{column-count:2;}}
+body.mag28-v17 blockquote.pull{text-align:center;}
+body.mag28-v17 .keybox{border-top:6px solid var(--accent);}
+body.mag28-v17 h2.sec{border-top:3px solid var(--accent);}
+body.mag28-v17 figure.body{max-width:78%;margin-left:auto;margin-right:auto;}
+body.mag28-v17 figure.hero img,figure.herofig img{aspect-ratio:21/9;object-fit:cover;width:100%;}
+body.mag28-v17 figure img, .mast-bg{filter:grayscale(0.80) contrast(1.25);}
+body.mag28-v17 figure.hero img,figure.herofig img{filter:grayscale(0.80) contrast(1.25);}
+body.mag28-v17 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+</style>
+<link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/one-ontology-many-models/">
+</head>
+<body class="arch arch-cover mag28-v17">
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/one-ontology-many-models/ovia-inc-one-ontology-many-models-background.webp')"></div>
+  <div class="mast-shade"></div>
+  <figure class="coverfig"><img src="https://oviainc.github.io/ai-services/articles/one-ontology-many-models/ovia-inc-one-ontology-many-models-hero.webp" alt="Ovia Inc — An illuminated-manuscript golden tree on aged parchment inside a burgundy and gold border, its branches carrying many small glowing tablets as leaves"></figure>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="logo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+      </div>
+    </div>
+    <p class="kicker" data-tr>Ovia Inc — Context Engineering · Data Governance</p>
+    <h1 class="display" data-tr>One Vocabulary, Every Model: Governing Meaning Across the Semantic Estate</h1>
+    <p class="standfirst" data-tr>Meaning drifts wherever models multiply without a shared vocabulary above them; one governed ontology, mapped onto many models, settles the argument once.</p>
+    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+  </div>
+  <figcaption class="covercap" data-tr>A golden tree on parchment, branches carrying glowing tablets. Image: Ovia Inc</figcaption>
+</header>
+<main>
+  <div class="cols">
+<p class="first" data-tr>Every growing data estate develops the same quiet disease, and the disease rarely announces itself as a data problem. Finance models revenue one way, the sales dashboard models revenue another way, and a third definition survives inside the board pack.</p>
+<p data-tr>Each model can pass every local test and the company can still argue about the numbers in the same meeting. The argument was never mainly about arithmetic. Meaning drifts wherever models multiply without a shared vocabulary above them, and the drift stays invisible until two certified answers disagree in public.</p>
+<p data-tr>The ontology direction in the Datus and Dosi October work points the other way. One governed vocabulary, mapped onto many models and versioned like code, gives teams a place to settle meaning once and let every dashboard, model and agent inherit the answer.</p>
+<aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>Meaning drifts when every team and tool keeps a local definition of the same business word.</li><li data-tr>Ontology Mapping split into the Apache Ossie standard separates the ontology, the semantic model and the mapping between them.</li><li data-tr>A definition change becomes a versioned event, proposed, reviewed and released, rather than a quiet edit in one file.</li><li data-tr>Agents consume meaning literally and at scale, so a shared vocabulary becomes part of the system rather than documentation about the system.</li></ul></aside>
+<h2 class="sec" data-tr>01 · The fragmentation problem</h2>
+<p data-tr>Every growing data estate develops the same quiet disease. Finance models revenue one way; the sales dashboard models revenue another; a third definition lives inside the board pack, reconciled by hand each quarter. Each semantic model is internally consistent, and the company still argues about the numbers — because the argument was never about arithmetic. Meaning drifts wherever models multiply without a shared vocabulary above them, and the drift stays invisible until two certified answers disagree in the same meeting. Agents inherit the disease at machine speed: an agent reasoning across models that define the same word differently will produce fluent, confident, contradictory work.</p>
+<p data-tr>The cost of that drift is easy to underestimate because the cost arrives as ordinary friction. A meeting spends its first half reconciling totals instead of deciding anything. An analyst maintains a private translation between two dashboards. A careful answer carries a footnote explaining which revenue was meant. None of those moments looks like a system failure, yet together those moments tax every decision the estate was built to support.</p>
+<h2 class="sec" data-tr>02 · One ontology, many models</h2>
+<p data-tr>The architectural answer emerging in the Datus and Dosi October work is a separation of concerns. Ontology Mapping, split into the Apache Ossie standard, divides the world into three documents — the ontology, the semantic model, and the mapping between them — so that one ontology can span many semantic models. The vocabulary of the business (customer, order, account, and the relationships among them) lives once, governed once, and each underlying model declares how local fields and tables express those shared concepts. Models keep their local structure; meaning stops being local. New models join the estate by writing a mapping, not by renegotiating the language.</p>
+<p data-tr>The three-document split also clarifies ownership. The ontology holds the language leadership agrees to govern. A semantic model holds a local structure built for a platform, a team or a workload. The mapping holds the honest translation between the two, where compromises and gaps can be seen rather than hidden inside a query. When a local model changes shape, the mapping absorbs the change. When the business changes meaning, the ontology records the change where every mapping can respond.</p>
+<blockquote class="pull" data-tr>The shared language is not documentation about the system; the shared language is part of the system.</blockquote>
+<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/one-ontology-many-models/ovia-inc-one-ontology-many-models-body-1.webp" alt="Ovia Inc — A golden illuminated tree on parchment spreading into many panels inside a burgundy and gold border"><figcaption data-tr>One golden tree, many panels, inside a burgundy and gold border. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>03 · Governance is a versioning problem</h2>
+<p data-tr>Treating vocabulary as a governed artefact changes the daily work of data leadership. A definition change becomes a versioned event — proposed, reviewed, released — rather than an edit inside one team's file. Derived concepts, such as the rule that makes a customer a Premier Customer, carry versions of their own, so historical reports can be read against the rule that was in force when the numbers were produced. Disputes move up a level, from whose SQL is right to what the business means — a shorter, more honest argument, held once, in the open, with the decision recorded where every model can inherit the answer.</p>
+<p data-tr>Good governance here stays deliberately light. A proposed change needs a reason, a reviewer with authority over the concept, and a record that downstream owners can find. Heavy ceremony would push teams back toward private definitions, defeating the purpose. Light, visible versioning does the opposite: changing the shared language becomes normal, auditable work, and keeping a private dialect becomes the option that needs explaining.</p>
+<h2 class="sec" data-tr>04 · What agents inherit</h2>
+<p data-tr>Agents raise the stakes on all of this, because agents consume meaning literally and at scale. An ontology spanning the estate gives an agent a bounded business world to reason in: concepts that resolve consistently across models, relationships that can be traversed safely, rules that execute the same way in every tool. The OntologyAnalyst pattern — a specialised subagent working the concepts and mappings directly — shows the consumption model forming already. Context engineering, as practised at Ovia since December 2022, treats that vocabulary as core context: the shared language is not documentation about the system; the shared language is part of the system.</p>
+<figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/one-ontology-many-models/ovia-inc-one-ontology-many-models-body-2.webp" alt="Ovia Inc — Three parchment scrolls on burgundy cloth joined by gold threads into one central gold seal"><figcaption data-tr>Three parchments on burgundy cloth, gold threads meeting at one seal. Image: Ovia Inc</figcaption></figure>
+<p data-tr>Bounded worlds matter for safety as much as for accuracy. An agent that can traverse named relationships inside a governed vocabulary has a clearer edge to stop at than an agent improvising joins across raw tables. Permissions, review and audit all become easier to reason about when the concepts an agent used are the same concepts a person can inspect. The vocabulary does not make an agent wise, but a governed vocabulary makes agent work legible.</p>
+<h2 class="sec" data-tr>05 · What to watch</h2>
+<p data-tr>Watch whether the three-document split — ontology, model, mapping — becomes the standard shape other engines adopt, whether mapping maintenance proves cheaper than definition drift (the bet the architecture makes), and whether governance ceremonies stay light enough that teams actually hold them. The estates that win the agent era will not be the ones with the most models. The winners will be the estates where every model, dashboard and agent means the same thing by the same words — and can prove the lineage of that meaning on demand.</p>
+<p data-tr>The cost side deserves honesty as well. A governed vocabulary is not free: mappings must be written, changes reviewed, and someone must own the language with authority to settle disputes. The architecture's bet is that this visible, bounded cost replaces an invisible, unbounded one — the reconciliation meetings, the duplicated definitions, the agent errors traced back to two models meaning different things by the same word. Estates already pay for meaning; the ontology simply moves the payment onto the books, where leadership can see the line and judge the return.</p>
+<p data-tr>A sensible starting point stays small. Pick the words that cause the most expensive arguments, govern those words first, and let the practice earn the right to expand.</p>
+
+  </div>
+  <div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+<li><span data-tr>Harrison Zhao (Datus) — “Datus October Update: Teaching the Semantic Layer the Business”, Medium, October 31, 2026:</span> <a href="https://medium.com/@linux.hust/datus-october-update-teaching-the-semantic-layer-the-business-datus-blog-7f5401c6abca">https://medium.com/@linux.hust/datus-october-update-teaching-the-semantic-layer-the-business-datus-blog-7f5401c6abca</a></li>
+<li><span data-tr>Datus — “From Semantic Layer to Ontology: Architecture for AI Agents”, Datus blog:</span> <a href="https://datus.ai/blog/from-semantic-layer-to-ontology/">https://datus.ai/blog/from-semantic-layer-to-ontology/</a></li>
+
+    </ul>
+  </div>
+  <p class="tags">#ContextEngineering #BusinessIntelligence #DataGovernance #toyoursatisfaction</p>
+  <footer><nav style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">← Magazine</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/context-graph-permissions-of-the-human/">Next article →</a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <div class="frow">
+      <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
+      <p class="inspiration-credit" data-tr>Design inspired by Man Ray — 032c.</p>
+  </footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+</body>
+</html>

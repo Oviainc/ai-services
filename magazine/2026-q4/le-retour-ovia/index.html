@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
+<title>Le retour d'Ovia : quatre ans de Context Engineering — Ovia Inc</title>
+<meta name="description" content="Nous sommes de retour : quatre ans de context engineering depuis décembre 2022, racontés depuis le terrain, à Montréal.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Le retour d'Ovia : quatre ans de Context Engineering">
+<meta property="og:description" content="Nous sommes de retour : quatre ans de context engineering depuis décembre 2022, racontés depuis le terrain, à Montréal.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/le-retour-ovia/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/le-retour-ovia/ovia-inc-le-retour-ovia-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#7FA8C9;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* masthead zone over the article background image */
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.52),rgba(10,14,20,.94));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;}
+  .masthead img.logo{height:46px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;text-transform:uppercase;font-weight:700;font-size:clamp(2.5rem,6.4vw,4.7rem);line-height:.99;letter-spacing:.004em;max-width:1020px;}
+  .standfirst{font-size:clamp(1.12rem,2.3vw,1.42rem);font-style:italic;color:var(--muted);max-width:780px;line-height:1.5;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  /* hero */
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;border-radius:2px;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  /* body columns */
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.16rem;line-height:1.75;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,sans-serif;font-size:5.4rem;line-height:.78;float:left;padding:.55rem .9rem 0 0;color:var(--accent);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:36px 0 14px;border-top:2px solid var(--accent);padding-top:14px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;font-size:clamp(1.55rem,3.6vw,2.35rem);line-height:1.3;font-style:italic;text-align:center;color:var(--accent);margin:42px 0;padding:4px 12px;}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;border-radius:2px;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px 20px 10px;margin:0 0 24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .keybox li{margin:0 0 9px 18px;font-size:.95rem;line-height:1.5;}
+  /* references + tags + footer */
+  .refs-sec{margin-top:44px;border-top:1px solid var(--line);padding-top:24px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  p.tags{color:var(--accent);font-size:.95rem;margin-top:26px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 10px;font-size:.95rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  footer .ftag{color:var(--text);letter-spacing:.06em;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
+</style>
+<style id="arch-css">
+/* Layout archetype: rail (diversification pass) */
+body.arch-rail .layout{display:grid;grid-template-columns:296px minmax(0,1fr);gap:46px;align-items:start;}
+body.arch-rail .rail{position:sticky;top:22px;margin-top:30px;}
+body.arch-rail .rail .kicker{margin:0 0 20px;}
+body.arch-rail .rail .keybox{margin:0 0 26px;}
+body.arch-rail .rail blockquote.pull{column-span:none;text-align:left;font-size:1.45rem;line-height:1.35;margin:0;padding:6px 0 6px 18px;border-left:3px solid var(--accent);}
+body.arch-rail .cols{column-count:1;margin-top:30px;}
+body.arch-rail figure.body{width:62%;}
+body.arch-rail .cols figure.body:nth-of-type(2n){width:84%;margin-left:auto;}
+body.arch-rail figure.wide{width:100%;}
+@media (max-width:900px){body.arch-rail .layout{grid-template-columns:1fr;}body.arch-rail .rail{position:static;}body.arch-rail figure.body,body.arch-rail .cols figure.body:nth-of-type(2n){width:100%;margin-left:0;}}
+</style>
+<link rel="icon" href="/ai-services/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/ai-services/assets/apple-touch-icon.png">
+<style id="mag28-css">
+/* OVIA Magazine rebuild 2026-11-04 — bespoke layout variant mag28-v28: cols=two-wide pull=right-rule key=outline sec=plain-caps fig=span hero=cinema filter=saturate(1.22) brightness(1.06) contrast(1.03) */
+@media (min-width:1020px){body.mag28-v28 .cols{column-count:2;column-gap:76px;}}
+body.mag28-v28 blockquote.pull{text-align:right;border-right:4px solid var(--accent);padding-right:22px;}
+body.mag28-v28 .keybox{border:2px solid var(--accent);background:transparent;}
+body.mag28-v28 h2.sec{border-top:none;letter-spacing:0.34em;}
+body.mag28-v28 figure.wide{column-span:all;}
+body.mag28-v28 figure.hero img,figure.herofig img{aspect-ratio:2.35/1;object-fit:cover;width:100%;}
+body.mag28-v28 figure img, .mast-bg{filter:saturate(1.22) brightness(1.06) contrast(1.03);}
+body.mag28-v28 figure.hero img,figure.herofig img{filter:saturate(1.22) brightness(1.06) contrast(1.03);}
+body.mag28-v28 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+</style>
+<link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/le-retour-ovia/">
+</head>
+<body class="arch arch-rail mag28-v28">
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/le-retour-ovia/ovia-inc-le-retour-ovia-background.webp')"></div>
+  <div class="mast-shade"></div>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="logo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+      </div>
+    </div>
+    <h1 class="display" data-tr>Le retour d'Ovia : quatre ans de Context Engineering</h1>
+    <p class="standfirst" data-tr>Nous sommes de retour. Quatre ans de context engineering racontés depuis le terrain : le contexte juste, au bon moment, pour des agents et des équipes qui livrent en production.</p>
+    <p class="byline" data-tr>Ovia Inc · Studio et Lab · 6 min de lecture</p>
+  </div>
+</header>
+<div class="hero-zone">
+  <figure class="hero">
+    <img src="https://oviainc.github.io/ai-services/articles/le-retour-ovia/ovia-inc-le-retour-ovia-hero.webp" alt="Ovia Inc — Une rue de Montréal enneigée au crépuscule, maisons bleu ardoise et fenêtres ambre chaudes">
+    <figcaption data-tr>Le retour à la maison : Montréal sous la neige, les fenêtres chaudes dans le bleu ardoise. Image : Ovia Inc</figcaption>
+  </figure>
+</div>
+<main>
+  <div class="layout">
+<aside class="rail">
+<p class="kicker" data-tr>Ovia Inc — Context Engineering · Montréal</p>
+<aside class="keybox"><h3 data-tr>Points clés</h3><ul><li data-tr>Depuis décembre 2022, Ovia Inc construit une intelligence artificielle pratique : context engineering, agents IA, apprentissage automatique et systèmes de données.</li><li data-tr>La méthode tient en une phrase : le contexte juste, au bon moment, pour des agents et des équipes qui livrent en production.</li><li data-tr>Une expertise certifiée soutient le travail : NVIDIA-Certified Professional : AI Operations, et les formations Agents et Deep RL de Hugging Face terminées en mai 2025.</li><li data-tr>Pour la suite : des notes de cas, des leçons de terrain et des histoires de projets, en français, en anglais et en espagnol.</li></ul></aside>
+<blockquote class="pull" data-tr>Le contexte juste, au bon moment, pour des agents et des équipes qui livrent en production.</blockquote>
+</aside>
+<div class="cols">
+<p class="first" data-tr>Nous sommes de retour. Depuis décembre 2022, nous construisons chez Ovia Inc une intelligence artificielle pratique : context engineering, agents IA, apprentissage automatique et systèmes de données pensés pour des opérations réelles. Quatre ans plus tard, le retour se raconte depuis Montréal, en hiver, avec la même conviction qu'au premier jour : le contexte juste change tout.</p>
+<p data-tr>Quatre ans de context engineering, racontés depuis le terrain : le contexte juste, au bon moment, pour des agents et des équipes qui livrent en production. Un retour n'est pas une relance de façade. Un retour, pour nous, veut dire reprendre la parole là où le travail se fait, montrer les notes, les leçons et les chantiers, et recommencer à publier avec régularité.</p>
+<p data-tr>Une expertise certifiée soutient le travail — NVIDIA-Certified Professional : AI Operations, ainsi que les formations Agents et Deep RL de Hugging Face, terminées en mai 2025. Les titres comptent, mais le terrain compte davantage : des systèmes qui roulent, des équipes qui livrent, et des clients dont les opérations ne pardonnent pas les démonstrations approximatives.</p>
+<h2 class="sec" data-tr>01 · Quatre ans depuis le terrain</h2>
+<p data-tr>Quatre ans, dans un domaine qui change de mode chaque saison, représentent une éternité de pratique. Depuis décembre 2022, le travail chez Ovia suit une ligne simple : partir des opérations réelles, pas des promesses. Un agent utile est un agent qui connaît le dossier, respecte les permissions et laisse une trace vérifiable de chaque action. Un système de données utile est un système dont les définitions tiennent quand deux équipes lisent le même chiffre.</p>
+<p data-tr>Le terrain enseigne vite. Le contexte donné à un modèle décide du plafond de qualité de tout ce que le modèle produit ensuite, et aucun réglage en aval ne compense durablement un contexte pauvre, contradictoire ou périmé. Cette leçon, répétée projet après projet, est devenue la signature de la maison : préparer le contexte avec le même soin que le modèle, puis mesurer le résultat là où le travail compte vraiment, en production.</p>
+<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/le-retour-ovia/ovia-inc-le-retour-ovia-body-1.webp" alt="Ovia Inc — Un bureau de studio près d'une fenêtre givrée en hiver, lumière ambre chaude et tons bleu ardoise"><figcaption data-tr>Le studio en hiver : la fenêtre givrée, la lumière chaude, le travail qui reprend. Image : Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>02 · Le contexte juste, au bon moment</h2>
+<p data-tr>Le context engineering se résume mal en slogan, alors voici la version de terrain. Chaque tâche reçoit le contexte qu'elle exige : les documents pertinents, les définitions partagées, les exemples qui montrent le niveau attendu, et rien de plus. Trop peu de contexte, et le modèle devine. Trop de contexte, et le signal se noie dans le bruit. Le bon moment compte autant que le bon contenu : un contexte livré après la décision ne sert qu'à documenter un regret.</p>
+<p data-tr>Cette discipline rejoint un parcours plus long. Avant Ovia, le parcours passe par la coordination technologique chez Staywired de 2014 à 2022, par la facilitation de projets chez Beanfield Metroconnect de 2011 à 2013, et par le mentorat linguistique bénévole à l'Université de Montréal depuis 2014. Des réseaux, des équipes, des usagers : toujours la même question, sous des formes différentes — quelle information, pour qui, à quel moment, dans quelle langue.</p>
+<h2 class="sec" data-tr>03 · Une expertise qui se prouve</h2>
+<p data-tr>Les certifications ne font pas le travail, mais les certifications structurent l'apprentissage et donnent aux clients un repère vérifiable. Le titre NVIDIA-Certified Professional : AI Operations ancre la pratique des opérations IA. Les formations Agents et Deep RL de Hugging Face, terminées en mai 2025, ancrent la pratique des agents et de l'apprentissage par renforcement. Entre les deux, une même exigence : comprendre les systèmes assez profondément pour les opérer, pas seulement pour les démontrer.</p>
+<figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/le-retour-ovia/ovia-inc-le-retour-ovia-body-2.webp" alt="Ovia Inc — Montréal et un pont au-dessus d'un fleuve gelé à l'heure bleue, neige blanche et lumières ambre"><figcaption data-tr>Montréal à l'heure bleue : le fleuve gelé, les fenêtres chaudes, la ville de base. Image : Ovia Inc</figcaption></figure>
+<p data-tr>Montréal n'est pas un décor dans cette histoire. La ville donne au travail une langue de plus, une culture technique dense et un hiver qui rappelle chaque année que les systèmes sérieux se préparent avant la tempête. Publier en français d'abord, pour cette page, relève du même choix : la langue du lieu fait partie du contexte, et le contexte juste inclut la langue juste.</p>
+<h2 class="sec" data-tr>04 · Studio et Lab, une même maison</h2>
+<p data-tr>Ovia se présente comme un studio et un laboratoire, et la formule décrit un partage réel du travail. Le studio soigne la forme : des interfaces claires, des textes qui se lisent, des produits que les équipes adoptent sans formation héroïque. Le laboratoire soigne la preuve : des prototypes mesurés, des agents évalués, des hypothèses mises à l'épreuve avant les promesses. Une idée née au studio passe au laboratoire avant de rencontrer un client, et un résultat du laboratoire revient au studio pour devenir un produit présentable.</p>
+<p data-tr>Ce va-et-vient protège contre les deux échecs classiques du domaine : la démonstration brillante qui ne survit pas à la production, et le système robuste que personne ne comprend ni n'utilise. La forme sans la preuve reste du théâtre. La preuve sans la forme reste un rapport tablette. Nous visons les deux, dans le même livrable, à chaque fois.</p>
+<h2 class="sec" data-tr>05 · Les réserves honnêtes</h2>
+<p data-tr>L'honnêteté impose quelques réserves. Quatre ans de pratique ne transforment personne en oracle : les modèles changent, les outils vieillissent, et une partie de ce qui semble solide aujourd'hui demandera une révision demain. Le context engineering ne répare pas non plus des données sales ni des définitions absentes ; le contexte juste suppose un travail préalable sur les sources, et ce travail reste souvent le plus long. Enfin, publier régulièrement est un engagement plus facile à annoncer qu'à tenir, et la régularité annoncée ici sera jugée sur les parutions, pas sur les intentions.</p>
+<p data-tr>Pour la suite : des notes de cas, des leçons de terrain et des histoires de projets, partagées ici régulièrement, en français, en anglais et en espagnol. Nous sommes de retour, avec quatre ans de context engineering dans les bagages, une base à Montréal, et une méthode qui tient en une phrase. Le contexte juste, au bon moment — et le reste suit.</p>
+  </div>
+  </div>
+  <div class="refs-sec">
+    <h2 data-tr>Références</h2>
+    <ul class="refs">
+<li><span data-tr>Ovia Inc — « Le retour d'Ovia : quatre ans de Context Engineering », texte de position Ovia Inc — index des articles :</span> <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">https://oviainc.github.io/ai-services/magazine/2026-q4/</a></li>
+<li><span data-tr>Ovia Inc — Archives de l'auteur sur Medium :</span> <a href="https://medium.com/@ovia_">https://medium.com/@ovia_</a></li>
+
+    </ul>
+  </div>
+  <p class="tags">#IntelligenceArtificielle #ContextEngineering #ApprentissageAutomatique #AgentsIA #Montreal #toyoursatisfaction</p>
+  <footer><nav style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">← Magazine</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/agentic-observatory-seti-search/">Next article →</a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <div class="frow">
+      <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
+      <p class="inspiration-credit" data-tr>Design inspiré par Mario Testino — Vogue Paris.</p>
+  </footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "fr";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "fr";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "fr", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("fr|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "fr") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "fr") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+</body>
+</html>

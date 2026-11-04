@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
+<title>Context Travels, Authority Stays Personal — Ovia Inc</title>
+<meta name="description" content="ZoomInfo places its context graph inside Snowflake, read by agents through OAuth 2.0 and the permissions of the person asking. Context travels; authority stays personal.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Context Travels, Authority Stays Personal">
+<meta property="og:description" content="ZoomInfo places its context graph inside Snowflake, read by agents through OAuth 2.0 and the permissions of the person asking. Context travels; authority stays personal.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/context-graph-permissions-of-the-human/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/context-graph-permissions-of-the-human/ovia-inc-context-graph-permissions-of-the-human-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#E35D9F;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;}
+  .masthead img.logo{height:46px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;text-transform:uppercase;font-weight:700;line-height:.99;}
+  .standfirst{font-style:italic;color:var(--muted);line-height:1.5;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);border-top:2px solid var(--accent);padding-top:14px;}
+  .keybox{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px 20px 10px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .keybox li{margin:0 0 9px 18px;font-size:.95rem;line-height:1.5;}
+  blockquote.pull{font-style:italic;color:var(--accent);line-height:1.3;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  p.tags{color:var(--accent);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);font-size:.95rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer .ftag{color:var(--text);letter-spacing:.06em;}
+
+  :root{--bg:#000000;--panel:#111111;--muted:#BFBFBF;--line:#262626;}
+  body{background:#000000;}
+  .langbar select{background:#111111;}
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.45;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.88));}
+  .mast-inner{position:relative;margin:0 auto;padding:24px;}
+  .dropcap::first-letter{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;font-size:4.4rem;line-height:.82;float:left;padding:7px 12px 0 0;color:var(--accent);}
+
+  .mast-inner{max-width:1180px;}
+  .titleblock{max-width:1180px;margin:0 auto;padding:40px 24px 4px;}
+  .titleblock h1.display{font-size:clamp(2.3rem,5.4vw,4.3rem);}
+  .titleblock .standfirst{font-size:1.14rem;max-width:700px;margin-top:16px;}
+  .titleblock .byline{margin-top:16px;}
+  .layout{display:grid;grid-template-columns:290px minmax(0,1fr);gap:48px;max-width:1180px;margin:0 auto;padding:30px 24px 0;}
+  .rail{position:sticky;top:24px;align-self:start;display:flex;flex-direction:column;gap:26px;}
+  .rail .kicker{line-height:1.7;}
+  .rail blockquote.pull{font-size:1.5rem;border-left:3px solid var(--accent);padding-left:16px;}
+  .statbox{border:1px solid var(--line);padding:18px 18px 8px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .statbox .num{font-size:1.55rem;color:var(--accent);display:block;line-height:1.15;}
+  .statbox .lab{color:var(--muted);font-size:.85rem;display:block;margin-bottom:14px;}
+  .bodycol p{margin-bottom:16px;font-size:1.06rem;}
+  .bodycol h2.sec{margin:36px 0 12px;}
+  figure img{width:100%;display:block;}
+  figure.herofig{margin:0 0 28px;}
+  figure.herofig img{height:380px;object-fit:cover;}
+  figure.inset-r{float:right;width:56%;margin:6px 0 14px 22px;}
+  figure.inset-l{float:left;width:44%;margin:6px 22px 14px 0;}
+  figure.inset-full{margin:28px 0;clear:both;}
+  figure.inset-full img{height:300px;object-fit:cover;}
+  .refs-sec{max-width:1180px;margin:54px auto 0;padding:0 24px;}
+  p.tags{max-width:1180px;margin:22px auto;padding:0 24px;}
+  footer{max-width:1180px;margin:0 auto;padding:18px 24px 32px;}
+  @media (max-width:880px){.layout{grid-template-columns:1fr;} .rail{position:static;} figure.inset-r,figure.inset-l{float:none;width:100%;margin:22px 0;}}
+
+</style>
+<link rel="icon" href="/ai-services/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/ai-services/assets/apple-touch-icon.png">
+<style id="mag28-css">
+/* OVIA Magazine rebuild 2026-11-04 — bespoke layout variant mag28-v18: cols=one pull=centre key=side sec=rule-bottom fig=full hero=wide filter=sepia(0.35) contrast(1.08) brightness(1.02) */
+body.mag28-v18 .cols{column-count:1;max-width:840px;margin-left:auto;margin-right:auto;}
+body.mag28-v18 blockquote.pull{text-align:center;}
+body.mag28-v18 .keybox{border-left:6px solid var(--accent);border-top:1px solid var(--line);}
+body.mag28-v18 h2.sec{border-top:none;border-bottom:2px solid var(--accent);padding-bottom:10px;}
+body.mag28-v18 figure.body,figure.wide{column-span:all;}
+body.mag28-v18 figure.hero img,figure.herofig img{aspect-ratio:21/9;object-fit:cover;width:100%;}
+body.mag28-v18 figure img, .mast-bg{filter:sepia(0.35) contrast(1.08) brightness(1.02);}
+body.mag28-v18 figure.hero img,figure.herofig img{filter:sepia(0.35) contrast(1.08) brightness(1.02);}
+body.mag28-v18 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+</style>
+<link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/context-graph-permissions-of-the-human/">
+</head>
+<body class="mag28-v18">
+<header class="mastzone"><div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/context-graph-permissions-of-the-human/ovia-inc-context-graph-permissions-of-the-human-background.webp')"></div><div class="mast-shade"></div><div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="logo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+      </div>
+    </div>
+  </div></header>
+
+  <div class="titleblock">
+    <h1 class="display" data-tr>Context Travels, Authority Stays Personal</h1>
+    <p class="standfirst" data-tr>ZoomInfo has placed its go-to-market context graph inside Snowflake, where agents read company and contact intelligence through the permissions of the person asking. The context travels everywhere; the authority stays personal.</p>
+    <p class="byline">Ovia Inc · Studio and Lab · 6 min read</p>
+  </div>
+  <div class="layout">
+    <aside class="rail">
+      <p class="kicker" data-tr>Business Intelligence · Data · Governance</p>
+      <div class="keybox">
+        <h3 data-tr>Key points</h3>
+        <ul>
+          <li data-tr>ZoomInfo MCP and API now run inside the Snowflake AI Data Cloud through GTM.AI.</li>
+          <li data-tr>Agents in CoWork and Cortex read a graph of 100M+ companies and 500M contacts, in ZoomInfo figures.</li>
+          <li data-tr>Every call runs on OAuth 2.0 and inherits the role-based permissions of the user asking.</li>
+          <li data-tr>An audit framework records who asked, through which agent, under whose authority.</li>
+          <li data-tr>Bulk enrichment runs 10,000 records per request and 200,000 per query.</li>
+        </ul>
+      </div>
+      <blockquote class="pull" data-tr>“The agent reads with borrowed eyes — and the eyes belong to a named person.”</blockquote>
+      <div class="statbox">
+        <span class="num">100M+</span><span class="lab" data-tr>companies in the graph</span>
+        <span class="num">500M</span><span class="lab" data-tr>contacts in the graph</span>
+        <span class="num">10,000</span><span class="lab" data-tr>records per enrichment request</span>
+        <span class="num">200,000</span><span class="lab" data-tr>records per query</span>
+        <span class="num">OAuth 2.0</span><span class="lab" data-tr>on every call</span>
+      </div>
+    </aside>
+    <div class="bodycol">
+<figure class="herofig"><img src="https://oviainc.github.io/ai-services/articles/context-graph-permissions-of-the-human/ovia-inc-context-graph-permissions-of-the-human-hero.webp" alt="Ovia Inc — brass nodes and threads forming a network map with one magenta thread"><figcaption data-tr>A map of companies and contacts drawn in brass and thread, one line lit in magenta: the record a single question follows. Image: Ovia Inc</figcaption></figure>
+      <p class="dropcap" data-tr>A context graph is only as useful as the questions allowed to reach it. Sales and marketing teams have wanted, for years, to ask their market the way analysts ask a warehouse: in plain language, across every company and contact on record, with the answer arriving inside the tools already open. The obstacle was never the asking. The obstacle was authority: a graph holding intelligence on more than a hundred million companies cannot simply open itself to any agent that wanders past. On October 30, 2026, ZoomInfo answered with a design worth studying well beyond sales.</p>
+      <h2 class="sec" data-tr>01 — Inside the warehouse where the work already happens</h2>
+      <p data-tr>ZoomInfo's MCP server and API now run natively inside the Snowflake AI Data Cloud, delivered through its GTM.AI platform. Agents working in Snowflake CoWork and Cortex, the places where data teams already build and ask, can reach ZoomInfo intelligence without exporting records into yet another silo. Placement is the story: the context graph moved to the data, instead of the data moving to the graph, and the warehouse's own agents gained a sense the estate did not have before, a live view of the market outside the building.</p>
+      <h2 class="sec" data-tr>02 — The graph itself</h2>
+<figure class="inset-r"><img src="https://oviainc.github.io/ai-services/articles/context-graph-permissions-of-the-human/ovia-inc-context-graph-permissions-of-the-human-body-2.webp" alt="Ovia Inc — blank paper stream moving through a dark archive under magenta edge light"><figcaption data-tr>Records in motion through the archive: enrichment at bulk scale, ten thousand files to a request. Image: Ovia Inc</figcaption></figure>
+      <p data-tr>What agents can reach is the GTM Context Graph: more than 100 million companies, 500 million contacts and billions of buying signals, in ZoomInfo's own figures. The interface is a working set rather than a single search box: Search, Enrich, Lookup, Bulk and Monitoring endpoints cover finding, completing, verifying, mass-processing and watching records. The bulk numbers set the scale plainly, with enrichment accepting 10,000 records per request and 200,000 per query. Numbers like those move the graph out of the lookup category and into the pipeline category, where enrichment becomes a stage in a data product rather than a favour asked of a browser tab.</p>
+      <h2 class="sec" data-tr>03 — Permissions of the human</h2>
+<figure class="inset-l"><img src="https://oviainc.github.io/ai-services/articles/context-graph-permissions-of-the-human/ovia-inc-context-graph-permissions-of-the-human-body-1.webp" alt="Ovia Inc — badge reader on a slate wall with magenta light and a blank card"><figcaption data-tr>The reader on the wall: access is personal, checked at the door, and logged on the way through. Image: Ovia Inc</figcaption></figure>
+      <p data-tr>Access runs on OAuth 2.0, and the decisive detail is inheritance: every call an agent makes carries the role-based permissions of the user behind the session. An agent working for a regional sales lead sees the graph as that lead sees it, no wider. An agent working for a data steward with broader rights sees more, and the difference is a personnel fact, not a model behaviour. Around the calls sits an audit framework, so the organisation can reconstruct who asked, through which agent, for what, and under whose authority. Accountability survives delegation because the delegation itself is written down.</p>
+      <h2 class="sec" data-tr>04 — Why the pattern travels</h2>
+      <p data-tr>Business intelligence has quietly run on this pattern for years. A dashboard never held rights of its own; the dashboard inherited the reader's, and row-level security decided what a chart was allowed to show. Agents are the same discipline at machine speed, and the ZoomInfo design simply refuses to unlearn it. The alternative, agents holding standing credentials of their own, is how context graphs become breach graphs. As context layers arrive in engineering, finance, support and security, the governing question stays identical: does the agent inherit a person's authority, or hold authority of its own? Personal inheritance keeps accountability legible, and legible accountability is what lets a board say yes.</p>
+<figure class="inset-full"><img src="https://oviainc.github.io/ai-services/articles/context-graph-permissions-of-the-human/ovia-inc-context-graph-permissions-of-the-human-body-3.webp" alt="Ovia Inc — frost crystals on dark glass with a magenta rim light"><figcaption data-tr>Frost on glass: patterns that look uniform from a distance resolve, up close, into individual structures. Image: Ovia Inc</figcaption></figure>
+      <h2 class="sec" data-tr>05 — Watch items, honestly noted</h2>
+      <p data-tr>The October 31 industry roundup adds the caveats a careful buyer keeps. Pricing was not disclosed, and a ZoomInfo subscription is required, so the graph's cost sits inside a commercial conversation rather than on a public page. The endpoints are sales-oriented today, aimed at go-to-market work. Neither caveat dents the pattern. Patterns escape their first market: permission-inheriting context access, audited end to end, is how every serious context graph will be served within a few product cycles. The teams that internalise the pattern now, in business intelligence first, will recognise it everywhere it lands next.</p>
+      <h2 class="sec" data-tr>06 — The checklist the design hands the buyer</h2>
+      <p data-tr>The design hands buyers a test that fits inside one meeting. Sign in as a regional sales lead and have an agent in Cortex ask a market question; then sign in as a data steward and ask the same question again. If both sessions draw on the same visible graph, inheritance is a slide in a deck, not a mechanism. In the ZoomInfo design the difference is structural: OAuth 2.0 carries the asker’s role-based permissions on every call, so the graph an agent sees is the graph its person is entitled to see — a hundred million companies on paper, and only the entitled slice in practice.</p>
+      <p data-tr>The second test is reconstruction. Take any answer an agent produced last week and ask the audit framework to rebuild the moment: who asked, through which agent, under whose authority, against which records. The framework described in the release records exactly those facts. That is the standard worth holding every context vendor to, because delegation without a written trail is where accountability goes to die; with one, a board or a customer can follow a decision back to a named person, and the agent’s work stays defensible long after the session ends.</p>
+      <p data-tr>The third test is scale. Enrichment at 10,000 records per request and 200,000 per query means one instruction can touch a market-sized slice of the graph, which is precisely why permissions and audit cannot be features added later. We read the launch as a template: place the context where the work already happens, let agents inherit a person’s authority rather than hold authority of their own, and log the delegation itself. Vendors that meet those three terms will be easy to approve. Vendors that meet none of them are asking the organisation to lend its authority to software, and hope.</p>
+    </div>
+  </div>
+
+  <div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+      <li><span data-tr>ZoomInfo — “ZoomInfo Launches Native MCP and API Integration in Snowflake AI Data Cloud”, October 30, 2026:</span> <a href="https://www.zoominfo.com/newsroom/press-releases/zoominfo-mcp-api-launch-snowflake">https://www.zoominfo.com/newsroom/press-releases/zoominfo-mcp-api-launch-snowflake</a></li>
+      <li><span data-tr>Agile Brand Guide — “Yesterday's marketing technology and AI news”, October 31, 2026:</span> <a href="https://agilebrandguide.com/yesterdays-marketing-technology-ai-news-october-31-2026/">https://agilebrandguide.com/yesterdays-marketing-technology-ai-news-october-31-2026/</a></li>
+    </ul>
+  </div>
+  <p class="tags">#BusinessIntelligence #DataGovernance #AIAgents #MCP #Snowflake #toyoursatisfaction</p>
+  <footer><nav style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">← Magazine</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/one-hour-of-audio-one-context/">Next article →</a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <div class="frow">
+      <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
+      <p class="inspiration-credit" data-tr>Design inspired by Edward Steichen — Domus.</p>
+  </footer>
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+</body>
+</html>

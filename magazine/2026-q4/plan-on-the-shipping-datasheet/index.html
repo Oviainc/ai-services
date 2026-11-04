@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
+<title>Plan on the Shipping Datasheet — Ovia Inc</title>
+<meta name="description" content="NVIDIA's shipping specifications for the Rubin GPU revise the bandwidth figures the industry planned around — and reward the teams that re-baseline on documents, not keynotes.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Plan on the Shipping Datasheet">
+<meta property="og:description" content="NVIDIA's shipping specifications for the Rubin GPU revise the bandwidth figures the industry planned around — and reward the teams that re-baseline on documents, not keynotes.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/plan-on-the-shipping-datasheet/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/plan-on-the-shipping-datasheet/ovia-inc-plan-on-the-shipping-datasheet-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#4FA8E0;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* masthead zone over the article background image */
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.52),rgba(10,14,20,.94));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;}
+  .masthead img.logo{height:46px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;text-transform:uppercase;font-weight:700;font-size:clamp(2.5rem,6.4vw,4.7rem);line-height:.99;letter-spacing:.004em;max-width:1020px;}
+  .standfirst{font-size:clamp(1.12rem,2.3vw,1.42rem);font-style:italic;color:var(--muted);max-width:780px;line-height:1.5;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  /* hero */
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;border-radius:2px;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  /* body columns */
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.16rem;line-height:1.75;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,sans-serif;font-size:5.4rem;line-height:.78;float:left;padding:.55rem .9rem 0 0;color:var(--accent);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:36px 0 14px;border-top:2px solid var(--accent);padding-top:14px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;font-size:clamp(1.55rem,3.6vw,2.35rem);line-height:1.3;font-style:italic;text-align:center;color:var(--accent);margin:42px 0;padding:4px 12px;}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;border-radius:2px;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px 20px 10px;margin:0 0 24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .keybox li{margin:0 0 9px 18px;font-size:.95rem;line-height:1.5;}
+  /* references + tags + footer */
+  .refs-sec{margin-top:44px;border-top:1px solid var(--line);padding-top:24px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  p.tags{color:var(--accent);font-size:.95rem;margin-top:26px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 10px;font-size:.95rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  footer .ftag{color:var(--text);letter-spacing:.06em;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
+</style>
+<style id="arch-css">
+/* Layout archetype: rail (diversification pass) */
+body.arch-rail .layout{display:grid;grid-template-columns:296px minmax(0,1fr);gap:46px;align-items:start;}
+body.arch-rail .rail{position:sticky;top:22px;margin-top:30px;}
+body.arch-rail .rail .kicker{margin:0 0 20px;}
+body.arch-rail .rail .keybox{margin:0 0 26px;}
+body.arch-rail .rail blockquote.pull{column-span:none;text-align:left;font-size:1.45rem;line-height:1.35;margin:0;padding:6px 0 6px 18px;border-left:3px solid var(--accent);}
+body.arch-rail .cols{column-count:1;margin-top:30px;}
+body.arch-rail figure.body{width:62%;}
+body.arch-rail .cols figure.body:nth-of-type(2n){width:84%;margin-left:auto;}
+body.arch-rail figure.wide{width:100%;}
+@media (max-width:900px){body.arch-rail .layout{grid-template-columns:1fr;}body.arch-rail .rail{position:static;}body.arch-rail figure.body,body.arch-rail .cols figure.body:nth-of-type(2n){width:100%;margin-left:0;}}
+</style>
+<link rel="icon" href="/ai-services/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/ai-services/assets/apple-touch-icon.png">
+<style id="mag28-css">
+/* OVIA Magazine rebuild 2026-11-04 — bespoke layout variant mag28-v03: cols=three pull=centre key=band sec=chip fig=full hero=cinema filter=grayscale(0.35) contrast(1.06) brightness(1.06) */
+@media (min-width:1180px){body.mag28-v03 .cols{column-count:3;column-gap:40px;}} @media (min-width:700px) and (max-width:1179px){.cols{column-count:2;}}
+body.mag28-v03 blockquote.pull{text-align:center;}
+body.mag28-v03 .keybox{background:var(--accent);color:#0A0E14;} .keybox h3{color:#0A0E14;} .keybox li{color:#0A0E14;}
+body.mag28-v03 h2.sec{border-top:none;background:var(--panel);padding:10px 14px;}
+body.mag28-v03 figure.body,figure.wide{column-span:all;}
+body.mag28-v03 figure.hero img,figure.herofig img{aspect-ratio:2.35/1;object-fit:cover;width:100%;}
+body.mag28-v03 figure img, .mast-bg{filter:grayscale(0.35) contrast(1.06) brightness(1.06);}
+body.mag28-v03 figure.hero img,figure.herofig img{filter:grayscale(0.35) contrast(1.06) brightness(1.06);}
+body.mag28-v03 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+</style>
+<link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/plan-on-the-shipping-datasheet/">
+</head>
+<body class="arch arch-rail mag28-v03">
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/plan-on-the-shipping-datasheet/ovia-inc-plan-on-the-shipping-datasheet-background.webp')"></div>
+  <div class="mast-shade"></div>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="logo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+      </div>
+    </div>
+    <h1 class="display" data-tr>Plan on the Shipping Datasheet</h1>
+    <p class="standfirst" data-tr>The memory holds and the compute holds, but the bandwidth moved: ServeTheHome's comparison of preliminary and shipping Rubin specifications is a short masterclass in why operations teams plan on documents, not announcements.</p>
+    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+  </div>
+</header>
+<div class="hero-zone">
+  <figure class="hero">
+    <img src="https://oviainc.github.io/ai-services/articles/plan-on-the-shipping-datasheet/ovia-inc-plan-on-the-shipping-datasheet-hero.webp" alt="Ovia Inc — Cyanotype blueprint drawing of a processor die ringed by eight memory stacks">
+    <figcaption data-tr>The die and its memory, drawn the way engineers first meet them: as a drawing, subject to revision. Image: Ovia Inc</figcaption>
+  </figure>
+</div>
+<main>
+  <div class="layout">
+<aside class="rail">
+<p class="kicker" data-tr>Ovia Inc — AI Operations · Infrastructure</p>
+<aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>Rubin GPU memory capacity and compute are unchanged at 288 GB of HBM4, 50 PFLOPS of NVFP4 inference and 35 PFLOPS of training, as reported by ServeTheHome.</li><li data-tr>Memory bandwidth per GPU is revised from 22 to 19.2 TB/s, and NVLink scale-up bandwidth from 3.6 to 3.0 TB/s.</li><li data-tr>Scale-out networking bandwidth rises from 0.4 to 0.45 TB/s per GPU, the one figure that moved in the customer's favour.</li><li data-tr>The HGX Rubin NVL8 takes the largest cut: memory bandwidth down roughly 26 percent to 130 TB/s, with memory capacity reduced to 2.0 TB.</li></ul></aside>
+<blockquote class="pull" data-tr>Preliminary numbers belong to the announcement season; shipping numbers belong to the purchase order.</blockquote>
+</aside>
+<div class="cols">
+<p class="first" data-tr>A datasheet is a promise with footnotes. ServeTheHome reported on November 1 that NVIDIA has locked down the shipping specifications for the Rubin GPU, and the final figures are not the figures the industry spent a year planning around. The changes appeared quietly in September, on product pages and in the architecture datasheet, where IT Home first spotted them. No keynote walked them back. The numbers simply moved — and every capacity model built on the earlier numbers moved with them.</p>
+<p data-tr>We read spec revisions the way auditors read restated earnings: calmly, and in full. A revision is not a scandal; NVIDIA labelled the earlier figures preliminary, with all values up to and subject to change. A revision is, however, a work order. Every cluster plan, serving budget and procurement comparison drawn up against the preliminary table now carries a footnote of its own, and the professional habit is to re-baseline before the hardware arrives, not after.</p>
+<p data-tr>The headline is simple enough. The memory holds. The compute holds. The bandwidth — the measure that decides how fast a model can actually be fed — is what gave ground.</p>
+<h2 class="sec" data-tr>01 · The quiet edit</h2>
+<p data-tr>ServeTheHome traces the change to September, when NVIDIA posted updated specifications for the Rubin GPU and the products built from it. The timing matters. The revision lands as the first Vera Rubin NVL72 systems become generally available at hyperscalers, which means the new table describes hardware customers can actually order and receive, rather than a target the engineering teams were still chasing. Preliminary numbers belong to the announcement season; shipping numbers belong to the purchase order.</p>
+<p data-tr>There is a craft lesson in the delivery method. The figures were not corrected in a launch event or a blog post; they were edited in place, on the pages practitioners read while sizing real systems. Teams that archive the datasheets they plan against — dated, versioned, kept beside the model that consumed them — catch a change like this in a diff. Teams that planned from keynote slides are still quoting the old table.</p>
+<h2 class="sec" data-tr>02 · What actually changed</h2>
+<p data-tr>Per GPU, the memory system keeps its size and loses some speed. Capacity stays at 288 GB of HBM4 across eight stacks. Memory bandwidth steps down from 22 TB/s to 19.2 TB/s, because each pin now runs at 9.375 Gbps instead of the preliminary 10.75 Gbps — a reduction ServeTheHome puts at roughly 11 percent. NVLink, the scale-up fabric that lets many GPUs behave as one machine, steps down from 3.6 TB/s to 3.0 TB/s per GPU, a 17 percent reduction. Scale-out networking, the path between nodes, moves the other way, from 0.4 to 0.45 TB/s.</p>
+<p data-tr>At rack scale the arithmetic compounds. A Vera Rubin NVL72 now lists 1,400 TB/s of aggregate memory bandwidth against 1,580 TB/s in the preliminary table, and 216 TB/s of NVLink against 260 TB/s, while scale-out rises to 32.4 TB/s and capacity holds at 20.7 TB. The eight-GPU HGX Rubin NVL8 absorbs the deepest revision: bandwidth falls from 176 to 130 TB/s, capacity from 2.3 TB to 2.0 TB, and NVFP4 training from 280 to 270 PFLOPS.</p>
+<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/plan-on-the-shipping-datasheet/ovia-inc-plan-on-the-shipping-datasheet-body-1.webp" alt="Ovia Inc — Cyanotype blueprint elevation of a server rack filled with stacked compute trays"><figcaption data-tr>A rack, drawn before it is shipped: the elevation is where capacity promises become physical. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>03 · Why bandwidth is the budget line</h2>
+<p data-tr>Compute figures sell accelerators; bandwidth figures run them. When a large model generates text, each new token requires the machinery to read the model weights and the accumulated context from memory. The wider and faster that memory path, the more tokens a system serves per second, and the cheaper each answer becomes. A memory-bandwidth revision of roughly a tenth therefore lands directly on the serving economics of long-context workloads — the exact workloads context engineering keeps making larger.</p>
+<p data-tr>That is the operational meaning of the revision. A context budget, a batching plan and a cost-per-answer model are all, underneath, bandwidth budgets. Since December 2022, our context engineering work at Ovia has treated the context as a designed resource with a cost curve, and the curve is drawn by hardware numbers like these. When the datasheet moves, the honest response is to re-run the model, restate the assumptions and say plainly which line in the budget changed and why. AI operations, practised as a craft, is mostly that: verified numbers, versioned assumptions, no surprises billed later.</p>
+<p data-tr>Procurement deserves the same treatment. Comparisons drawn during the preliminary season set one side's targets against the other side's documents. The shipping table is the first fair basis for those comparisons, and it cuts both ways: ServeTheHome notes that even the revised pin rate sits above the HBM4 specification's own target rate and above the rate listed for AMD's MI455X, so the revision narrows a lead rather than surrendering it.</p>
+<figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/plan-on-the-shipping-datasheet/ovia-inc-plan-on-the-shipping-datasheet-body-2.webp" alt="Ovia Inc — Cyanotype blueprint schematic of an interconnect fabric linking a grid of processor nodes"><figcaption data-tr>The fabric between the nodes: scale-up and scale-out bandwidth decide whether many GPUs behave as one machine. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>04 · The fine print</h2>
+<p data-tr>Three caveats keep the story honest. First, NVIDIA flagged the original figures as preliminary from the start; the revision is a normal part of bringing a new memory generation to volume, not a broken promise. Second, NVIDIA has not explained the change. ServeTheHome offers the working assumption that memory controller speeds, stack speeds or yields set the limit — reported there as an assumption, and worth treating as one until the company speaks. Third, headline compute is untouched, and not every workload is bandwidth-bound; training and dense compute work will feel this revision far less than high-volume inference serving will.</p>
+<p data-tr>One more caution belongs to the reader rather than the vendor. Secondary coverage has rounded the same change to several different percentages, depending on whether the writer measured pin rates, per-GPU bandwidth or whole-system bandwidth. The figures in this article follow ServeTheHome's comparison table, preliminary against shipping, line by line. When numbers matter, the table beats the summary — including this summary.</p>
+<h2 class="sec" data-tr>05 · What to watch</h2>
+<p data-tr>Watch three things from here. Watch whether the shipping table holds as volumes rise, or moves once more when the next revision of the hardware reaches customers. Watch the first independent benchmarks on production NVL72 systems, which will show how much of the paper bandwidth serving stacks actually capture. And watch the rival documents: competing platforms will publish against the revised table now, and the comparisons will sharpen.</p>
+<p data-tr>The durable lesson predates this product cycle and will outlast it. Plan on the shipping datasheet. Archive it, version the assumptions drawn from it, and re-baseline without embarrassment when it changes. Keynote numbers are weather; the datasheet is climate. Studios that plan on climate build systems — and budgets — that hold.</p>
+  </div>
+  </div>
+  <div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+<li><span data-tr>ServeTheHome — “NVIDIA Updates Rubin GPU Specs as First Production Hardware Arrives”, November 1, 2026:</span> <a href="https://www.servethehome.com/nvidia-updates-rubin-gpu-specs-as-first-production-hardware-arrives/">https://www.servethehome.com/nvidia-updates-rubin-gpu-specs-as-first-production-hardware-arrives/</a></li>
+<li><span data-tr>DEV Community — “NVIDIA quietly revises shipping specs for Rubin GPU as first production hardware arrives”, October 31, 2026:</span> <a href="https://dev.to/delimitter/nvidia-quietly-revises-shipping-specs-for-rubin-gpu-as-first-production-hardware-arrives-2pea">https://dev.to/delimitter/nvidia-quietly-revises-shipping-specs-for-rubin-gpu-as-first-production-hardware-arrives-2pea</a></li>
+
+    </ul>
+  </div>
+  <p class="tags">#AIOperations #NVIDIA #DataCenter #ContextEngineering #Infrastructure #toyoursatisfaction</p>
+  <footer>
+    <div class="frow">
+      <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
+      <p class="inspiration-credit" data-tr>Design inspired by Irving Penn — Vogue.</p>
+  </footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+</body>
+</html>

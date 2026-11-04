@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
+<title>The First Answer From Orbit — Ovia Inc</title>
+<meta name="description" content="Google's Project Suncatcher prototype returned the first AI response from a data center class TPU in orbit — a haiku, and a lesson in context as a contact window.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The First Answer From Orbit">
+<meta property="og:description" content="Google's Project Suncatcher prototype returned the first AI response from a data center class TPU in orbit — a haiku, and a lesson in context as a contact window.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/first-answer-from-orbit/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/first-answer-from-orbit/ovia-inc-first-answer-from-orbit-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#5EEAD4;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* masthead zone over the article background image */
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.52),rgba(10,14,20,.94));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;}
+  .masthead img.logo{height:46px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;text-transform:uppercase;font-weight:700;font-size:clamp(2.5rem,6.4vw,4.7rem);line-height:.99;letter-spacing:.004em;max-width:1020px;}
+  .standfirst{font-size:clamp(1.12rem,2.3vw,1.42rem);font-style:italic;color:var(--muted);max-width:780px;line-height:1.5;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  /* hero */
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;border-radius:2px;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  /* body columns */
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.16rem;line-height:1.75;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,sans-serif;font-size:5.4rem;line-height:.78;float:left;padding:.55rem .9rem 0 0;color:var(--accent);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:36px 0 14px;border-top:2px solid var(--accent);padding-top:14px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;font-size:clamp(1.55rem,3.6vw,2.35rem);line-height:1.3;font-style:italic;text-align:center;color:var(--accent);margin:42px 0;padding:4px 12px;}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;border-radius:2px;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px 20px 10px;margin:0 0 24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .keybox li{margin:0 0 9px 18px;font-size:.95rem;line-height:1.5;}
+  /* references + tags + footer */
+  .refs-sec{margin-top:44px;border-top:1px solid var(--line);padding-top:24px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  p.tags{color:var(--accent);font-size:.95rem;margin-top:26px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 10px;font-size:.95rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  footer .ftag{color:var(--text);letter-spacing:.06em;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
+</style>
+<style id="arch-css">
+/* Layout archetype: quote (diversification pass) */
+body.arch-quote .mast-bg{opacity:.07;}
+body.arch-quote blockquote.opener{font-size:clamp(2.1rem,5.4vw,3.8rem);line-height:1.16;font-style:italic;color:var(--text);margin-top:36px;padding-top:24px;border-top:3px solid var(--accent);max-width:1000px;}
+body.arch-quote .cols{margin-top:26px;}
+body.arch-quote .hero-zone{max-width:1180px;margin:44px auto 4px;padding:0;}
+</style>
+<style id="mag28-css">
+/* OVIA Magazine rebuild 2026-11-04 — bespoke layout variant mag28-v04: cols=two-wide pull=centre key=outline sec=plain-caps fig=span hero=cinema filter=saturate(1.12) contrast(1.05) sepia(0.18) */
+@media (min-width:1020px){body.mag28-v04 .cols{column-count:2;column-gap:76px;}}
+body.mag28-v04 blockquote.pull{text-align:center;}
+body.mag28-v04 .keybox{border:2px solid var(--accent);background:transparent;}
+body.mag28-v04 h2.sec{border-top:none;letter-spacing:0.34em;}
+body.mag28-v04 figure.wide{column-span:all;}
+body.mag28-v04 figure.hero img,figure.herofig img{aspect-ratio:2.35/1;object-fit:cover;width:100%;}
+body.mag28-v04 figure img, .mast-bg{filter:saturate(1.12) contrast(1.05) sepia(0.18);}
+body.mag28-v04 figure.hero img,figure.herofig img{filter:saturate(1.12) contrast(1.05) sepia(0.18);}
+body.mag28-v04 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+</style>
+<link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/first-answer-from-orbit/">
+</head>
+<body class="arch arch-quote mag28-v04">
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/first-answer-from-orbit/ovia-inc-first-answer-from-orbit-background.webp')"></div>
+  <div class="mast-shade"></div>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="logo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+      </div>
+    </div>
+    <p class="kicker" data-tr>Ovia Inc — AI Operations · Orbital Inference</p>
+    <h1 class="display" data-tr>The First Answer From Orbit</h1>
+    <p class="standfirst" data-tr>A prompt went up during a ground-station pass, a poem came down over Svalbard, and the hardest context window in computing turned out to be a few minutes of power, position and time.</p>
+    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+    <blockquote class="pull opener" data-tr>In orbit, context is not a document store. Context is a window: power, position and time, all closing at once.</blockquote>
+  </div>
+</header>
+<main>
+  <div class="cols">
+<p class="first" data-tr>A poem came down from orbit this week, and the poem was the least interesting part of the transmission.</p>
+<p data-tr>On October 30, 2026, Google reported that the prototype satellite for Project Suncatcher had reached the milestone the team calls Hello World: the first-ever AI response from a data center class TPU in orbit, in Google's own description of the result. The satellite launched on October 1, and the weeks since then went to a commissioning checklist — powering up the host computer and the TPU trays, then running early machine learning tests.</p>
+<p data-tr>During a ground-station pass, the team uplinked a first prompt to the onboard Gemma 4 open model, asking for a haiku about being in space. As the satellite passed by Svalbard, Norway, the downlinked answer confirmed success, and the answer deserves quoting in full, because the form is the story: Blue marble below. Data streams in silent grace. Starlight feeds my core.</p>
+<aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>Google reports the first AI response from a data center class TPU in orbit, from the Project Suncatcher prototype launched on October 1, 2026.</li><li data-tr>The model, Gemma 4, rode on board before launch; the prompt went up and the answer came down inside a single ground-station pass over Svalbard.</li><li data-tr>TechCrunch reports four TPUs and about 1 kW of power: one TPU at a time, roughly 20 minutes.</li><li data-tr>The real tests come next: thermal stress and radiation exposure in orbit, then twin interconnected satellites in 2027.</li></ul></aside>
+<h2 class="sec" data-tr>01 · The announcement</h2>
+<p data-tr>Project Suncatcher is a long-term research effort exploring whether AI compute can one day run in space, powered where sunlight is plentiful. The prototype was built in partnership with Planet and launched aboard the Transporter-18 rideshare mission with SpaceX, and Google confirmed contact on launch day, with the spacecraft operating as expected. A peer-reviewed paper on the research is available in the journal Joule.</p>
+<p data-tr>After the first haiku, the team kept the tone light and the engineering serious: space-themed limericks came next, then telemetry prompts asking the model to report the technical status of the payload systems. That sequence matters. Verse first, because a short, unmistakable answer proves the whole chain at once — uplink, boot, inference, downlink. Telemetry second, because a model summarising the machine carrying the model is the seed of every operations assistant worth building.</p>
+<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/first-answer-from-orbit/ovia-inc-first-answer-from-orbit-body-1.webp" alt="Ovia Inc — snow-covered satellite ground station dish under aurora light in a polar valley"><figcaption data-tr>A ground station is the other half of orbital compute: the pass is short, the window is fixed, and the dish has to be ready. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>02 · Why a haiku counts as systems evidence</h2>
+<p data-tr>A haiku is seventeen syllables of evidence. The answer could only arrive if every link in a long chain held at once: the spacecraft survived launch, the host booted in vacuum, the TPU trays powered up, the model loaded, the prompt arrived intact during a brief pass, the inference ran, and the reply reached the ground before the window closed. A benchmark proves a chip is fast. A returned poem proves a system is alive, end to end.</p>
+<p data-tr>The claim needs its exact edges. Google describes the result as the first AI response from a data center class TPU in orbit — a claim about a class of hardware, not a claim that no model of any kind has run in space. The milestone is a boot test with a receipt: a complete, checkable exchange between ground and orbit, logged by both ends.</p>
+<h2 class="sec" data-tr>03 · The operations angle: context is a contact window</h2>
+<p data-tr>Orbital inference strips context engineering to first principles. Nothing can be fetched mid-task from a friendly cloud. The model rides up before launch, the prompt must fit the pass, the power budget decides how long thinking can last, and the answer must leave before the satellite moves on. In orbit, context is not a document store. Context is a window: power, position and time, all closing at once. Every useful discipline in terrestrial agent work — preload what matters, keep state explicit, make outputs small and verifiable, design for the link dropping — stops being good practice and becomes physics.</p>
+<p data-tr>TechCrunch reports the numbers that make the constraint concrete: four TPUs on board, up to about 1 kW of electricity generated, and power demands high enough that only one TPU can run at a time, for about 20 minutes. Those are TechCrunch-reported figures, not Google-published specifications, and a Google spokesperson told TechCrunch the satellite is operating nominally. One chip of four, in short bursts, on a schedule written by orbital mechanics: scheduling, thermal headroom and contact planning are the product, and the model is a passenger on the operations plan.</p>
+<p data-tr>Field years teach the same lesson at ground level. Across Staywired from 2014 to 2022 and Beanfield from 2011 to 2013, infrastructure work meant sites where the link was a window rather than a given, and preparation decided what a visit could accomplish. Context engineering at Ovia since December 2022, and the operations discipline behind NVIDIA-Certified Professional: AI Operations, apply that lesson to agents: answer quality is set long before the prompt, by everything staged, timed and checked in advance.</p>
+<figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/first-answer-from-orbit/ovia-inc-first-answer-from-orbit-body-2.webp" alt="Ovia Inc — gold-foil payload tray holding a computer board inside a satellite bay"><figcaption data-tr>The payload tray is where orbital context is physically staged: model, board and power, packed before launch and beyond reach afterwards. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>04 · Caveats and fine print</h2>
+<p data-tr>Restraint belongs in the record. One prototype, one model, one short poem and a handful of follow-up prompts do not make an orbital data centre, and Google presents Suncatcher as research, not a service. The announcement publishes no figures for speed, cost, energy per answer or error rates, so no efficiency conclusion can honestly be drawn yet. A haiku also asks almost nothing of a model; sustained inference under load, with thermal limits biting, remains untested in public.</p>
+<p data-tr>The two hardest examinations are still ahead, and Google names both plainly: thermal stress and radiation exposure in orbit. Heat has nowhere easy to go in vacuum, and radiation can corrupt stored values silently — a data-integrity problem before a hardware one. Until results from those tests are published, the honest summary is narrow and strong: the chain works, once, end to end, and the long test has only started.</p>
+<h2 class="sec" data-tr>05 · What to watch</h2>
+<p data-tr>Three signals will show whether the first answer becomes an operating pattern. First, published results from the thermal and radiation tests — error rates, throttling and TPU health over months, not days. Second, the 2027 milestone Google has named: twin interconnected satellites, where the question grows from one machine answering to two machines coordinating, with links between spacecraft carrying state. Third, telemetry work growing up — prompts reporting payload status today rehearse agents that monitor, summarise and eventually help run the systems carrying them.</p>
+<p data-tr>We file the haiku where operators file every good first signal: not as poetry, not as proof of a market, but as a dated, checkable marker that a new environment joined the operations map. The edge of the network has been a desk, a factory floor and a fjord-side dish. As of this week, the edge also passes over Svalbard, a few minutes at a time, answering in seventeen syllables.</p>
+  </div>
+<div class="hero-zone">
+  <figure class="hero">
+    <img src="https://oviainc.github.io/ai-services/articles/first-answer-from-orbit/ovia-inc-first-answer-from-orbit-hero.webp" alt="Ovia Inc — satellite above a polar ice fjord under aurora mint light, sending a signal beam down to a ground station">
+    <figcaption data-tr>The pass is the product: a satellite over a polar fjord, a ground station below, and one short window for a question and an answer. Image: Ovia Inc</figcaption>
+  </figure>
+</div>
+  <div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+<li><span data-tr>Google — “We’ve received our first response from the Project Suncatcher prototype satellite”, October 30, 2026:</span> <a href="https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response/">https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response/</a></li>
+<li><span data-tr>Google — “Our Project Suncatcher prototype satellite is in orbit”, October 1, 2026:</span> <a href="https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-prototype/">https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-prototype/</a></li>
+<li><span data-tr>TechCrunch — “Google’s first data center satellite is online and writing poetry”, October 30, 2026:</span> <a href="https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/">https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/</a></li>
+
+    </ul>
+  </div>
+  <p class="tags">#ArtificialIntelligence #AIOperations #ContextEngineering #EdgeAI #SpaceComputing #toyoursatisfaction</p>
+  <footer>
+    <div class="frow">
+      <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
+      <p class="inspiration-credit" data-tr>Design inspired by Annie Leibovitz — Vanity Fair.</p>
+  </footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+</body>
+</html>
