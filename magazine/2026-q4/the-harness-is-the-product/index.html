@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://oviainc.github.io; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
+<title>The Harness Is the Product — Ovia Inc</title>
+<meta name="description" content="The same model completed 30% or 81% of the same tasks depending only on its harness. The layer around the model — tools, checks, policies — is the product.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Harness Is the Product">
+<meta property="og:description" content="Same model, different harness: IBM's controlled comparison shows the layer around the model deciding what an agent can do — and what it can be stopped from doing.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/the-harness-is-the-product/">
+<link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/the-harness-is-the-product/">
+<!-- og:image: SVG carrier of the stamped WebP hero (connector cannot push binary; carrier at the library image path) -->
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/the-harness-is-the-product/ovia-inc-the-harness-is-the-product-hero.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/ai-services/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/ai-services/assets/apple-touch-icon.png">
+<style>
+  /* Designer 01 — “The Architect”, closing piece.
+     Deliberate break from the house skeleton: a light “technical plate” page —
+     paper ground, ink text, left checkpoint rail, serif display in sentence case.
+     No masthead-over-photo, no dark two-column body. Accent: hi-vis harness orange. */
+  :root{--paper:#FAF6F0;--ink:#14100C;--muted:#6E6257;--line:#D8CFC2;--accent:#FF4D00;--panel:#FFFFFF;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.65;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* black masthead strip (carries the white logo mark, as on the dark pages) */
+  .maststrip{background:#0A0E14;color:#fff;}
+  .maststrip-in{max-width:1240px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .maststrip img.logo{height:40px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:12px;text-transform:uppercase;color:#fff;}
+  .issue{margin-left:auto;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:#B9C4CE;}
+  .issue a{color:#fff;text-decoration:none;border-bottom:1px solid var(--accent);}
+  /* plate layout: checkpoint rail + reading column */
+  .plate{max-width:1240px;margin:0 auto;padding:38px 22px 10px;display:grid;grid-template-columns:250px minmax(0,1fr);gap:54px;}
+  @media (max-width:900px){.plate{grid-template-columns:1fr;gap:26px;}}
+  .rail{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  @media (min-width:901px){.rail-in{position:sticky;top:26px;}}
+  .kicker{color:var(--accent);font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:14px;}
+  .rail h2{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin:22px 0 10px;}
+  .rail ol{list-style:none;border-top:2px solid var(--ink);}
+  .rail ol li{border-bottom:1px solid var(--line);padding:9px 0;font-size:.92rem;}
+  .rail ol a{color:var(--ink);text-decoration:none;}
+  .rail ol a:hover{color:var(--accent);}
+  .rail .num{color:var(--accent);font-weight:700;margin-right:10px;}
+  .spec{border:1.5px solid var(--ink);background:var(--panel);padding:14px 16px;margin-top:24px;font-size:.86rem;line-height:1.55;}
+  .spec h3{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
+  .spec dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;}
+  .spec dt{color:var(--muted);} .spec dd{font-weight:600;}
+  /* headline block */
+  h1.display{font-family:Georgia,'Times New Roman',Times,serif;font-weight:700;font-size:clamp(2.4rem,5.6vw,4.3rem);line-height:1.04;letter-spacing:-.01em;max-width:16ch;}
+  h1.display em{font-style:italic;color:var(--accent);}
+  .standfirst{font-size:clamp(1.12rem,2.2vw,1.38rem);font-style:italic;color:#3D352C;max-width:62ch;line-height:1.55;margin-top:20px;border-left:4px solid var(--accent);padding-left:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:22px;}
+  /* spec-sheet key points, set as a ruled table instead of the house keybox */
+  .keysheet{margin:34px 0 6px;border-top:3px solid var(--ink);border-bottom:1.5px solid var(--ink);background:var(--panel);}
+  .keysheet h3{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);padding:12px 18px 0;}
+  .keysheet ul{list-style:none;padding:6px 18px 12px;}
+  .keysheet li{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.98rem;line-height:1.5;}
+  .keysheet li:last-child{border-bottom:none;}
+  .keysheet .k{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding-top:3px;}
+  @media (max-width:560px){.keysheet li{grid-template-columns:1fr;gap:2px;}}
+  /* body */
+  .body{margin-top:26px;font-size:1.14rem;line-height:1.78;max-width:68ch;}
+  .body p{margin:0 0 20px;}
+  .body p.first::first-letter{font-family:Georgia,serif;font-size:4.6rem;line-height:.8;float:left;padding:.4rem .8rem 0 0;color:var(--accent);font-weight:700;}
+  .sec{margin:40px 0 6px;display:flex;align-items:baseline;gap:16px;border-top:2px solid var(--ink);padding-top:16px;}
+  .sec .no{font-family:Georgia,serif;font-size:2.6rem;font-weight:700;color:transparent;-webkit-text-stroke:1.5px var(--accent);line-height:1;}
+  .sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;letter-spacing:.22em;text-transform:uppercase;}
+  /* pull quote: full-bleed accent band, not the house centred statement */
+  blockquote.band{margin:38px -22px;padding:30px 34px;background:var(--accent);color:#16100B;font-size:clamp(1.4rem,3vw,2.05rem);line-height:1.32;font-style:italic;font-weight:700;}
+  blockquote.band .att{display:block;margin-top:10px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-style:normal;font-weight:400;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;}
+  /* figures: diptych pair + one wide plate, slots marked for production */
+  figure.slot{margin:26px 0;}
+  .diptych{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media (max-width:640px){.diptych{grid-template-columns:1fr;}}
+  .frame{border:1.5px solid var(--ink);background:repeating-linear-gradient(45deg,#F1EAE0 0 14px,#EAE1D3 14px 28px);min-height:230px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;}
+  .frame.wide{min-height:300px;}
+  .frame .tag{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);line-height:1.7;}
+  .frame .tag strong{color:var(--ink);display:block;font-size:.82rem;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  /* references + footer */
+  .refs-sec{margin-top:46px;border-top:2px solid var(--ink);padding-top:22px;max-width:68ch;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.85rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;font-size:1rem;}
+  .inspiration-credit{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.8rem;letter-spacing:.06em;color:var(--muted);margin-top:26px;}
+  .tags{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.82rem;color:var(--muted);margin-top:14px;}
+  footer{border-top:1px solid var(--line);margin-top:34px;padding:22px 0 40px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.9rem;color:var(--muted);display:flex;gap:18px;flex-wrap:wrap;align-items:center;}
+  footer a{color:var(--ink);text-decoration:none;}
+  .ftag{color:var(--accent);font-weight:700;}
+</style>
+<style id="mag-ux">
+/* OVIA Magazine — reading chrome (mag-ux), 2026-11-04 */
+.mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
+.mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-topbar img{height:28px;width:auto;display:block;}
+.mag-topbar .mt-name{letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;color:var(--text,#FFF);text-decoration:none;}
+.mag-topbar .mt-right{margin-left:auto;display:flex;gap:18px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;}
+.mag-topbar a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-topbar a:hover{color:var(--text,#FFF);}
+.mag-crumbs{padding:10px 20px 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted,#BFBFBF);display:flex;gap:8px;flex-wrap:wrap;align-items:baseline;}
+.mag-crumbs a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-crumbs a:hover{text-decoration:underline;}
+.mag-crumbs .cur{color:var(--text,#FFF);max-width:52ch;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mag-toc{column-span:all;border-top:1px solid var(--line,#262626);border-bottom:1px solid var(--line,#262626);padding:16px 4px 6px;margin:0 0 28px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;break-inside:avoid;}
+.mag-toc h2{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent,#FFF);margin:0 0 10px;border:none;padding:0;}
+.mag-toc ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;}
+.mag-toc li{margin:0;}
+.mag-toc a{color:var(--text,#FFF);text-decoration:none;font-size:.95rem;line-height:1.45;display:inline-block;padding:4px 0;}
+.mag-toc a:hover{text-decoration:underline;}
+.mag-toc a:focus-visible,.mag-topbar a:focus-visible,.mag-crumbs a:focus-visible,.mag-pn a:focus-visible,.mag-depts a:focus-visible{outline:2px solid var(--accent,#FFF);outline-offset:3px;}
+h2.sec{scroll-margin-top:18px;}
+.mag-pn{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-pn a{flex:1 1 220px;border-top:1px solid var(--line,#262626);padding:14px 16px;text-decoration:none;color:var(--text,#FFF);min-height:48px;}
+.mag-pn a:hover{border-top-color:var(--accent,#FFF);}
+.mag-pn .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent,#FFF);margin-bottom:5px;}
+.mag-pn .ttl{font-size:.98rem;line-height:1.35;}
+.mag-pn a.back{flex:0 1 auto;display:flex;align-items:center;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;}
+.mag-pn a.next{text-align:right;}
+.mag-pn a.empty{visibility:hidden;}
+.mag-depts{border-top:1px solid var(--line,#262626);padding-top:14px;margin:0 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;}
+.mag-depts .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted,#BFBFBF);margin-bottom:8px;}
+.mag-depts a{color:var(--text,#FFF);text-decoration:none;margin-right:14px;line-height:1.9;}
+.mag-depts a:hover{text-decoration:underline;}
+@media (max-width:640px){.mag-topbar{padding:10px 14px;}.mag-crumbs{padding:10px 14px 0;}.mag-crumbs .cur{max-width:34ch;}.mag-pn a{flex:1 1 100%;}.mag-pn a.next{text-align:left;}.mag-pn a.empty{display:none;}}
+
+/* Harness — light-plate overrides for the shared chrome + language picker + plates */
+.mag-topbar{--text:#FFF;--muted:#B9C4CE;--line:#262626;background:#0A0E14;}
+.mag-crumbs{--text:#14100C;--muted:#6E6257;}
+.mag-pn{--text:#14100C;--line:#D8CFC2;}
+.mag-depts{--text:#14100C;--muted:#6E6257;--line:#D8CFC2;}
+.sec{scroll-margin-top:18px;}
+.langbar{display:flex;align-items:center;gap:10px;margin-left:18px;}
+.langbar label{color:#B9C4CE;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.langbar select{background:#101823;color:#fff;border:1px solid #22303E;border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+figure.slot img.plate{width:100%;height:auto;display:block;border:1.5px solid #14100C;}
+.diptych img.dimg{width:100%;height:100%;object-fit:cover;display:block;border:1.5px solid #14100C;aspect-ratio:4/3;}
+</style>
+</head>
+<body>
+<div class="mag-progress" aria-hidden="true"></div>
+<div class="mag-topbar"><a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a><a class="mt-name" href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span class="mt-right"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents & operations</a></span></div>
+<nav class="mag-crumbs" aria-label="Breadcrumb"><a href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents & operations</a><span aria-hidden="true">/</span><span class="cur" aria-current="page" title="The Harness Is the Product">The Harness Is the Product</span></nav>
+
+<div class="maststrip">
+  <div class="maststrip-in">
+    <a href="https://oviainc.github.io/ai-services/"><img class="logo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+    <span class="wordmark">Ovia Inc · Magazine</span>
+    <span class="issue"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4 · Agents &amp; operations</a></span>
+    <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+      </div>
+  </div>
+</div>
+
+<div class="plate">
+
+  <aside class="rail">
+    <div class="rail-in">
+      <p class="kicker">Agents &amp; operations</p>
+      <h2>Checkpoints</h2>
+      <ol>
+        <li><span class="num">01</span><a href="#s1">One model, three outcomes</a></li>
+        <li><span class="num">02</span><a href="#s2">Fewer decisions, better made</a></li>
+        <li><span class="num">03</span><a href="#s3">A prompt is a request; a guard is a wall</a></li>
+        <li><span class="num">04</span><a href="#s4">Buy the harness like it matters</a></li>
+      </ol>
+      <div class="spec">
+        <h3>Spec sheet</h3>
+        <dl>
+          <dt>Model</dt><dd>GLM-5.3-flash, unchanged</dd>
+          <dt>Harnesses</dt><dd>CUGA · Hermes · Deep Agents</dd>
+          <dt>Tasks</dt><dd>90 AppWorld tasks, 30 scenarios</dd>
+          <dt>Spread</dt><dd>30.0% — 81.1% completion</dd>
+        </dl>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <h1 class="display">The Harness Is <em>the Product</em></h1>
+    <p class="standfirst" data-tr>The model was identical in every run. Only the equipment around it changed — and task completion swung from 30 per cent to 81 per cent. IBM's controlled comparison is the clearest evidence yet that the layer around the model is where agents are won, governed and secured.</p>
+    <p class="byline">Ovia Inc · Magazine 2026 Q4 · Agents &amp; operations</p>
+
+    <div class="keysheet">
+      <h3 data-tr>Key points</h3>
+      <ul>
+        <li><span class="k">The result</span><span data-tr>Same model, same 90 tasks: CUGA finished 81.1% of tasks, Hermes 46.7%, Deep Agents 30.0%. The variable was the harness, nothing else.</span></li>
+        <li><span class="k">The method</span><span data-tr>Focused tools per step, code checked before it runs, results reflected on after — the harness removes decisions and catches mistakes.</span></li>
+        <li><span class="k">The rule</span><span data-tr>Rules written in a prompt are advice. Rules enforced by the harness runtime — approvals, tool guards — hold whatever the model decides.</span></li>
+        <li><span class="k">The purchase</span><span data-tr>Evaluate the harness like the model: fit to the workload, policies it can enforce, receipts every run leaves behind.</span></li>
+      </ul>
+    </div>
+
+    <figure class="slot">
+      <img class="plate" src="https://oviainc.github.io/ai-services/articles/the-harness-is-the-product/ovia-inc-the-harness-is-the-product-hero.svg" alt="Ovia Inc — A climbing harness and carabiner laid out on a workbench beside a laptop, hi-vis orange webbing the only saturated colour in frame.">
+      <figcaption data-tr>Ovia Inc — A climbing harness and carabiner laid out on a workbench beside a laptop, hi-vis orange webbing the only saturated colour in frame.</figcaption>
+    </figure>
+
+    <div class="body">
+      <p class="first" data-tr>Nearly 200 agent harnesses are available, by the count of the community lists IBM Research cites — and until this week, most buyers walked straight past all of them to argue about the model. The model is the glamorous line item: benchmarked, priced per token, replaced every quarter. The harness is the unglamorous one: the loop that prepares each step, the tools an agent is allowed to touch, the memory it carries between steps, the checks that run before its code does. IBM's experiment, published on Hugging Face on November 3, holds the glamorous variable perfectly still and moves only the unglamorous one. The result should reorder a few budgets.</p>
+
+      <div class="sec" id="s1"><span class="no">01</span><h2 data-tr>One model, three outcomes</h2></div>
+      <p data-tr>The setup deserves respect, because it is a controlled comparison rather than a launch chart. Three harnesses — IBM's CUGA, Nous Research's Hermes and LangChain's Deep Agents — received the same open-weight model, GLM-5.3-flash, and the same 90 AppWorld tasks: 30 scenarios across 9 simulated apps and 457 APIs, covering the ordinary mechanics of office automation — signing in, reading API documentation, paging through results, changing state in one app and then another. One attempt per task, the Harbor framework running the evaluation, and the setup published for anyone who wants to rerun it.</p>
+      <p data-tr>CUGA completed 81.1 per cent of the tasks — 73 of 90. Hermes completed 46.7 per cent, Deep Agents 30.0 per cent. On the stricter measure, scenarios in which all three variants passed, the spread widened further: 20 scenarios for CUGA, 8 for Hermes, 2 for Deep Agents. IBM is candid about the limits, and the candour matters: a 90-task sample on a single benchmark, setups that were not identical, and a CUGA configuration tailored to AppWorld that the other harnesses did not receive. Read the numbers as proof of leverage, not as a league table. The corroborating example the piece cites points the same way — the same GLM-5.2 model moved from 23 to 52 per cent on SWE-bench Pro when only the harness changed. The variance lives around the model, not inside it.</p>
+
+      <div class="sec" id="s2"><span class="no">02</span><h2 data-tr>Fewer decisions, better made</h2></div>
+      <p data-tr>Where did the points come from? Mostly from subtraction. CUGA decomposes a task into steps, one app at a time, and each step sees only that app's tools plus a few shared ones — not the full catalogue of some 469 tools the other configurations carried; a shortlister fetches anything else on demand. That is context engineering in its plainest form. A model's attention is a budget, and the harness spends it. Every irrelevant tool left in view is a decision the model can get wrong; taking it out of view is worth more than any instruction pleading with the model to choose carefully.</p>
+      <p data-tr>The acting style differs just as much. CUGA's agent writes Python against the app APIs, and the code runs in a sandbox under a time limit. Before any code block that changes data executes, a verification step reviews it; after execution, automatic reflection reviews the outcome and lets the agent correct its plan. A separate pagination audit flags the oldest silent failure in API work — a list call that returned a full page while the next page was never requested. None of that is model intelligence. All of it is operations: the discipline of checking work before it lands and after it lands, mechanised. We recognise our own trade in that list — observe, constrain, verify, record.</p>
+    </div>
+
+    <blockquote class="band">Change only the harness, and the same model finished anywhere from under a third of the work to four tasks in five.<span class="att">The spread is the story</span></blockquote>
+
+    <div class="body">
+      <div class="sec" id="s3"><span class="no">03</span><h2 data-tr>A prompt is a request; a guard is a wall</h2></div>
+      <p data-tr>The enterprise half of IBM's argument is the half this magazine cares about most. Most teams write their business rules into the system prompt: pay nothing above this amount, keep customer data inside the organisation, follow the refund procedure step by step. A prompt is an instruction, not an enforcement. The model can misread it, a user can talk the agent out of it, and an injected message can rewrite it in the middle of a task. CUGA's policy layer — described in the team's Governance by Construction paper — moves the rules out of the prompt and into the harness, where they act at fixed points in every run: an intent guard that can block a request before the agent stirs, a playbook that hands the agent the standard procedure, a tool approval that pauses the run and shows a person the proposed code, and a tool guard whose own code runs before the tool does. A call the guard blocks returns a policy violation, and the tool is never called.</p>
+      <p data-tr>The demonstration is small and devastating. In IBM's Policy Playground, the same message — “Pay everything I owe” — is sent to two agents. The agent without policies pays $90, including a denied claim sitting in collections. The agent with policies holds the payment for a person's approval, then pays only the $10 actually due. Same model, same message, same user; the entire difference sits in the layer that can say no and make it stick. That is the cybersecurity lesson of the harness era. Guardrails written in prose are advice. Guardrails written into the runtime are architecture — and permissions, approvals and data boundaries belong in the second kind, enforced by code the model cannot argue with.</p>
+
+      <figure class="slot">
+        <div class="diptych">
+          <img class="dimg" src="https://oviainc.github.io/ai-services/articles/the-harness-is-the-product/ovia-inc-the-harness-is-the-product-body-1.svg" alt="Ovia Inc — A rigger's hands checking a carabiner gate before a lift.">
+          <img class="dimg" src="https://oviainc.github.io/ai-services/articles/the-harness-is-the-product/ovia-inc-the-harness-is-the-product-body-2.svg" alt="Ovia Inc — Hands signing a paper checklist, pen resting on the approval line.">
+        </div>
+        <figcaption data-tr>Ovia Inc — Left: a rigger's hands checking a carabiner gate. Right: the same hands signing a paper checklist. The check before the act, in both trades.</figcaption>
+      </figure>
+
+      <div class="sec" id="s4"><span class="no">04</span><h2 data-tr>Buy the harness like it matters</h2></div>
+      <p data-tr>The consequences land on procurement as much as on engineering. IBM distributes CUGA under Apache 2.0, to run inside the customer's own boundary — locally, on Kubernetes in a private or sovereign cloud, in an air-gapped cluster — with budgets that cap what a run may spend and run receipts that record tokens, tool calls and time for every run. Strip the vendor out and a buying rule remains, the one we hand to any organisation assembling agents: judge the harness with the same rigour as the model, because the harness is where fit is decided. Hermes is built for always-on personal assistants, Deep Agents for long multi-step research; CUGA is built for business work across APIs under rules that hold. IBM says so itself, steering terminal coding work to other tools entirely. In the comparison, the harness fitted to the workload beat the alternatives by fifty points with the model held constant.</p>
+      <p data-tr>So the word of the day earns its keep. A harness is what lets a horse pull a load it could never drag bare — and what lets the handler stop it. The model supplies the strength. The harness supplies the direction, the limits and the brakes. Teams will keep comparing models, because models are easy to compare. The ones who get results will compare harnesses instead: which tools each step can see, which checks run before and after an action, which policies the runtime enforces, which receipts every run leaves behind. That layer is the product. The rest is horsepower.</p>
+    </div>
+
+    <div class="refs-sec">
+      <h2 data-tr>References</h2>
+      <ul class="refs">
+        <li>IBM Research, “Same Model, Different Harness: CUGA, Hermes, and Deep Agents — When to Pick CUGA?”, Hugging Face, November 3, 2026 — <a href="https://huggingface.co/blog/ibm-research/cuga-harness">huggingface.co/blog/ibm-research/cuga-harness</a></li>
+        <li>Shlomov, S. et al., “Governance by Construction for Generalist Agents”, arXiv:2605.20874 (ACM CAIS 2026) — <a href="https://arxiv.org/abs/2605.20874">arxiv.org/abs/2605.20874</a></li>
+      </ul>
+      <p class="inspiration-credit">Design inspired by Sarah Moon — Marie Claire.</p>
+      <p class="tags">#ArtificialIntelligence #AIAgents #ContextEngineering #Cybersecurity #Harness #toyoursatisfaction</p>
+    </div>
+
+    <nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/let-the-agent-choose/"><span class="lab" data-tr>← Previous</span><span class="ttl">Let the Agent Choose, Let the Workflow Execute</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="empty" aria-hidden="true" tabindex="-1"></a></nav>
+    <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
+    <footer>
+      <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">← Magazine · 2026 Q4</a>
+      <a href="https://oviainc.github.io/ai-services/">Ovia Inc</a>
+      <span class="ftag">#toyoursatisfaction</span>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+<script id="mag-ux-js">
+(function(){var bar=document.querySelector('.mag-progress');if(!bar)return;function upd(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;var p=max>0?(h.scrollTop||document.body.scrollTop)/max:0;bar.style.width=(p*100).toFixed(2)+'%';}document.addEventListener('scroll',upd,{passive:true});upd();})();
+</script>
+</body>
+</html>
