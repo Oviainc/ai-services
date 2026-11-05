@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
+<title>Losing Track of What Changed: State Is the Hard Part of Context — Ovia Inc</title>
+<meta name="description" content="Ai2 StateBench shows frontier models losing track of changing facts over long documents — and why explicit state, not a longer window, is the operations answer.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Losing Track of What Changed: State Is the Hard Part of Context">
+<meta property="og:description" content="Ai2 StateBench shows frontier models losing track of changing facts over long documents — and why explicit state, not a longer window, is the operations answer.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/articles/losing-track-of-what-changed/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/losing-track-of-what-changed/ovia-inc-losing-track-of-what-changed-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#E07A5F;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* masthead zone over the article background image */
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.52),rgba(10,14,20,.94));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;}
+  .masthead img.logo{height:46px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;text-transform:uppercase;font-weight:700;font-size:clamp(2.5rem,6.4vw,4.7rem);line-height:.99;letter-spacing:.004em;max-width:1020px;}
+  .standfirst{font-size:clamp(1.12rem,2.3vw,1.42rem);font-style:italic;color:var(--muted);max-width:780px;line-height:1.5;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  /* hero */
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;border-radius:2px;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  /* body columns */
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.16rem;line-height:1.75;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,sans-serif;font-size:5.4rem;line-height:.78;float:left;padding:.55rem .9rem 0 0;color:var(--accent);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:36px 0 14px;border-top:2px solid var(--accent);padding-top:14px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;font-size:clamp(1.55rem,3.6vw,2.35rem);line-height:1.3;font-style:italic;text-align:center;color:var(--accent);margin:42px 0;padding:4px 12px;}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;border-radius:2px;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px 20px 10px;margin:0 0 24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .keybox li{margin:0 0 9px 18px;font-size:.95rem;line-height:1.5;}
+  /* references + tags + footer */
+  .refs-sec{margin-top:44px;border-top:1px solid var(--line);padding-top:24px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  p.tags{color:var(--accent);font-size:.95rem;margin-top:26px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 10px;font-size:.95rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  footer .ftag{color:var(--text);letter-spacing:.06em;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
+</style>
+<style id="arch-css">
+/* 8 — Light feature */
+body.arch-light{--bg:#FFFFFF;--panel:#F5F1E8;--text:#15181D;--muted:#4C565F;--line:#DCD4C2;}
+body.arch-light{background:#FFFFFF;color:#15181D;}
+body.arch-light .mastzone{background:#0A0E14;color:#FFFFFF;}
+body.arch-light .wordmark{color:#FFFFFF;}
+body.arch-light .langbar label{color:#B9C4CE;}
+body.arch-light .mastzone .standfirst{color:#C7D0D9;}
+body.arch-light .mastzone .byline{color:#9FB0BE;border-top-color:#22303E;}
+body.arch-light .cols{font-size:1.13rem;line-height:1.8;}
+body.arch-light h2.sec{border-top:1px solid #15181D;}
+body.arch-light .keybox{border-color:#DCD4C2;}
+body.arch-light figcaption{color:#4C565F;}
+body.arch-light footer{background:#0A0E14;color:#B9C4CE;margin-left:-22px;margin-right:-22px;padding:22px 22px 12px;}
+body.arch-light footer .ftag{color:#FFFFFF;}
+@media (max-width:640px){body.arch-light footer{margin-left:-16px;margin-right:-16px;padding-left:16px;padding-right:16px;}}
+</style>
+</head>
+<body class="arch arch-light">
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('ovia-inc-losing-track-of-what-changed-background.webp')"></div>
+  <div class="mast-shade"></div>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="../../" aria-label="Ovia Inc — home"><img class="logo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+      </div>
+    </div>
+    <p class="kicker" data-tr>Ovia Inc — Context Engineering · State Tracking</p>
+    <h1 class="display" data-tr>Losing Track of What Changed: State Is the Hard Part of Context</h1>
+    <p class="standfirst" data-tr>StateBench grades one unglamorous skill at four levels of difficulty — remembering what is true after everything changes — and the strongest readers fail the level that real work lives on.</p>
+    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+  </div>
+</header>
+<div class="hero-zone">
+  <figure class="hero">
+    <img src="ovia-inc-losing-track-of-what-changed-hero.webp" alt="Ovia Inc — five terracotta cups in a row with a small brass ball beside them on a cream studio background">
+    <figcaption data-tr>Five cups, one ball, every swap in order: the hardest StateBench level, staged as a still life. Image: Ovia Inc</figcaption>
+  </figure>
+</div>
+<main>
+  <div class="cols">
+<p class="first" data-tr>A long document can be read perfectly and still be lost. Every sentence arrives, every sentence is fluent, and somewhere in the middle the facts quietly change hands: a variable is reassigned, a total is updated, two objects swap places. At the end, the answer depends on one skill — remembering what is true now, after everything that changed. On November 3, the Allen Institute for Artificial Intelligence published StateBench on Hugging Face, a benchmark built to measure exactly that skill, and the results separate reading from tracking.</p>
+<p data-tr>State tracking sounds modest until the examples accumulate. Reading code means following variables as values are assigned and reassigned. Following a story means knowing who holds the object after it changes hands. The benchmark takes its hardest image from a fairground classic: a ball hidden under one of five cups, the cups swapped again and again, the final position knowable only by following every swap in order. Miss one exchange and the ending is a guess, however elegant the prose around the guess.</p>
+<aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>StateBench, published by the Allen Institute for Artificial Intelligence on November 3, 2026, grades state tracking at four levels, from fixed values to swaps between variables.</li><li data-tr>Four frontier models handled the two easier levels well, then fell sharply on the harder levels, dropping to thirteen percent accuracy or lower on the longest hardest problems, as reported by the authors.</li><li data-tr>Small recurrent and hybrid models trained directly on the task carried the first three levels out to tens of thousands of updates; transformer models never learned the hardest level, even with direct training.</li><li data-tr>The benchmark assumes a fixed set of tracked variables; real work keeps introducing new entities, and that harder setting remains untested.</li></ul></aside>
+<h2 class="sec" data-tr>01 · The announcement</h2>
+<p data-tr>StateBench sorts state tracking into four levels, each defined by the kind of update allowed. At the first level, values never change once set, so the task is recovery: find the original assignment, the way a birth date stays fixed. At the second level, values can be replaced, and only the latest setting counts, the way a thermostat reading supersedes every earlier one. The third level adds self-reference, where each update builds on the current value, the way a score grows point by point. The fourth level allows one variable to take the current value of another, so updates create dependencies across the whole set — the cup-and-ball level, where position is a chain, not a fact.</p>
+<p data-tr>The four levels are not arbitrary rungs. The hierarchy is rooted in Krohn–Rhodes theory, an algebraic account of how state-tracking problems decompose into simpler parts, and the companion paper by Jackson Petty, William Merrill and Ashish Sabharwal works out which levels each architecture should handle in principle. To compare fairly, the benchmark derives all four versions from the same underlying sequence: same variables, same values, same positions. Only the type of update changes, so a failure at the fourth level cannot be blamed on a longer or denser document.</p>
+<figure class="body"><img src="ovia-inc-losing-track-of-what-changed-body-1.webp" alt="Ovia Inc — overhead tracking board with wooden tokens and brass markers arranged in rows on ruled paper"><figcaption data-tr>State kept where the eye can audit the board: every token in its row, every move visible. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>02 · Why it matters</h2>
+<p data-tr>The pretrained results follow the theory closely enough to sting. Open models, including a seven-billion-parameter transformer and a hybrid of the same size carrying Gated DeltaNet layers, handled the first level well, lost accuracy on the second as inputs grew, and stayed at chance on the hardest level. Format alone moved scores: small hybrid models scored near the ceiling when the easiest problems were framed one way and near chance when the same problems arrived as spreadsheet edits.</p>
+<p data-tr>The frontier results sharpen the point. Four frontier models were asked to read each sequence and report the final value of every variable. All four performed well on the two easier levels. On the two harder levels, accuracy fell sharply as inputs grew longer, dropping to thirteen percent or lower on the longest problems at the hardest level — figures reported by the benchmark authors, measured on synthetic sequences built for the test. At the harder levels, far more steps can change the final answer, so a single missed update quietly decides the result.</p>
+<blockquote class="pull" data-tr>The window was long, the facts were present, and the state was still lost.</blockquote>
+<h2 class="sec" data-tr>03 · The craft angle: state belongs outside the story</h2>
+<p data-tr>The training experiments carry the constructive lesson. Small models of two hundred seventy-five million parameters were trained from scratch on sequences of at most two hundred fifty-six assignments, then tested on sequences as long as sixty-four thousand assignments — two hundred fifty times the training length. Recurrent and hybrid designs generalised almost perfectly across the first three levels out to tens of thousands of updates, and the most flexible recurrent variant stayed near perfect on the hardest level out to roughly ten times its training length. Transformer variants learned the easier levels, degraded as sequences grew, and never learned the hardest level. Architecture decided what training could teach.</p>
+<figure class="wide"><img src="ovia-inc-losing-track-of-what-changed-body-2.webp" alt="Ovia Inc — a long roll of cream paper unrolling through an archive corridor lined with plain boxes"><figcaption data-tr>Length is not memory: the document keeps unrolling long after unaided tracking gives out. Image: Ovia Inc</figcaption></figure>
+<p data-tr>Context engineering at Ovia since December 2022 starts from the operational version of the same finding. A long context window is storage, not state. Work that depends on what is currently true — the current approval, the current owner of a task — belongs in an explicit record outside the narrative: a ledger, a state table, a checked summary that the system updates deliberately and reads back before acting. The model then reasons over verified state instead of reconstructing state from thousands of lines of history, and a human can audit the record without replaying the whole conversation. StateBench gives that field habit a laboratory proof: when state must be carried inside the reading itself, even the strongest readers drop it.</p>
+<h2 class="sec" data-tr>04 · Caveats and fine print</h2>
+<p data-tr>The limits deserve the same care as the headline. StateBench sequences are synthetic assignments, not contracts, charts or incident threads, and real documents mix state changes with distraction and ambiguity. The benchmark also assumes a fixed number of variables, while real work introduces new people, objects and obligations as it unfolds — a setting the authors state plainly remains uncovered. Numerical precision questions stay open as well, including how rounding inside recurrent updates behaves at extreme lengths. And the frontier figures come from the benchmark team: one laboratory, one task family, reported as measured, awaiting replication.</p>
+<h2 class="sec" data-tr>05 · What to watch</h2>
+<p data-tr>Watch three things from here. First, whether hybrid and recurrent layers move into the production models enterprises actually buy, now that a graded benchmark can price the difference level by level. Second, whether evaluation suites adopt the same discipline — the same sequence at several difficulty levels and in several formats — because a single hard test hides exactly where a system breaks. Third, whether product design absorbs the lesson directly: explicit state records, visible change histories and read-back checks presented as features. The teams that treat state as a designed surface, rather than a side effect of a longer window, hold the advantage the benchmark just measured.</p>
+<p data-tr>The cups keep moving either way. The craft is in refusing to guess — and in building systems that never have to.</p>
+
+  </div>
+  <div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+<li><span data-tr>Hugging Face — Allen Institute for Artificial Intelligence, “StateBench: Testing how language models track state changes over long documents”, November 3, 2026:</span> <a href="https://huggingface.co/blog/allenai/statebench">https://huggingface.co/blog/allenai/statebench</a></li>
+<li><span data-tr>Allen Institute for Artificial Intelligence — Petty, Merrill and Sabharwal, “A Fine-Grained Hierarchy and Benchmark for State Tracking in Language Models”, November 2, 2026:</span> <a href="https://allenai.org/papers/statebench">https://allenai.org/papers/statebench</a></li>
+<li><span data-tr>GitHub — allenai/state-bench, StateBench code and data generation:</span> <a href="https://github.com/allenai/state-bench">https://github.com/allenai/state-bench</a></li>
+
+    </ul>
+  </div>
+  <p class="tags">#ArtificialIntelligence #ContextEngineering #AIAgents #HuggingFace #toyoursatisfaction</p>
+  <footer>
+    <div class="frow">
+      <a href="../../" aria-label="Ovia Inc — home"><img class="flogo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="../../">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
+  </footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+</body>
+</html>
