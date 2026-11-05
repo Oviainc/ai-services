@@ -2,7 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M6PLP9DW');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="dark" />
     <meta name="build-version" content="1.6" />
 
@@ -13,7 +20,7 @@
          posts go only to our form endpoint, which delivers them to us.
          The visitor never sees that endpoint: every response they get
          is this page's own in-page confirmation or error note. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://api.mymemory.translated.net https://formspree.io; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com; media-src 'self'; connect-src 'self' https://api.mymemory.translated.net https://formspree.io https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; frame-src https://www.googletagmanager.com" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
     <link rel="icon" href="assets/favicon.ico" sizes="any" />
@@ -362,7 +369,11 @@
   </head>
   <body>
 
-    <!-- ================= Header ================= -->
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6PLP9DW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- ================= Header ================= -->
     <header class="site">
       <div class="wrap bar">
         <a class="brand" href="#top" aria-label="OVIA"><img class="brand-mark" src="assets/ovia-inc-logo-white.webp" alt="Ovia Inc logo" />OVIA</a>
