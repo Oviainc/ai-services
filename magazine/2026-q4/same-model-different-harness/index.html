@@ -2,11 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="icon" href="/ai-services/assets/favicon.ico" sizes="any" media="(prefers-color-scheme: light)">
-<link rel="icon" href="/ai-services/assets/favicon-white.ico" sizes="any" media="(prefers-color-scheme: dark)">
-<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32.png" media="(prefers-color-scheme: light)">
-<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32-white.png" media="(prefers-color-scheme: dark)">
-<link rel="apple-touch-icon" href="/ai-services/assets/apple-touch-icon.png">
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -17,85 +12,78 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://api.mymemory.translated.net https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; object-src 'none'; base-uri 'self'; frame-src https://www.googletagmanager.com">
 <title>Same Model, Different Harness: The System Around the Model Decides — Ovia Inc</title>
-<meta name="description" content="One open-weight model, three agent harnesses, ninety AppWorld tasks: completion moved from thirty percent to eighty-one percent when only the harness changed — and the rules moved from the prompt into the runtime.">
+<meta name="description" content="From OVIA Inc Magazine: a practical guide to choosing and governing an agent harness — one open-weight model, three harnesses and ninety AppWorld tasks, where completion moved from thirty percent to eighty-one percent when only the harness changed.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Same Model, Different Harness: The System Around the Model Decides">
-<meta property="og:description" content="One open-weight model, three agent harnesses, ninety AppWorld tasks: completion moved from thirty percent to eighty-one percent when only the harness changed — and the rules moved from the prompt into the runtime.">
+<meta property="og:title" content="Same Model, Different Harness: The System Around the Model Decides — Ovia Inc">
+<meta property="og:description" content="From OVIA Inc Magazine: a practical guide to choosing and governing an agent harness — one open-weight model, three harnesses and ninety AppWorld tasks, where completion moved from thirty percent to eighty-one percent when only the harness changed.">
 <meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/same-model-different-harness/">
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/same-model-different-harness/">
 <meta property="og:image" content="https://oviainc.github.io/ai-services/articles/same-model-different-harness/ovia-inc-same-model-different-harness-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-  /* Designer 02 — Mara Kessler, “The Darkroom”. Nov 5, 2026.
-     Redesign of Designer 01's dark feature in the Darkroom hand: near-black
-     grained ground, one colour discipline (deep oxblood), serif display,
-     key points reset as ruled footnotes, pull quote as an oxblood band,
-     frames graded as a contact sheet. Article text unchanged apart from
-     captions and the credit line. */
-  :root{--bg:#0C0B0A;--panel:#14110E;--text:#F0E9DE;--muted:#A79C90;--line:#2C2721;--accent:#8E1F30;}
+  /* Luminous redo — Nov 5, 2026. Corrected direction from Ja: vibrant and
+     light, fundamentally. Daylight treatment: clean bright ground, vivid
+     daylight-sky accent, white frames with soft shadows, pull quote as a
+     saturated sky band. Replaces the retired Designer 02 Darkroom
+     treatment. Article text unchanged apart from captions + credit line. */
+  :root{--bg:#F6F9FB;--panel:#FFFFFF;--text:#15222E;--muted:#5B7183;--line:#D9E5EE;--accent:#0B93E0;--accent-deep:#0B7FC4;}
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.65;}
-  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.055;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");}
-  a{color:#D77A88;}
+  a{color:var(--accent-deep);}
   .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
-  /* masthead zone over the piece hero frame */
-  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
-  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.30;}
-  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,11,10,.55),rgba(12,11,10,.95));}
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:#EAF4FA;}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.5;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(246,249,251,.92),rgba(246,249,251,.55) 58%,rgba(246,249,251,.15));}
   .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
   .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-  .masthead a.logo{display:block;line-height:0;}
-  .masthead img.logo{height:46px;width:auto;display:block;}
+  .masthead a.logo{display:block;line-height:0;background:var(--accent);border-radius:10px;padding:7px 9px;box-shadow:0 6px 18px rgba(11,147,224,.35);}
+  .masthead img.logo{height:38px;width:auto;display:block;}
   .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
   .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
   .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
-  .langbar select{background:#14110E;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
-  .kicker{color:#D77A88;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#FFFFFF;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent-deep);font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
   h1.display{font-family:Georgia,'Times New Roman',Times,serif;font-weight:700;font-size:clamp(2.5rem,5.8vw,4.4rem);line-height:1.03;letter-spacing:-.01em;max-width:24ch;}
-  .standfirst{font-size:clamp(1.1rem,2.1vw,1.34rem);font-style:italic;color:#CFC4B4;max-width:60ch;line-height:1.55;margin-top:18px;}
+  .standfirst{font-size:clamp(1.1rem,2.1vw,1.34rem);font-style:italic;color:#3D5569;max-width:60ch;line-height:1.55;margin-top:18px;}
   .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
-  /* hero: the one graded colour frame */
   .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
-  figure.hero img{width:100%;height:auto;display:block;border:1px solid #3A352E;filter:contrast(1.1) saturate(.9) brightness(.94);}
+  figure.hero img{width:100%;height:auto;display:block;}
   figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:9px;letter-spacing:.04em;}
   figcaption::before{content:"";display:inline-block;width:8px;height:8px;background:var(--accent);margin-right:9px;}
-  /* body columns */
   main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
   .cols{margin-top:30px;font-size:1.14rem;line-height:1.78;}
   @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
   .cols p{margin:0 0 20px;}
-  .cols p.first::first-letter{font-family:Georgia,serif;font-size:4.6rem;line-height:.8;float:left;padding:.4rem .8rem 0 0;color:#D77A88;font-weight:700;}
-  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text);margin:42px 0 14px;border-top:1px solid #3A352E;padding-top:16px;break-after:avoid;}
+  .cols p.first::first-letter{font-family:Georgia,serif;font-size:4.6rem;line-height:.8;float:left;padding:.4rem .8rem 0 0;color:var(--accent-deep);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text);margin:42px 0 14px;border-top:1px solid var(--line);padding-top:16px;break-after:avoid;}
   h2.sec:first-child{margin-top:0;}
-  blockquote.pull{column-span:all;background:#5E1220;color:#F5EFE6;font-size:clamp(1.4rem,3vw,2.05rem);line-height:1.32;font-style:italic;font-weight:700;text-align:left;margin:40px 0;padding:30px 34px;}
+  blockquote.pull{column-span:all;background:linear-gradient(120deg,#0B93E0,#38B6F2);color:#FFFFFF;font-size:clamp(1.4rem,3vw,2.05rem);line-height:1.32;font-style:italic;font-weight:700;text-align:left;margin:40px 0;padding:30px 34px;border-radius:14px;box-shadow:0 16px 36px rgba(11,147,224,.28);}
   figure.body{margin:4px 0 22px;break-inside:avoid;}
   figure.wide{column-span:all;margin:30px 0 34px;}
-  figure.body img,figure.wide img{width:100%;height:auto;display:block;border:1px solid #3A352E;filter:grayscale(1) contrast(1.2) brightness(1.03);}
-  /* key points as footnotes — numbered, ruled, no box */
-  .keybox{break-inside:avoid;background:transparent;border:none;border-top:2px solid var(--text);padding:12px 0 2px;margin:0 0 24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
-  .keybox h3{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:#D77A88;margin-bottom:2px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px;padding:16px 20px 6px;margin:0 0 24px;box-shadow:0 10px 28px rgba(21,60,90,.08);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:2px;}
   .keybox ul{list-style:none;}
   .keybox li{margin:0;padding:10px 0;border-bottom:1px solid var(--line);font-size:.97rem;line-height:1.55;}
-  /* references + credit + tags + footer */
   .refs-sec{margin-top:46px;border-top:2px solid var(--text);padding-top:22px;}
-  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.85rem;letter-spacing:.26em;text-transform:uppercase;color:#D77A88;margin-bottom:12px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.85rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:12px;}
   ul.refs{list-style:none;}
   ul.refs li{margin-bottom:10px;color:var(--muted);font-size:1rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
-  ul.refs a{color:#D77A88;text-decoration:none;word-break:break-all;}
+  ul.refs a{color:var(--accent-deep);text-decoration:none;word-break:break-all;}
   ul.refs a:hover{text-decoration:underline;}
   .inspiration-credit{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.8rem;letter-spacing:.06em;color:var(--muted);margin-top:26px;}
   p.tags{color:var(--muted);font-size:.95rem;margin-top:14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
   footer{border-top:1px solid var(--line);margin-top:34px;padding:22px 0 40px;font-size:.9rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
   footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
-  footer img.flogo{height:30px;width:auto;display:block;}
+  footer img.flogo{height:30px;width:auto;display:block;background:var(--accent);border-radius:7px;padding:4px 5px;}
   footer a{color:var(--text);text-decoration:none;}
   footer a:hover{text-decoration:underline;}
-  footer .ftag{color:#D77A88;font-weight:700;}
+  footer .ftag{color:var(--accent-deep);font-weight:700;}
   @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
 
 </head>
-<body class="arch arch-dark">
+<body class="arch arch-light">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6PLP9DW"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -197,8 +185,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 <div class="hero-zone">
   <figure class="hero">
-    <img src="https://oviainc.github.io/ai-services/articles/same-model-different-harness/ovia-inc-same-model-different-harness-hero.webp" alt="Ovia Inc — a rope-access harness with deep oxblood-red webbing straps, steel buckles and carabiners laid out in a row on a scarred workbench in a shaft of light">
-    <figcaption data-tr>The harness as equipment: oxblood webbing, steel buckles and carabiners laid out on the bench for inspection. Image: Ovia Inc</figcaption>
+    <img src="https://oviainc.github.io/ai-services/articles/same-model-different-harness/ovia-inc-same-model-different-harness-hero.webp" alt="Ovia Inc — a data hall in daylight: rows of server racks along a corridor, polished floor, the system at architectural scale">
+    <figcaption data-tr>The system, at scale: a data hall in daylight — rows of machines behind closed doors, and the layer that decides how every one of them is reached. Image: Ovia Inc</figcaption>
   </figure>
 </div>
 <main>
@@ -209,14 +197,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2 class="sec" data-tr>01 · The announcement</h2>
 <p data-tr>CUGA, short for ConfigUrable Generalist Agent, is an open-source harness from IBM built for enterprise work: agents acting on business systems such as customer records and payments, inside the operating boundary of the organisation, including sovereign clouds and air-gapped deployments, under the Apache 2.0 licence. The comparison set CUGA against Hermes from Nous Research, built for always-on personal assistants, and Deep Agents from LangChain, built for long, multi-step tasks such as research. The authors are explicit that the result is not a verdict on either alternative: neither was built for multi-application interface work of the AppWorld kind, and that mismatch is the point. The harness has to fit the job.</p>
 <p data-tr>The headline figures, as reported by the CUGA team: CUGA completed seventy-three of ninety tasks, Hermes forty-two, and Deep Agents twenty-seven. The scenario measure — a scenario passes only when all three of its variants pass — rewards consistency over a lucky run, and there the gap widened: twenty scenarios for CUGA, eight for Hermes, and two for Deep Agents. A related analysis cited in the article found the same shape elsewhere, with one model moving from twenty-three percent to fifty-two percent on a software engineering benchmark when only the harness changed.</p>
-<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/same-model-different-harness/ovia-inc-same-model-different-harness-body-1.webp" alt="Ovia Inc — one wrench resting in a blade of light on a workbench while a pegboard of hand tools waits in shadow"><figcaption data-tr>Focused tools: each step sees the tools of one application, plus a shortlister for anything missing. Image: Ovia Inc</figcaption></figure>
+<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/same-model-different-harness/ovia-inc-same-model-different-harness-body-1.webp" alt="Ovia Inc — three green cables plugged into a switch panel, the neighbouring ports empty: the connections one step is allowed, and no others"><figcaption data-tr>Focused tools: three connections made, the rest of the panel left empty — each step sees the tools of one application, plus a shortlister for anything missing. Image: Ovia Inc</figcaption></figure>
 <h2 class="sec" data-tr>02 · Why it matters</h2>
 <p data-tr>Most agent evaluations compare models. Most purchasing conversations compare models. The comparison suggests both habits miss the larger variable. When the model is held constant and completion still swings by fifty points, the surrounding structure — task decomposition, tool exposure, checking, recovery — is not packaging around the product. The surrounding structure is a large share of the product. A stronger model dropped into a loose harness can underperform a modest model carried by a disciplined one, and the disciplined harness also produces the receipts: budgets that limit spending, and run records showing tokens, tool calls and time for every run.</p>
 <blockquote class="pull" data-tr>The harness has to fit the job — and every step the harness owns is an enforcement point.</blockquote>
 <h2 class="sec" data-tr>03 · The craft angle: fewer decisions, more checks</h2>
 <p data-tr>The winning configuration reads like good operations practice translated into software. Decomposition splits a task into steps, one application at a time, so no single step faces the whole problem. Focused tools narrow what each step can see: the tools of the current application and a few shared ones, rather than the full catalogue of hundreds. A tool shortlister searches for anything else a step needs. Action happens in code, inside a sandbox with a time limit. Before execution, a verification step reviews each block of code that changes data. After execution, automatic reflection reviews the result and lets the agent correct the plan, while a pagination audit flags a list call that returned a full page when the next page was never requested. The pattern throughout: the model makes fewer decisions, and the harness catches more mistakes before the mistakes reach the result.</p>
 <p data-tr>The second lesson sits outside the benchmark entirely, because the runs used no policies. Business rules — payment approval, keeping personal information inside the organisation — are usually written into the system prompt. A prompt is an instruction, not enforcement: the model can misread the instruction, a user can talk the agent out of the instruction, and an injected message can rewrite the instruction mid-task. CUGA policies move the rule into the harness, acting at set points in every run: an intent guard that blocks or answers matching requests before the agent acts, a playbook that supplies the standard procedure, a tool approval that pauses the run and shows a person the proposed code, a tool guard whose check runs before the tool and blocks the call outright when the rule fails, and an output formatter that shapes the final answer to an approved template. Guidance steers the model. Approvals and guards bind the run.</p>
-<figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/same-model-different-harness/ovia-inc-same-model-different-harness-body-2.webp" alt="Ovia Inc — a riveted steel gate chained and padlocked across a dark concrete corridor, one lit lane beyond"><figcaption data-tr>Check before acting: verification reviews state-changing code before execution, and guards can stop a call before the tool runs. Image: Ovia Inc</figcaption></figure>
+<figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/same-model-different-harness/ovia-inc-same-model-different-harness-body-2.webp" alt="Ovia Inc — a multimeter at zero, its dial at rest and a test lead plugged in: the instrument that checks before anything runs"><figcaption data-tr>Check before acting: the meter reads zero until the circuit earns a number — verification reviews state-changing code before it runs, and guards can stop a call before the tool runs. Image: Ovia Inc</figcaption></figure>
 <h2 class="sec" data-tr>04 · Caveats and fine print</h2>
 <p data-tr>The authors print the limits on the same page, and the limits deserve equal billing. The sample is ninety tasks on one benchmark, so the results may not generalise to other work. The setups were not identical: CUGA ran an AppWorld configuration — decomposition, verification, reflection — that the other harnesses did not, which is precisely the variable under study and also the reason the figures cannot be read as a pure ranking of three products. The comparison was run by the CUGA team, with an open invitation to submit better configurations for the other harnesses and have the runs repeated and published, whichever harness wins. The runs did not use policies, so the enforcement layer — arguably the enterprise case for the harness — remains unmeasured by this benchmark. Treat every figure as reported by the demonstrating team, pending independent replication on workloads that resemble production work.</p>
 <h2 class="sec" data-tr>05 · What to watch</h2>
@@ -233,7 +221,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     </ul>
   </div>
-  <p class="inspiration-credit">Design inspired by Daido Moriyama — Provoke.</p>
+  <p class="inspiration-credit">Design inspired by Raymond Meier — Vogue.</p>
   <p class="tags">#ArtificialIntelligence #AIAgents #ContextEngineering #HuggingFace #toyoursatisfaction</p>
   <footer>
     <div class="frow">
