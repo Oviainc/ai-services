@@ -202,12 +202,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       /* v1.5 — one standard treatment for every film on the page (hero,
          flagships 01–03, sections 04–06, closing band, logo film):
          muted + autoplay + playsinline + seamless loop, centre focal
-         crop (object-fit: cover, centred) at every width, and staged
-         loading — the hero paints from its poster alone and its film
-         loads on window load; every other film's source stays deferred
-         (data-src) until its section nears the viewport, its poster —
-         a frame of the very film it shows — now deferred with it and
-         set as the section nears, so no film ever sits black. */
+         crop (object-fit: cover, centred) at every width. Every poster
+         and source is plain markup, so a section paints composed with
+         no script at all; a separate small script only conducts
+         playback — fetching as a section nears (preload="none" holds
+         the bytes back), playing on screen, pausing off screen, the
+         hero starting on DOM ready and a refused play arming a
+         one-gesture rescue — so no film ever sits black. */
       .screen { position: relative; min-height: 100svh; display: flex; align-items: flex-end; background: var(--black); }
       .screen video.bg {
         position: absolute; inset: 0; width: 100%; height: 100%;
@@ -222,7 +223,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         font-size: 0.72rem; font-weight: 700; letter-spacing: 0.24em;
         text-transform: uppercase; color: #c9c9c9; margin-bottom: 16px;
       }
-      .screen h1 { font-size: clamp(2.7rem, 7.2vw, 6rem); max-width: 1000px; }
+      .screen h1 { font-size: clamp(2.1rem, 7.2vw, 6rem); max-width: 1000px; }
       .screen h2, .screen h3 { font-size: clamp(2rem, 5vw, 3.9rem); max-width: 900px; }
       .screen .desc {
         margin-top: 20px; font-size: clamp(1rem, 1.5vw, 1.14rem); font-weight: 500;
@@ -353,8 +354,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .lang-auto { margin-left: auto; font-size: 0.68rem; }
         .lang-auto select { max-width: 128px; }
         nav.main { gap: 8px 18px; }
-        nav.main a { font-size: 0.68rem; letter-spacing: 0.12em; }
-        .logofilm { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
+        nav.main a { font-size: 0.68rem; letter-spacing: 0.12em; } .brand { order: 1; } .lang-auto { order: 2; } nav.main { order: 3; flex: 1 1 100%; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; } nav.main::-webkit-scrollbar { display: none; } nav.main a { white-space: nowrap; } html { scroll-padding-top: 108px; } header.site { background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0)); }
+        .logofilm { height: 100svh; }
         .logofilm img { position: absolute; }
       }
       @media (max-width: 520px) {
@@ -475,7 +476,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- ================= Hero ================= -->
       <section class="screen hero" id="top">
         <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/ovia-inc-hero-loop.webp" data-hero data-i18n-aria="ariaHero" aria-label="Film: a single colossal clear glass slab standing alone in a vast dark hall quietly divides into three ordered glass slabs, warm light glowing along their edges, then settles still above the glossy dark floor, gentle fog — surreal and minimal, in full colour, no water, no people">
-          <source data-src="assets/ovia-inc-hero-loop.mp4" type="video/mp4" />
+          <source src="assets/ovia-inc-hero-loop.mp4" type="video/mp4" />
         </video>
         <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
@@ -492,8 +493,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- ================= 01: AI Agents ================= -->
       <section class="screen" id="agents">
-        <video class="bg" autoplay muted loop playsinline preload="none" data-poster="assets/ovia-inc-ai.webp" data-lazy data-i18n-aria="ariaAi" aria-label="Film: a single colossal cube of clear glass on a vast dry pale plain under a bright blue sky, vivid rainbow light refracting through its faces and white clouds reflected in the glass as it turns very slowly — surreal and minimal, in full vivid colour, no water, no people">
-          <source data-src="assets/ovia-inc-ai.mp4" type="video/mp4" />
+        <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/ovia-inc-ai.webp" data-lazy data-i18n-aria="ariaAi" aria-label="Film: a single colossal cube of clear glass on a vast dry pale plain under a bright blue sky, vivid rainbow light refracting through its faces and white clouds reflected in the glass as it turns very slowly — surreal and minimal, in full vivid colour, no water, no people">
+          <source src="assets/ovia-inc-ai.mp4" type="video/mp4" />
         </video>
         <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
@@ -519,8 +520,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- ================= 02: Machine Learning ================= -->
       <section class="screen" id="ml">
-        <video class="bg" autoplay muted loop playsinline preload="none" data-poster="assets/ovia-inc-ml.webp" data-lazy data-i18n-aria="ariaMl" aria-label="Film: a row of colossal triangular glass prisms receding into fog in a vast dark hall, the camera still while a wave of warm light travels from one triangular prism to the next, their reflections on the glossy dark floor — surreal and minimal, in full colour, no water, no people">
-          <source data-src="assets/ovia-inc-ml.mp4" type="video/mp4" />
+        <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/ovia-inc-ml.webp" data-lazy data-i18n-aria="ariaMl" aria-label="Film: a row of colossal triangular glass prisms receding into fog in a vast dark hall, the camera still while a wave of warm light travels from one triangular prism to the next, their reflections on the glossy dark floor — surreal and minimal, in full colour, no water, no people">
+          <source src="assets/ovia-inc-ml.mp4" type="video/mp4" />
         </video>
         <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
@@ -546,8 +547,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- ================= 03: AI Products ================= -->
       <section class="screen" id="products">
-        <video class="bg" autoplay muted loop playsinline preload="none" data-poster="assets/ovia-inc-immersive.webp" data-lazy data-i18n-aria="ariaImmersive" aria-label="Film: colossal glass panels as tall as towers floating and turning slowly above an endless bright reflective plain, daylight painting huge moving patterns of light all the way to the horizon — surreal and monumental, natural and crisp, in full colour, no people">
-          <source data-src="assets/ovia-inc-immersive.mp4" type="video/mp4" />
+        <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/ovia-inc-immersive.webp" data-lazy data-i18n-aria="ariaImmersive" aria-label="Film: colossal glass panels as tall as towers floating and turning slowly above an endless bright reflective plain, daylight painting huge moving patterns of light all the way to the horizon — surreal and monumental, natural and crisp, in full colour, no people">
+          <source src="assets/ovia-inc-immersive.mp4" type="video/mp4" />
         </video>
         <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
@@ -580,8 +581,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- ================= 04: Immersive ================= -->
       <section class="screen">
-        <video class="bg" autoplay muted loop playsinline preload="none" data-poster="assets/ovia-inc-web.webp" data-lazy data-i18n-aria="ariaWeb" aria-label="Film: a single colossal infinity loop of clear glass standing in a vast dark hall, vivid amber and cyan light flowing continuously around inside the glass in one endless circuit above a glossy dark floor, gentle fog — surreal and minimal, in full vivid colour, no water, no people">
-          <source data-src="assets/ovia-inc-web.mp4" type="video/mp4" />
+        <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/ovia-inc-web.webp" data-lazy data-i18n-aria="ariaWeb" aria-label="Film: a single colossal infinity loop of clear glass standing in a vast dark hall, vivid amber and cyan light flowing continuously around inside the glass in one endless circuit above a glossy dark floor, gentle fog — surreal and minimal, in full vivid colour, no water, no people">
+          <source src="assets/ovia-inc-web.mp4" type="video/mp4" />
         </video>
         <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
@@ -596,8 +597,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- ================= 05: Cloud ================= -->
       <section class="screen">
-        <video class="bg" autoplay muted loop playsinline preload="none" data-poster="assets/ovia-inc-cloud.webp" data-lazy data-i18n-aria="ariaCloud" aria-label="Film: a vast bright morning sea of real white clouds, and in the distance the whole cloud landscape slowly folds upward like a giant gentle wave — surreal and monumental, natural and crisp, in full colour, no people">
-          <source data-src="assets/ovia-inc-cloud.mp4" type="video/mp4" />
+        <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/ovia-inc-cloud.webp" data-lazy data-i18n-aria="ariaCloud" aria-label="Film: a vast bright morning sea of real white clouds, and in the distance the whole cloud landscape slowly folds upward like a giant gentle wave — surreal and monumental, natural and crisp, in full colour, no people">
+          <source src="assets/ovia-inc-cloud.mp4" type="video/mp4" />
         </video>
         <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
@@ -612,8 +613,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- ================= 06: Sustainable Design ================= -->
       <section class="screen">
-        <video class="bg" autoplay muted loop playsinline preload="none" data-poster="assets/ovia-inc-design.webp" data-lazy data-i18n-aria="ariaDesign" aria-label="Film: a calm row of identical colossal slabs of clear glass standing upright in a line receding into the distance under a bright blue sky with soft white clouds, vivid reflections of sky in the glass, sunlight gliding slowly across the row above a dry polished pale plain — surreal and minimal, in full vivid colour, no water, no people">
-          <source data-src="assets/ovia-inc-design.mp4" type="video/mp4" />
+        <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/ovia-inc-design.webp" data-lazy data-i18n-aria="ariaDesign" aria-label="Film: a calm row of identical colossal slabs of clear glass standing upright in a line receding into the distance under a bright blue sky with soft white clouds, vivid reflections of sky in the glass, sunlight gliding slowly across the row above a dry polished pale plain — surreal and minimal, in full vivid colour, no water, no people">
+          <source src="assets/ovia-inc-design.mp4" type="video/mp4" />
         </video>
         <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
@@ -687,8 +688,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- ================= Closing ================= -->
       <section class="screen" aria-label="Book a consultation">
-        <video class="bg" autoplay muted loop playsinline preload="none" data-poster="assets/ovia-inc-cta.webp" data-lazy data-i18n-aria="ariaCta" aria-label="Film: an immense curved stone wall bending slowly like heavy fabric under sunset light in gradients of gold, rose and violet, mirrored in a still reflective floor — surreal and monumental, in full vivid colour, no people">
-          <source data-src="assets/ovia-inc-cta.mp4" type="video/mp4" />
+        <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/ovia-inc-cta.webp" data-lazy data-i18n-aria="ariaCta" aria-label="Film: an immense curved stone wall bending slowly like heavy fabric under sunset light in gradients of gold, rose and violet, mirrored in a still reflective floor — surreal and monumental, in full vivid colour, no people">
+          <source src="assets/ovia-inc-cta.mp4" type="video/mp4" />
         </video>
         <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
@@ -746,11 +747,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ================= Logo band: last section of the page — the
          still OVIA mark over a smooth film of real clouds. The film
          provides all the motion (its loop point is crossfaded in the
-         file); the mark never moves. Under reduced motion the film
-         does not play: the still poster shows, with the mark on it. -->
+         file); the mark never moves. Reduced-motion only: the film
+         does not play — the still poster shows, with the mark on it. In normal use the film plays. -->
     <section class="logofilm" aria-label="OVIA logo">
-      <video class="film" autoplay muted loop playsinline preload="none" data-poster="assets/ovia-inc-logo-clouds.webp" data-logo-film data-lazy aria-hidden="true">
-        <source data-src="assets/ovia-inc-logo-clouds.mp4" type="video/mp4" />
+      <video class="film" autoplay muted loop playsinline preload="none" poster="assets/ovia-inc-logo-clouds.webp" data-logo-film data-lazy aria-hidden="true">
+        <source src="assets/ovia-inc-logo-clouds.mp4" type="video/mp4" />
       </video>
       <img class="mark" src="assets/ovia-inc-logo.webp" data-i18n-aria="ariaLogo" alt="The OVIA logo — the exact mark in black with its diamond eye, small, centred and still, over soft white clouds that drift slowly across the whole frame edge to edge at one even scale, with no sky" />
     </section>
@@ -780,6 +781,97 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <script>
       "use strict";
+
+      /* ============ Films: real posters, real sources, script only conducts ============
+         Every film's poster and source are plain markup, so each section
+         paints composed with no script at all — the poster is the page,
+         the film is the polish. This loader only conducts playback: a
+         load observer fetches a film as its section comes within ~900px
+         of the viewport (preload="none" holds the bytes back until
+         then); a play observer plays it while it is on screen and
+         pauses it when it leaves. The hero starts as soon as the DOM is
+         ready and again on canplay — never gated on the full page load.
+         If a play request is refused (iOS Low Power Mode refuses every
+         autoplay), the refusal arms a one-gesture rescue: the visitor's
+         first tap, touch or keypress starts the films on screen, since
+         a user gesture always unlocks playback. Under reduced motion
+         nothing plays: films rest on their posters, with controls on
+         every film but the decorative logo film. This script is
+         deliberately separate from the language script below, so a
+         translation failure can never stop a film. */
+      (function () {
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var vids = document.querySelectorAll("video");
+        var visibleFilms = new Set();
+        var rescueArmed = false;
+        function tryPlay(v) {
+          if (reduceMotion) return;
+          var p = v.play();
+          if (p && p.catch) p.catch(function () { armRescue(); });
+        }
+        function armRescue() {
+          if (rescueArmed) return;
+          rescueArmed = true;
+          var wake = function () {
+            rescueArmed = false;
+            visibleFilms.forEach(function (v) { tryPlay(v); });
+            var hero = document.querySelector("video[data-hero]");
+            if (hero) tryPlay(hero);
+          };
+          ["pointerdown", "touchstart", "keydown"].forEach(function (ev) {
+            window.addEventListener(ev, wake, { once: true, passive: true });
+          });
+        }
+        function ensureLoaded(v) { if (v.readyState === 0) v.load(); }
+        if (reduceMotion) {
+          vids.forEach(function (v) {
+            v.removeAttribute("autoplay");
+            v.pause();
+            if (!v.hasAttribute("data-logo-film")) v.setAttribute("controls", "");
+          });
+          return;
+        }
+        if ("IntersectionObserver" in window) {
+          var loadIO = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                ensureLoaded(entry.target);
+                loadIO.unobserve(entry.target);
+              }
+            });
+          }, { rootMargin: "900px 0px 900px 0px" });
+          var vio = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              var v = entry.target;
+              if (entry.isIntersecting) {
+                visibleFilms.add(v);
+                ensureLoaded(v);
+                tryPlay(v);
+              } else {
+                visibleFilms.delete(v);
+                v.pause();
+              }
+            });
+          }, { threshold: 0.15 });
+          vids.forEach(function (v) {
+            if (v.hasAttribute("data-hero")) return;
+            loadIO.observe(v);
+            vio.observe(v);
+          });
+        } else {
+          vids.forEach(function (v) { ensureLoaded(v); });
+        }
+        var heroVid = document.querySelector("video[data-hero]");
+        if (heroVid) {
+          var startHero = function () { ensureLoaded(heroVid); tryPlay(heroVid); };
+          if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", startHero);
+          } else { startHero(); }
+          heroVid.addEventListener("canplay", function () { tryPlay(heroVid); }, { once: true });
+        }
+      })();
+    </script>
+    <script>"use strict";
 
       /* ============ One written language: English ============
          This page is authored in English only — it contains no other
@@ -1183,91 +1275,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           err.classList.add("show");
         });
       });
-
-      /* ============ Videos: staged loading, play only while on screen ============
-         v1.5 standard for every film, with a poster-first hero: the
-         hero's <source> is deferred like the rest and promoted on
-         window load, so first paint is the page plus its poster.
-         Every other film's <source> is deferred (data-src,
-         preload="none") and its poster is deferred with it
-         (data-poster), set by the load observer as the section
-         nears, so a film never sits black while waiting. A load observer promotes
-         data-src to src when the section comes within ~900px of the
-         viewport; a play observer then plays it while it is on screen
-         and pauses it when it leaves — one behaviour for the hero,
-         flagships 01–03, sections 04–06, the closing band and the
-         logo film alike. */
-      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      var vids = document.querySelectorAll("video");
-      var visibleFilms = new Set();
-      function loadFilm(v) {
-        if (v.getAttribute("data-loaded")) return;
-        var dp = v.getAttribute("data-poster");
-        if (dp) { v.setAttribute("poster", dp); v.removeAttribute("data-poster"); }
-        var s = v.querySelector("source[data-src]");
-        if (!s) { v.setAttribute("data-loaded", "1"); return; }
-        s.setAttribute("src", s.getAttribute("data-src"));
-        s.removeAttribute("data-src");
-        v.setAttribute("data-loaded", "1");
-        v.load();
-        // Loaded early for readiness, but not yet on screen: hold it
-        // paused on its first frame until the play observer takes over.
-        if (reduceMotion || !visibleFilms.has(v)) v.pause();
-      }
-      if (reduceMotion) {
-        vids.forEach(function (v) {
-          v.removeAttribute("autoplay"); v.pause();
-          // The logo film is decorative: no controls — it simply rests
-          // on its still poster, with the mark over it.
-          if (!v.hasAttribute("data-logo-film")) v.setAttribute("controls", "");
-        });
-      }
-      if ("IntersectionObserver" in window) {
-        var loadIO = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              loadFilm(entry.target);
-              loadIO.unobserve(entry.target);
-            }
-          });
-        }, { rootMargin: "900px 0px 900px 0px" });
-        vids.forEach(function (v) {
-          if (v.hasAttribute("data-hero")) return;
-          if (v.querySelector("source[data-src]")) loadIO.observe(v);
-        });
-        if (!reduceMotion) {
-          var vio = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-              var v = entry.target;
-              if (entry.isIntersecting) {
-                visibleFilms.add(v);
-                loadFilm(v);
-                var p = v.play(); if (p) p.catch(function () {});
-              } else {
-                visibleFilms.delete(v);
-                v.pause();
-              }
-            });
-          }, { threshold: 0.15 });
-          vids.forEach(function (v) { if (!v.hasAttribute("data-hero")) vio.observe(v); });
-        }
-        // Hero: poster-first. The poster alone paints the first
-        // screen; the film is promoted only once the page has fully
-        // loaded, then plays like every other film.
-        var heroVid = document.querySelector("video[data-hero]");
-        if (heroVid && !reduceMotion) {
-          var startHero = function () {
-            loadFilm(heroVid);
-            var hp = heroVid.play(); if (hp) hp.catch(function () {});
-          };
-          if (document.readyState === "complete") startHero();
-          else window.addEventListener("load", startHero);
-        }
-      } else {
-        // No IntersectionObserver: load everything up front rather
-        // than leave a film stranded on its poster.
-        vids.forEach(loadFilm);
-      }
 
       document.getElementById("year").textContent = new Date().getFullYear();
 
