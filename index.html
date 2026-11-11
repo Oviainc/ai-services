@@ -366,6 +366,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
       }
+          .recv { font-size: .94em; opacity: .88; margin-top: 4px; }
+      .heroline { opacity: .92; }
+      .svcstrip { margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(127,127,127,.4); font-size: 1.02rem; line-height: 1.65; }
     </style>
   </head>
   <body>
@@ -482,6 +485,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="wrap inner">
           <h1 data-i18n="heroH1">AI that does the work.</h1>
           <p class="desc" data-i18n="heroMission">Smart helpers that answer customers, book appointments, and follow up quotes and invoices — set up and looked after for you, start to finish.</p>
+          <p class="desc heroline" data-i18n="heroLine">Working in English, French and Spanish — your customers are answered in their own language.</p>
           <div class="cta-row">
             <a class="btn" href="#contact" data-i18n="book">Book a consultation</a>
           </div>
@@ -575,7 +579,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <section class="plain" id="services">
         <div class="wrap">
           <h2 data-i18n="svcH2">One team sees the whole picture.</h2>
-          <p class="lede" data-i18n="svcLede">Things go wrong when five different companies each handle one piece and nobody sees the whole picture. We handle these pieces together — on their own, or alongside the flagship services above.</p>
+          <p class="lede" data-i18n="svcLede">Most businesses end up with five suppliers who never speak to each other — one for the website, one for the phones, one for the files, one for when something breaks. Each piece works; the business doesn't. These are the pieces we run together, in English, French and Spanish — designed, built and looked after by the same team, start to finish.</p>
+          <p class="svcstrip" data-i18n="svcStrip">How it starts: a conversation, then a clear written plan — what we will do, how long it will take, what it will cost. The thinking behind the work is public: the <a href="magazine/">OVIA Magazine</a> publishes it, piece by piece.</p>
         </div>
       </section>
 
@@ -588,7 +593,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="wrap inner">
           <p class="kick">04</p>
           <h3 data-i18n="immH3">Immersive &amp; Connected</h3>
-          <p class="desc" data-i18n="immP">See it before you build it. Lifelike previews and virtual demos (often called AR and VR) let customers walk through a space or try a product before it exists — and help new staff practise safely before they start.</p>
+          <p class="desc" data-i18n="immP">See it before you build it. A lifelike preview your customers can walk through — a room, a product, a space that doesn't exist yet — so they decide faster and you build once, not twice. The same previews train new staff safely, before their first real day.</p>
+          <p class="desc recv" data-i18n="recvImm">You receive: a walk-through preview that runs in a normal browser — no headset, no app to install.</p>
           <div class="cta-row">
             <a class="btn small" href="#contact" data-offer="immersive" data-i18n="svcCta" aria-label="Book a consultation on immersive and connected services">Book a consultation →</a>
           </div>
@@ -604,7 +610,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="wrap inner">
           <p class="kick">05</p>
           <h3 data-i18n="cloudH3">Cloud, Security &amp; IT</h3>
-          <p class="desc" data-i18n="cloudP">Your files, bookings and systems stored safely online and reachable from anywhere — with room to spare as you get busier, strong protection against break-ins and scams, and everyday tech problems sorted before they slow you down.</p>
+          <p class="desc" data-i18n="cloudP">Your files and systems, kept safe and reachable from anywhere. Backups that are checked, not just scheduled; protection against break-ins and scams; and the everyday tech problems fixed before they reach you. When something does go wrong, one call reaches the team that set it all up.</p>
+          <p class="desc recv" data-i18n="recvCloud">You receive: storage and backups looked after, security kept current, and one place to call.</p>
           <div class="cta-row">
             <a class="btn small" href="#contact" data-offer="cloud" data-i18n="svcCta" aria-label="Book a consultation on cloud, security and IT services">Book a consultation →</a>
           </div>
@@ -620,7 +627,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="wrap inner">
           <p class="kick">06</p>
           <h3 data-i18n="designH3">Sustainable Design</h3>
-          <p class="desc" data-i18n="designP">Design built to endure — stripped down to what matters, with nothing wasted. Clear at a glance today and still right years from now, so you are not paying to redesign it every season.</p>
+          <p class="desc" data-i18n="designP">Design built to endure. Stripped to what matters, with nothing wasted — clear at a glance today and still right in five years, so the redesign bill never arrives.</p>
+          <p class="desc recv" data-i18n="recvDesign">You receive: the design itself, the files behind it, and the rules that keep it consistent.</p>
           <div class="cta-row">
             <a class="btn small" href="#contact" data-offer="design" data-i18n="svcCta" aria-label="Book a consultation on sustainable design services">Book a consultation →</a>
           </div>
@@ -892,6 +900,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           book: "Book a consultation",
           heroH1: "AI that does the work.",
           heroMission: "Smart helpers that answer customers, book appointments, and follow up quotes and invoices — set up and looked after for you, start to finish.",
+        heroLine: "Working in English, French and Spanish — your customers are answered in their own language.",
           capHero: "Film — One glass form, dividing into three",
           ariaHero: "Film: a single colossal clear glass slab standing alone in a vast dark hall quietly divides into three ordered glass slabs, warm light glowing along their edges, then settles still above the glossy dark floor, gentle fog — surreal and minimal, in full colour, no water, no people",
           flag01: "Flagship 01", flag02: "Flagship 02", flag03: "Flagship 03",
@@ -918,21 +927,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           capWeb: "Film — A glass infinity loop, light flowing around it endlessly",
           ariaWeb: "Film: a single colossal infinity loop of clear glass standing in a vast dark hall, vivid amber and cyan light flowing continuously around inside the glass in one endless circuit above a glossy dark floor, gentle fog — surreal and minimal, in full vivid colour, no water, no people",
           svcH2: "One team sees the whole picture.",
-          svcLede: "Things go wrong when five different companies each handle one piece and nobody sees the whole picture. We handle these pieces together — on their own, or alongside the flagship services above.",
+          svcLede: "Most businesses end up with five suppliers who never speak to each other — one for the website, one for the phones, one for the files, one for when something breaks. Each piece works; the business doesn't. These are the pieces we run together, in English, French and Spanish — designed, built and looked after by the same team, start to finish.",
+        svcStrip: "How it starts: a conversation, then a clear written plan — what we will do, how long it will take, what it will cost. The thinking behind the work is public: the <a href=\"magazine/\">OVIA Magazine</a> publishes it, piece by piece.",
           immCap: "Practice 04 — See it before you build it",
           immAlt: "Immersive and connected practice",
           immH3: "Immersive & Connected",
-          immP: "See it before you build it. Lifelike previews and virtual demos (often called AR and VR) let customers walk through a space or try a product before it exists — and help new staff practise safely before they start.",
+          immP: "See it before you build it. A lifelike preview your customers can walk through — a room, a product, a space that doesn't exist yet — so they decide faster and you build once, not twice. The same previews train new staff safely, before their first real day.",
+        recvImm: "You receive: a walk-through preview that runs in a normal browser — no headset, no app to install.",
           cloudCap: "Film — A sea of clouds, folding like a wave",
           ariaCloud: "Film: a vast bright morning sea of real white clouds, and in the distance the whole cloud landscape slowly folds upward like a giant gentle wave — surreal and monumental, natural and crisp, in full colour, no people",
           ariaImmersive: "Film: colossal glass panels as tall as towers floating and turning slowly above an endless bright reflective plain, daylight painting huge moving patterns of light all the way to the horizon — surreal and monumental, natural and crisp, in full colour, no people",
           ariaDesign: "Film: a calm row of identical colossal slabs of clear glass standing upright in a line receding into the distance under a bright blue sky with soft white clouds, vivid reflections of sky in the glass, sunlight gliding slowly across the row above a dry polished pale plain — surreal and minimal, in full vivid colour, no water, no people",
           cloudH3: "Cloud, Security & IT",
-          cloudP: "Your files, bookings and systems stored safely online and reachable from anywhere — with room to spare as you get busier, strong protection against break-ins and scams, and everyday tech problems sorted before they slow you down.",
+          cloudP: "Your files and systems, kept safe and reachable from anywhere. Backups that are checked, not just scheduled; protection against break-ins and scams; and the everyday tech problems fixed before they reach you. When something does go wrong, one call reaches the team that set it all up.",
+        recvCloud: "You receive: storage and backups looked after, security kept current, and one place to call.",
           designCap: "Practice 06 — Design that lasts",
           designAlt: "Sustainable design practice",
           designH3: "Sustainable Design",
-          designP: "Design built to endure — stripped down to what matters, with nothing wasted. Clear at a glance today and still right years from now, so you are not paying to redesign it every season.",
+          designP: "Design built to endure. Stripped to what matters, with nothing wasted — clear at a glance today and still right in five years, so the redesign bill never arrives.",
+        recvDesign: "You receive: the design itself, the files behind it, and the rules that keep it consistent.",
           svcCta: "Book a consultation →",
           whyH2: "All of the benefit, none of the worry",
           why1b: "Your data stays yours",
