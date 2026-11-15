@@ -82,6 +82,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
 
+<link rel="icon" href="/ai-services/assets/favicon.ico" sizes="any" media="(prefers-color-scheme: light)">
+<link rel="icon" href="/ai-services/assets/favicon-white.ico" sizes="any" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32-white.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="/ai-services/assets/apple-touch-icon.png">
 </head>
 <body class="arch arch-light">
 <!-- Google Tag Manager (noscript) -->
@@ -193,7 +198,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="cols">
 <p class="first" data-tr>The model stayed the same. Only the harness changed. On November 3, 2026, IBM Research published a controlled comparison on Hugging Face that holds the model constant and varies everything around the model — and task completion moved from thirty percent to eighty-one percent. For teams choosing agents for real work, the comparison reframes the buying question. The model is one component. The harness is the system that decides what the model sees, which tools the model may touch, what gets checked before anything runs, and which rules hold whatever the model decides.</p>
 <p data-tr>Three harnesses ran the same open-weight model, GLM-5.3-flash, on ninety AppWorld tasks in thirty scenarios, with one attempt per task. AppWorld spans nine applications and hundreds of application programming interfaces, including electronic mail, payments and file storage — consumer applications used as a proxy for the cross-application work enterprise automation also needs: signing in, reading interface documentation, paging through results, and changing state across several applications in one task.</p>
-<aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>Same model, three harnesses: completion ranged from thirty percent to eighty-one percent on ninety AppWorld tasks, as reported by the CUGA team.</li><li data-tr>Consistency separated the field further: twenty of thirty scenarios fully passed under CUGA, against eight and two for the alternatives.</li><li data-tr>The gains came from structure: decomposition, focused tools, sandboxed code, verification before execution, and reflection after action.</li><li data-tr>Rules belong in the harness, not the prompt: approvals and tool guards are enforced by the runtime, whatever the model decides.</li></ul></aside>
+<aside class="keybox"><h2 data-tr>Key points</h2><ul><li data-tr>Same model, three harnesses: completion ranged from thirty percent to eighty-one percent on ninety AppWorld tasks, as reported by the CUGA team.</li><li data-tr>Consistency separated the field further: twenty of thirty scenarios fully passed under CUGA, against eight and two for the alternatives.</li><li data-tr>The gains came from structure: decomposition, focused tools, sandboxed code, verification before execution, and reflection after action.</li><li data-tr>Rules belong in the harness, not the prompt: approvals and tool guards are enforced by the runtime, whatever the model decides.</li></ul></aside>
 <h2 class="sec" data-tr>01 · The announcement</h2>
 <p data-tr>CUGA, short for ConfigUrable Generalist Agent, is an open-source harness from IBM built for enterprise work: agents acting on business systems such as customer records and payments, inside the operating boundary of the organisation, including sovereign clouds and air-gapped deployments, under the Apache 2.0 licence. The comparison set CUGA against Hermes from Nous Research, built for always-on personal assistants, and Deep Agents from LangChain, built for long, multi-step tasks such as research. The authors are explicit that the result is not a verdict on either alternative: neither was built for multi-application interface work of the AppWorld kind, and that mismatch is the point. The harness has to fit the job.</p>
 <p data-tr>The headline figures, as reported by the CUGA team: CUGA completed seventy-three of ninety tasks, Hermes forty-two, and Deep Agents twenty-seven. The scenario measure — a scenario passes only when all three of its variants pass — rewards consistency over a lucky run, and there the gap widened: twenty scenarios for CUGA, eight for Hermes, and two for Deep Agents. A related analysis cited in the article found the same shape elsewhere, with one model moving from twenty-three percent to fifty-two percent on a software engineering benchmark when only the harness changed.</p>
@@ -224,12 +229,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p class="inspiration-credit">Design inspired by Raymond Meier — Vogue.</p>
   <p class="tags">#ArtificialIntelligence #AIAgents #ContextEngineering #HuggingFace #toyoursatisfaction</p>
   <footer>
+     <p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
     <div class="frow">
       <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
     </div>
-  </footer>
+  <p class="copy">© Ovia Inc. All rights reserved.</p></footer>
 </main>
 <script>
 (function () {
