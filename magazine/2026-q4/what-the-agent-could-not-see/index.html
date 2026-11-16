@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M6PLP9DW');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://api.mymemory.translated.net https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; object-src 'none'; base-uri 'self'; frame-src https://www.googletagmanager.com">
+<title>What the Agent Could Not See — Ovia Inc</title>
+<meta name="description" content="From OVIA Inc Magazine: eight real incidents in a production message engine, one coding agent — in all five concurrency cases the agent named a cause, shipped a fix, and walked it back. A field study maps the failure to the instruments the agent could not reach.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What the Agent Could Not See — Ovia Inc">
+<meta property="og:description" content="From OVIA Inc Magazine: eight real incidents in a production message engine, one coding agent — in all five concurrency cases the agent named a cause, shipped a fix, and walked it back. The missing instruments were the story.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/what-the-agent-could-not-see/">
+<link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/what-the-agent-could-not-see/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/what-the-agent-could-not-see/ovia-inc-what-the-agent-could-not-see-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  /* Luminous redo — Nov 5, 2026. Corrected direction from Ja: vibrant and
+     light, fundamentally. Daylight treatment: clean bright ground, vivid
+     daylight-sky accent, white frames with soft shadows, pull quote as a
+     saturated sky band. Replaces the retired Designer 02 Darkroom
+     treatment. Article text unchanged apart from captions + credit line. */
+  :root{--bg:#FBF7EE;--panel:#FFFFFF;--text:#221A10;--muted:#7A6A52;--line:#E3D7BE;--accent:#D97706;--accent-deep:#B45309;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.65;}
+  a{color:var(--accent-deep);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:#F6EBD7;}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.5;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,247,238,.92),rgba(251,247,238,.55) 58%,rgba(251,247,238,.15));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;background:var(--accent);border-radius:10px;padding:7px 9px;box-shadow:0 6px 18px rgba(217,119,6,.35);}
+  .masthead img.logo{height:38px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#FFFFFF;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent-deep);font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:Georgia,'Times New Roman',Times,serif;font-weight:700;font-size:clamp(2.5rem,5.8vw,4.4rem);line-height:1.03;letter-spacing:-.01em;max-width:24ch;}
+  .standfirst{font-size:clamp(1.1rem,2.1vw,1.34rem);font-style:italic;color:#3D5569;max-width:60ch;line-height:1.55;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:9px;letter-spacing:.04em;}
+  figcaption::before{content:"";display:inline-block;width:8px;height:8px;background:var(--accent);margin-right:9px;}
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.14rem;line-height:1.78;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:Georgia,serif;font-size:4.6rem;line-height:.8;float:left;padding:.4rem .8rem 0 0;color:var(--accent-deep);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text);margin:42px 0 14px;border-top:1px solid var(--line);padding-top:16px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;background:linear-gradient(120deg,#0B93E0,#38B6F2);color:#FFFFFF;font-size:clamp(1.4rem,3vw,2.05rem);line-height:1.32;font-style:italic;font-weight:700;text-align:left;margin:40px 0;padding:30px 34px;border-radius:14px;box-shadow:0 16px 36px rgba(11,147,224,.28);}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px;padding:16px 20px 6px;margin:0 0 24px;box-shadow:0 10px 28px rgba(21,60,90,.08);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:2px;}
+  .keybox ul{list-style:none;}
+  .keybox li{margin:0;padding:10px 0;border-bottom:1px solid var(--line);font-size:.97rem;line-height:1.55;}
+  .refs-sec{margin-top:46px;border-top:2px solid var(--text);padding-top:22px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.85rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:12px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:1rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  ul.refs a{color:var(--accent-deep);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  .inspiration-credit{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.8rem;letter-spacing:.06em;color:var(--muted);margin-top:26px;}
+  p.tags{color:var(--muted);font-size:.95rem;margin-top:14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:34px;padding:22px 0 40px;font-size:.9rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;background:var(--accent);border-radius:7px;padding:4px 5px;}
+  footer a{color:var(--text);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  footer .ftag{color:var(--accent-deep);font-weight:700;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
+</style>
+
+<link rel="icon" href="/ai-services/assets/favicon.ico" sizes="any" media="(prefers-color-scheme: light)">
+<link rel="icon" href="/ai-services/assets/favicon-white.ico" sizes="any" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32-white.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="/ai-services/assets/apple-touch-icon.png">
+</head>
+<body class="arch arch-light">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6PLP9DW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/what-the-agent-could-not-see/ovia-inc-what-the-agent-could-not-see-hero.webp')"></div>
+  <div class="mast-shade"></div>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="logo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+      </div>
+    </div>
+    <p class="kicker" data-tr>Ovia Inc — Agents &amp; operations · Incident records</p>
+    <h1 class="display" data-tr>What the Agent Could Not See</h1>
+    <p class="standfirst" data-tr>Eight real incidents in a production message engine. In all five concurrency cases the agent announced a cause, shipped a fix, and walked it back. The missing instruments were the story.</p>
+    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+  </div>
+</header>
+<div class="hero-zone">
+  <figure class="hero">
+<img src="https://oviainc.github.io/ai-services/articles/what-the-agent-could-not-see/ovia-inc-what-the-agent-could-not-see-hero.webp" alt="Ovia Inc — a bright server room seen through its glass door from the corridor outside: rows of cabinets in even light, everything visible, nothing reachable">
+<figcaption data-tr>The room with no windows: a production system seen through glass — everything visible, nothing reachable, and a diagnosis to be made from the corridor. Image: Ovia Inc</figcaption>
+</figure>
+</div>
+<main>
+  <div class="cols">
+<p class="first" data-tr>The pattern repeated five times, and the repetition is the story. A production database incident. A capable coding agent called in to diagnose it. The agent studies what it can reach, announces a cause, ships a fix — and later, after a full deploy and observe cycle has been spent, walks the diagnosis back. Not because the reasoning was wild. Because the room it was reasoning in had no windows.</p>
+<p data-tr>A field study published this week watched a leading coding agent work eight real database incidents inside a production message dispatch engine, and mapped each failure to what the agent lacked. The title gives the finding away: access, more than reasoning. In every incident whose root cause depended on runtime concurrency — five of the eight — an access gap was present. In four of those five it travelled with a reasoning error. In one it stood alone, sufficient by itself to send a good agent wrong. The three incidents that did not depend on concurrency needed nothing beyond what the agent already had, and those it handled with the tools on its belt.</p>
+<aside class="keybox"><h2 data-tr>Key points</h2><ul><li data-tr>Five of the eight incidents turned on runtime concurrency; an access gap was present in all five, a reasoning error in four of them.</li><li data-tr>The agent&#x27;s wrong hypotheses were consistent with the evidence it could see — sound reasoning from a partial room, not fabrication.</li><li data-tr>The remedy is environmental: a safe read-only interrogation interface, a lock and deadlock flight recorder, and a production replay harness.</li></ul></aside>
+<h2 class="sec" data-tr>01 · The failure map</h2>
+<p data-tr>What the agent lacked was not exotic. It lacked a live view of locks: which transactions were holding, which were waiting, in what order. It lacked deadlock reports in full, untruncated. It lacked the ability to run a read only query against production state instead of inferring that state from code and logs. It lacked an explicit statement of its environment context — which system it was standing in, under what configuration, with what limits. Four absences, each one ordinary, each one the kind of thing a human engineer on call takes for granted because a human can simply look.</p>
+<p data-tr>The reasoning errors, where they appeared, are worth naming precisely because they are the errors reviewers usually blame first. Anchoring on an early cause. Incomplete exploration of the configuration. A misreading of the code transaction semantics. Real errors — and yet the study makes a point of exonerating the agent on the charge that matters most. Its wrong hypotheses were consistent with the evidence it could see. They were not fabrications. Given a partial room, the agent reasoned well about the part it could see and guessed, plausibly and wrongly, about the part it could not.</p>
+<p data-tr>That distinction changes the remedy. A fabricating agent needs a better model. An agent reasoning soundly from incomplete evidence needs better evidence.</p>
+<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/what-the-agent-could-not-see/ovia-inc-what-the-agent-could-not-see-body-1.webp" alt="Ovia Inc — a small recorder-amber metal case on a white bench, lid closed, one cable coiled beside it: the flight recorder as an object"><figcaption data-tr>The flight recorder: concurrency state captured continuously and kept whole, so the sequence of holds and waits can be replayed rather than reconstructed. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>02 · The forensics layer</h2>
+<p data-tr>The paper argues the next step is not a smarter agent but a fitted one: a forensics layer that grants the missing access inside existing security controls. Three components, each answering one of the absences.</p>
+<p data-tr>A safe interrogation interface: read only, bounded, audited — a window the agent may look through without a hand on anything it could break. A lock and deadlock flight recorder: the concurrency state of the system, captured continuously and kept whole, so that when an incident is over the sequence of holds and waits can be replayed rather than reconstructed from memory and truncated logs. And a production replay harness: the recorded conditions run again in a safe place, where hypotheses can be tested against the behaviour that actually happened instead of against a staging environment that merely resembles it.</p>
+<p data-tr>Read those three together and a shape emerges. They are not features of the agent. They are features of the environment the agent works in — the harness around it, extended downward into the database itself. The Magazine has argued before that the harness is the product; this study supplies the evidence from the incident room.</p>
+<blockquote class="pull" data-tr>Two agents of equal intelligence, one with a flight recorder and one without, are not two versions of the same tool. They are different tools.</blockquote>
+<figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/what-the-agent-could-not-see/ovia-inc-what-the-agent-could-not-see-body-2.webp" alt="Ovia Inc — an engaged latch and lock on a cabinet door, close view, bright and plainly lit: the thing the agent needed to see"><figcaption data-tr>The latch, at the size it deserved: which transactions were holding, which were waiting, in what order — the live view the agent never had. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>03 · What a team should do with this on Monday</h2>
+<p data-tr>Treat access as a design decision, made before the incident, not an improvisation during one. Decide which production views an agent may read, in what form, under what audit, and build those views with the same care as the permissions that refuse it everything else. Capture concurrency state before it is needed; a recorder installed after the incident records nothing about the incident. And measure agent performance the way this study did — not by whether the first diagnosis sounded confident, but by how many deploy and observe cycles a wrong one cost.</p>
+<p data-tr>The deeper lesson travels beyond databases. Agent evaluations are usually staged in rooms built for the agent: complete information, tidy state, everything reachable. Production is a room with the windows painted over. The gap between the two rooms is where the failures live, and it does not close by making the agent cleverer. It closes by cutting windows.</p>
+<p data-tr style="font-size:.92rem;color:var(--muted)">The study is a single field observation: one agent, eight incidents, one production system. Its map is drawn from that room. The shape of the map — access before reasoning — is what generalises, and the piece treats it as such.</p>
+</div>
+<div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+<li><span data-tr>Gustavo Pinto — “Where LLM Agents Get Stuck Debugging Databases: Access More Than Reasoning”, arXiv:2611.17304, submitted November 12, 2026:</span> <a href="https://arxiv.org/abs/2611.17304">https://arxiv.org/abs/2611.17304</a></li>
+</ul>
+  </div>
+  <div class="refs-sec">
+<h2 data-tr>About the author</h2>
+<p data-tr>Helena Brooks edits the Agents &amp; operations desk. Her column follows what systems do once the meeting ends and the work begins. She holds the standards veto, and she uses it.</p>
+</div>
+<p class="inspiration-credit">Design inspired by aviation incident reporting — the flight recorder readout.</p>
+  <p class="tags">#ArtificialIntelligence #AIAgents #Databases #IncidentResponse #toyoursatisfaction</p>
+  <footer>
+     <p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <div class="frow">
+      <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
+  <p class="copy">© Ovia Inc. All rights reserved.</p></footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+</body>
+</html>
