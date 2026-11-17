@@ -47,7 +47,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       th { font-family:var(--font-display); font-size:.82rem; letter-spacing:.04em; }
       td { color:#e8e8e8; }
     </style>
-  </head>
+  <style>/* site-fix-pass 2026-11-17 */footer.site a{display:inline-block;padding:.35em .2em}</style>
+<style>/* language frame · site fix pass step 3 · 2026-11-17 */
+.langbar{display:flex;gap:10px;justify-content:flex-end;align-items:center;padding:16px 0 0;font-family:var(--font-body)}
+.langbar label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.langbar select{background:#000;color:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.92rem}
+.langnote{font-size:.88em;color:var(--muted);margin:0 0 14px}
+</style>
+</head>
   <body>
     <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6PLP9DW"
@@ -60,6 +67,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </header>
     <main>
+<div class="wrap"><div class="langbar"><label for="langPick">Language</label><select id="langPick" aria-label="Choose your language"><option value="en">English</option><option value="fr">Français</option><option value="es">Español</option></select></div></div>
       <div class="wrap">
       <h1>Privacy &amp; AI Transparency</h1>
       <p><em>This page is published in English first; translated versions follow. The promises in it apply in every language.</em></p>
@@ -132,12 +140,70 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </main>
     <footer class="site">
+<p class="langnote">This legal text is written in English only. The links around it also read in Français and Español.</p>
+
       <div class="wrap">
         <span>© Ovia Inc. All rights reserved.</span>
         <a href="./">Home</a>
         <a href="terms.html">Terms &amp; Conditions</a>
       </div>
-      <div style="text-align:center; font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; opacity:.55; padding:0 0 18px;">a5ab6cf</div>
+      <div class="wrap" style="justify-content:center;"><p style="margin:0;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/ai-services/merchandise/">Merchandise</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p></div>
+<div style="text-align:center; font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; opacity:.55; padding:0 0 18px;">a5ab6cf</div>
     </footer>
-  </body>
+  <script>
+/* Language policy — reviewed chrome (site fix pass step 3, 2026-11-17).
+   This page keeps the language it was written in. The frame around the
+   content — navigation, controls, footer labels — is hand-written in
+   English, Français and Español, and only that frame changes with the
+   selector. No machine translation is used on this page. */
+(function () {
+  "use strict";
+  var DICT = {
+    back:     { en: "← Back to the site", fr: "← Retour au site", es: "← Volver al sitio" },
+    rights:   { en: "© Ovia Inc. All rights reserved.", fr: "© Ovia Inc. Tous droits réservés.", es: "© Ovia Inc. Todos los derechos reservados." },
+    crossT:   { en: "Terms & Conditions", fr: "Conditions générales", es: "Términos y condiciones" },
+    crossP:   { en: "Privacy & AI Transparency", fr: "Confidentialité et transparence de l'IA", es: "Privacidad y transparencia de la IA" },
+    language: { en: "Language", fr: "Langue", es: "Idioma" }
+  };
+  var LOOKUP = {};
+  Object.keys(DICT).forEach(function (k) {
+    ["en", "fr", "es"].forEach(function (l) { LOOKUP[DICT[k][l]] = k; });
+  });
+  var PREFIX_KEYS = ["prev", "next"];
+  function swapNode(node, target) {
+    var raw = node.nodeValue, trimmed = raw.trim();
+    if (!trimmed) return;
+    var key = LOOKUP[trimmed];
+    if (key) { node.nodeValue = raw.replace(trimmed, DICT[key][target]); return; }
+    for (var i = 0; i < PREFIX_KEYS.length; i++) {
+      var k = PREFIX_KEYS[i], langs = ["en", "fr", "es"];
+      for (var l = 0; l < 3; l++) {
+        var s = DICT[k] ? DICT[k][langs[l]] : null;
+        if (s && trimmed.indexOf(s) === 0 && trimmed.length > s.length && trimmed.charAt(s.length) === " ") {
+          node.nodeValue = raw.replace(s, DICT[k][target]); return;
+        }
+      }
+    }
+  }
+  function applyChrome(target) {
+    document.querySelectorAll("header, footer, .langbar").forEach(function (scope) {
+      var walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT);
+      var nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(function (n) { swapNode(n, target); });
+    });
+  }
+  var sel = document.getElementById("langPick");
+  if (!sel) return;
+  var start = "en";
+  try {
+    var q = new URLSearchParams(location.search).get("lang");
+    if (q && DICT.language[q]) start = q;
+  } catch (e) {}
+  sel.value = start;
+  applyChrome(start);
+  sel.addEventListener("change", function () { applyChrome(sel.value); });
+})();
+</script>
+</body>
 </html>
