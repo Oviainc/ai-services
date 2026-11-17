@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M6PLP9DW');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://api.mymemory.translated.net https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; object-src 'none'; base-uri 'self'; frame-src https://www.googletagmanager.com">
+<title>The Model Came Home — Ovia Inc</title>
+<meta name="description" content="From OVIA Inc Magazine: Edge0-145B is a 145 billion parameter open source model its makers report runs on a compatible laptop at about 29 gigabytes peak memory — capability of data-centre class arriving on a desk, and what changes when nothing leaves the room.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Model Came Home — Ovia Inc">
+<meta property="og:description" content="From OVIA Inc Magazine: Edge0-145B is a 145 billion parameter open source model its makers report runs on a compatible laptop at about 29 gigabytes peak memory — capability of data-centre class arriving on a desk, and what changes when nothing leaves the room.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/the-model-came-home/">
+<link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/the-model-came-home/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/the-model-came-home/ovia-inc-the-model-came-home-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  /* The Model Came Home — Nov 17, 2026. Strict modular grid after Wim Crouwel and the Dutch grid tradition: paper white, ink black, one signal colour, circuit cyan #0899B8. Photographs are real camera photography via Pexels, credited in References. */
+  :root{--bg:#FFFFFF;--panel:#FFFFFF;--text:#141414;--muted:#5F6E73;--line:#D8E4E7;--accent:#0899B8;--accent-deep:#067A94;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.65;}
+  a{color:var(--accent-deep);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:#EAF4FA;}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.5;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(246,249,251,.92),rgba(246,249,251,.55) 58%,rgba(246,249,251,.15));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;background:var(--accent);border-radius:10px;padding:7px 9px;box-shadow:0 6px 18px rgba(11,147,224,.35);}
+  .masthead img.logo{height:38px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#FFFFFF;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent-deep);font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:Georgia,'Times New Roman',Times,serif;font-weight:700;font-size:clamp(2.5rem,5.8vw,4.4rem);line-height:1.03;letter-spacing:-.01em;max-width:24ch;}
+  .standfirst{font-size:clamp(1.1rem,2.1vw,1.34rem);font-style:italic;color:#3D5569;max-width:60ch;line-height:1.55;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:9px;letter-spacing:.04em;}
+  figcaption::before{content:"";display:inline-block;width:8px;height:8px;background:var(--accent);margin-right:9px;}
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.14rem;line-height:1.78;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:Georgia,serif;font-size:4.6rem;line-height:.8;float:left;padding:.4rem .8rem 0 0;color:var(--accent-deep);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text);margin:42px 0 14px;border-top:1px solid var(--line);padding-top:16px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;background:linear-gradient(120deg,#0B93E0,#38B6F2);color:#FFFFFF;font-size:clamp(1.4rem,3vw,2.05rem);line-height:1.32;font-style:italic;font-weight:700;text-align:left;margin:40px 0;padding:30px 34px;border-radius:14px;box-shadow:0 16px 36px rgba(11,147,224,.28);}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px;padding:16px 20px 6px;margin:0 0 24px;box-shadow:0 10px 28px rgba(21,60,90,.08);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:2px;}
+  .keybox ul{list-style:none;}
+  .keybox li{margin:0;padding:10px 0;border-bottom:1px solid var(--line);font-size:.97rem;line-height:1.55;}
+  .refs-sec{margin-top:46px;border-top:2px solid var(--text);padding-top:22px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.85rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:12px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:1rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  ul.refs a{color:var(--accent-deep);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  .inspiration-credit{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.8rem;letter-spacing:.06em;color:var(--muted);margin-top:26px;}
+  p.tags{color:var(--muted);font-size:.95rem;margin-top:14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:34px;padding:22px 0 40px;font-size:.9rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;background:var(--accent);border-radius:7px;padding:4px 5px;}
+  footer a{color:var(--text);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  footer .ftag{color:var(--accent-deep);font-weight:700;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
+</style>
+
+<link rel="icon" href="/ai-services/assets/favicon.ico" sizes="any" media="(prefers-color-scheme: light)">
+<link rel="icon" href="/ai-services/assets/favicon-white.ico" sizes="any" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32-white.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="/ai-services/assets/apple-touch-icon.png">
+</head>
+<body class="arch arch-light">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6PLP9DW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/the-model-came-home/ovia-inc-the-model-came-home-hero.webp')"></div>
+  <div class="mast-shade"></div>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="logo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+      </div>
+    </div>
+    <p class="kicker" data-tr>Ovia Inc — AI at scale · On-device models</p>
+    <h1 class="display" data-tr>The Model Came Home</h1>
+    <p class="standfirst" data-tr>A 145 billion parameter model was supposed to live in a data centre. Edge0-145B is reported to run on a laptop — and the relocation, more than the record, is the news.</p>
+    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 7 min read</p>
+  </div>
+</header>
+<div class="hero-zone">
+  <figure class="hero">
+<img src="https://oviainc.github.io/ai-services/articles/the-model-came-home/ovia-inc-the-model-came-home-hero.webp" alt="Ovia Inc — a single silver laptop with a blank white screen on a white table in a bright sunlit room, no wire to anywhere: capability at desk size">
+<figcaption data-tr>Alone on the desk: a laptop in a bright room, screen blank, no wire to anywhere — capability that used to live in a data centre, at desk size. Photograph: Hanna Pad. Image: Ovia Inc</figcaption>
+</figure>
+</div>
+<main>
+  <div class="cols">
+<p class="first" data-tr>For a decade, the direction of travel was settled. Models grew, so models moved away: out of the office, out of the building, into data centres where the memory and the power were. Intelligence became a service delivered over a wire, rented by the token, and a business that wanted serious capability signed up and sent its questions — and its data — somewhere else.</p>
+<p data-tr>Edge0-145B is a 145 billion parameter open source model built to run in the opposite direction. Its makers report that it runs on a compatible laptop with a peak memory use of about 29 gigabytes while generating at more than 80 tokens per second — faster than a person reads. The claim matters less as a record than as a relocation. Capability of that class was supposed to live in a data centre. Here it is, arriving on a desk.</p>
+<p data-tr>The honest caveats come first, because numbers decide what this piece is allowed to say. The performance figures and the benchmark scores in the release are the maker's own measurements: internal testing, internal evaluations, a chart whose comparison footprints for rival models are estimates rather than measurements. Independent replication has not happened yet. What can be stated without leaning on anyone's marketing is the architecture of the attempt, because the attempt itself is the news.</p>
+<aside class="keybox"><h2 data-tr>Key points</h2><ul><li data-tr>145 billion parameters, about 10 billion active in any single step — reported to run on a compatible laptop at a peak of about 29 gigabytes, generating at more than 80 tokens per second.</li><li data-tr>Every figure is the maker's own measurement; the comparison footprints for rival models are estimates, and independent replication has not happened yet.</li><li data-tr>The design pattern: model and inference engine built together for the machine, experts tiered across graphics memory, system memory and the drive.</li><li data-tr>What changes locally is economics and control as much as privacy: retries at the price of electricity, a fixed version, offline, under the owner's hand.</li></ul></aside>
+<h2 class="sec" data-tr>01 · How the wall was crossed</h2>
+<p data-tr>Local models stayed small for a simple reason: memory. Weights have to be stored, loaded, and read again for every token, and a large model read naively needs more memory, bandwidth, and power than a personal machine can spare. The standard answer was to shrink the model until it fit, and accept the weaker work that followed.</p>
+<p data-tr>Edge0 was designed the other way around. The model and its inference engine were built together, for the machine, from the first training run. Groups of experts inside the model share their large matrices instead of each carrying a full set, so only about 10 billion of the 145 billion parameters take part in any single step. Frequently used experts stay in graphics memory; a library of experts of roughly 40 gigabytes waits in system memory; vocabulary data sits on the solid state drive and is read on demand. Reading and computation overlap across all three tiers instead of queuing. The result, on the maker's own bench, is a model with the parameter count of a cloud system and the memory appetite of a much smaller one: a mean score of 72.8 across six public benchmarks, against a measured 29 gigabyte peak.</p>
+<p data-tr>Whether every figure survives independent testing is a question for the coming months. The design pattern will survive regardless. Fit the system to the hardware instead of shrinking the model to fit the excuse — that idea does not need a benchmark to be right.</p>
+<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/the-model-came-home/ovia-inc-the-model-came-home-body-1.webp" alt="Ovia Inc — memory modules seated in their slots on an open board, gold trim catching the light beside the circuitry: the memory ceiling made physical"><figcaption data-tr>The ceiling, made physical: memory seated in its slots on the board — the tier the experts wait in, read on demand. Photograph: ed br (landscape crop). Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>02 · What changes when nothing leaves the room</h2>
+<p data-tr>Privacy is the benefit everyone reaches for first, and it is real but plain. Code, documents, schematics, and records that never leave the machine cannot be mishandled on a server. For a firm whose clients hand it sensitive material, local inference turns a policy question into a physical fact: the data stayed here.</p>
+<p data-tr>The deeper change is economic. Cloud inference bills by the token, which means agentic work — the kind that plans, runs, fails, debugs, and tries again across dozens of rounds — bills by the attempt. Every retry costs. A local model retries for the price of electricity, roughly 120 watts in the reported setup. Iteration stops being a budget line and becomes a habit. The release demonstrates the point with work that would be painful to meter: a 3D city built and revised render by render, a board designed and animated, a drone program written and flown, each loop closed on the same machine that opened it.</p>
+<p data-tr>Control is the third change, and the quietest. A local model works offline, at a fixed version, under the owner's hand. It cannot be repriced overnight, deprecated at a quarter's notice, or altered silently between one week and the next. Businesses running agents on their own premises are not buying a model so much as recovering a property computing used to have by default: the machine in the room answers to the people in the room.</p>
+<blockquote class="pull" data-tr>A local model retries for the price of electricity. Iteration stops being a budget line and becomes a habit.</blockquote>
+<figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/the-model-came-home/ovia-inc-the-model-came-home-body-2.webp" alt="Ovia Inc — a bright office corridor with a closed frosted-glass door at its end, lights on, nobody in frame: on premises, drawn as architecture"><figcaption data-tr>On premises, drawn as architecture: a closed door at the end of a bright corridor — the data stayed here, as a physical fact. Photograph: Ron Lach. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>03 · The division of labour, redrawn</h2>
+<p data-tr>None of this retires the cloud, and the release does not pretend otherwise. A 145 billion parameter model still needs a suitably equipped laptop; a phone runs its smaller siblings. Work that needs current information, or memory shared across devices, still belongs partly on servers. The shift is in the default. Until now the demanding work went to the cloud because it had no choice. It now has a choice, workload by workload, and every architecture decision that follows gets made on merit rather than on necessity.</p>
+<p data-tr>That is the frame the studio applies to the local agent pilot work: which tasks gain from staying on premises — sensitive, iterative, latency bound — and which gain from the wire. Edge0 sits on the studio working shelf for exactly that evaluation, forked into the collection with its upstream credited, Apache 2.0 licensed, available for anyone to test rather than to take on faith.</p>
+<p data-tr>A frontier that fits in a laptop bag is not the end of the data centre. It is the end of the assumption that serious intelligence only lives in one. The model came home. What gets built in the room, now that the room is enough, is the story of the next few years.</p>
+<p data-tr style="font-size:.92rem;color:var(--muted)">All performance and benchmark figures are as reported by Edge0 from its own testing and evaluations; baseline memory figures for comparison models are the maker's estimates. Independent verification is pending and will be noted here when it exists.</p>
+</div>
+<div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+<li><span data-tr>Edge0 — “Edge0-145B: Open-Source On-Device AI with 145B Parameters”, release article, November 12, 2026:</span> <a href="https://edge0.ai/blog/introducing-edge0-145b-frontier-ai-capabilities-on-your-own-computer">https://edge0.ai/blog/introducing-edge0-145b-frontier-ai-capabilities-on-your-own-computer</a></li>
+<li><span data-tr>Edge0-AI/Edge0, project repository (Apache-2.0):</span> <a href="https://github.com/Edge0-AI/Edge0">https://github.com/Edge0-AI/Edge0</a></li>
+<li><span data-tr>OVIA working shelf fork:</span> <a href="https://github.com/Oviainc/Edge0-ovia-inc">https://github.com/Oviainc/Edge0-ovia-inc</a></li>
+<li><span data-tr>Photographs: Hanna Pad (laptop on a white table), ed br (memory modules on a board, landscape crop) and Ron Lach (office corridor), via Pexels (Pexels licence) — all shot on camera.</span></li>
+</ul>
+  </div>
+  <div class="refs-sec">
+<h2 data-tr>About the author</h2>
+<p data-tr>Mara Kessler writes the Data &amp; meaning desk. Her column reads numbers the way photographers read a contact sheet: frame by frame, until the picture admits what it is.</p>
+</div>
+<p class="inspiration-credit">Design inspired by Wim Crouwel and the Dutch grid tradition — the modular grid.</p>
+  <p class="tags">#ArtificialIntelligence #OnDeviceAI #OpenSource #LocalAI #toyoursatisfaction</p>
+    <footer>
+     <p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <div class="frow">
+      <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
+  <p class="copy">© Ovia Inc. All rights reserved.</p></footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+</body>
+</html>
