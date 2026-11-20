@@ -18,16 +18,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; object-src 'none'; base-uri 'self'; frame-src https://www.googletagmanager.com">
 <title>Speed Is a Craft Choice: Decoding Belongs in the Design Phase — Ovia Inc</title>
-<meta name="description" content="NVIDIA-reported DSpark results on DGX Spark (October 30, 2026) lift generation from about 73 to 108.5 tokens per second on SpeedBench 1K — and to 126.9 on HumanEval — while time to first token barely moves. The lesson is bigger than one benchmark: decoding strategy is now a design decision.">
+<meta name="description" content="NVIDIA-reported DSpark results on DGX Spark (October 30, 2026) lift generation from about 73 to 108.5 tokens per second on SpeedBench 1K, and to 126.9 on HumanEval, while time to first token barely moves. The lesson is bigger than one benchmark: decoding strategy is now a design decision.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Speed Is a Craft Choice: Decoding Belongs in the Design Phase">
-<meta property="og:description" content="NVIDIA-reported DSpark results on DGX Spark (October 30, 2026) lift generation from about 73 to 108.5 tokens per second on SpeedBench 1K — and to 126.9 on HumanEval — while time to first token barely moves. The lesson is bigger than one benchmark: decoding strategy is now a design decision.">
+<meta property="og:description" content="NVIDIA-reported DSpark results on DGX Spark (October 30, 2026) lift generation from about 73 to 108.5 tokens per second on SpeedBench 1K, and to 126.9 on HumanEval, while time to first token barely moves. The lesson is bigger than one benchmark: decoding strategy is now a design decision.">
 <meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/speed-is-a-craft-choice/">
 <meta property="og:image" content="https://oviainc.github.io/ai-services/articles/speed-is-a-craft-choice/ovia-inc-speed-is-a-craft-choice-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Speed Is a Craft Choice: Decoding Belongs in the Design Phase">
-<meta name="twitter:description" content="NVIDIA-reported DSpark results on DGX Spark (October 30, 2026) lift generation from about 73 to 108.5 tokens per second on SpeedBench 1K — and to 126.9 on HumanEval — while time to first token barely moves. The lesson is bigger than one benchmark: decoding strategy is now a design decision.">
-<meta name="twitter:image" content="https://oviainc.github.io/ai-services/articles/speed-is-a-craft-choice/ovia-inc-speed-is-a-craft-choice-hero.webp">
 <style>
   :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#B7D929;}
   *{box-sizing:border-box;margin:0;padding:0;}
@@ -98,7 +95,7 @@ body.arch-dark .keybox{background:#000000;border:1px solid var(--accent);}
 body.arch-dark h2.sec{font-size:1rem;}
 </style>
 <style id="mag28-css">
-/* OVIA Magazine rebuild 2026-11-04 — bespoke layout variant mag28-v24: cols=two-wide pull=left-rule key=outline sec=plain-caps fig=full hero=natural filter=grayscale(0.70) contrast(1.20) brightness(1.10) */
+/* OVIA Magazine rebuild 2026-11-04, bespoke layout variant mag28-v24: cols=two-wide pull=left-rule key=outline sec=plain-caps fig=full hero=natural filter=grayscale(0.70) contrast(1.20) brightness(1.10) */
 @media (min-width:1020px){body.mag28-v24 .cols{column-count:2;column-gap:76px;}}
 body.mag28-v24 blockquote.pull{text-align:left;border-left:4px solid var(--accent);padding-left:22px;}
 body.mag28-v24 .keybox{border:2px solid var(--accent);background:transparent;}
@@ -111,7 +108,7 @@ body.mag28-v24 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
 </style>
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/speed-is-a-craft-choice/">
 <style id="mag-ux">
-/* OVIA Magazine — reading chrome (mag-ux), 2026-11-04 */
+/* OVIA Magazine, reading chrome (mag-ux), 2026-11-04 */
 .mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
 .mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 .mag-topbar img{height:28px;width:auto;display:block;}
@@ -147,60 +144,6 @@ h2.sec{scroll-margin-top:18px;}
 </style>
 <style>/* site-fix-pass 2026-11-17 */footer a{display:inline-block;padding:.3em .1em}.mag-depts a{display:inline-flex;align-items:center;min-height:32px;padding:.15em .3em}.mag-topbar a,.mag-crumbs a{display:inline-flex;align-items:center;min-height:28px;padding:.15em .25em}</style>
 <style>/* language note · site fix pass step 3 · 2026-11-17 */.langnote{font-size:.85em;opacity:.8;margin:12px 0 0}</style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "@id": "https://oviainc.github.io/ai-services/magazine/2026-q4/speed-is-a-craft-choice/#article",
-  "headline": "Speed Is a Craft Choice: Decoding Belongs in the Design Phase",
-  "image": "https://oviainc.github.io/ai-services/articles/speed-is-a-craft-choice/ovia-inc-speed-is-a-craft-choice-hero.webp",
-  "datePublished": "2026-11-04",
-  "dateModified": "2026-11-17",
-  "author": {
-    "@id": "https://oviainc.github.io/ai-services/#organization"
-  },
-  "publisher": {
-    "@id": "https://oviainc.github.io/ai-services/#organization"
-  },
-  "mainEntityOfPage": "https://oviainc.github.io/ai-services/magazine/2026-q4/speed-is-a-craft-choice/",
-  "isPartOf": {
-    "@id": "https://oviainc.github.io/ai-services/#website"
-  },
-  "inLanguage": "en"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://oviainc.github.io/ai-services/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Magazine",
-      "item": "https://oviainc.github.io/ai-services/magazine/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "2026 Q4",
-      "item": "https://oviainc.github.io/ai-services/magazine/2026-q4/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "name": "Speed Is a Craft Choice: Decoding Belongs in the Design Phase",
-      "item": "https://oviainc.github.io/ai-services/magazine/2026-q4/speed-is-a-craft-choice/"
-    }
-  ]
-}
-</script>
 </head>
 <body class="arch arch-dark mag28-v24">
 <!-- Google Tag Manager (noscript) -->
@@ -234,8 +177,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 <div class="hero-zone">
   <figure class="hero">
-    <img src="https://oviainc.github.io/ai-services/articles/speed-is-a-craft-choice/ovia-inc-speed-is-a-craft-choice-hero.webp" alt="Ovia Inc — an antique stopwatch resting on a wooden table">
-    <figcaption data-tr>Chartreuse streaks through graphite, one glowing cube at the centre. Image: Shawn Stutzman · Pexels</figcaption>
+    <img src="https://oviainc.github.io/ai-services/articles/speed-is-a-craft-choice/ovia-inc-speed-is-a-craft-choice-hero.webp" alt="Ovia Inc — a watchmaker's bench with loupe and tweezers">
+    <figcaption data-tr>The bench before the work: loupe, tweezers, and a movement waiting its turn. Image: <a href="https://www.pexels.com/photo/close-up-of-clock-repairing-equipment-8327871/">Tima Miroshnichenko</a> · Pexels</figcaption>
   </figure>
 </div>
 <main>
@@ -246,24 +189,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <aside class="keybox"><h2 data-tr>Key points</h2><ul><li data-tr>NVIDIA reports SpeedBench 1K generation rising from 73.3 to 108.5 tokens per second with DSpark speculative decoding switched on.</li><li data-tr>On HumanEval prompts, NVIDIA reports the same switch moving generation from 73.4 to 126.9 tokens per second.</li><li data-tr>Median time to first token barely changes, at 201 milliseconds off and 203 on for the 1K workload, because drafting does not touch prompt processing.</li><li data-tr>Agent workloads multiply decoding gains across planning, tool calls, verification and revision loops.</li></ul></aside>
 <nav class="mag-toc" aria-label="Contents"><h2 data-tr>Contents</h2><ol><li><a href="#sec-1">01 · The numbers on the table</a></li><li><a href="#sec-2">02 · How speculative decoding buys speed</a></li><li><a href="#sec-3">03 · Why the first token barely moves</a></li><li><a href="#sec-4">04 · The design-phase argument</a></li><li><a href="#sec-5">05 · What to watch</a></li></ol></nav>
 <h2 class="sec" id="sec-1" data-tr>01 · The numbers on the table</h2>
-<p data-tr>One table in NVIDIA's October 30, 2026 technical post deserves more attention than the headline around it. Running Nemotron-3.5 Lightning on a DGX Spark in the 64GB configuration, through TensorRT Edge-LLM, NVIDIA reports mean generation speed on SpeedBench 1K rising from 73.3 tokens per second with DSpark speculative decoding off to 108.5 with DSpark on. On HumanEval prompts, the same switch moves generation from 73.4 to 126.9 tokens per second. Median time to first token barely changes — 201 milliseconds off, 203 on, for the 1K workload. Every figure is vendor-reported, measured by NVIDIA on NVIDIA hardware, under a specific test setup: batch size one, a single streaming request, a 128-token output limit, three draft tokens in the DSpark configuration.</p>
-<p data-tr>Those test conditions are part of the result, not fine print beneath the result. Batch size one and a single streaming request describe a personal, interactive workload — exactly the setting a desktop machine serves — rather than a packed data centre queue. A team running large batches, long outputs or shared serving should expect different numbers and should measure on the workload actually served instead of borrowing a table built for another shape of work.</p>
-<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/speed-is-a-craft-choice/ovia-inc-speed-is-a-craft-choice-body-1.webp" alt="Ovia Inc — a manuscript page corrected by hand with a red pen"><figcaption data-tr>Chartreuse trails through graphite, one glowing cube holding at the centre. Image: Ron Lach · Pexels</figcaption></figure>
+<p data-tr>One table in NVIDIA's October 30, 2026 technical post deserves more attention than the headline around it. Running Nemotron-3.5 Lightning on a DGX Spark in the 64GB configuration, through TensorRT Edge-LLM, NVIDIA reports mean generation speed on SpeedBench 1K rising from 73.3 tokens per second with DSpark speculative decoding off to 108.5 with DSpark on. On HumanEval prompts, the same switch moves generation from 73.4 to 126.9 tokens per second. Median time to first token barely changes, 201 milliseconds off, 203 on, for the 1K workload. Every figure is vendor-reported, measured by NVIDIA on NVIDIA hardware, under a specific test setup: batch size one, a single streaming request, a 128-token output limit, three draft tokens in the DSpark configuration.</p>
+<p data-tr>Those test conditions are part of the result, not fine print beneath the result. Batch size one and a single streaming request describe a personal, interactive workload, exactly the setting a desktop machine serves, rather than a packed data centre queue. A team running large batches, long outputs or shared serving should expect different numbers and should measure on the workload actually served instead of borrowing a table built for another shape of work.</p>
+<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/speed-is-a-craft-choice/ovia-inc-speed-is-a-craft-choice-body-1.webp" alt="Ovia Inc — an open pocket watch and tools on a bench"><figcaption data-tr>The pocket watch, open: craft measured in parts per movement. Image: <a href="https://www.pexels.com/photo/gold-pocket-watch-on-white-surface-8327593/">Tima Miroshnichenko</a> · Pexels</figcaption></figure>
 <h2 class="sec" id="sec-2" data-tr>02 · How speculative decoding buys speed</h2>
-<p data-tr>The mechanism is a wager with a referee. A fast, cheap drafting process proposes several tokens ahead; the full model verifies the proposals in one pass, accepting the stretches that hold and correcting the first point of divergence. When drafts are good, several tokens land for roughly the cost of one full step. When drafts are poor, verification still guarantees the output matches what the full model would have produced — the speed is opportunistic, the correctness is not. Draft length, draft source and acceptance behaviour become tuning surfaces, closer to engine building than to prompting.</p>
+<p data-tr>The mechanism is a wager with a referee. A fast, cheap drafting process proposes several tokens ahead; the full model verifies the proposals in one pass, accepting the stretches that hold and correcting the first point of divergence. When drafts are good, several tokens land for roughly the cost of one full step. When drafts are poor, verification still guarantees the output matches what the full model would have produced, the speed is opportunistic, the correctness is not. Draft length, draft source and acceptance behaviour become tuning surfaces, closer to engine building than to prompting.</p>
 <p data-tr>Tuning those surfaces is real craft work. Longer drafts promise more tokens per verification pass and waste more work when an early proposal misses. Shorter drafts stay safer and leave speed unclaimed. The right setting depends on how predictable the workload is: structured, repetitive generation drafts well, while open-ended generation argues for restraint. No single setting deserves to be called best without naming the workload the setting was tuned for.</p>
 <blockquote class="pull" data-tr>Generation speed stops being a property a model simply has, and becomes a property a team designs, measures and defends.</blockquote>
 <h2 class="sec" id="sec-3" data-tr>03 · Why the first token barely moves</h2>
-<p data-tr>The flat time-to-first-token line is the honest detail in the table, and the instructive one. Speculative decoding accelerates the long middle of a generation; the wait for the first token is governed by prompt processing, which drafting does not touch. Two different latencies, two different levers. Systems that feel fast attend to both: prompt-side work — context size, caching, prefill efficiency — for the opening moment, and decoding strategy for everything after. Conflating the two produces optimisation programmes that improve the number nobody was waiting on.</p>
-<figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/speed-is-a-craft-choice/ovia-inc-speed-is-a-craft-choice-body-2.webp" alt="Ovia Inc — a wooden metronome mid-swing"><figcaption data-tr>A graphite bench, calibrated instruments and a looping chartreuse trail. Image: Florian G · Pexels</figcaption></figure>
+<p data-tr>The flat time-to-first-token line is the honest detail in the table, and the instructive one. Speculative decoding accelerates the long middle of a generation; the wait for the first token is governed by prompt processing, which drafting does not touch. Two different latencies, two different levers. Systems that feel fast attend to both: prompt-side work, context size, caching, prefill efficiency, for the opening moment, and decoding strategy for everything after. Conflating the two produces optimisation programmes that improve the number nobody was waiting on.</p>
+<figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/speed-is-a-craft-choice/ovia-inc-speed-is-a-craft-choice-body-2.webp" alt="Ovia Inc — hand tools spread on a worn wooden bench"><figcaption data-tr>Tools on worn wood: the levers are physical before they are numerical. Image: <a href="https://www.pexels.com/photo/tools-and-watch-on-wood-4452383/">Vlada Karpovich</a> · Pexels</figcaption></figure>
 <p data-tr>Users feel the distinction even when dashboards hide the distinction. A long pause before the first word reads as a system that has stalled, however fast the words arrive afterwards. A quick first word followed by a slow stream reads as a system working steadily. Both experiences come from the same generation, split across two latencies, and a serious performance review reports the pair separately rather than hiding both problems inside one average.</p>
 <h2 class="sec" id="sec-4" data-tr>04 · The design-phase argument</h2>
-<p data-tr>Agent workloads multiply whatever the decoding layer decides. A single user request fans out into planning, tool calls, verification and revision — dozens of generations, each paying the per-token rate. A gain near fifty percent, of the size NVIDIA reports on the 1K workload, compounds across every loop the agent runs, and lands directly in operating cost and in how responsive the system feels. That is why decoding strategy belongs in the design phase, beside quantisation, engine builds and context budgets — the cluster of decisions the discipline behind NVIDIA-Certified Professional: AI Operations treats as the craft itself, and the same cluster context engineering at Ovia weighs before an agent ever meets a user.</p>
+<p data-tr>Agent workloads multiply whatever the decoding layer decides. A single user request fans out into planning, tool calls, verification and revision, dozens of generations, each paying the per-token rate. A gain near fifty percent, of the size NVIDIA reports on the 1K workload, compounds across every loop the agent runs, and lands directly in operating cost and in how responsive the system feels. That is why decoding strategy belongs in the design phase, beside quantisation, engine builds and context budgets, the cluster of decisions the discipline behind NVIDIA-Certified Professional: AI Operations treats as the craft itself, and the same cluster context engineering at Ovia weighs before an agent ever meets a user.</p>
 <p data-tr>Design-phase attention also protects honesty later. When decoding is chosen early, the choice gets benchmarked against the intended workload, recorded beside the engine build, and revisited when hardware or models change. When decoding is left as a default discovered after launch, speed problems arrive as surprises and fixes arrive as folklore. Craft, in operations, mostly means making the important choices while evidence can still change the plan cheaply.</p>
-<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/speed-is-a-craft-choice/ovia-inc-speed-is-a-craft-choice-body-3.webp" alt="Ovia Inc — a reader turning the pages of a script"><figcaption data-tr>One short burst and one long stream: two latencies, two levers. Image: Ron Lach · Pexels</figcaption></figure>
+<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/speed-is-a-craft-choice/ovia-inc-speed-is-a-craft-choice-body-3.webp" alt="Ovia Inc — a clock mechanism in close-up"><figcaption data-tr>Gears in the loupe's circle: latency you can see. Image: <a href="https://www.pexels.com/photo/a-close-up-of-watch-mechanism-8327817/">Tima Miroshnichenko</a> · Pexels</figcaption></figure>
 <h2 class="sec" id="sec-5" data-tr>05 · What to watch</h2>
-<p data-tr>Watch for independent reproductions on real agent workloads rather than benchmark prompts, for drafting strategies tuned per workload instead of per demo, and for serving stacks that expose decoding choices as first-class configuration. The deeper shift is cultural: generation speed stops being a property a model simply has, and becomes a property a team designs, measures and defends — a craft choice, made on purpose.</p>
-<p data-tr>A second discipline follows from the flat first-token line: measure the two latencies separately, in production, per workload. Benchmark tables report medians on clean prompts; real estates serve long contexts, warm and cold caches, and users who judge the whole system by the pause before the first word appears. Teams that instrument both numbers can spend effort where the waiting actually happens — prefill and context handling for the opening moment, decoding strategy for the long generation that follows — instead of celebrating an average that hides both problems at once.</p>
+<p data-tr>Watch for independent reproductions on real agent workloads rather than benchmark prompts, for drafting strategies tuned per workload instead of per demo, and for serving stacks that expose decoding choices as first-class configuration. The deeper shift is cultural: generation speed stops being a property a model simply has, and becomes a property a team designs, measures and defends, a craft choice, made on purpose.</p>
+<p data-tr>A second discipline follows from the flat first-token line: measure the two latencies separately, in production, per workload. Benchmark tables report medians on clean prompts; real estates serve long contexts, warm and cold caches, and users who judge the whole system by the pause before the first word appears. Teams that instrument both numbers can spend effort where the waiting actually happens, prefill and context handling for the opening moment, decoding strategy for the long generation that follows, instead of celebrating an average that hides both problems at once.</p>
 <p data-tr>The standard to hold is simple. Name the workload, publish the conditions, separate the two latencies, flag vendor figures as vendor figures, and tune the decoding layer deliberately.</p>
 
   </div>
@@ -271,27 +214,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="refs-sec">
     <h2 data-tr>References</h2>
     <ul class="refs">
-<li><span data-tr>NVIDIA Technical Blog — “Run AI Models for Edge Application Development with Just a Few Commands”, October 30, 2026:</span> <a href="https://developer.nvidia.com/blog/run-ai-models-for-edge-application-development-with-just-a-few-commands/">https://developer.nvidia.com/blog/run-ai-models-for-edge-application-development-with-just-a-few-commands/</a></li>
+<li><span data-tr>NVIDIA Technical Blog, “Run AI Models for Edge Application Development with Just a Few Commands”, October 30, 2026:</span> <a href="https://developer.nvidia.com/blog/run-ai-models-for-edge-application-development-with-just-a-few-commands/">https://developer.nvidia.com/blog/run-ai-models-for-edge-application-development-with-just-a-few-commands/</a></li>
 
     </ul>
   </div>
   <p class="tags">#AIOperations #EdgeAI #ArtificialIntelligence #toyoursatisfaction</p>
   <footer>
-    <p class="langnote">Written in English. Its frame — contents, issue links, footer — also reads in Français and Español; the text itself is never machine-translated.</p><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/diffusion-models-write-in-parallel/"><span class="lab" data-tr>← Previous</span><span class="ttl">Writing in Parallel: The Diffusion Model That Drafts the Whole Page at Once</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/the-model-came-home/"><span class="lab" data-tr>Next →</span><span class="ttl">The Model Came Home</span></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/merchandise/">Merchandise</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <p class="langnote">Written in English. Its frame, contents, issue links, footer, also reads in Français and Español; the text itself is never machine-translated.</p><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/diffusion-models-write-in-parallel/"><span class="lab" data-tr>← Previous</span><span class="ttl">Writing in Parallel: The Diffusion Model That Drafts the Whole Page at Once</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/the-model-came-home/"><span class="lab" data-tr>Next →</span><span class="ttl">The Model Came Home</span></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/merchandise/">Merchandise</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
     <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
 <div class="frow">
       <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
     </div>
-      <p class="inspiration-credit" data-tr>Design inspired by Richard Avedon — Harper's Bazaar.</p>
+      <p class="inspiration-credit" data-tr>Design inspired by Richard Avedon, Harper's Bazaar.</p>
   <p class="copy">© Ovia Inc. All rights reserved.</p></footer>
 </main>
 <script>
-/* Language policy — reviewed chrome, original-language pieces.
+/* Language policy, reviewed chrome, original-language pieces.
    Site fix pass step 3, 2026-11-17. This piece is read in the language it
-   was written in. The frame around it — contents heading, issue
-   navigation, footer labels — is hand-written in English, Français and
+   was written in. The frame around it, contents heading, issue
+   navigation, footer labels, is hand-written in English, Français and
    Español, and only that frame changes with the selector. No machine
    translation is used on this page. */
 (function () {

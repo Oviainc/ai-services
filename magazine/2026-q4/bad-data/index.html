@@ -99,7 +99,7 @@ body.arch-grid .cols .keybox{grid-column:span 3;margin:0;}
 @media (max-width:820px){body.arch-grid .cols>*{grid-column:1/-1;}}
 </style>
 <style id="mag28-css">
-/* OVIA Magazine rebuild 2026-11-04 — bespoke layout variant mag28-v15: cols=three pull=band key=band sec=chip fig=full hero=natural filter=saturate(1.18) brightness(1.07) sepia(0.12) */
+/* OVIA Magazine rebuild 2026-11-04, bespoke layout variant mag28-v15: cols=three pull=band key=band sec=chip fig=full hero=natural filter=saturate(1.18) brightness(1.07) sepia(0.12) */
 @media (min-width:1180px){body.mag28-v15 .cols{column-count:3;column-gap:40px;}} @media (min-width:700px) and (max-width:1179px){.cols{column-count:2;}}
 body.mag28-v15 blockquote.pull{text-align:center;background:var(--panel);padding:30px 24px;}
 body.mag28-v15 .keybox{background:var(--accent);color:#0A0E14;} .keybox h3{color:#0A0E14;} .keybox li{color:#0A0E14;}
@@ -112,7 +112,7 @@ body.mag28-v15 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
 </style>
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/bad-data/">
 <style id="mag-ux">
-/* OVIA Magazine — reading chrome (mag-ux), 2026-11-04 */
+/* OVIA Magazine, reading chrome (mag-ux), 2026-11-04 */
 .mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
 .mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 .mag-topbar img{height:28px;width:auto;display:block;}
@@ -229,7 +229,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <p class="kicker" data-tr>Ovia Inc — Business Intelligence · Data</p>
     <h1 class="display" data-tr>Bad Data: How Poor Quality Data Can Impact Your Bottom Line</h1>
-    <p class="standfirst" data-tr>Bad data bills everyone, twice — first as a wrong decision, then as the rework and the trust that has to be rebuilt. We clean the data before we automate anything.</p>
+    <p class="standfirst" data-tr>Bad data bills everyone, twice, first as a wrong decision, then as the rework and the trust that has to be rebuilt. We clean the data before we automate anything.</p>
     <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
   </div>
 </header>
@@ -241,9 +241,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <main>
   <div class="cols">
-<p class="first" data-tr>Bad data bills everyone, twice. The first bill arrives as a wrong number in a report — a decision made on data that was incomplete, duplicated, or already out of date. The second bill arrives later, and larger: the rework, the correction, and the trust that has to be rebuilt with everyone who acted on the first number.</p>
+<p class="first" data-tr>Bad data bills everyone, twice. The first bill arrives as a wrong number in a report, a decision made on data that was incomplete, duplicated, or already out of date. The second bill arrives later, and larger: the rework, the correction, and the trust that has to be rebuilt with everyone who acted on the first number.</p>
 <p data-tr>Most teams meet bad data as a small annoyance: a customer listed twice, a date in the wrong format, a field left blank because nobody owned it. The annoyance is real, but the framing is wrong. Bad data is not a housekeeping problem at the edge of the business. Bad data sits underneath every report, every forecast and every automated action the business takes, and every layer built on top of it inherits its flaws.</p>
-<p data-tr>That lesson sits at the centre of the business intelligence work behind Ovia: years of data and automation work teach one order of operations — clean the data first, govern the definitions second, automate only after both hold. The order sounds slow. The order is, in practice, the fastest route that does not have to be travelled twice.</p>
+<p data-tr>That lesson sits at the centre of the business intelligence work behind Ovia: years of data and automation work teach one order of operations, clean the data first, govern the definitions second, automate only after both hold. The order sounds slow. The order is, in practice, the fastest route that does not have to be travelled twice.</p>
 <aside class="keybox"><h2 data-tr>Key points</h2><ul><li data-tr>Bad data bills everyone twice: once as a wrong decision, and again as rework, correction and rebuilt trust.</li><li data-tr>The order of operations is fixed: clean the data first, govern the definitions second, automate only after both hold.</li><li data-tr>A dashboard with bad data misleads one reader at a time; an agent acting on bad data repeats the error at machine speed.</li><li data-tr>Cleaning is not a one-time project but a standing practice with named owners and shared definitions.</li></ul></aside>
 <nav class="mag-toc" aria-label="Contents"><h2 data-tr>Contents</h2><ol><li><a href="#sec-1">01 · The first bill: the wrong number</a></li><li><a href="#sec-2">02 · The second bill: rework and trust</a></li><li><a href="#sec-3">03 · Clean first, govern second</a></li><li><a href="#sec-4">04 · Why agents raise the stakes</a></li><li><a href="#sec-5">05 · The honest caveats</a></li></ol></nav>
 <h2 class="sec" id="sec-1" data-tr>01 · The first bill: the wrong number</h2>
@@ -256,42 +256,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <blockquote class="pull" data-tr>An agent acting on bad data repeats the error at machine speed.</blockquote>
 <h2 class="sec" id="sec-3" data-tr>03 · Clean first, govern second</h2>
 <p data-tr>Cleaning comes first because automation amplifies whatever cleaning leaves behind. Cleaning means the concrete work: removing duplicates, completing the fields that decisions actually depend on, retiring records that are no longer true, and making formats consistent enough that two systems reading the same record reach the same value. None of that work is glamorous, and all of that work is visible later in every number the business trusts.</p>
-<p data-tr>Governance comes second, and governance is about definitions rather than files. When two departments use the same word for different things — a customer, a lead, an active account — clean data still produces conflicting reports. Governing the definitions means writing down, once and in the open, what each shared term means, who owns the meaning, and how a change to the meaning gets announced. A definition with no owner drifts; a definition with an owner can evolve without breaking trust.</p>
+<p data-tr>Governance comes second, and governance is about definitions rather than files. When two departments use the same word for different things, a customer, a lead, an active account, clean data still produces conflicting reports. Governing the definitions means writing down, once and in the open, what each shared term means, who owns the meaning, and how a change to the meaning gets announced. A definition with no owner drifts; a definition with an owner can evolve without breaking trust.</p>
 <figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/bad-data/ovia-inc-bad-data-body-2.webp" alt="Ovia Inc — hands sorting paper invoices on a desk"><figcaption data-tr>The sorting work: scattered records drawn by cobalt threads into one clean, shared grid. Image: MART PRODUCTION · Pexels</figcaption></figure>
 <h2 class="sec" id="sec-4" data-tr>04 · Why agents raise the stakes</h2>
-<p data-tr>Agents make the order more important, not less. A dashboard with bad data misleads one reader at a time. An agent acting on bad data repeats the error at machine speed — sending the wrong follow-up, updating the wrong record, summarising the wrong figures — and each repetition can create new records that later cleaning has to untangle. A human reader often senses that a number looks off; an agent, working exactly as instructed, has no such pause unless the pause was designed in.</p>
-<p data-tr>Context engineering starts from exactly that reality. The context an agent receives — the records, the definitions, the retrieved documents — is the ceiling on the quality of every action the agent takes. Clean, governed data raises that ceiling. Dirty, undefined data lowers it, no matter how capable the model on top may be. Since December 2022, the work at Ovia has treated that order as non-negotiable: the data first, the definitions second, the agent last.</p>
+<p data-tr>Agents make the order more important, not less. A dashboard with bad data misleads one reader at a time. An agent acting on bad data repeats the error at machine speed, sending the wrong follow-up, updating the wrong record, summarising the wrong figures, and each repetition can create new records that later cleaning has to untangle. A human reader often senses that a number looks off; an agent, working exactly as instructed, has no such pause unless the pause was designed in.</p>
+<p data-tr>Context engineering starts from exactly that reality. The context an agent receives, the records, the definitions, the retrieved documents, is the ceiling on the quality of every action the agent takes. Clean, governed data raises that ceiling. Dirty, undefined data lowers it, no matter how capable the model on top may be. Since December 2022, the work at Ovia has treated that order as non-negotiable: the data first, the definitions second, the agent last.</p>
 <h2 class="sec" id="sec-5" data-tr>05 · The honest caveats</h2>
 <p data-tr>Honesty requires two caveats. First, clean is a direction, not a destination: data decays as customers move, products change and people mistype, so cleaning has to be a standing practice with checks that run continuously, not a heroic project that runs once. Second, not every field deserves the same effort. The fields that drive decisions, money and customer contact deserve rigorous care; a field nobody reads deserves a decision about whether to keep collecting it at all.</p>
-<p data-tr>We clean the data before we automate anything. The sentence is short because the discipline is simple to state, even when the discipline takes real work to keep. Teams that respect the order pay once, in the open, for cleaning and definitions. Teams that skip the order pay twice — once for the wrong number, and once again for everything the wrong number set in motion.</p>
+<p data-tr>We clean the data before we automate anything. The sentence is short because the discipline is simple to state, even when the discipline takes real work to keep. Teams that respect the order pay once, in the open, for cleaning and definitions. Teams that skip the order pay twice, once for the wrong number, and once again for everything the wrong number set in motion.</p>
 
   </div>
   <p class="offer-line" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;margin:34px 0 6px;padding-top:16px;border-top:1px solid #999;"><a href="https://oviainc.github.io/ai-services/">OVIA Inc Studio Lab — AI operations &amp; context engineering, managed end to end</a></p>
   <div class="refs-sec">
     <h2 data-tr>References</h2>
     <ul class="refs">
-<li><span data-tr>Ovia Inc — “Bad Data: How Poor Quality Data Can Impact Your Bottom Line”, Medium, February 25, 2023 — author archive (exact URL not verified):</span> <a href="https://medium.com/@ovia_">https://medium.com/@ovia_</a></li>
+<li><span data-tr>Ovia Inc — “Bad Data: How Poor Quality Data Can Impact Your Bottom Line”, Medium, February 25, 2023, author archive (exact URL not verified):</span> <a href="https://medium.com/@ovia_">https://medium.com/@ovia_</a></li>
 <li><span data-tr>Ovia Inc — Magazine, 2026 Q4 issue:</span> <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">https://oviainc.github.io/ai-services/magazine/2026-q4/</a></li>
 
     </ul>
   </div>
   <p class="tags">#BusinessIntelligence #Data #ArtificialIntelligence #ContextEngineering #toyoursatisfaction</p>
   <footer>
-    <p class="langnote">Written in English. Its frame — contents, issue links, footer — also reads in Français and Español; the text itself is never machine-translated.</p><nav class="mag-pn" aria-label="Breadcrumb"><a class="empty" aria-hidden="true" tabindex="-1"></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/semantic-layer-learns-the-business/"><span class="lab" data-tr>Next →</span><span class="ttl">A Correct Metric Is Only Step One: Teaching the Semantic Layer the Business Itself</span></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/merchandise/">Merchandise</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <p class="langnote">Written in English. Its frame, contents, issue links, footer, also reads in Français and Español; the text itself is never machine-translated.</p><nav class="mag-pn" aria-label="Breadcrumb"><a class="empty" aria-hidden="true" tabindex="-1"></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/semantic-layer-learns-the-business/"><span class="lab" data-tr>Next →</span><span class="ttl">A Correct Metric Is Only Step One: Teaching the Semantic Layer the Business Itself</span></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/merchandise/">Merchandise</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
     <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
 <div class="frow">
       <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
     </div>
-      <p class="inspiration-credit" data-tr>Design inspired by Tim Walker — AnOther.</p>
+      <p class="inspiration-credit" data-tr>Design inspired by Tim Walker, AnOther.</p>
   <p class="copy">© Ovia Inc. All rights reserved.</p></footer>
 </main>
 <script>
-/* Language policy — reviewed chrome, original-language pieces.
+/* Language policy, reviewed chrome, original-language pieces.
    Site fix pass step 3, 2026-11-17. This piece is read in the language it
-   was written in. The frame around it — contents heading, issue
-   navigation, footer labels — is hand-written in English, Français and
+   was written in. The frame around it, contents heading, issue
+   navigation, footer labels, is hand-written in English, Français and
    Español, and only that frame changes with the selector. No machine
    translation is used on this page. */
 (function () {

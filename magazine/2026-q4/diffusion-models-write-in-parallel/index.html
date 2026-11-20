@@ -25,9 +25,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/diffusion-models-write-in-parallel/">
 <meta property="og:image" content="https://oviainc.github.io/ai-services/articles/diffusion-models-write-in-parallel/ovia-inc-diffusion-models-write-in-parallel-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Writing in Parallel: The Diffusion Model That Drafts the Whole Page at Once">
-<meta name="twitter:description" content="DiffuSpace Clover-35B-A3B-Preview is a Mixture-of-Experts diffusion language model that drafts a whole block at once, and generation order changes what agents can attempt.">
-<meta name="twitter:image" content="https://oviainc.github.io/ai-services/articles/diffusion-models-write-in-parallel/ovia-inc-diffusion-models-write-in-parallel-hero.webp">
 <style>
   :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#CE8450;}
   *{box-sizing:border-box;margin:0;padding:0;}
@@ -101,7 +98,7 @@ body.arch-classic .keybox{max-width:540px;margin-left:auto;margin-right:auto;}
 body.arch-classic blockquote.pull{font-size:1.55rem;}
 </style>
 <style id="mag28-css">
-/* OVIA Magazine rebuild 2026-11-04 — bespoke layout variant mag28-v23: cols=three pull=left-rule key=band sec=chip fig=inset hero=natural filter=saturate(1.20) contrast(1.06) hue-rotate(12deg) */
+/* OVIA Magazine rebuild 2026-11-04, bespoke layout variant mag28-v23: cols=three pull=left-rule key=band sec=chip fig=inset hero=natural filter=saturate(1.20) contrast(1.06) hue-rotate(12deg) */
 @media (min-width:1180px){body.mag28-v23 .cols{column-count:3;column-gap:40px;}} @media (min-width:700px) and (max-width:1179px){.cols{column-count:2;}}
 body.mag28-v23 blockquote.pull{text-align:left;border-left:4px solid var(--accent);padding-left:22px;}
 body.mag28-v23 .keybox{background:var(--accent);color:#0A0E14;} .keybox h3{color:#0A0E14;} .keybox li{color:#0A0E14;}
@@ -114,7 +111,7 @@ body.mag28-v23 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
 </style>
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/diffusion-models-write-in-parallel/">
 <style id="mag-ux">
-/* OVIA Magazine — reading chrome (mag-ux), 2026-11-04 */
+/* OVIA Magazine, reading chrome (mag-ux), 2026-11-04 */
 .mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
 .mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 .mag-topbar img{height:28px;width:auto;display:block;}
@@ -150,60 +147,6 @@ h2.sec{scroll-margin-top:18px;}
 </style>
 <style>/* site-fix-pass 2026-11-17 */footer a{display:inline-block;padding:.3em .1em}.mag-depts a{display:inline-flex;align-items:center;min-height:32px;padding:.15em .3em}.mag-topbar a,.mag-crumbs a{display:inline-flex;align-items:center;min-height:28px;padding:.15em .25em}</style>
 <style>/* language note · site fix pass step 3 · 2026-11-17 */.langnote{font-size:.85em;opacity:.8;margin:12px 0 0}</style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "@id": "https://oviainc.github.io/ai-services/magazine/2026-q4/diffusion-models-write-in-parallel/#article",
-  "headline": "Writing in Parallel: The Diffusion Model That Drafts the Whole Page at Once",
-  "image": "https://oviainc.github.io/ai-services/articles/diffusion-models-write-in-parallel/ovia-inc-diffusion-models-write-in-parallel-hero.webp",
-  "datePublished": "2026-11-04",
-  "dateModified": "2026-11-17",
-  "author": {
-    "@id": "https://oviainc.github.io/ai-services/#organization"
-  },
-  "publisher": {
-    "@id": "https://oviainc.github.io/ai-services/#organization"
-  },
-  "mainEntityOfPage": "https://oviainc.github.io/ai-services/magazine/2026-q4/diffusion-models-write-in-parallel/",
-  "isPartOf": {
-    "@id": "https://oviainc.github.io/ai-services/#website"
-  },
-  "inLanguage": "en"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://oviainc.github.io/ai-services/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Magazine",
-      "item": "https://oviainc.github.io/ai-services/magazine/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "2026 Q4",
-      "item": "https://oviainc.github.io/ai-services/magazine/2026-q4/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "name": "Writing in Parallel: The Diffusion Model That Drafts the Whole Page at Once",
-      "item": "https://oviainc.github.io/ai-services/magazine/2026-q4/diffusion-models-write-in-parallel/"
-    }
-  ]
-}
-</script>
 </head>
 <body class="arch arch-classic mag28-v23">
 <!-- Google Tag Manager (noscript) -->
@@ -237,8 +180,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 <div class="hero-zone">
   <figure class="hero">
-    <img src="https://oviainc.github.io/ai-services/articles/diffusion-models-write-in-parallel/ovia-inc-diffusion-models-write-in-parallel-hero.webp" alt="Ovia Inc — A minimalist grid of copper squares on ivory paper, pale and unfinished at the edges, resolving into polished copper in the middle all at once">
-    <figcaption data-tr>Parallel drafting in copper and ivory. Image: Ovia Inc</figcaption>
+    <img src="https://oviainc.github.io/ai-services/articles/diffusion-models-write-in-parallel/ovia-inc-diffusion-models-write-in-parallel-hero.webp" alt="Ovia Inc — a vintage printing press in a worn workshop">
+    <figcaption data-tr>The press in its workshop: iron, ink and patience. Image: <a href="https://www.pexels.com/photo/4140915/">Erik Mclean</a> · Pexels</figcaption>
   </figure>
 </div>
 <main>
@@ -251,21 +194,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2 class="sec" id="sec-1" data-tr>01 · The release</h2>
 <p data-tr>Late in October 2026, DiffuSpace released Clover-35B-A3B-Preview on Hugging Face: a Mixture-of-Experts diffusion language model with 35 billion parameters in total and about 3 billion active per token, a thinking mode, and weights published under an Apache licence, with inference support in SGLang and llama.cpp. The lineage matters. DiffuSpace grows out of the University of Hong Kong NLP group behind Dream 7B, the model family that first showed diffusion generation could stand beside conventional generation at small scale. Clover is the same idea, scaled up and aimed squarely at agent work.</p>
 <p data-tr>The mechanical difference is simple to state and large in consequence. A conventional language model writes one token, feeds that token back, and writes the next, always moving left to right. A diffusion model starts from a masked block of text and refines the whole block across several passes, settling the positions the model is most confident about first and revisiting the rest. The page gets drafted everywhere at once, then sharpened.</p>
-<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/diffusion-models-write-in-parallel/ovia-inc-diffusion-models-write-in-parallel-body-1.webp" alt="Ovia Inc — A grid of copper squares on ivory, pale at the edges and polished in the centre, resolving all at once"><figcaption data-tr>Confident spans settle first while uncertain spans stay open longer. Image: Ovia Inc</figcaption></figure>
+<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/diffusion-models-write-in-parallel/ovia-inc-diffusion-models-write-in-parallel-body-1.webp" alt="Ovia Inc — an open letterpress type drawer with metal sorts"><figcaption data-tr>Type in the drawer: every sort in its compartment, set in parallel or not at all. Image: <a href="https://www.pexels.com/photo/4140925/">Erik Mclean</a> · Pexels</figcaption></figure>
 <h2 class="sec" id="sec-2" data-tr>02 · Why generation order matters</h2>
 <p data-tr>Left-to-right order is a habit inherited from typewriters and early sequence models, not a law of language. Forced to commit early, an autoregressive model can lock in a weak opening and spend the rest of the answer defending that opening. Parallel drafting reverses the pressure: confident spans land first, uncertain spans stay open longer, and revision becomes part of generation rather than a separate editing pass bolted on afterwards. Structure, code and plans all benefit when the draft can be rearranged before the wording hardens.</p>
 <p data-tr>Speed follows from the same change. When many positions resolve in a single pass, throughput rises and the cost of an attempt falls. Cheap attempts change behaviour: agents can draft several candidate plans, compare them, and keep the strongest. Generation order quietly decides how much exploration an agent budget can buy, and budgets shape behaviour more honestly than slogans do.</p>
 <blockquote class="pull" data-tr>Generation order quietly decides how much exploration an agent budget can buy.</blockquote>
 <h2 class="sec" id="sec-3" data-tr>03 · The agent angle</h2>
-<p data-tr>The maker reports that Clover scores highest on all six agent benchmarks in the maker's own comparison, including 73.6 on SWE-bench Verified and 51.7 on Terminal-Bench 2.1. The maker also reports 680 tokens per second on a single NVIDIA GB300, in BF16 at batch size one, on internal agent workloads, and an INT4 build running on a consumer RTX 5070 Ti with 16GB of memory at 101.8 tokens per second on MATH-500. Every one of those figures is maker-reported, and the comparisons are the maker's own — the honest reading is promise, not proof, until independent teams reproduce the numbers.</p>
-<figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/diffusion-models-write-in-parallel/ovia-inc-diffusion-models-write-in-parallel-body-2.webp" alt="Ovia Inc — Several ivory draft sheets side by side with copper blocks, candidate plans compared in parallel"><figcaption data-tr>Candidate drafts side by side: cheaper attempts make comparison part of the workflow. Image: Ovia Inc</figcaption></figure>
-<p data-tr>Even with that caution, the direction fits the work. The Hugging Face Agents Course and the Hugging Face Deep Reinforcement Learning Course both teach the same lesson from different sides: agents improve when the loop of acting, checking and revising gets faster and cheaper. Context engineering at Ovia since December 2022 starts from the surrounding half of that loop — the state, tools and evidence an agent drafts against. A model that drafts in parallel pairs naturally with verification that also runs in parallel, and context design decides how much of that speed becomes reliability.</p>
+<p data-tr>The maker reports that Clover scores highest on all six agent benchmarks in the maker's own comparison, including 73.6 on SWE-bench Verified and 51.7 on Terminal-Bench 2.1. The maker also reports 680 tokens per second on a single NVIDIA GB300, in BF16 at batch size one, on internal agent workloads, and an INT4 build running on a consumer RTX 5070 Ti with 16GB of memory at 101.8 tokens per second on MATH-500. Every one of those figures is maker-reported, and the comparisons are the maker's own, the honest reading is promise, not proof, until independent teams reproduce the numbers.</p>
+<figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/diffusion-models-write-in-parallel/ovia-inc-diffusion-models-write-in-parallel-body-2.webp" alt="Ovia Inc — a vintage press with a gold roller"><figcaption data-tr>The gold roller: a page at a time, at press speed. Image: <a href="https://www.pexels.com/photo/6620999/">Antoni Shkraba</a> · Pexels</figcaption></figure>
+<p data-tr>Even with that caution, the direction fits the work. The Hugging Face Agents Course and the Hugging Face Deep Reinforcement Learning Course both teach the same lesson from different sides: agents improve when the loop of acting, checking and revising gets faster and cheaper. Context engineering at Ovia since December 2022 starts from the surrounding half of that loop, the state, tools and evidence an agent drafts against. A model that drafts in parallel pairs naturally with verification that also runs in parallel, and context design decides how much of that speed becomes reliability.</p>
 <h2 class="sec" id="sec-4" data-tr>04 · Caveats and fine print</h2>
-<p data-tr>Three cautions belong on the record. First, the release carries the word Preview in the name: tooling, kernels and serving paths for block diffusion are younger than the mature autoregressive stack, and rough edges should be expected. Second, every headline figure comes from the maker, including the benchmark table and the throughput claims; the baseline comparisons were run by the maker as well, so independent reproduction is the test that counts. Third, a 35-billion-parameter model remains a serious piece of hardware commitments in full precision — the reported INT4 build eases local experimentation, yet production serving still demands deliberate planning.</p>
+<p data-tr>Three cautions belong on the record. First, the release carries the word Preview in the name: tooling, kernels and serving paths for block diffusion are younger than the mature autoregressive stack, and rough edges should be expected. Second, every headline figure comes from the maker, including the benchmark table and the throughput claims; the baseline comparisons were run by the maker as well, so independent reproduction is the test that counts. Third, a 35-billion-parameter model remains a serious piece of hardware commitments in full precision, the reported INT4 build eases local experimentation, yet production serving still demands deliberate planning.</p>
 <p data-tr>The craft angle follows from those cautions. Evaluation discipline matters more than launch enthusiasm: run the model inside a real scaffold, on real tasks, with the same verification steps a production workflow would demand, and record where the draft quality helps and where the tooling still resists. A generation method proves value in the loop around the model, not in a launch table.</p>
 <figure class="body"><img src="https://oviainc.github.io/ai-services/articles/diffusion-models-write-in-parallel/ovia-inc-diffusion-models-write-in-parallel-body-3.webp" alt="Ovia Inc — Copper drafting tools and small copper blocks arranged on an ivory drafting table"><figcaption data-tr>Revision as craft: tools laid out, drafts compared, wording hardened only at the end. Image: Ovia Inc</figcaption></figure>
 <h2 class="sec" id="sec-5" data-tr>05 · What to watch</h2>
-<p data-tr>Signals worth tracking: independent benchmark runs on agent tasks, especially long-horizon coding work; the maturity of the SGLang and llama.cpp paths, since serving quality decides adoption more than launch tables do; agent frameworks reporting results with diffusion backbones inside real scaffolds; and the decision-model variant the maker has signalled for later. The deeper question is whether drafting in parallel becomes a standard option beside left-to-right generation — one more design choice on the table, chosen per workload, the way quantisation and decoding strategy already are.</p>
+<p data-tr>Signals worth tracking: independent benchmark runs on agent tasks, especially long-horizon coding work; the maturity of the SGLang and llama.cpp paths, since serving quality decides adoption more than launch tables do; agent frameworks reporting results with diffusion backbones inside real scaffolds; and the decision-model variant the maker has signalled for later. The deeper question is whether drafting in parallel becomes a standard option beside left-to-right generation, one more design choice on the table, chosen per workload, the way quantisation and decoding strategy already are.</p>
 <p data-tr>We close with the design lesson rather than the headline. When a draft can be rearranged before the wording hardens, builders gain a new place to spend judgement: keep uncertain spans open, verify in parallel, and let structure settle before sentences do. Whether Clover itself becomes the standard matters less than whether that option stays on the table for agent work from here on.</p>
 
   </div>
@@ -273,28 +216,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="refs-sec">
     <h2 data-tr>References</h2>
     <ul class="refs">
-<li><span data-tr>DiffuSpace — “Clover-35B-A3B-Preview: A New Way for Intelligence”, Hugging Face blog, October 2026:</span> <a href="https://huggingface.co/blog/Diffuspace/clover-35b-a3b-preview">https://huggingface.co/blog/Diffuspace/clover-35b-a3b-preview</a></li>
-<li><span data-tr>DiffuSpace — Clover-35B-A3B-Preview model card, Hugging Face:</span> <a href="https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview">https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview</a></li>
+<li><span data-tr>DiffuSpace, “Clover-35B-A3B-Preview: A New Way for Intelligence”, Hugging Face blog, October 2026:</span> <a href="https://huggingface.co/blog/Diffuspace/clover-35b-a3b-preview">https://huggingface.co/blog/Diffuspace/clover-35b-a3b-preview</a></li>
+<li><span data-tr>DiffuSpace, Clover-35B-A3B-Preview model card, Hugging Face:</span> <a href="https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview">https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview</a></li>
 
     </ul>
   </div>
   <p class="tags">#ArtificialIntelligence #AIAgents #HuggingFace #toyoursatisfaction</p>
   <footer>
-    <p class="langnote">Written in English. Its frame — contents, issue links, footer — also reads in Français and Español; the text itself is never machine-translated.</p><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/edge-ai-dgx-spark-tensorrt/"><span class="lab" data-tr>← Previous</span><span class="ttl">The Cloud, Down to Desk Size: Edge AI on DGX Spark</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/speed-is-a-craft-choice/"><span class="lab" data-tr>Next →</span><span class="ttl">Speed Is a Craft Choice: Decoding Belongs in the Design Phase</span></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/merchandise/">Merchandise</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <p class="langnote">Written in English. Its frame, contents, issue links, footer, also reads in Français and Español; the text itself is never machine-translated.</p><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/edge-ai-dgx-spark-tensorrt/"><span class="lab" data-tr>← Previous</span><span class="ttl">The Cloud, Down to Desk Size: Edge AI on DGX Spark</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/speed-is-a-craft-choice/"><span class="lab" data-tr>Next →</span><span class="ttl">Speed Is a Craft Choice: Decoding Belongs in the Design Phase</span></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/merchandise/">Merchandise</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
     <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
 <div class="frow">
       <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
     </div>
-      <p class="inspiration-credit" data-tr>Design inspired by Sølve Sundsbø — Numéro.</p>
+      <p class="inspiration-credit" data-tr>Design inspired by Sølve Sundsbø, Numéro.</p>
   <p class="copy">© Ovia Inc. All rights reserved.</p></footer>
 </main>
 <script>
-/* Language policy — reviewed chrome, original-language pieces.
+/* Language policy, reviewed chrome, original-language pieces.
    Site fix pass step 3, 2026-11-17. This piece is read in the language it
-   was written in. The frame around it — contents heading, issue
-   navigation, footer labels — is hand-written in English, Français and
+   was written in. The frame around it, contents heading, issue
+   navigation, footer labels, is hand-written in English, Français and
    Español, and only that frame changes with the selector. No machine
    translation is used on this page. */
 (function () {

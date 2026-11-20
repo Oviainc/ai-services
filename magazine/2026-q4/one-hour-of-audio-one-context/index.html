@@ -98,7 +98,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 </style>
 <style id="mag28-css">
-/* OVIA Magazine rebuild 2026-11-04 — bespoke layout variant mag28-v19: cols=three pull=centre key=band sec=chip fig=span hero=cinema filter=brightness(0.94) contrast(0.95) saturate(0.85) sepia(0.15) */
+/* OVIA Magazine rebuild 2026-11-04, bespoke layout variant mag28-v19: cols=three pull=centre key=band sec=chip fig=span hero=cinema filter=brightness(0.94) contrast(0.95) saturate(0.85) sepia(0.15) */
 @media (min-width:1180px){body.mag28-v19 .cols{column-count:3;column-gap:40px;}} @media (min-width:700px) and (max-width:1179px){.cols{column-count:2;}}
 body.mag28-v19 blockquote.pull{text-align:center;}
 body.mag28-v19 .keybox{background:var(--accent);color:#0A0E14;} .keybox h3{color:#0A0E14;} .keybox li{color:#0A0E14;}
@@ -111,7 +111,7 @@ body.mag28-v19 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
 </style>
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/one-hour-of-audio-one-context/">
 <style id="mag-ux">
-/* OVIA Magazine — reading chrome (mag-ux), 2026-11-04 */
+/* OVIA Magazine, reading chrome (mag-ux), 2026-11-04 */
 .mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
 .mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 .mag-topbar img{height:28px;width:auto;display:block;}
@@ -240,31 +240,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 <figure class="f-7 tall"><img src="https://oviainc.github.io/ai-services/articles/one-hour-of-audio-one-context/ovia-inc-one-hour-of-audio-one-context-body-1.webp" alt="Ovia Inc — tape reels in macro under violet light"><figcaption data-tr>Tape at macro range: the medium remembers everything, in order, until a machine learns to read it back. Image: Ovia Inc</figcaption></figure>
       <div class="txt f-7">
-        <nav class="mag-toc" aria-label="Contents"><h2 data-tr>Contents</h2><ol><li><a href="#sec-1">01 — One hour, one context</a></li><li><a href="#sec-2">02 — What comes back</a></li><li><a href="#sec-3">03 — The scoreboard</a></li><li><a href="#sec-4">04 — The data pipeline is part of the release</a></li><li><a href="#sec-5">05 — Sound becomes first-class context</a></li><li><a href="#sec-6">06 — What changes in the room where recordings pile up</a></li></ol></nav>
-<h2 class="sec" id="sec-1" data-tr>01 — One hour, one context</h2>
+        <nav class="mag-toc" aria-label="Contents"><h2 data-tr>Contents</h2><ol><li><a href="#sec-1">01, One hour, one context</a></li><li><a href="#sec-2">02, What comes back</a></li><li><a href="#sec-3">03, The scoreboard</a></li><li><a href="#sec-4">04, The data pipeline is part of the release</a></li><li><a href="#sec-5">05, Sound becomes first-class context</a></li><li><a href="#sec-6">06, What changes in the room where recordings pile up</a></li></ol></nav>
+<h2 class="sec" id="sec-1" data-tr>01: One hour, one context</h2>
         <p data-tr>NVIDIA-Nemotron-3.5-Transcribe-30B-A4B accepts up to a full hour of recorded audio in a single pass, inside a 65,536-token context. The size of the name carries the architecture: roughly 30 billion parameters in total, about 4 billion active per token in a mixture-of-experts design, which is how an hour of audio fits in one context without an hour of compute following it. The model is deliberately offline, built for recorded audio rather than live streams, and that choice is a feature: the archive, not the microphone, is where unmined context sits.</p>
         <p data-tr>One context is the operative phrase. Fragmented pipelines lose the thread of a conversation at every seam: a speaker introduced in minute three is a stranger again in minute forty, and a decision in minute fifty floats free of the objection raised in minute ten. A single pass over the whole hour keeps the thread intact, and the thread is where meaning lives.</p>
-        <h2 class="sec" id="sec-2" data-tr>02 — What comes back</h2>
+        <h2 class="sec" id="sec-2" data-tr>02: What comes back</h2>
         <p data-tr>The return is structured. Transcription covers 40 languages; translation covers 31 languages to and from English; speaker attribution covers 13 languages and up to eight speakers on one recording; word-level timestamps pin every word to its moment; and audio question answering, trained in English, lets an analyst ask the recording questions directly. Structure is the difference between a transcript and context. Speakers, timing and answers are what downstream systems, and agents, actually consume. Word-level timestamps deserve a sentence of their own: a claim in a transcript is a lead, while a claim with a timestamp is evidence, one step from the moment itself, and evidence is what reviews, disputes and audits run on.</p>
       </div>
 <figure class="f-5 mid"><img src="https://oviainc.github.io/ai-services/articles/one-hour-of-audio-one-context/ovia-inc-one-hour-of-audio-one-context-body-2.webp" alt="Ovia Inc — mixing console faders and knobs under violet lights"><figcaption data-tr>The console: faders for each voice, so eight speakers on one recording stay eight separate lines of text. Image: Ovia Inc</figcaption></figure>
       <div class="pulltile"><blockquote class="pull" data-tr>“An hour of voices goes in as sound and comes back as structure: speakers, timestamps, answers.”</blockquote></div>
 <figure class="f-7 tall"><img src="https://oviainc.github.io/ai-services/articles/one-hour-of-audio-one-context/ovia-inc-one-hour-of-audio-one-context-body-3.webp" alt="Ovia Inc — row of studio monitor speakers with violet pilot lights"><figcaption data-tr>Monitors in a row, pilot lights lit: playback is where a transcript gets checked against the sound itself. Image: Ovia Inc</figcaption></figure>
       <div class="txt f-5">
-        <h2 class="sec" id="sec-3" data-tr>03 — The scoreboard</h2>
+        <h2 class="sec" id="sec-3" data-tr>03: The scoreboard</h2>
         <p data-tr>On the Hugging Face Open ASR English Leaderboard, the model posts a 5.33% average word error rate, first among open-weight models, per NVIDIA. The licence is OpenMDW-1.1, an open release in substance as well as in name. Leaderboards are not deployments, and English benchmarks are not the world's languages; even read carefully, though, the number marks the level at which an open model stops being the compromise option for recorded speech.</p>
       </div>
       <div class="txt f-7">
-        <h2 class="sec" id="sec-4" data-tr>04 — The data pipeline is part of the release</h2>
+        <h2 class="sec" id="sec-4" data-tr>04: The data pipeline is part of the release</h2>
         <p data-tr>Under the model sits Granary v2, the data pipeline NVIDIA used to prepare its training audio, published with NeMo recipes so other teams can reproduce the approach. The recipe counts 463,062 hours of audio across 48 languages. Publishing the pipeline beside the weights matters more than the weights alone: data preparation is where speech systems are actually won, and the recipe turns one lab's pipeline into shared infrastructure. For teams building speech systems, the recipes compress months of pipeline trial and error into a documented starting point, and the hour count signals the scale modern speech training quietly requires.</p>
-        <h2 class="sec" id="sec-5" data-tr>05 — Sound becomes first-class context</h2>
+        <h2 class="sec" id="sec-5" data-tr>05: Sound becomes first-class context</h2>
         <p data-tr>The audio roots behind Ovia, training in Audio Engineering and Sound Design at TREBAS, plus Hugging Face and NVIDIA certifications, make the operational reading direct. An hour of meeting, call or field recording that returns speakers, timestamps and answers is no longer an attachment to the record; the recording is the record, queryable like any other context an agent holds. The work that follows is integration: routing the recordings an organisation already keeps into pipelines that return structure, then wiring that structure into the same context layers the text record already feeds. Context engineering has spent years perfecting text. Sound was the largest room still outside the design. That room now has a door, and the door is open weights.</p>
       </div>
       <div class="txt f-full">
-      <h2 class="sec" id="sec-6" data-tr>06 — What changes in the room where recordings pile up</h2>
-      <p data-tr>The practical change lands in rooms that already record everything and use almost none of it. A support organisation holding a year of calls can run the model offline, inside its own walls, and ask the archive questions directly — audio question answering, trained in English, returns answers drawn from the recording itself — instead of commissioning a transcript review nobody staffs. Speaker attribution for up to eight voices and word-level timestamps mean the answer arrives with its evidence attached: who said it, and the second they said it.</p>
+      <h2 class="sec" id="sec-6" data-tr>06: What changes in the room where recordings pile up</h2>
+      <p data-tr>The practical change lands in rooms that already record everything and use almost none of it. A support organisation holding a year of calls can run the model offline, inside its own walls, and ask the archive questions directly, audio question answering, trained in English, returns answers drawn from the recording itself, instead of commissioning a transcript review nobody staffs. Speaker attribution for up to eight voices and word-level timestamps mean the answer arrives with its evidence attached: who said it, and the second they said it.</p>
       <p data-tr>The limits deserve the same plain reading as the numbers. Speaker attribution covers 13 languages against 40 for transcription, so a multilingual archive receives text in more languages than it receives named speakers. The 5.33% average word error rate is an English leaderboard average, per NVIDIA, not a promise made to a noisy field recording. And one hour is a boundary as well as a headline: a day-long workshop still arrives in pieces, even if each piece now holds together on its own. None of that shrinks the shift; it marks where engineering judgement still earns its keep.</p>
-      <p data-tr>Our reading, from the studio side: treat the recording as a primary source in the context layer, not as an attachment to a summary. Route the hour through the model once, keep speakers and timestamps as first-class fields beside the transcript, and let agents cite the moment instead of paraphrasing the meeting. That is the difference between an archive that answers and an archive that merely stores — and it is available as open weights, under the OpenMDW-1.1 licence, to any team willing to do the integration work.</p>      </div>
+      <p data-tr>Our reading, from the studio side: treat the recording as a primary source in the context layer, not as an attachment to a summary. Route the hour through the model once, keep speakers and timestamps as first-class fields beside the transcript, and let agents cite the moment instead of paraphrasing the meeting. That is the difference between an archive that answers and an archive that merely stores, and it is available as open weights, under the OpenMDW-1.1 licence, to any team willing to do the integration work.</p>      </div>
       <div class="keybox keytile f-5">
         <h2 data-tr>Key points</h2>
         <ul>
@@ -282,25 +282,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="refs-sec">
     <h2 data-tr>References</h2>
     <ul class="refs">
-      <li><span data-tr>Hugging Face — “NVIDIA-Nemotron-3.5-Transcribe-30B-A4B — model card”, October 28, 2026:</span> <a href="https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B">https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B</a></li>
+      <li><span data-tr>Hugging Face, “NVIDIA-Nemotron-3.5-Transcribe-30B-A4B, model card”, October 28, 2026:</span> <a href="https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B">https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B</a></li>
     </ul>
   </div>
   <p class="tags">#ArtificialIntelligence #SpeechAI #NVIDIA #HuggingFace #OpenWeights #toyoursatisfaction</p>
   <footer>
-    <p class="langnote">Written in English. Its frame — contents, issue links, footer — also reads in Français and Español; the text itself is never machine-translated.</p><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/context-graph-permissions-of-the-human/"><span class="lab" data-tr>← Previous</span><span class="ttl">Context Travels, Authority Stays Personal</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="empty" aria-hidden="true" tabindex="-1"></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/merchandise/">Merchandise</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <p class="langnote">Written in English. Its frame, contents, issue links, footer, also reads in Français and Español; the text itself is never machine-translated.</p><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/context-graph-permissions-of-the-human/"><span class="lab" data-tr>← Previous</span><span class="ttl">Context Travels, Authority Stays Personal</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="empty" aria-hidden="true" tabindex="-1"></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/merchandise/">Merchandise</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
     <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
 <div class="frow">
       <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
     </div>
-      <p class="inspiration-credit" data-tr>Design inspired by Paolo Roversi — Vogue Paris.</p>
+      <p class="inspiration-credit" data-tr>Design inspired by Paolo Roversi, Vogue Paris.</p>
   <p class="copy">© Ovia Inc. All rights reserved.</p></footer>
 <script>
-/* Language policy — reviewed chrome, original-language pieces.
+/* Language policy, reviewed chrome, original-language pieces.
    Site fix pass step 3, 2026-11-17. This piece is read in the language it
-   was written in. The frame around it — contents heading, issue
-   navigation, footer labels — is hand-written in English, Français and
+   was written in. The frame around it, contents heading, issue
+   navigation, footer labels, is hand-written in English, Français and
    Español, and only that frame changes with the selector. No machine
    translation is used on this page. */
 (function () {

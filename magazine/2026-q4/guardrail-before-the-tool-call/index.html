@@ -25,9 +25,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/guardrail-before-the-tool-call/">
 <meta property="og:image" content="https://oviainc.github.io/ai-services/articles/guardrail-before-the-tool-call/ovia-inc-guardrail-before-the-tool-call-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Guardrail Before the Tool Call: safeagents Checks the Agent First">
-<meta name="twitter:description" content="Hugging Face safeagents stations a local proxy between a coding agent and its model server, checking every tool call before the harness can run it.">
-<meta name="twitter:image" content="https://oviainc.github.io/ai-services/articles/guardrail-before-the-tool-call/ovia-inc-guardrail-before-the-tool-call-hero.webp">
 <style>
   :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#0F766E;}
   *{box-sizing:border-box;margin:0;padding:0;}
@@ -98,7 +95,7 @@ body.arch-asym .hero-zone figure.hero{max-width:860px;margin-left:auto;}
 @media (max-width:820px){body.arch-asym figure.body,body.arch-asym figure.wide,body.arch-asym blockquote.pull,body.arch-asym .keybox{width:100%;margin-left:0;}body.arch-asym h1.display,body.arch-asym .standfirst{margin-left:0;}body.arch-asym .byline{text-align:left;}}
 </style>
 <style id="mag28-css">
-/* OVIA Magazine rebuild 2026-11-04 — bespoke layout variant mag28-v02: cols=one pull=centre key=side sec=rule-bottom fig=inset hero=wide filter=saturate(1.45) contrast(1.12) */
+/* OVIA Magazine rebuild 2026-11-04, bespoke layout variant mag28-v02: cols=one pull=centre key=side sec=rule-bottom fig=inset hero=wide filter=saturate(1.45) contrast(1.12) */
 body.mag28-v02 .cols{column-count:1;max-width:840px;margin-left:auto;margin-right:auto;}
 body.mag28-v02 blockquote.pull{text-align:center;}
 body.mag28-v02 .keybox{border-left:6px solid var(--accent);border-top:1px solid var(--line);}
@@ -111,7 +108,7 @@ body.mag28-v02 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-s
 </style>
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/guardrail-before-the-tool-call/">
 <style id="mag-ux">
-/* OVIA Magazine — reading chrome (mag-ux), 2026-11-04 */
+/* OVIA Magazine, reading chrome (mag-ux), 2026-11-04 */
 .mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
 .mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 .mag-topbar img{height:28px;width:auto;display:block;}
@@ -147,60 +144,6 @@ h2.sec{scroll-margin-top:18px;}
 </style>
 <style>/* site-fix-pass 2026-11-17 */footer a{display:inline-block;padding:.3em .1em}.mag-depts a{display:inline-flex;align-items:center;min-height:32px;padding:.15em .3em}.mag-topbar a,.mag-crumbs a{display:inline-flex;align-items:center;min-height:28px;padding:.15em .25em}</style>
 <style>/* language note · site fix pass step 3 · 2026-11-17 */.langnote{font-size:.85em;opacity:.8;margin:12px 0 0}</style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "@id": "https://oviainc.github.io/ai-services/magazine/2026-q4/guardrail-before-the-tool-call/#article",
-  "headline": "The Guardrail Before the Tool Call: safeagents Checks the Agent First",
-  "image": "https://oviainc.github.io/ai-services/articles/guardrail-before-the-tool-call/ovia-inc-guardrail-before-the-tool-call-hero.webp",
-  "datePublished": "2026-11-04",
-  "dateModified": "2026-11-17",
-  "author": {
-    "@id": "https://oviainc.github.io/ai-services/#organization"
-  },
-  "publisher": {
-    "@id": "https://oviainc.github.io/ai-services/#organization"
-  },
-  "mainEntityOfPage": "https://oviainc.github.io/ai-services/magazine/2026-q4/guardrail-before-the-tool-call/",
-  "isPartOf": {
-    "@id": "https://oviainc.github.io/ai-services/#website"
-  },
-  "inLanguage": "en"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://oviainc.github.io/ai-services/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Magazine",
-      "item": "https://oviainc.github.io/ai-services/magazine/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "2026 Q4",
-      "item": "https://oviainc.github.io/ai-services/magazine/2026-q4/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "name": "The Guardrail Before the Tool Call: safeagents Checks the Agent First",
-      "item": "https://oviainc.github.io/ai-services/magazine/2026-q4/guardrail-before-the-tool-call/"
-    }
-  ]
-}
-</script>
 </head>
 <body class="arch arch-asym mag28-v02">
 <!-- Google Tag Manager (noscript) -->
@@ -228,57 +171,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <p class="kicker" data-tr>Ovia Inc — Cybersecurity · Agent Guardrails</p>
     <h1 class="display" data-tr>The Guardrail Before the Tool Call: safeagents Checks the Agent First</h1>
-    <p class="standfirst" data-tr>A small local proxy from Hugging Face checks every tool call a coding agent proposes — and swaps the dangerous ones for a notice, so the harness runs nothing.</p>
+    <p class="standfirst" data-tr>A small local proxy from Hugging Face checks every tool call a coding agent proposes, and swaps the dangerous ones for a notice, so the harness runs nothing.</p>
     <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
   </div>
 </header>
 <div class="hero-zone">
   <figure class="hero">
-    <img src="https://oviainc.github.io/ai-services/articles/guardrail-before-the-tool-call/ovia-inc-guardrail-before-the-tool-call-hero.webp" alt="Ovia Inc — Verdigris copper gate checkpoint in front of a dark software operations desk">
-    <figcaption data-tr>The checkpoint before the tool: every call examined, blocked calls replaced with a notice. Image: Ovia Inc</figcaption>
+    <img src="https://oviainc.github.io/ai-services/articles/guardrail-before-the-tool-call/ovia-inc-guardrail-before-the-tool-call-hero.webp" alt="Ovia Inc — a worn green industrial lathe in a workshop">
+    <figcaption data-tr>The lathe, worn honest: the machine a guardrail has to respect. Image: <a href="https://www.pexels.com/photo/lathe-in-workshop-15603045/">cnrdmroglu</a> · Pexels</figcaption>
   </figure>
 </div>
 <main>
   <div class="cols">
 <p class="first" data-tr>The safest moment to stop a bad tool call is before the tool ever hears about it. That is the design premise behind safeagents, a new open source project from Hugging Face, released under the Apache 2.0 licence and reported on October 31, 2026. safeagents is a lightweight local proxy that sits between a coding agent and its model server. Every tool call the model proposes passes through the proxy first. Calls that pass are released to the harness unchanged. Calls that fail the checks are swapped for a plain text notice, so the harness runs nothing at all.</p>
-<p data-tr>The placement matters more than the feature list. Guardrails that live inside a prompt can be argued with, diluted by long context, or washed away by hostile content arriving in a document, a web page or a tool result. A proxy lives outside the conversation. The model cannot talk the proxy out of a rule, because the proxy never reads the persuasion — the proxy reads the call.</p>
+<p data-tr>The placement matters more than the feature list. Guardrails that live inside a prompt can be argued with, diluted by long context, or washed away by hostile content arriving in a document, a web page or a tool result. A proxy lives outside the conversation. The model cannot talk the proxy out of a rule, because the proxy never reads the persuasion, the proxy reads the call.</p>
 <p data-tr></p>
 <aside class="keybox"><h2 data-tr>Key points</h2><ul><li data-tr>safeagents is a local proxy from Hugging Face, under Apache 2.0, that checks every proposed tool call before the harness sees it.</li><li data-tr>Blocked calls are replaced with a text notice, so the harness executes nothing.</li><li data-tr>Checks run in three stages: request-only rules, scanner detectors, and an optional decision model that can add blocks but never lift one.</li><li data-tr>The project is candid about limits: runtime-built addresses stay invisible, so default-deny egress in the sandbox remains essential.</li></ul></aside>
 <nav class="mag-toc" aria-label="Contents"><h2 data-tr>Contents</h2><ol><li><a href="#sec-1">01 · The announcement</a></li><li><a href="#sec-2">02 · Why it matters</a></li><li><a href="#sec-3">03 · The operations angle: three gates, in order</a></li><li><a href="#sec-4">04 · Caveats and fine print</a></li><li><a href="#sec-5">05 · What to watch</a></li></ol></nav>
 <h2 class="sec" id="sec-1" data-tr>01 · The announcement</h2>
 <p data-tr>The repository describes safeagents plainly: safely run agents using any coding harness. The proxy listens locally and forwards traffic to the model server, working over the common chat and messages interfaces, streaming or not. Any harness that allows a custom base address can be pointed at the proxy, and the project ships setup guides for a range of coding agents. A log-only mode comes first in the quickstart: run the proxy in observation mode, learn what would have been blocked, and only then enforce.</p>
 <p data-tr></p>
-<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/guardrail-before-the-tool-call/ovia-inc-guardrail-before-the-tool-call-body-1.webp" alt="Ovia Inc — Brass inspection stamp over hand tools on a dark workbench"><figcaption data-tr>Inspection before execution: the call is examined while the tools stay untouched. Image: Ovia Inc</figcaption></figure>
+<figure class="body"><img src="https://oviainc.github.io/ai-services/articles/guardrail-before-the-tool-call/ovia-inc-guardrail-before-the-tool-call-body-1.webp" alt="Ovia Inc — a CNC machine cutting with sparks at the tool"><figcaption data-tr>Sparks at the tool: inspection happens before this point, or not at all. Image: <a href="https://www.pexels.com/photo/industrial-cnc-lathe-in-a-busy-machine-shop-28929510/">Connor Lucock</a> · Pexels</figcaption></figure>
 <h2 class="sec" id="sec-2" data-tr>02 · Why it matters</h2>
-<p data-tr>Coding agents have crossed a threshold. The useful ones read files, run shell commands, fetch pages and call services — the same verbs an intruder wants. Earlier packages in this series covered agents that rank victims, documents that carry instructions, and contexts that travel further than authority should. The defensive pattern across all of those stories is identical: the dangerous moment is not the model thinking something risky. The dangerous moment is a tool executing it.</p>
+<p data-tr>Coding agents have crossed a threshold. The useful ones read files, run shell commands, fetch pages and call services, the same verbs an intruder wants. Earlier packages in this series covered agents that rank victims, documents that carry instructions, and contexts that travel further than authority should. The defensive pattern across all of those stories is identical: the dangerous moment is not the model thinking something risky. The dangerous moment is a tool executing it.</p>
 <p data-tr>safeagents names that moment and stations a guard on it. Undeclared tools are blocked: if the request never offered a tool, a call to that tool cannot be legitimate. Hosts are checked against the conversation: if an address appears nowhere in what the user actually wrote, the call carrying that address is stopped. Secrets stay safer as well, because the records the proxy keeps are stored readable only by the account owner, a detail the documentation states openly since call arguments can hold sensitive material.</p>
 <blockquote class="pull" data-tr>The dangerous moment is not the model thinking something risky; the dangerous moment is a tool executing it.</blockquote>
 <h2 class="sec" id="sec-3" data-tr>03 · The operations angle: three gates, in order</h2>
 <p data-tr>The first gate is deterministic. Request-only checks compare the call against the declared tools and the hosts present in the conversation, and the documentation adds a subtle rule with real craft in it: the model's own earlier turns do not count as a source of trusted hosts. An agent cannot launder an address by mentioning the address first and calling it later. Provenance comes from the human side of the conversation, not from the machine side.</p>
-<p data-tr>The second gate is a scanner. The conversation is converted into a standard trace format and a detector set runs over the pending call, looking for known misuse shapes: reading another process environment, bypassing proxy settings on an outbound fetch, reaching for cluster credentials, or escaping into a new namespace. Findings at or above the configured severity are blocked; milder findings mark the call suspicious. The project reports the scanner costing roughly ten to twenty milliseconds per call on recent hardware — a project-reported figure, stated here as reported, and small enough that the checkpoint does not become the bottleneck.</p>
-<figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/guardrail-before-the-tool-call/ovia-inc-guardrail-before-the-tool-call-body-2.webp" alt="Ovia Inc — Teal light corridor between dark server cabinets with a brass gate latched shut"><figcaption data-tr>One corridor, one gate: traffic moves, but only through the checkpoint. Image: Ovia Inc</figcaption></figure>
-<p data-tr>The third gate is optional and carefully fenced. Suspicious calls can go to a decision model that answers allow or block. That judge sees only what the user wrote, the tool call and the scanner findings — never the agent reasoning and never tool results, on the stated logic that an agent seeking approval for a risky call would argue its case in exactly those places. The judge can add blocks and can never lift one, and clean calls never reach the judge at all. Even the benchmark for choosing a judge is published: a labelled set of real agent tool calls, scored by misuse kind, from reward hacking to credential misuse.</p>
-<p data-tr>Context engineering at Ovia since December 2022 has treated this as a first principle: authority belongs in the architecture, not in the wording. Prompts guide behaviour; structure governs permission. Work in AI operations, including the NVIDIA-Certified Professional: AI Operations credential and Hugging Face Agents study, keeps returning to the same conclusion — the reliable control is the one the model cannot reach.</p>
+<p data-tr>The second gate is a scanner. The conversation is converted into a standard trace format and a detector set runs over the pending call, looking for known misuse shapes: reading another process environment, bypassing proxy settings on an outbound fetch, reaching for cluster credentials, or escaping into a new namespace. Findings at or above the configured severity are blocked; milder findings mark the call suspicious. The project reports the scanner costing roughly ten to twenty milliseconds per call on recent hardware, a project-reported figure, stated here as reported, and small enough that the checkpoint does not become the bottleneck.</p>
+<figure class="wide"><img src="https://oviainc.github.io/ai-services/articles/guardrail-before-the-tool-call/ovia-inc-guardrail-before-the-tool-call-body-2.webp" alt="Ovia Inc — a spinning lathe chuck in black and white"><figcaption data-tr>The chuck at speed: motion blur and grain, the call already executing. Image: <a href="https://www.pexels.com/photo/grayscale-photo-of-a-lathe-machine-5846176/">Tima Miroshnichenko</a> · Pexels</figcaption></figure>
+<p data-tr>The third gate is optional and carefully fenced. Suspicious calls can go to a decision model that answers allow or block. That judge sees only what the user wrote, the tool call and the scanner findings, never the agent reasoning and never tool results, on the stated logic that an agent seeking approval for a risky call would argue its case in exactly those places. The judge can add blocks and can never lift one, and clean calls never reach the judge at all. Even the benchmark for choosing a judge is published: a labelled set of real agent tool calls, scored by misuse kind, from reward hacking to credential misuse.</p>
+<p data-tr>Context engineering at Ovia since December 2022 has treated this as a first principle: authority belongs in the architecture, not in the wording. Prompts guide behaviour; structure governs permission. Work in AI operations, including the NVIDIA-Certified Professional: AI Operations credential and Hugging Face Agents study, keeps returning to the same conclusion, the reliable control is the one the model cannot reach.</p>
 <h2 class="sec" id="sec-4" data-tr>04 · Caveats and fine print</h2>
 <p data-tr>The limits are stated plainly and should be quoted plainly. A proxy sees the call, not the future: an address a script constructs at runtime is invisible at check time, so sandbox egress still needs a default-deny posture underneath. A judge model is itself a model, with a benchmark rather than a guarantee behind the choice. Log-only mode observes and blocks nothing, which makes the rollout sequence a discipline rather than a default. And a local proxy protects the path it sits on; a harness pointed elsewhere bypasses the gate entirely, so deployment control matters as much as the tool.</p>
 <p data-tr>None of that diminishes the design. Mature security writing names the blind spots on the same page as the features, and this project does. The honest reading is layered defence: proxy checks at the call, sandbox rules at the network, least privilege at the credentials, and human review where the stakes demand a human.</p>
 <h2 class="sec" id="sec-5" data-tr>05 · What to watch</h2>
 <p data-tr>Watch adoption first: whether teams run the proxy in log-only mode long enough to trust the verdicts, and whether the flagged-call records change how agents get configured. Watch the judge benchmark next, since a shared labelled set gives the whole field a common yardstick for a question that has mostly been argued from anecdotes. </p>
-<p data-tr>The deeper shift is conceptual. Agent safety is moving out of the prompt and into the plumbing: declared tools, provenance checks, scanners, judges that cannot be lobbied, and records that can be inspected after the fact. That is familiar territory for anyone who has run networks, volumes or control rooms — the Studio builds the experience, the Lab proves the guardrail, and the call gets checked before the tool ever moves.</p>
+<p data-tr>The deeper shift is conceptual. Agent safety is moving out of the prompt and into the plumbing: declared tools, provenance checks, scanners, judges that cannot be lobbied, and records that can be inspected after the fact. That is familiar territory for anyone who has run networks, volumes or control rooms, the Studio builds the experience, the Lab proves the guardrail, and the call gets checked before the tool ever moves.</p>
 
   </div>
   <p class="offer-line" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;margin:34px 0 6px;padding-top:16px;border-top:1px solid #999;"><a href="https://oviainc.github.io/ai-services/">OVIA Inc Studio Lab — AI operations &amp; context engineering, managed end to end</a></p>
   <div class="refs-sec">
     <h2 data-tr>References</h2>
     <ul class="refs">
-<li><span data-tr>Hugging Face — “safeagents: Safely run your agents using any coding harness”, GitHub repository, created October 28, 2026:</span> <a href="https://github.com/huggingface/safeagents">https://github.com/huggingface/safeagents</a></li>
-<li><span data-tr>VibeHacker — “Hugging Face's safeagents is a local proxy that blocks risky coding-agent tool calls before they run”, October 31, 2026:</span> <a href="https://vibehacker.com/news/hugging-face-s-safeagents-is-a-local-proxy-that-blocks-risky-coding-agent-tool-c">https://vibehacker.com/news/hugging-face-s-safeagents-is-a-local-proxy-that-blocks-risky-coding-agent-tool-c</a></li>
+<li><span data-tr>Hugging Face, “safeagents: Safely run your agents using any coding harness”, GitHub repository, created October 28, 2026:</span> <a href="https://github.com/huggingface/safeagents">https://github.com/huggingface/safeagents</a></li>
+<li><span data-tr>VibeHacker, “Hugging Face's safeagents is a local proxy that blocks risky coding-agent tool calls before they run”, October 31, 2026:</span> <a href="https://vibehacker.com/news/hugging-face-s-safeagents-is-a-local-proxy-that-blocks-risky-coding-agent-tool-c">https://vibehacker.com/news/hugging-face-s-safeagents-is-a-local-proxy-that-blocks-risky-coding-agent-tool-c</a></li>
 
     </ul>
   </div>
   <p class="tags">#ArtificialIntelligence #Cybersecurity #AIAgents #ContextEngineering #HuggingFace #toyoursatisfaction</p>
   <footer>
-    <p class="langnote">Written in English. Its frame — contents, issue links, footer — also reads in Français and Español; the text itself is never machine-translated.</p><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/where-the-failure-began/"><span class="lab" data-tr>← Previous</span><span class="ttl">Where the Failure Began: Attribution Before Recovery</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/plan-on-the-shipping-datasheet/"><span class="lab" data-tr>Next →</span><span class="ttl">Plan on the Shipping Datasheet</span></a></nav>
+    <p class="langnote">Written in English. Its frame, contents, issue links, footer, also reads in Français and Español; the text itself is never machine-translated.</p><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/where-the-failure-began/"><span class="lab" data-tr>← Previous</span><span class="ttl">Where the Failure Began: Attribution Before Recovery</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/plan-on-the-shipping-datasheet/"><span class="lab" data-tr>Next →</span><span class="ttl">Plan on the Shipping Datasheet</span></a></nav>
     <p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/merchandise/">Merchandise</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
      <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
 <div class="frow">
@@ -286,14 +229,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
     </div>
-      <p class="inspiration-credit" data-tr>Design inspired by Guy Bourdin — Numéro.</p>
+      <p class="inspiration-credit" data-tr>Design inspired by Guy Bourdin, Numéro.</p>
   <p class="copy">© Ovia Inc. All rights reserved.</p></footer>
 </main>
 <script>
-/* Language policy — reviewed chrome, original-language pieces.
+/* Language policy, reviewed chrome, original-language pieces.
    Site fix pass step 3, 2026-11-17. This piece is read in the language it
-   was written in. The frame around it — contents heading, issue
-   navigation, footer labels — is hand-written in English, Français and
+   was written in. The frame around it, contents heading, issue
+   navigation, footer labels, is hand-written in English, Français and
    Español, and only that frame changes with the selector. No machine
    translation is used on this page. */
 (function () {
