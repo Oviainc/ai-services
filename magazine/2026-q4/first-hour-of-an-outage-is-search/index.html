@@ -145,9 +145,10 @@ h2.sec{scroll-margin-top:18px;}
   body{background:var(--bg);color:var(--text);font-family:Georgia,"Times New Roman",serif;}
   .display,h1.display{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;text-transform:none;letter-spacing:-.01em;font-weight:800;}
   h2{color:var(--accent-ink);}
-  .cols{column-count:2;}
+  @media (min-width:1020px){.cols{column-count:2;}}
   .keybox{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:22px 24px 14px;box-shadow:0 10px 26px rgba(0,0,0,.08);}
   main figure:first-of-type{margin-left:-22px;margin-right:-22px;}
+  @media (max-width:640px){main figure:first-of-type{margin-left:-16px;margin-right:-16px;}}
   .pull{text-align:left;border-left:5px solid var(--accent);padding-left:22px;color:var(--accent-ink);}
   h2.sec{border-top:3px solid var(--accent-ink);padding-top:14px;color:var(--accent-ink);}
   .mastzone{--text:#F5F7FA;--muted:#C3CEDA;color:#F5F7FA;}
