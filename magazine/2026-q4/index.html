@@ -45,13 +45,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .iss-head{text-align:left;padding:26px 0 8px;border-top:6px solid var(--accent);margin-top:22px;}
   .iss-head h1{font-size:clamp(2.6rem,7.5vw,5.4rem);line-height:.98;margin:8px 0;}
   .iss-head .stand{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:clamp(1.05rem,2.2vw,1.3rem);color:var(--soft);max-width:780px;margin:12px 0 0;}
-  .coverfig{margin:26px 0 8px;} .coverfig img{width:100%;height:auto;display:block;}
+  .coverfig{margin:26px 0 8px;background:var(--panel);border:1px solid var(--line);padding:14px 14px 8px;} .coverfig img{width:100%;height:auto;display:block;}
   .coverfig figcaption{color:var(--muted);font-size:.8rem;padding-top:8px;border-left:4px solid var(--accent);padding-left:12px;}
   .coverfig figcaption b{color:var(--text);}
   .jump{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 8px;}
   .jump a{background:var(--panel);border:1px solid var(--line);padding:10px 16px;text-decoration:none;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;min-height:44px;display:inline-flex;align-items:center;}
   .jump a:hover{border-color:var(--accent);color:var(--accent);}
-  .feat{display:grid;grid-template-columns:1.15fr 1fr;border:1px solid var(--line);background:var(--panel);margin:34px 0 10px;}
+  .feat{display:block;border:1px solid var(--line);background:var(--panel);margin:34px 0 10px;}
   .feat .img{min-height:320px;background-size:cover;background-position:center;}
   .feat .tx{padding:clamp(22px,4vw,44px);}
   .feat h2{font-family:Georgia,serif;font-weight:700;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.15;margin:10px 0 12px;}
@@ -65,7 +65,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .dept-h .num{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1;color:var(--accent);}
   .dept-h h2{font-size:clamp(1.3rem,3vw,1.9rem);letter-spacing:.12em;text-transform:uppercase;}
   .dept-h .cnt{margin-left:auto;color:var(--muted);font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .grid{display:grid;grid-template-columns:1fr;gap:20px;align-items:start;}
   .card{border:1px solid var(--line);background:var(--panel);text-decoration:none;display:block;overflow:hidden;}
   .card:hover{border-color:var(--accent);}
   .card .im{height:190px;background-size:cover;background-position:center;}
@@ -74,6 +74,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .card p{color:var(--soft);font-size:.95rem;}
   .rows{display:flex;flex-direction:column;}
   .row{display:flex;gap:16px;padding:15px 4px;border-bottom:1px solid var(--line);text-decoration:none;align-items:baseline;}
+   .card{max-width:620px;}
   .row:hover h3{text-decoration:underline;}
   .row .bar{flex:0 0 5px;align-self:stretch;}
   .row h3{font-family:Georgia,serif;font-size:1.12rem;line-height:1.3;}
@@ -347,12 +348,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h1 class="disp">2026 Q4</h1>
     <p class="stand serif">Notes from the studio and the lab, what we are learning about AI agents, data, security and virtual production, written as we work. Every piece is its own magazine feature, with its own layout, palette and photography.</p>
   </div>
-  <figure class="coverfig">
-    <img src="https://oviainc.github.io/ai-services/articles/zero-trust-para-agentes/ovia-inc-zero-trust-para-agentes-hero.webp" alt="Ovia Inc — Zero Trust para agentes: identidad después de OAuth, cover image">
-    <figcaption><b>On the cover:</b> Zero Trust para agentes: identidad después de OAuth, the cover story, in Security. Design inspired by Steven Meisel, Vogue Italia.</figcaption>
-  </figure>
+  <nav class="jump" aria-label="Departments"><a href="#dept-agents-operations">01 · Agents &amp; operations · 11 pieces</a><a href="#dept-security">02 · Security · 8 pieces</a><a href="#dept-data-meaning">03 · Data &amp; meaning · 5 pieces</a><a href="#dept-ai-at-scale">04 · AI at scale · 7 pieces</a><a href="#dept-virtual-production">05 · Virtual production · 3 pieces</a><a href="#dept-from-ovia">06 · From Ovia · 1 piece</a></nav>
+<figure class="coverfig"><img src="https://oviainc.github.io/ai-services/assets/ovia-inc-magazine-2026-q4-cover.webp" alt="Ovia Inc — the 2026 Q4 issue cover: a data-centre aisle in warm light, one rack door open over bundled cables"><figcaption><b>The cover:</b> the room where the work runs, one door open. An Ovia Inc original for this issue, made from a photograph by <a href="https://www.pexels.com/photo/server-racks-on-data-center-4508751/">Brett Sayles</a>.</figcaption></figure>
   <section class="feat" aria-label="Cover story">
-    <div class="img" role="img" aria-label="Ovia Inc — Zero Trust para agentes: identidad después de OAuth" style="background-image:url('https://oviainc.github.io/ai-services/articles/zero-trust-para-agentes/ovia-inc-zero-trust-para-agentes-hero.webp')"></div>
+    
     <div class="tx">
       <div class="abar" style="background:#E5484D"></div>
       <p class="kick">Cover story · Security</p>
@@ -362,7 +361,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a class="read" href="zero-trust-para-agentes/">Read the cover story</a>
     </div>
   </section>
-  <nav class="jump" aria-label="Departments"><a href="#dept-agents-operations">01 · Agents &amp; operations · 11 pieces</a><a href="#dept-security">02 · Security · 8 pieces</a><a href="#dept-data-meaning">03 · Data &amp; meaning · 5 pieces</a><a href="#dept-ai-at-scale">04 · AI at scale · 7 pieces</a><a href="#dept-virtual-production">05 · Virtual production · 3 pieces</a><a href="#dept-from-ovia">06 · From Ovia · 1 piece</a></nav>
+  
   <section class="dept" id="dept-agents-operations">
     <div class="dept-h"><span class="num disp">01</span><h2>Agents &amp; operations</h2><span class="cnt">11 pieces</span></div>
     <div class="grid"><a class="card" href="where-the-failure-began/">
