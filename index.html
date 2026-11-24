@@ -40,6 +40,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="canonical" href="https://oviainc.github.io/ai-services/" />
     <link rel="alternate" hreflang="en" href="https://oviainc.github.io/ai-services/" />
     <link rel="alternate" hreflang="x-default" href="https://oviainc.github.io/ai-services/" />
+    <link rel="preload" as="image" href="assets/ovia-inc-hero-loop.webp" fetchpriority="high" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -376,15 +377,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
           .recv { font-size: .94em; opacity: .88; margin-top: 4px; }
       .heroline { opacity: .92; }
-      /* Hero (Sattrimsat 36): light ground, ink type, no film — the type is the design. */
-      .screen.hero { background: #fff; color: var(--black); }
+      /* Hero (Sattrimsat 36): headline set as written — sentence case, measured size. */
       .screen.hero h1 { font-size: clamp(1.85rem, 5.2vw, 4.1rem); max-width: 1060px; text-transform: none; letter-spacing: -0.01em; }
-      .screen.hero .desc { color: #2b2b2b; }
-      .screen.hero .desc strong { color: var(--black); }
-      .screen.hero .btn { border-color: var(--black); color: var(--black); }
-      .screen.hero .btn:hover { background: var(--black); color: var(--white); }
-      .screen.hero .scroll-cue { color: rgba(0,0,0,0.5); }
-      .screen.hero .pilotline { margin-top: 20px; font-size: .98rem; font-weight: 600; color: #555; }
+      .screen.hero .pilotline { margin-top: 20px; font-size: .98rem; font-weight: 600; color: #d8d8d8; }
       .svcstrip { margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(127,127,127,.4); font-size: 1.02rem; line-height: 1.65; }
           .consultnote { font-size: 1.02rem; line-height: 1.65; margin: 0 0 20px; max-width: 46rem; opacity: .94; }
           .datanote { font-size: .95rem; margin: -8px 0 20px; opacity: .85; }
@@ -505,6 +500,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="view-home">
       <!-- ================= Hero ================= -->
       <section class="screen hero" id="top">
+        <video class="bg" autoplay muted loop playsinline preload="none" poster="assets/ovia-inc-hero-loop.webp" data-hero data-i18n-aria="ariaHero" aria-label="Film: a single colossal clear glass slab standing alone in a vast dark hall quietly divides into three ordered glass slabs, warm light glowing along their edges, then settles still above the glossy dark floor, gentle fog — surreal and minimal, in full colour, no water, no people">
+          <source src="assets/ovia-inc-hero-loop.mp4" type="video/mp4" />
+        </video>
+        <div class="shade" aria-hidden="true"></div>
         <div class="wrap inner">
           <h1 data-i18n="heroH1">Designed in the Studio. Proven in the Lab. Deployed in the Wild.</h1>
           <p class="desc" data-i18n="heroMission">Your agents, machine learning and product, and the operation they live in — designed, built and managed end to end by one senior team.</p>
