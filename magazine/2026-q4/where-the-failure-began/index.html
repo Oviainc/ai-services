@@ -81,34 +81,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   footer .ftag{color:var(--text);letter-spacing:.06em;}
   @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
-<style id="arch-css">
-/* Layout archetype: classic (diversification pass) */
-/* 9, Centered classic */
-body.arch-classic main{max-width:780px;}
-body.arch-classic .mast-inner{max-width:780px;text-align:center;}
-body.arch-classic .masthead{justify-content:center;}
-body.arch-classic .langbar{margin-left:0;}
-body.arch-classic h1.display{font-size:clamp(2.1rem,4.6vw,3.3rem);margin-left:auto;margin-right:auto;text-transform:none;letter-spacing:0;}
-body.arch-classic .standfirst{margin-left:auto;margin-right:auto;}
-body.arch-classic .cols{column-count:1;font-size:1.13rem;}
-body.arch-classic .cols figure.body,body.arch-classic .cols figure.wide{max-width:500px;margin-left:auto;margin-right:auto;}
-body.arch-classic .hero-zone{max-width:780px;}
-body.arch-classic h2.sec{text-align:center;border-top:1px solid var(--line);color:var(--text);}
-body.arch-classic .keybox{max-width:540px;margin-left:auto;margin-right:auto;}
-body.arch-classic blockquote.pull{font-size:1.55rem;}
-</style>
-<style id="mag28-css">
-/* OVIA Magazine rebuild 2026-11-04, bespoke layout variant mag28-v01: cols=two pull=centre key=top-rule sec=rule-top fig=span hero=wide filter=contrast(1.18) saturate(0.82) brightness(1.02) */
-@media (min-width:1020px){body.mag28-v01 .cols{column-count:2;}}
-body.mag28-v01 blockquote.pull{text-align:center;}
-body.mag28-v01 .keybox{border-top:6px solid var(--accent);}
-body.mag28-v01 h2.sec{border-top:3px solid var(--accent);}
-body.mag28-v01 figure.wide{column-span:all;}
-body.mag28-v01 figure.hero img,figure.herofig img{aspect-ratio:21/9;object-fit:cover;width:100%;}
-body.mag28-v01 figure img, .mast-bg{filter:contrast(1.18) saturate(0.82) brightness(1.02);}
-body.mag28-v01 figure.hero img,figure.herofig img{filter:contrast(1.18) saturate(0.82) brightness(1.02);}
-body.mag28-v01 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
-</style>
+
+
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/where-the-failure-began/">
 <style id="mag-ux">
 /* OVIA Magazine, reading chrome (mag-ux), 2026-11-04 */
@@ -147,22 +121,28 @@ h2.sec{scroll-margin-top:18px;}
 </style>
 <style>/* site-fix-pass 2026-11-17 */footer a{display:inline-block;padding:.3em .1em}.mag-depts a{display:inline-flex;align-items:center;min-height:32px;padding:.15em .3em}.mag-topbar a,.mag-crumbs a{display:inline-flex;align-items:center;min-height:28px;padding:.15em .25em}</style>
 <style>/* language note · site fix pass step 3 · 2026-11-17 */.langnote{font-size:.85em;opacity:.8;margin:12px 0 0}</style>
-<style data-redesign="2026-11-23">
-  /* redesign 2026-11-23 · the inquest · unique ground, type and layout */
+
+<style data-consolidated="2026-11-23">
+  /* OVIA Magazine consolidated design: the inquest */
   :root{--bg:#F6F1E7;--panel:#FFFDF7;--text:#1D1A15;--muted:#6F6455;--line:#DED3BF;--accent-ink:#7A6200;}
-  body{background:var(--bg);color:var(--text);font-family:Georgia,"Times New Roman",serif;}
-  .display,h1.display{font-family:Georgia,"Times New Roman",serif;text-transform:none;letter-spacing:0;font-weight:700;}
-  h2{color:var(--accent-ink);}
-  @media (min-width:1020px){.cols{column-count:2;}}
-  .keybox{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:22px 24px 14px;box-shadow:0 10px 26px rgba(0,0,0,.08);}
-  main figure:first-of-type{background:var(--panel);border:1px solid var(--line);padding:10px 10px 4px;box-shadow:0 14px 34px rgba(0,0,0,.16);}
+  html{background:var(--bg);}
+  body{background:var(--bg);color:var(--text);}
+  h1.display,.display{font-family:Georgia,"Times New Roman",serif;text-transform:none;letter-spacing:0;font-weight:700;}
+  .cols{font-family:Georgia,"Times New Roman",serif;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:44px;}}
+  .keybox{background:var(--panel);border:none;border-top:4px solid var(--accent);border-bottom:1px solid var(--line);}
+  figure.hero{background:var(--panel);border:1px solid var(--line);padding:12px 12px 4px;}
   .pull{text-align:left;border-left:5px solid var(--accent);padding-left:22px;color:var(--accent-ink)!important;}
+  h2.sec{border-top:2px solid var(--accent);padding-top:14px;text-align:left;}
   a{color:var(--accent-ink);}
   ul.refs a,.offer-line a,footer a,nav.mag-pn a,p.tags{color:var(--accent-ink)!important;}
   .refs-sec h2{color:var(--accent-ink)!important;}
-  h2.sec{border-top:3px solid var(--accent-ink);padding-top:14px;color:var(--accent-ink);}
-  .mastzone{--text:#F5F7FA;--muted:#C3CEDA;color:#F5F7FA;}
+  .mastzone{--text:#F5F7FA;--muted:#C3CEDA;}
   .mastzone a{color:#F5F7FA;}
+  .offer-block{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--accent);padding:26px 28px;margin:40px 0 8px;}
+  .offer-block .offer-line{border-top:none!important;margin:0 0 10px!important;padding-top:0!important;font-size:1.12rem!important;}
+  .offer-note{color:var(--muted);font-size:1rem;margin:0 0 16px;}
+  .offer-cta a{display:inline-block;border:1px solid var(--accent);padding:12px 22px;min-height:44px;text-decoration:none;font-weight:700;}
 </style>
 </head>
 <body class="arch arch-classic mag28-v01">
@@ -192,7 +172,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="kicker" data-tr>Ovia Inc — Artificial Intelligence Operations · Failure Attribution</p>
     <h1 class="display" data-tr>Where the Failure Began: Attribution Before Recovery</h1>
     <p class="standfirst" data-tr>A cascade of errors can fill every log on the cluster and still hide the one fault that started the cascade. NVIDIA has open sourced the discipline that separates the two.</p>
-    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+    <p class="byline" data-tr>Helena Brooks · Ovia Inc · Studio and Lab · 6 min read</p>
   </div>
 </header>
 <div class="hero-zone">
@@ -228,7 +208,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p data-tr>The deeper pattern is the one to keep. Diagnosis is becoming a contract: scoped evidence in, structured verdict out, uncertainty stated, action recorded in an audit trail. Operations gain a memory, every failure leaves behind a named cause, a named node and a rule that recognises the pattern next time. That is how a cascade becomes a curriculum, and how the next failure begins, already half explained, where the last failure ended.</p>
 
   </div>
-  <p class="offer-line" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;margin:34px 0 6px;padding-top:16px;border-top:1px solid #999;"><a href="https://oviainc.github.io/ai-services/">OVIA Inc Studio Lab — AI operations &amp; context engineering, managed end to end</a></p>
+  <div class="offer-block"><p class="offer-line" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;margin:34px 0 6px;padding-top:16px;border-top:1px solid #999;"><a href="https://oviainc.github.io/ai-services/">OVIA Inc Studio Lab — AI operations &amp; context engineering, managed end to end</a></p><p class="offer-note">Every engagement starts with a conversation, then a written plan at a fixed price.</p><p class="offer-cta"><a href="https://oviainc.github.io/ai-services/#contact">Got questions?</a></p></div>
   <div class="refs-sec">
     <h2 data-tr>References</h2>
     <ul class="refs">
@@ -240,7 +220,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <p class="tags">#ArtificialIntelligence #AIOperations #NVIDIA #ContextEngineering #toyoursatisfaction</p>
   <footer>
-    <p class="langnote">Written in English. Its frame, contents, issue links, footer, also reads in Français and Español; the text itself is never machine-translated.</p><nav class="mag-pn" aria-label="Breadcrumb"><a class="empty" aria-hidden="true" tabindex="-1"></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/guardrail-before-the-tool-call/"><span class="lab" data-tr>Next →</span><span class="ttl">The Guardrail Before the Tool Call: safeagents Checks the Agent First</span></a></nav>
+    <p class="langnote">Written in English. Its frame, contents, issue links, footer, also reads in Français and Español; the text itself is never machine-translated.</p><div class="refs-sec"><h2 data-tr>About the author</h2><p data-tr>Helena Brooks edits the Agents &amp; operations desk. Her column follows what systems do once the meeting ends and the work begins. She holds the standards veto, and she uses it.</p></div><nav class="mag-pn" aria-label="Breadcrumb"><a class="empty" aria-hidden="true" tabindex="-1"></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/guardrail-before-the-tool-call/"><span class="lab" data-tr>Next →</span><span class="ttl">The Guardrail Before the Tool Call: safeagents Checks the Agent First</span></a></nav>
     <p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/merchandise/">Merchandise</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
      <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
 <div class="frow">

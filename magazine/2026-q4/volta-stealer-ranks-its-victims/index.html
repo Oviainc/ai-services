@@ -85,31 +85,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   footer .ftag{color:var(--text);letter-spacing:.06em;}
   @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
-<style id="arch-css">
-/* Layout archetype: grid (diversification pass) */
-body.arch-grid .cols{display:grid;grid-template-columns:repeat(6,1fr);gap:28px;column-count:1;}
-body.arch-grid .cols>*{grid-column:span 3;margin-top:0;}
-body.arch-grid .cols p{margin-bottom:0;}
-body.arch-grid .cols p.first{grid-column:1/-1;font-size:1.32rem;line-height:1.65;}
-body.arch-grid .cols h2.sec{grid-column:1/-1;}
-body.arch-grid .cols figure.body{grid-column:span 3;margin:0;}
-body.arch-grid .cols figure.wide{grid-column:1/-1;margin:0;}
-body.arch-grid .cols blockquote.pull{grid-column:1/-1;margin:6px 0;}
-body.arch-grid .cols .keybox{grid-column:span 3;margin:0;}
-@media (max-width:820px){body.arch-grid .cols>*{grid-column:1/-1;}}
-</style>
-<style id="mag28-css">
-/* OVIA Magazine rebuild 2026-11-04, bespoke layout variant mag28-v10: cols=one pull=right-rule key=side sec=rule-bottom fig=span hero=wide filter=saturate(1.25) contrast(1.10) brightness(1.05) */
-body.mag28-v10 .cols{column-count:1;max-width:840px;margin-left:auto;margin-right:auto;}
-body.mag28-v10 blockquote.pull{text-align:right;border-right:4px solid var(--accent);padding-right:22px;}
-body.mag28-v10 .keybox{border-left:6px solid var(--accent);border-top:1px solid var(--line);}
-body.mag28-v10 h2.sec{border-top:none;border-bottom:2px solid var(--accent);padding-bottom:10px;}
-body.mag28-v10 figure.wide{column-span:all;}
-body.mag28-v10 figure.hero img,figure.herofig img{aspect-ratio:21/9;object-fit:cover;width:100%;}
-body.mag28-v10 figure img, .mast-bg{filter:saturate(1.25) contrast(1.10) brightness(1.05);}
-body.mag28-v10 figure.hero img,figure.herofig img{filter:saturate(1.25) contrast(1.10) brightness(1.05);}
-body.mag28-v10 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
-</style>
+
+
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/volta-stealer-ranks-its-victims/">
 <style id="mag-ux">
 /* OVIA Magazine, reading chrome (mag-ux), 2026-11-04 */
@@ -202,6 +179,26 @@ h2.sec{scroll-margin-top:18px;}
   ]
 }
 </script>
+<style data-consolidated="2026-11-23">
+  /* OVIA Magazine consolidated design: the ranking */
+  :root{--bg:#26182E;--panel:#33203F;--text:#F3EBFA;--muted:#BFA8D6;--line:#473058;--accent-ink:#E879F9;}
+  html{background:var(--bg);}
+  body{background:var(--bg);color:var(--text);}
+  h1.display,.display{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;text-transform:none;letter-spacing:-.01em;font-weight:800;}
+  .cols{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:44px;}}
+  .keybox{background:transparent;border:none;border-left:4px solid var(--accent);padding-left:20px;}
+  figure.hero{background:var(--panel);border:1px solid var(--line);padding:12px 12px 4px;}
+  .pull{color:var(--accent-ink)!important;}
+  @media (min-width:1020px){ul.refs{column-count:2;column-gap:40px;}}
+  a{color:var(--accent-ink);}
+  ul.refs a,.offer-line a,footer a,nav.mag-pn a,p.tags{color:var(--accent-ink)!important;}
+  .refs-sec h2{color:var(--accent-ink)!important;}
+  .offer-block{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--accent);padding:26px 28px;margin:40px 0 8px;}
+  .offer-block .offer-line{border-top:none!important;margin:0 0 10px!important;padding-top:0!important;font-size:1.12rem!important;}
+  .offer-note{color:var(--muted);font-size:1rem;margin:0 0 16px;}
+  .offer-cta a{display:inline-block;border:1px solid var(--accent);padding:12px 22px;min-height:44px;text-decoration:none;font-weight:700;}
+</style>
 </head>
 <body class="arch arch-grid mag28-v10">
 <!-- Google Tag Manager (noscript) -->
@@ -230,7 +227,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="kicker" data-tr>Ovia Inc — Cybersecurity · AI-Integrated Malware</p>
     <h1 class="display" data-tr>The Stealer That Ranks Its Victims</h1>
     <p class="standfirst" data-tr>A self-deleting stealer now outsources the slowest step in cybercrime, deciding who is worth robbing, to a language model. The appraisal is context engineering, pointed the wrong way.</p>
-    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+    <p class="byline" data-tr>Inès Duarte · Ovia Inc · Studio and Lab · 6 min read</p>
   </div>
 </header>
 <div class="hero-zone">
@@ -268,7 +265,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p data-tr>We track AI-integrated malware the way operators track weather: what changed, where the craft improved, and which control would have broken the chain. The net now sorts itself, and defence has to sort faster.</p>
 
   </div>
-  <p class="offer-line" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;margin:34px 0 6px;padding-top:16px;border-top:1px solid #999;"><a href="https://oviainc.github.io/ai-services/">OVIA Inc Studio Lab — AI operations &amp; context engineering, managed end to end</a></p>
+  <div class="offer-block"><p class="offer-line" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;margin:34px 0 6px;padding-top:16px;border-top:1px solid #999;"><a href="https://oviainc.github.io/ai-services/">OVIA Inc Studio Lab — AI operations &amp; context engineering, managed end to end</a></p><p class="offer-note">Every engagement starts with a conversation, then a written plan at a fixed price.</p><p class="offer-cta"><a href="https://oviainc.github.io/ai-services/#contact">Got questions?</a></p></div>
   <div class="refs-sec">
     <h2 data-tr>References</h2>
     <ul class="refs">
@@ -281,7 +278,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p class="tags">#Cybersecurity #ArtificialIntelligence #AIAgents #ContextEngineering #ThreatIntelligence #toyoursatisfaction</p>
   <footer>
     <p class="langnote">Written in English. Its frame, contents, issue links, footer, also reads in Français and Español; the text itself is never machine-translated.</p>
-    <nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/the-sleeper-in-the-weights/"><span class="lab" data-tr>← Previous</span><span class="ttl">The Sleeper in the Weights: Judge the Action, Not the Model</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/zero-trust-para-agentes/"><span class="lab" data-tr>Next →</span><span class="ttl">Zero Trust para agentes: identidad después de OAuth</span></a></nav>nav>
+    <div class="refs-sec"><h2 data-tr>About the author</h2><p data-tr>Inès Duarte writes the Security desk in English, French and Spanish. Doors, keys, logs, and the people who check them twice.</p></div><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/the-sleeper-in-the-weights/"><span class="lab" data-tr>← Previous</span><span class="ttl">The Sleeper in the Weights: Judge the Action, Not the Model</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/zero-trust-para-agentes/"><span class="lab" data-tr>Next →</span><span class="ttl">Zero Trust para agentes: identidad después de OAuth</span></a></nav>nav>
     <p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a>a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a>a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a>a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a>a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a>a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a>a> · <a href="https://oviainc.github.io/ai-services/merchandise/">Merchandise</a>a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a>a></p>p>
     <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
 <div class="frow">

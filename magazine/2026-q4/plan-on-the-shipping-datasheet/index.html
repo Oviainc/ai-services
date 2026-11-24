@@ -82,31 +82,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   footer .ftag{color:var(--text);letter-spacing:.06em;}
   @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
-<style id="arch-css">
-/* Layout archetype: rail (diversification pass) */
-body.arch-rail .layout{display:grid;grid-template-columns:296px minmax(0,1fr);gap:46px;align-items:start;}
-body.arch-rail .rail{position:sticky;top:22px;margin-top:30px;}
-body.arch-rail .rail .kicker{margin:0 0 20px;}
-body.arch-rail .rail .keybox{margin:0 0 26px;}
-body.arch-rail .rail blockquote.pull{column-span:none;text-align:left;font-size:1.45rem;line-height:1.35;margin:0;padding:6px 0 6px 18px;border-left:3px solid var(--accent);}
-body.arch-rail .cols{column-count:1;margin-top:30px;}
-body.arch-rail figure.body{width:62%;}
-body.arch-rail .cols figure.body:nth-of-type(2n){width:84%;margin-left:auto;}
-body.arch-rail figure.wide{width:100%;}
-@media (max-width:900px){body.arch-rail .layout{grid-template-columns:1fr;}body.arch-rail .rail{position:static;}body.arch-rail figure.body,body.arch-rail .cols figure.body:nth-of-type(2n){width:100%;margin-left:0;}}
-</style>
-<style id="mag28-css">
-/* OVIA Magazine rebuild 2026-11-04, bespoke layout variant mag28-v03: cols=three pull=centre key=band sec=chip fig=full hero=cinema filter=grayscale(0.35) contrast(1.06) brightness(1.06) */
-@media (min-width:1180px){body.mag28-v03 .cols{column-count:3;column-gap:40px;}} @media (min-width:700px) and (max-width:1179px){.cols{column-count:2;}}
-body.mag28-v03 blockquote.pull{text-align:center;}
-body.mag28-v03 .keybox{background:var(--accent);color:#0A0E14;} .keybox h3{color:#0A0E14;} .keybox li{color:#0A0E14;}
-body.mag28-v03 h2.sec{border-top:none;background:var(--panel);padding:10px 14px;}
-body.mag28-v03 figure.body,figure.wide{column-span:all;}
-body.mag28-v03 figure.hero img,figure.herofig img{aspect-ratio:2.35/1;object-fit:cover;width:100%;}
-body.mag28-v03 figure img, .mast-bg{filter:grayscale(0.35) contrast(1.06) brightness(1.06);}
-body.mag28-v03 figure.hero img,figure.herofig img{filter:grayscale(0.35) contrast(1.06) brightness(1.06);}
-body.mag28-v03 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
-</style>
+
+
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/plan-on-the-shipping-datasheet/">
 <style id="mag-ux">
 /* OVIA Magazine, reading chrome (mag-ux), 2026-11-04 */
@@ -145,23 +122,29 @@ h2.sec{scroll-margin-top:18px;}
 </style>
 <style>/* site-fix-pass 2026-11-17 */footer a{display:inline-block;padding:.3em .1em}.mag-depts a{display:inline-flex;align-items:center;min-height:32px;padding:.15em .3em}.mag-topbar a,.mag-crumbs a{display:inline-flex;align-items:center;min-height:28px;padding:.15em .25em}</style>
 <style>/* language note · site fix pass step 3 · 2026-11-17 */.langnote{font-size:.85em;opacity:.8;margin:12px 0 0}</style>
-<style data-redesign="2026-11-23">
-  /* redesign 2026-11-23 · the datasheet · unique ground, type and layout */
+
+<style data-consolidated="2026-11-23">
+  /* OVIA Magazine consolidated design: the datasheet */
   :root{--bg:#EBF1F7;--panel:#FFFFFF;--text:#16222E;--muted:#5A7186;--line:#C6D5E2;--accent-ink:#1D6FB8;}
-  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
-  .display,h1.display{font-family:"Courier New",Courier,monospace;text-transform:uppercase;letter-spacing:.04em;font-weight:700;}
-  h2{color:var(--accent-ink);}
-  @media (min-width:1020px){.cols{column-count:2;}}
-  .keybox{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);}
-  main figure:first-of-type{background:var(--panel);border:1px solid var(--line);padding:10px 10px 4px;box-shadow:0 14px 34px rgba(0,0,0,.16);}
+  html{background:var(--bg);}
+  body{background:var(--bg);color:var(--text);}
+  h1.display,.display{font-family:"Courier New",Courier,monospace;text-transform:uppercase;letter-spacing:.04em;font-weight:700;}
+  .cols{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:44px;}}
+  .keybox{background:var(--panel);}
+  figure.hero{background:var(--panel);border:1px solid var(--line);padding:12px 12px 4px;}
   .pull{text-align:left;border-left:5px solid var(--accent);padding-left:22px;color:var(--accent-ink)!important;}
+  h2.sec{border-top:2px solid var(--accent);padding-top:14px;text-align:left;}
+  @media (min-width:1020px){ul.refs{column-count:2;column-gap:40px;}}
   a{color:var(--accent-ink);}
   ul.refs a,.offer-line a,footer a,nav.mag-pn a,p.tags{color:var(--accent-ink)!important;}
   .refs-sec h2{color:var(--accent-ink)!important;}
-  h2.sec{border-top:3px solid var(--accent-ink);padding-top:14px;color:var(--accent-ink);}
-  .refs-sec .refs,.refs{column-count:2;column-gap:36px;}
-  .mastzone{--text:#F5F7FA;--muted:#C3CEDA;color:#F5F7FA;}
+  .mastzone{--text:#F5F7FA;--muted:#C3CEDA;}
   .mastzone a{color:#F5F7FA;}
+  .offer-block{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--accent);padding:26px 28px;margin:40px 0 8px;}
+  .offer-block .offer-line{border-top:none!important;margin:0 0 10px!important;padding-top:0!important;font-size:1.12rem!important;}
+  .offer-note{color:var(--muted);font-size:1rem;margin:0 0 16px;}
+  .offer-cta a{display:inline-block;border:1px solid var(--accent);padding:12px 22px;min-height:44px;text-decoration:none;font-weight:700;}
 </style>
 </head>
 <body class="arch arch-rail mag28-v03">
@@ -190,7 +173,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <h1 class="display" data-tr>Plan on the Shipping Datasheet</h1>
     <p class="standfirst" data-tr>The memory holds and the compute holds, but the bandwidth moved: ServeTheHome's comparison of preliminary and shipping Rubin specifications is a short masterclass in why operations teams plan on documents, not announcements.</p>
-    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+    <p class="byline" data-tr>Helena Brooks · Ovia Inc · Studio and Lab · 6 min read</p>
   </div>
 </header>
 <div class="hero-zone">
@@ -231,7 +214,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p data-tr>The durable lesson predates this product cycle and will outlast it. Plan on the shipping datasheet. Archive it, version the assumptions drawn from it, and re-baseline without embarrassment when it changes. Keynote numbers are weather; the datasheet is climate. Studios that plan on climate build systems, and budgets, that hold.</p>
   </div>
   </div>
-  <p class="offer-line" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;margin:34px 0 6px;padding-top:16px;border-top:1px solid #999;"><a href="https://oviainc.github.io/ai-services/">OVIA Inc Studio Lab — AI operations &amp; context engineering, managed end to end</a></p>
+  <div class="offer-block"><p class="offer-line" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;margin:34px 0 6px;padding-top:16px;border-top:1px solid #999;"><a href="https://oviainc.github.io/ai-services/">OVIA Inc Studio Lab — AI operations &amp; context engineering, managed end to end</a></p><p class="offer-note">Every engagement starts with a conversation, then a written plan at a fixed price.</p><p class="offer-cta"><a href="https://oviainc.github.io/ai-services/#contact">Got questions?</a></p></div>
   <div class="refs-sec">
     <h2 data-tr>References</h2>
     <ul class="refs">
@@ -242,7 +225,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <p class="tags">#AIOperations #NVIDIA #DataCenter #ContextEngineering #Infrastructure #toyoursatisfaction</p>
   <footer>
-    <p class="langnote">Written in English. Its frame, contents, issue links, footer, also reads in Français and Español; the text itself is never machine-translated.</p><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/guardrail-before-the-tool-call/"><span class="lab" data-tr>← Previous</span><span class="ttl">The Guardrail Before the Tool Call: safeagents Checks the Agent First</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/first-answer-from-orbit/"><span class="lab" data-tr>Next →</span><span class="ttl">The First Answer From Orbit</span></a></nav>
+    <p class="langnote">Written in English. Its frame, contents, issue links, footer, also reads in Français and Español; the text itself is never machine-translated.</p><div class="refs-sec"><h2 data-tr>About the author</h2><p data-tr>Helena Brooks edits the Agents &amp; operations desk. Her column follows what systems do once the meeting ends and the work begins. She holds the standards veto, and she uses it.</p></div><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/guardrail-before-the-tool-call/"><span class="lab" data-tr>← Previous</span><span class="ttl">The Guardrail Before the Tool Call: safeagents Checks the Agent First</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/first-answer-from-orbit/"><span class="lab" data-tr>Next →</span><span class="ttl">The First Answer From Orbit</span></a></nav>
     <p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/merchandise/">Merchandise</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
      <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
 <div class="frow">

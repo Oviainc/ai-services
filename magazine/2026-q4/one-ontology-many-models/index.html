@@ -82,34 +82,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   footer .ftag{color:var(--text);letter-spacing:.06em;}
   @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
-<style id="arch-css">
-/* Layout archetype: cover (diversification pass) */
-body.arch-cover .mastzone{min-height:94vh;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:none;}
-body.arch-cover .mast-bg{display:none;}
-body.arch-cover figure.coverfig{position:absolute;inset:0;z-index:0;margin:0;}
-body.arch-cover figure.coverfig img{width:100%;height:100%;object-fit:cover;display:block;}
-body.arch-cover .mast-shade{z-index:1;background:linear-gradient(180deg,rgba(10,14,20,.46),rgba(10,14,20,.26) 42%,rgba(10,14,20,.94));}
-body.arch-cover .mast-inner{z-index:2;width:100%;padding-bottom:58px;}
-body.arch-cover figcaption.covercap{position:absolute;right:18px;bottom:14px;z-index:3;background:rgba(10,14,20,.62);padding:3px 10px;border-radius:2px;}
-body.arch-cover h1.display{font-size:clamp(3.1rem,9vw,6.8rem);max-width:1100px;}
-body.arch-cover .standfirst{font-size:clamp(1.25rem,2.6vw,1.6rem);}
-body.arch-cover .cols{column-count:1;max-width:880px;margin-left:auto;margin-right:auto;}
-body.arch-cover figure.wide{position:relative;left:50%;transform:translateX(-50%);width:100vw;padding:0 22px;}
-body.arch-cover figure.body{max-width:640px;margin-left:auto;margin-right:auto;}
-@media (max-width:640px){body.arch-cover figure.wide{padding:0 16px;}}
-</style>
-<style id="mag28-css">
-/* OVIA Magazine rebuild 2026-11-04, bespoke layout variant mag28-v17: cols=two pull=centre key=top-rule sec=rule-top fig=inset hero=wide filter=grayscale(0.80) contrast(1.25) */
-@media (min-width:1020px){body.mag28-v17 .cols{column-count:2;}}
-body.mag28-v17 blockquote.pull{text-align:center;}
-body.mag28-v17 .keybox{border-top:6px solid var(--accent);}
-body.mag28-v17 h2.sec{border-top:3px solid var(--accent);}
-body.mag28-v17 figure.body{max-width:78%;margin-left:auto;margin-right:auto;}
-body.mag28-v17 figure.hero img,figure.herofig img{aspect-ratio:21/9;object-fit:cover;width:100%;}
-body.mag28-v17 figure img, .mast-bg{filter:grayscale(0.80) contrast(1.25);}
-body.mag28-v17 figure.hero img,figure.herofig img{filter:grayscale(0.80) contrast(1.25);}
-body.mag28-v17 .inspiration-credit{font-size:0.82rem;color:var(--muted);letter-spacing:0.05em;margin:0 0 14px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
-</style>
+
+
 <link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/one-ontology-many-models/">
 <style id="mag-ux">
 /* OVIA Magazine, reading chrome (mag-ux), 2026-11-04 */
@@ -148,6 +122,30 @@ h2.sec{scroll-margin-top:18px;}
 </style>
 <style>/* site-fix-pass 2026-11-17 */footer a{display:inline-block;padding:.3em .1em}.mag-depts a{display:inline-flex;align-items:center;min-height:32px;padding:.15em .3em}.mag-topbar a,.mag-crumbs a{display:inline-flex;align-items:center;min-height:28px;padding:.15em .25em}</style>
 <style>/* language note · site fix pass step 3 · 2026-11-17 */.langnote{font-size:.85em;opacity:.8;margin:12px 0 0}</style>
+<style data-consolidated="2026-11-23">
+  /* OVIA Magazine consolidated design: the vocabulary */
+  :root{--bg:#F5EDEA;--panel:#FFFDFB;--text:#241A1C;--muted:#7D6468;--line:#E3CFC9;--accent-ink:#A84A5A;}
+  html{background:var(--bg);}
+  body{background:var(--bg);color:var(--text);}
+  h1.display,.display{font-family:Palatino,"Palatino Linotype","Book Antiqua",Georgia,serif;text-transform:none;letter-spacing:0;font-weight:700;}
+  .cols{font-family:Georgia,"Times New Roman",serif;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:44px;}}
+  .keybox{background:var(--panel);}
+  .hero-zone{padding-left:0;padding-right:0;}
+  figure.hero{margin-left:-22px;margin-right:-22px;}
+  @media (max-width:640px){figure.hero{margin-left:-16px;margin-right:-16px;}}
+  .pull{color:var(--accent-ink)!important;}
+  h2.sec{border-top:2px solid var(--accent);padding-top:14px;text-align:left;}
+  a{color:var(--accent-ink);}
+  ul.refs a,.offer-line a,footer a,nav.mag-pn a,p.tags{color:var(--accent-ink)!important;}
+  .refs-sec h2{color:var(--accent-ink)!important;}
+  .mastzone{--text:#F5F7FA;--muted:#C3CEDA;}
+  .mastzone a{color:#F5F7FA;}
+  .offer-block{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--accent);padding:26px 28px;margin:40px 0 8px;}
+  .offer-block .offer-line{border-top:none!important;margin:0 0 10px!important;padding-top:0!important;font-size:1.12rem!important;}
+  .offer-note{color:var(--muted);font-size:1rem;margin:0 0 16px;}
+  .offer-cta a{display:inline-block;border:1px solid var(--accent);padding:12px 22px;min-height:44px;text-decoration:none;font-weight:700;}
+</style>
 </head>
 <body class="arch arch-cover mag28-v17">
 <!-- Google Tag Manager (noscript) -->
@@ -155,7 +153,7 @@ h2.sec{scroll-margin-top:18px;}
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <div class="mag-progress" aria-hidden="true"></div>
-<div class="mag-topbar"><a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a><a class="mt-name" href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span class="mt-right"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a></span></div>
+<div class="mag-topbar"><a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img src="https://oviainc.github.io/ai-services/menus/assets/ovia-inc-logo-black.png" alt="Ovia Inc — logo"></a><a class="mt-name" href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span class="mt-right"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a></span></div>
 <nav class="mag-crumbs" aria-label="Breadcrumb"><a href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><span aria-hidden="true">/</span><span class="cur" aria-current="page" title="One Vocabulary, Every Model: Governing Meaning Across the Semantic Estate">One Vocabulary, Every Model: Governing Meaning Across the Semantic Estate</span></nav>
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/one-ontology-many-models/ovia-inc-one-ontology-many-models-background.webp')"></div>
@@ -177,7 +175,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="kicker" data-tr>Ovia Inc — Context Engineering · Data Governance</p>
     <h1 class="display" data-tr>One Vocabulary, Every Model: Governing Meaning Across the Semantic Estate</h1>
     <p class="standfirst" data-tr>Meaning drifts wherever models multiply without a shared vocabulary above them; one governed ontology, mapped onto many models, settles the argument once.</p>
-    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+    <p class="byline" data-tr>Mara Kessler · Ovia Inc · Studio and Lab · 6 min read</p>
   </div>
   <figcaption class="covercap" data-tr>A golden tree on parchment, branches carrying glowing tablets. Image: Ovia Inc</figcaption>
 </header>
@@ -209,7 +207,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p data-tr>A sensible starting point stays small. Pick the words that cause the most expensive arguments, govern those words first, and let the practice earn the right to expand.</p>
 
   </div>
-  <p class="offer-line" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;margin:34px 0 6px;padding-top:16px;border-top:1px solid #999;"><a href="https://oviainc.github.io/ai-services/">OVIA Inc Studio Lab — AI operations &amp; context engineering, managed end to end</a></p>
+  <div class="offer-block"><p class="offer-line" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;margin:34px 0 6px;padding-top:16px;border-top:1px solid #999;"><a href="https://oviainc.github.io/ai-services/">OVIA Inc Studio Lab — AI operations &amp; context engineering, managed end to end</a></p><p class="offer-note">Every engagement starts with a conversation, then a written plan at a fixed price.</p><p class="offer-cta"><a href="https://oviainc.github.io/ai-services/#contact">Got questions?</a></p></div>
   <div class="refs-sec">
     <h2 data-tr>References</h2>
     <ul class="refs">
@@ -221,10 +219,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <p class="tags">#ContextEngineering #BusinessIntelligence #DataGovernance #toyoursatisfaction</p>
   <footer>
-    <p class="langnote">Written in English. Its frame, contents, issue links, footer, also reads in Français and Español; the text itself is never machine-translated.</p><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/semantic-layer-learns-the-business/"><span class="lab" data-tr>← Previous</span><span class="ttl">A Correct Metric Is Only Step One: Teaching the Semantic Layer the Business Itself</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/context-graph-permissions-of-the-human/"><span class="lab" data-tr>Next →</span><span class="ttl">Context Travels, Authority Stays Personal</span></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/merchandise/">Merchandise</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
+    <p class="langnote">Written in English. Its frame, contents, issue links, footer, also reads in Français and Español; the text itself is never machine-translated.</p><div class="refs-sec"><h2 data-tr>About the author</h2><p data-tr>Mara Kessler writes the Data &amp; meaning desk. Her column reads numbers the way photographers read a contact sheet: frame by frame, until the picture admits what it is.</p></div><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/semantic-layer-learns-the-business/"><span class="lab" data-tr>← Previous</span><span class="ttl">A Correct Metric Is Only Step One: Teaching the Semantic Layer the Business Itself</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="next" href="https://oviainc.github.io/ai-services/magazine/2026-q4/context-graph-permissions-of-the-human/"><span class="lab" data-tr>Next →</span><span class="ttl">Context Travels, Authority Stays Personal</span></a></nav><p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a> · <a href="https://oviainc.github.io/ai-services/merchandise/">Merchandise</a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a></p>
     <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
 <div class="frow">
-      <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/menus/assets/ovia-inc-logo-black.png" alt="Ovia Inc — logo"></a>
       <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
       <span class="ftag">#toyoursatisfaction</span>
     </div>
