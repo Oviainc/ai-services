@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="/ai-services/assets/favicon.ico" sizes="any" media="(prefers-color-scheme: light)">
+<link rel="icon" href="/ai-services/assets/favicon-white.ico" sizes="any" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32-white.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="/ai-services/assets/apple-touch-icon.png">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M6PLP9DW');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com; object-src 'none'; base-uri 'self'; frame-src https://www.googletagmanager.com">
+<title>Your Router Was the Door: The GL.iNet Breach — Ovia Inc</title>
+<meta name="description" content="On November 20, 2026, GL.iNet found malware installed on some of its routers and KVM devices through a cloud management flaw. The vendor notice holds the whole remedy: one process string to check, one security firmware to install, and a caveat every owner should read at full size.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Your Router Was the Door: The GL.iNet Breach — Ovia Inc">
+<meta property="og:description" content="On November 20, 2026, GL.iNet found malware installed on some of its routers and KVM devices through a cloud management flaw. The vendor notice holds the whole remedy: one process string to check, one security firmware to install, and a caveat every owner should read at full size.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/magazine/2026-q4/your-router-was-the-door/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/your-router-was-the-door/ovia-inc-your-router-was-the-door-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your Router Was the Door: The GL.iNet Breach — Ovia Inc">
+<meta name="twitter:description" content="On November 20, 2026, GL.iNet found malware installed on some of its routers and KVM devices through a cloud management flaw. The vendor notice holds the whole remedy: one process string to check, one security firmware to install, and a caveat every owner should read at full size.">
+<meta name="twitter:image" content="https://oviainc.github.io/ai-services/articles/your-router-was-the-door/ovia-inc-your-router-was-the-door-hero.webp">
+<style>
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#D946EF;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* masthead zone over the piece background image */
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.52),rgba(10,14,20,.94));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;}
+  .masthead img.logo{height:46px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;text-transform:uppercase;font-weight:700;font-size:clamp(2.5rem,6.4vw,4.7rem);line-height:.99;letter-spacing:.004em;max-width:1020px;}
+  .standfirst{font-size:clamp(1.12rem,2.3vw,1.42rem);font-style:italic;color:var(--muted);max-width:780px;line-height:1.5;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  /* hero */
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;border-radius:2px;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  /* body columns */
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.16rem;line-height:1.75;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,sans-serif;font-size:5.4rem;line-height:.78;float:left;padding:.55rem .9rem 0 0;color:var(--accent);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:36px 0 14px;border-top:2px solid var(--accent);padding-top:14px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;font-size:clamp(1.55rem,3.6vw,2.35rem);line-height:1.3;font-style:italic;text-align:center;color:var(--accent);margin:42px 0;padding:4px 12px;}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;border-radius:2px;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px 20px 10px;margin:0 0 24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .keybox li{margin:0 0 9px 18px;font-size:.95rem;line-height:1.5;}
+  /* references + tags + footer */
+  .refs-sec{margin-top:44px;border-top:1px solid var(--line);padding-top:24px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  p.tags{color:var(--accent);font-size:.95rem;margin-top:26px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 10px;font-size:.95rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  footer .ftag{color:var(--text);letter-spacing:.06em;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
+</style>
+
+
+<link rel="canonical" href="https://oviainc.github.io/ai-services/magazine/2026-q4/your-router-was-the-door/">
+<style id="mag-ux">
+/* OVIA Magazine, reading chrome (mag-ux), 2026-11-04 */
+.mag-progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent,#FFF);z-index:60;}
+.mag-topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 20px;border-bottom:1px solid var(--line,#262626);background:var(--bg,#000);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-topbar img{height:28px;width:auto;display:block;}
+.mag-topbar .mt-name{letter-spacing:.3em;font-size:.72rem;text-transform:uppercase;color:var(--text,#FFF);text-decoration:none;}
+.mag-topbar .mt-right{margin-left:auto;display:flex;gap:18px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;}
+.mag-topbar a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-topbar a:hover{color:var(--text,#FFF);}
+.mag-crumbs{padding:10px 20px 0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted,#BFBFBF);display:flex;gap:8px;flex-wrap:wrap;align-items:baseline;}
+.mag-crumbs a{color:var(--muted,#BFBFBF);text-decoration:none;}
+.mag-crumbs a:hover{text-decoration:underline;}
+.mag-crumbs .cur{color:var(--text,#FFF);max-width:52ch;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mag-toc{column-span:all;border-top:1px solid var(--line,#262626);border-bottom:1px solid var(--line,#262626);padding:16px 4px 6px;margin:0 0 28px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;break-inside:avoid;}
+.mag-toc h2{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent,#FFF);margin:0 0 10px;border:none;padding:0;}
+.mag-toc ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;}
+.mag-toc li{margin:0;}
+.mag-toc a{color:var(--text,#FFF);text-decoration:none;font-size:.95rem;line-height:1.45;display:inline-block;padding:4px 0;}
+.mag-toc a:hover{text-decoration:underline;}
+.mag-toc a:focus-visible,.mag-topbar a:focus-visible,.mag-crumbs a:focus-visible,.mag-pn a:focus-visible,.mag-depts a:focus-visible{outline:2px solid var(--accent,#FFF);outline-offset:3px;}
+h2.sec{scroll-margin-top:18px;}
+.mag-pn{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.mag-pn a{flex:1 1 220px;border-top:1px solid var(--line,#262626);padding:14px 16px;text-decoration:none;color:var(--text,#FFF);min-height:48px;}
+.mag-pn a:hover{border-top-color:var(--accent,#FFF);}
+.mag-pn .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent,#FFF);margin-bottom:5px;}
+.mag-pn .ttl{font-size:.98rem;line-height:1.35;}
+.mag-pn a.back{flex:0 1 auto;display:flex;align-items:center;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;}
+.mag-pn a.next{text-align:right;}
+.mag-pn a.empty{visibility:hidden;}
+.mag-depts{border-top:1px solid var(--line,#262626);padding-top:14px;margin:0 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;}
+.mag-depts .lab{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted,#BFBFBF);margin-bottom:8px;}
+.mag-depts a{color:var(--text,#FFF);text-decoration:none;margin-right:14px;line-height:1.9;}
+.mag-depts a:hover{text-decoration:underline;}
+@media (max-width:640px){.mag-topbar{padding:10px 14px;}.mag-crumbs{padding:10px 14px 0;}.mag-crumbs .cur{max-width:34ch;}.mag-pn a{flex:1 1 100%;}.mag-pn a.next{text-align:left;}.mag-pn a.empty{display:none;}}
+</style>
+<style>/* site-fix-pass 2026-11-17 */footer a{display:inline-block;padding:.3em .1em}.mag-depts a{display:inline-flex;align-items:center;min-height:32px;padding:.15em .3em}.mag-topbar a,.mag-crumbs a{display:inline-flex;align-items:center;min-height:28px;padding:.15em .25em}</style>
+<style>/* language note · site fix pass step 3 · 2026-11-17 */.langnote{font-size:.85em;opacity:.8;margin:12px 0 0}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://oviainc.github.io/ai-services/magazine/2026-q4/your-router-was-the-door/#article",
+  "headline": "Your Router Was the Door: The GL.iNet Breach",
+  "image": "https://oviainc.github.io/ai-services/articles/your-router-was-the-door/ovia-inc-your-router-was-the-door-hero.webp",
+  "datePublished": "2026-11-23",
+  "dateModified": "2026-11-17",
+  "author": {
+    "@id": "https://oviainc.github.io/ai-services/#organization"
+  },
+  "publisher": {
+    "@id": "https://oviainc.github.io/ai-services/#organization"
+  },
+  "mainEntityOfPage": "https://oviainc.github.io/ai-services/magazine/2026-q4/your-router-was-the-door/",
+  "isPartOf": {
+    "@id": "https://oviainc.github.io/ai-services/#website"
+  },
+  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://oviainc.github.io/ai-services/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Magazine",
+      "item": "https://oviainc.github.io/ai-services/magazine/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "2026 Q4",
+      "item": "https://oviainc.github.io/ai-services/magazine/2026-q4/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Your Router Was the Door: The GL.iNet Breach",
+      "item": "https://oviainc.github.io/ai-services/magazine/2026-q4/your-router-was-the-door/"
+    }
+  ]
+}
+</script>
+<style data-consolidated="2026-11-23">
+  /* OVIA Magazine consolidated design: the door */
+  :root{--bg:#F3EFE6;--panel:#FBF8F1;--text:#1C1A15;--muted:#6B6252;--line:#DCD4C2;--accent:#166534;--accent-ink:#14532D;}
+  html{background:var(--bg);}
+  body{background:var(--bg);color:var(--text);}
+  h1.display,.display{font-family:Georgia,"Times New Roman",serif;text-transform:none;letter-spacing:0;font-weight:700;}
+  .cols{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  main{max-width:860px;}
+  .cols{column-count:1;}
+  .keybox{background:var(--panel);border:none;border-top:4px solid var(--accent);border-bottom:1px solid var(--line);}
+  figure.hero{background:var(--panel);border:1px solid var(--line);padding:12px 12px 4px;}
+  .pull{text-align:left;border-left:5px solid var(--accent);padding-left:22px;color:var(--accent-ink)!important;}
+  h2.sec{border-top:2px solid var(--accent);padding-top:14px;text-align:left;}
+  a{color:var(--accent-ink);}
+  ul.refs a,.offer-line a,footer a,nav.mag-pn a,p.tags{color:var(--accent-ink)!important;}
+  .refs-sec h2{color:var(--accent-ink)!important;}
+  .mastzone{--text:#F5F7FA;--muted:#C3CEDA;}
+  .mastzone a{color:#F5F7FA;}
+  .offer-block{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--accent);padding:26px 28px;margin:40px 0 8px;}
+  .offer-block .offer-line{border-top:none!important;margin:0 0 10px!important;padding-top:0!important;font-size:1.12rem!important;}
+  .offer-note{color:var(--muted);font-size:1rem;margin:0 0 16px;}
+  .offer-cta a{display:inline-block;border:1px solid var(--accent);padding:12px 22px;min-height:44px;text-decoration:none;font-weight:700;}
+</style>
+</head>
+<body class="arch arch-grid mag28-v10">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6PLP9DW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="mag-progress" aria-hidden="true"></div>
+<div class="mag-topbar"><a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img src="https://oviainc.github.io/ai-services/menus/assets/ovia-inc-logo-black.png" alt="Ovia Inc — logo"></a><a class="mt-name" href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span class="mt-right"><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a></span></div>
+<nav class="mag-crumbs" aria-label="Breadcrumb"><a href="https://oviainc.github.io/ai-services/magazine/">Magazine</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">2026 Q4</a><span aria-hidden="true">/</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><span aria-hidden="true">/</span><span class="cur" aria-current="page" title="Your Router Was the Door: The GL.iNet Breach">Your Router Was the Door: The GL.iNet Breach</span></nav>
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('https://oviainc.github.io/ai-services/articles/your-router-was-the-door/ovia-inc-your-router-was-the-door-hero.webp')"></div>
+  <div class="mast-shade"></div>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="logo" src="https://oviainc.github.io/ai-services/assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+          </select><label for="langAny">Read in</label><select id="langAny" aria-label="Read this page in another language"><option value="">More languages…</option><option value="ar">العربية</option><option value="zh-CN">中文 (简体)</option><option value="zh-TW">中文 (繁體)</option><option value="nl">Nederlands</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="el">Ελληνικά</option><option value="he">עברית</option><option value="hi">हिन्दी</option><option value="id">Bahasa Indonesia</option><option value="it">Italiano</option><option value="ja">日本語</option><option value="ko">한국어</option><option value="pl">Polski</option><option value="pt">Português</option><option value="ru">Русский</option><option value="es">Español</option><option value="sv">Svenska</option><option value="tr">Türkçe</option><option value="uk">Українська</option><option value="vi">Tiếng Việt</option></select>
+      </div>
+    </div>
+    <p class="kicker" data-tr>Ovia Inc — Security · A vendor breach, checked and fixed</p>
+    <h1 class="display" data-tr>Your Router Was the Door: The GL.iNet Breach</h1>
+    <p class="standfirst" data-tr>A cloud management flaw let an unauthorized party install malware on GL.iNet routers and KVM devices. The vendor notice contains the whole remedy: one string to look for, one firmware to install, and a caveat worth reading at full size.</p>
+    <p class="byline" data-tr>Renata Vidal · Ovia Inc · Studio and Lab · 8 min read</p>
+  </div>
+</header>
+<div class="hero-zone">
+  <figure class="hero"><img src="https://oviainc.github.io/ai-services/articles/your-router-was-the-door/ovia-inc-your-router-was-the-door-hero.webp" alt="Ovia Inc — a home router on a shelf, status lights on, cables plain"><figcaption data-tr>The shelf router: reachable, updatable, administered from somewhere else. Image: Ovia Inc (original, after Pascal)</figcaption></figure>
+</div>
+<main>
+<div class="keybox"><h2 data-tr>Key points</h2><ul>
+<li data-tr>On <strong>November 20, 2026</strong>, GL.iNet identified a vulnerability in its <strong>cloud remote management services</strong>; an unauthorized party exploited it to install malicious software on <strong>some GL.iNet routers and KVM devices</strong>. The attack path is blocked and the cloud vulnerability is fixed.</li>
+<li data-tr>The fix has an asymmetry every owner must understand: the cloud-side fix stops new infections through this path but <strong>removes nothing from devices already infected</strong>. The <strong>security firmware</strong> removes the malware, <strong>without a factory reset</strong>, and settings can be kept.</li>
+<li data-tr>The check is one exact string: look for <strong><code>crond -i /tmp/.log</code></strong> in the details of a running process, on routers through LuCI or SSH, on KVM devices through the device terminal.</li>
+<li data-tr>GL.iNet recommends the security firmware for the exact model <strong>even when the check finds nothing</strong>, states that an <strong>unlisted model is not necessarily unaffected</strong>, and warns that additional indicators have since been identified and the quick check <strong>may not detect every affected device</strong>.</li>
+</ul></div>
+<div class="cols">
+<nav class="mag-toc" aria-label="Contents"><h2 data-tr>Contents</h2><ol><li><a href="#sec-1">1. The incident</a></li><li><a href="#sec-2">2. The check</a></li><li><a href="#sec-3">3. The remediation</a></li><li><a href="#sec-4">4. The limits of a clean check</a></li><li><a href="#sec-5">5. The lesson: remote management is the key under the mat</a></li></ol></nav>
+<h2 class="sec" id="sec-1" data-tr>1. The incident</h2>
+<p data-tr>The disclosure is dated November 20, 2026 and it is short enough to state whole. GL.iNet identified a vulnerability in its cloud remote management services. An unauthorized party exploited the vulnerability to access and install malicious software on some GL.iNet routers and KVM devices. The company fixed the cloud vulnerability and blocked the access used in the incident, so devices can no longer be newly infected through this attack path. Customer notifications are being prepared for accounts GL.iNet identifies as affected, and the investigation is ongoing, including the question of whether computers connected to affected KVM devices were impacted. The notice will be updated as the scope firms up.</p>
+<p data-tr>Two properties of this incident deserve emphasis before the instructions, because they decide how an owner should react. The first is the target: not a firmware bug in one model, but the cloud service that manages the fleet. A vulnerability there is a vulnerability in every enrolled device at once, which is why the affected set is described as some routers and some KVM devices across the range rather than a single product line. The second is the asymmetry in the fix. Blocking the attack path protects the uninfected. It does nothing for a device where the malware is already installed and running. For those devices, remediation is a separate act, performed by the owner, with the security firmware. Everything below is that act, in the order GL.iNet prescribes it.</p><h2 class="sec" id="sec-2" data-tr>2. The check</h2>
+<p data-tr>For both routers and KVM devices, the indicator is one exact piece of text: <code>crond -i /tmp/.log</code>, appearing within the details of a running process. The process entry may contain other information; the string is the match. On a router there are two routes. Through the web admin panel: go to System, then Advanced Settings, sign in to LuCI, open Status, then Processes, and search the page (Ctrl+F, or Command+F on macOS) for <code>tmp/.log</code>, checking whether a matching process shows the full indicator. Through SSH: sign in to the router and run <code>ps | grep tmp</code>, then look for <code>crond -i /tmp/.log</code> in the output. A line showing only the grep command itself is not a match; that is the search looking for itself, and the notice says so explicitly because it is the false positive every owner will meet first.</p>
+<figure><img src="https://oviainc.github.io/ai-services/articles/your-router-was-the-door/ovia-inc-your-router-was-the-door-body-1.webp" alt="Ovia Inc — a key under a doormat at a front door threshold, photographed straight down"><figcaption data-tr>The key under the mat: one string, looked for in one place. Image: Ovia Inc (original, after Jonathan Borba)</figcaption></figure>
+<p data-tr>On a KVM device, open the web interface, go to Toolbox, then Terminal, then Access, and run the command in the KVM's own terminal, not on the connected computer: <code>ps -a | grep tmp</code> on the RMQ1, and <code>ps -aux | grep tmp</code> on all other KVM models, looking for the same string. Three outcomes follow. If the indicator is found, treat the device as infected and go to section 3. If the check completes without finding it and there is no other reason to suspect infection, no factory reset or other cleanup is needed, and the security update is still recommended. If the check cannot be completed, or the result is unclear, GL.iNet's instruction is to contact support at support@gl-inet.com rather than guess.</p><h2 class="sec" id="sec-3" data-tr>3. The remediation</h2>
+<p data-tr>Install the latest stable security firmware for the exact model, as soon as possible, whether or not the check found the indicator. The security firmware removes the malware identified in this incident without requiring a factory reset, and existing settings can be kept during the update. Do not install firmware built for another model. The version floors in the notice: routers GL-MG1300, GL-MT3000 and GL-MT6000 at 4.11.1 or later; GL-E5800 at 4.10.3; GL-BE3600 and GL-BE9300 at 4.10.2; GL-BE14000 at 4.9.3; GL-BE6500, GL-MT3600BE and GL-MT5000 at 4.9.1; GL-BE10000 at 4.8.7; GL-AX1800, GL-AXT1800, GL-SFT1200, GL-X3000 and GL-XE3000 at 4.8.4; GL-MT2500, GL-MT2500A and GL-X2000 at 4.7.14. KVM devices: RM1, RM1V2, RM10, RM10RC, RM1PE and RM4PE at 1.10.3 or later; RMQ1 at 1.8.7. Anyone running a security beta should move to the latest stable. If a model is not listed, the notice is blunt that this does not mean it is unaffected: check the GL.iNet Download Center or write to support. If the upgrade fails, or the indicator is still present after the upgrade, contact support for recovery guidance.</p>
+<p data-tr>One extension matters for KVM owners specifically. A KVM device is a keyboard, video and mouse channel into a computer, which is to say a trusted path into whatever it is attached to. If a KVM is infected, GL.iNet directs owners to check the connected computer as a precaution: unfamiliar programs, browser extensions or user accounts; unexpected startup items or scheduled tasks; unusual settings changes or network activity; and a full scan with up-to-date security software. The router's malware lives on the router. The KVM's risk lives one hop further in, and the sweep has to follow it there.</p><h2 class="sec" id="sec-4" data-tr>4. The limits of a clean check</h2>
+<p data-tr>The notice contains its own caveat section, and an honest piece enlarges rather than buries it. As the investigation continues, additional indicators of compromise have been identified, and the official quick checks may not detect every affected device. GL.iNet points to an independently developed community check tool for owners who want a more comprehensive pass, and surrounds the pointer with an unusually complete disclaimer: the tool is not developed, verified, maintained, endorsed or supported by GL.iNet, it may run with administrative privileges and includes optional remediation and evidence-collection functions to be evaluated carefully, and the absence of findings does not guarantee a device has never been compromised. Of the two checking approaches together, the notice concludes that neither can guarantee a device is free of compromise.</p>
+<aside class="pull" data-tr>The firmware is the only step in the notice that removes the identified malware rather than looking for it.</aside>
+<p data-tr>Hold that beside the remediation instruction and the correct posture assembles itself. The process check is necessary and fast, and it catches the known malware in the known form. It is not a certificate. The firmware, by contrast, is for everyone: owners with the indicator, owners without it, owners who could not complete the check, because the firmware is the only step in the notice that removes the identified malware rather than looking for it. And the affected-customer emails, when they arrive at the address on the cloud account, are information, not a starting gun. The notice says plainly that nobody needs to wait for one to check a device or install the update.</p><h2 class="sec" id="sec-5" data-tr>5. The lesson: remote management is the key under the mat</h2>
+<p data-tr>GL.iNet makes good devices, and its travel routers and KVM units sit in an enormous number of homes, site cabins, classrooms, clinics and small offices precisely because they are manageable: reachable, updatable and administrable from a cloud console, by an owner who is somewhere else. That property is the product. This incident is its price, stated generally enough to apply far beyond one vendor: every remotely managed edge device is a door into the network it serves, and the remote management service is a key cut for every door in the fleet at once. Compromise the key cabinet and the locks on individual doors stop mattering. The devices behind those doors are rarely the hardened centre of anyone's estate. They are the shelf router, the KVM in the rack, the unit installed by a contractor and enrolled in a cloud account nobody has opened since.</p>
+<figure><img src="https://oviainc.github.io/ai-services/articles/your-router-was-the-door/ovia-inc-your-router-was-the-door-body-2.webp" alt="Ovia Inc — a shelf of small network devices in a store room, cables dressed plainly"><figcaption data-tr>The fleet, at rest: every unit a door, every cloud account a key cabinet. Image: Ovia Inc (original, after Sergei Starostin)</figcaption></figure>
+<p data-tr>The operating discipline that follows is unglamorous and entirely doable. Keep an inventory of remotely managed edge devices, vendor by vendor, with the cloud accounts that govern them named and owned. Turn cloud management off where the convenience is not actually used; a door nobody opens does not need a key in circulation. Treat firmware currency as a standing practice rather than an incident response, so that a security release is a routine Tuesday and not an emergency. And when a vendor discloses, run the fleet check the same week, every device, indicator or no indicator, because the vendor's list of affected models is a floor, not a ceiling, as this notice itself warns. For estates without the hands to do that across dozens of sites, a rapid device-fleet check and remediation, run as a service against the vendor's own published indicators and firmware, is the shape of the help. The router was the door. The work is knowing how many doors there are.</p>
+</div>
+<div class="offer-block"><p class="offer-line" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:.95rem;margin:34px 0 6px;padding-top:16px;border-top:1px solid #999;"><a href="https://oviainc.github.io/ai-services/">OVIA Inc Studio Lab — AI operations &amp; context engineering, managed end to end</a></p><p class="offer-note">Every engagement starts with a conversation, then a written plan at a fixed price.</p><p class="offer-cta"><a href="https://oviainc.github.io/ai-services/#contact">Got questions?</a></p></div>
+  <div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+<li data-tr>GL.iNet, Security Notice 2026-11-20: the cloud remote management vulnerability, the malware installation, the indicator and checks, the firmware floors, the KVM computer sweep and the caveats. <a href="https://www.gl-inet.com/en-us/blogs/blog/glinet-security-notice-2026-11-20">gl-inet.com</a></li>
+<li data-tr>Photographs: Ovia Inc originals, made from real photographs: hero after Pascal (<a href="https://www.pexels.com/photo/modern-wifi-6-router-on-wooden-desk-32698507/">Pexels</a>); the key under the mat after Jonathan Borba (<a href="https://www.pexels.com/photo/coir-doormat-with-grid-pattern-texture-36346084">Pexels</a>); the store room shelf after Sergei Starostin (<a href="https://www.pexels.com/photo/network-servers-on-an-enclosure-6466141/">Pexels</a>).</li>
+</ul>
+  </div>
+  <p class="tags">#Cybersecurity #NetworkSecurity #IncidentResponse #ThreatIntelligence #toyoursatisfaction</p>
+  <footer>
+    <p class="langnote">Written in English. Its frame, contents, issue links, footer, also reads in Français and Español; the text itself is never machine-translated.</p>
+    <div class="refs-sec"><h2 data-tr>About the author</h2><p data-tr>Renata Vidal, 34. Head of Security. Her column covers the desk she runs: the doors, the systems behind them, and what an incident actually teaches once the report is written.</p></div><nav class="mag-pn" aria-label="Breadcrumb"><a class="prev" href="https://oviainc.github.io/ai-services/magazine/2026-q4/the-link-changed-not-the-tweet/"><span class="lab" data-tr>← Previous</span><span class="ttl">The Link Changed, Not the Tweet</span></a><a class="back" href="https://oviainc.github.io/ai-services/magazine/2026-q4/"><span data-tr>Back to the issue</span></a><a class="empty" aria-hidden="true" tabindex="-1"></a></nav>nav>
+    <p style="font-size:.85rem;margin-bottom:16px;"><a href="https://oviainc.github.io/ai-services/">Home</a>a> · <a href="https://oviainc.github.io/ai-services/magazine/2026-q4/">Magazine</a>a> · <a href="https://oviainc.github.io/ai-services/menus/">Menus</a>a> · <a href="https://oviainc.github.io/thewebsite/studio.html">Studio</a>a> · <a href="https://oviainc.github.io/thewebsite/lab.html">Lab</a>a> · <a href="https://oviainc.github.io/thewebsite/services.html">Services</a>a> · <a href="https://oviainc.github.io/ai-services/merchandise/">Merchandise</a>a> · <a href="https://oviainc.github.io/ai-services/#contact">Contact</a>a></p>p>
+    <nav class="mag-depts" aria-label="More in this issue"><span class="lab" data-tr>More in this issue</span><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-agents-operations">Agents &amp; operations</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-security">Security</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-data-meaning">Data &amp; meaning</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-ai-at-scale">AI at scale</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-virtual-production">Virtual production</a><a href="https://oviainc.github.io/ai-services/magazine/2026-q4/#dept-from-ovia">From Ovia</a></nav>
+<div class="frow">
+      <a href="https://oviainc.github.io/ai-services/" aria-label="Ovia Inc — home"><img class="flogo" src="https://oviainc.github.io/ai-services/menus/assets/ovia-inc-logo-black.png" alt="Ovia Inc — logo"></a>
+      <span><a href="https://oviainc.github.io/ai-services/">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
+      <p class="inspiration-credit" data-tr>Design inspired by Stephen Shore, American Surfaces.</p>
+  <p class="copy">© Ovia Inc. All rights reserved.</p></footer>
+</main>
+<script>
+/* Language policy, reviewed chrome, original-language pieces.
+   Site fix pass step 3, 2026-11-17. This piece is read in the language it
+   was written in. The frame around it, contents heading, issue
+   navigation, footer labels, is hand-written in English, Français and
+   Español, and only that frame changes with the selector. No machine
+   translation is used on this page. */
+(function () {
+  "use strict";
+  var DICT = {
+    back:     { en: "Back to the issue", fr: "Retour au numéro", es: "Volver al número" },
+    more:     { en: "More in this issue", fr: "Aussi dans ce numéro", es: "También en este número" },
+    contents: { en: "Contents", fr: "Sommaire", es: "Contenido" },
+    prev:     { en: "← Previous", fr: "← Précédent", es: "← Anterior" },
+    next:     { en: "Next →", fr: "Suivant →", es: "Siguiente →" },
+    language: { en: "Language", fr: "Langue", es: "Idioma" }
+  };
+  var LOOKUP = {};
+  Object.keys(DICT).forEach(function (k) {
+    ["en", "fr", "es"].forEach(function (l) { LOOKUP[DICT[k][l]] = k; });
+  });
+  var PREFIX_KEYS = ["back", "prev", "next"];
+  var PIECE_LANG = "en";
+  function swapNode(node, target) {
+    var raw = node.nodeValue, trimmed = raw.trim();
+    if (!trimmed) return;
+    var key = LOOKUP[trimmed];
+    if (key) { node.nodeValue = raw.replace(trimmed, DICT[key][target]); return; }
+    for (var i = 0; i < PREFIX_KEYS.length; i++) {
+      var k = PREFIX_KEYS[i];
+      var langs = ["en", "fr", "es"];
+      for (var l = 0; l < 3; l++) {
+        var s = DICT[k][langs[l]];
+        if (trimmed.indexOf(s) === 0 && trimmed.length > s.length && trimmed.charAt(s.length) === " ") {
+          node.nodeValue = raw.replace(s, DICT[k][target]); return;
+        }
+      }
+    }
+  }
+  function applyChrome(target) {
+    document.querySelectorAll("footer, nav.mag-pn, nav.mag-depts, nav.mag-toc, .langbar").forEach(function (scope) {
+      var walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT);
+      var nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(function (n) { swapNode(n, target); });
+    });
+  }
+  var sel = document.getElementById("langPick");
+  if (!sel) return;
+  var start = PIECE_LANG;
+  try {
+    var q = new URLSearchParams(location.search).get("lang");
+    if (q && DICT.back[q]) start = q;
+  } catch (e) {}
+  sel.value = start;
+  applyChrome(start);
+  sel.addEventListener("change", function () { applyChrome(sel.value); });
+})();
+</script>
+<script id="mag-ux-js">
+(function(){var bar=document.querySelector('.mag-progress');if(!bar)return;function upd(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;var p=max>0?(h.scrollTop||document.body.scrollTop)/max:0;bar.style.width=(p*100).toFixed(2)+'%';}document.addEventListener('scroll',upd,{passive:true});upd();})();
+</script>
+<script id="lang-any-js">(function(){var s=document.getElementById("langAny");if(!s)return;s.addEventListener("change",function(){if(!s.value)return;var host=location.hostname.replace(/\./g,"-")+".translate.goog";location.href="https://"+host+location.pathname+"?_x_tr_sl=auto&_x_tr_tl="+s.value+"&_x_tr_hl=en";});})();</script></body>
+</html>

@@ -224,7 +224,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <option value="en">English</option>
             <option value="fr">Français</option>
             <option value="es">Español</option>
-          </select>
+          </select><label for="langAny">Read in</label><select id="langAny" aria-label="Read this page in another language"><option value="">More languages…</option><option value="ar">العربية</option><option value="zh-CN">中文 (简体)</option><option value="zh-TW">中文 (繁體)</option><option value="nl">Nederlands</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="el">Ελληνικά</option><option value="he">עברית</option><option value="hi">हिन्दी</option><option value="id">Bahasa Indonesia</option><option value="it">Italiano</option><option value="ja">日本語</option><option value="ko">한국어</option><option value="pl">Polski</option><option value="pt">Português</option><option value="ru">Русский</option><option value="es">Español</option><option value="sv">Svenska</option><option value="tr">Türkçe</option><option value="uk">Українська</option><option value="vi">Tiếng Việt</option></select>
       </div>
     </div>
     <p class="kicker" data-tr>Ovia Inc — Virtual Production · LED Volume</p>
@@ -348,5 +348,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script id="mag-ux-js">
 (function(){var bar=document.querySelector('.mag-progress');if(!bar)return;function upd(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;var p=max>0?(h.scrollTop||document.body.scrollTop)/max:0;bar.style.width=(p*100).toFixed(2)+'%';}document.addEventListener('scroll',upd,{passive:true});upd();})();
 </script>
-</body>
+<script id="lang-any-js">(function(){var s=document.getElementById("langAny");if(!s)return;s.addEventListener("change",function(){if(!s.value)return;var host=location.hostname.replace(/\./g,"-")+".translate.goog";location.href="https://"+host+location.pathname+"?_x_tr_sl=auto&_x_tr_tl="+s.value+"&_x_tr_hl=en";});})();</script></body>
 </html>
