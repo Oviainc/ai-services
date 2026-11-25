@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
+<title>The Voice Was the Easy Part: Retrieval Decides Whether a Spoken Answer Deserves Trust — Ovia Inc</title>
+<meta name="description" content="IBM Research built a farm assistant that answers spoken questions in Indic languages from a 154-page English handbook — and found that cross-lingual retrieval, not speech, decides whether the answer deserves trust.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Voice Was the Easy Part: Retrieval Decides Whether a Spoken Answer Deserves Trust">
+<meta property="og:description" content="IBM Research built a farm assistant that answers spoken questions in Indic languages from a 154-page English handbook — and found that cross-lingual retrieval, not speech, decides whether the answer deserves trust.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/articles/the-voice-was-the-easy-part/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/the-voice-was-the-easy-part/ovia-inc-the-voice-was-the-easy-part-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#22C55E;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* masthead zone over the article background image */
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.52),rgba(10,14,20,.94));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;}
+  .masthead img.logo{height:46px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;text-transform:uppercase;font-weight:700;font-size:clamp(2.5rem,6.4vw,4.7rem);line-height:.99;letter-spacing:.004em;max-width:1020px;}
+  .standfirst{font-size:clamp(1.12rem,2.3vw,1.42rem);font-style:italic;color:var(--muted);max-width:780px;line-height:1.5;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  /* hero */
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;border-radius:2px;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  /* body columns */
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.16rem;line-height:1.75;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,sans-serif;font-size:5.4rem;line-height:.78;float:left;padding:.55rem .9rem 0 0;color:var(--accent);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:36px 0 14px;border-top:2px solid var(--accent);padding-top:14px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;font-size:clamp(1.55rem,3.6vw,2.35rem);line-height:1.3;font-style:italic;text-align:center;color:var(--accent);margin:42px 0;padding:4px 12px;}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;border-radius:2px;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px 20px 10px;margin:0 0 24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .keybox li{margin:0 0 9px 18px;font-size:.95rem;line-height:1.5;}
+  /* references + tags + footer */
+  .refs-sec{margin-top:44px;border-top:1px solid var(--line);padding-top:24px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  p.tags{color:var(--accent);font-size:.95rem;margin-top:26px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 10px;font-size:.95rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  footer .ftag{color:var(--text);letter-spacing:.06em;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
+</style>
+<style id="arch-css">
+/* Layout archetype: classic (centered classic) */
+body.arch-classic main{max-width:780px;}
+body.arch-classic .mast-inner{max-width:780px;text-align:center;}
+body.arch-classic .masthead{justify-content:center;}
+body.arch-classic .langbar{margin-left:0;}
+body.arch-classic h1.display{font-size:clamp(2.1rem,4.6vw,3.3rem);margin-left:auto;margin-right:auto;text-transform:none;letter-spacing:0;}
+body.arch-classic .standfirst{margin-left:auto;margin-right:auto;}
+body.arch-classic .cols{column-count:1;font-size:1.13rem;}
+body.arch-classic .cols figure.body,body.arch-classic .cols figure.wide{max-width:500px;margin-left:auto;margin-right:auto;}
+body.arch-classic .hero-zone{max-width:780px;}
+body.arch-classic h2.sec{text-align:center;border-top:1px solid var(--line);color:var(--text);}
+body.arch-classic .keybox{max-width:540px;margin-left:auto;margin-right:auto;}
+body.arch-classic blockquote.pull{font-size:1.55rem;}
+</style>
+</head>
+<body class="arch arch-classic">
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('ovia-inc-the-voice-was-the-easy-part-background.webp')"></div>
+  <div class="mast-shade"></div>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="../../" aria-label="Ovia Inc — home"><img class="logo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+      </div>
+    </div>
+    <p class="kicker" data-tr>Ovia Inc — Artificial Intelligence · Voice Agents</p>
+    <h1 class="display" data-tr>The Voice Was the Easy Part: Retrieval Decides Whether a Spoken Answer Deserves Trust</h1>
+    <p class="standfirst" data-tr>A spoken question in Hindi searches an English handbook and hears an answer in Hindi — provided the index understands the question, which is exactly where the first build failed without a sound.</p>
+    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+  </div>
+</header>
+<div class="hero-zone">
+  <figure class="hero">
+    <img src="ovia-inc-the-voice-was-the-easy-part-hero.webp" alt="Ovia Inc — a farmer threshing a sheaf against the ground to separate the grain from the straw">
+    <figcaption data-tr>A farmer threshes a sheaf by hand — the field work the handbook exists to serve. Image: Ovia Inc</figcaption>
+  </figure>
+</div>
+<main>
+  <div class="cols">
+<p class="first" data-tr>The voice worked on the first try. The search underneath the voice did not, and the failure made no sound at all.</p>
+<p data-tr>On November 25, IBM Research published the build on the Hugging Face blog: a farm assistant that listens to a spoken question in Hindi, Tamil, Telugu, Gujarati, Marathi or another Indic language, searches a 154-page agricultural handbook written in English, and answers aloud in two to four sentences in the language of the question. The source pages appear on screen beside the answer, so the answer can be checked. Ask about cricket or coding and the assistant steers the conversation back to farming instead of inventing an answer.</p>
+<p data-tr>The example the builders lead with is plain field work: how to tell good seed from bad. Nothing in the exchange requires typing, an English screen, or a translated copy of the handbook. One English document serves every language the assistant hears — once the search layer understands more than one language, which is where the build nearly failed in silence.</p>
+<aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>A spoken question in an Indic language searches a 154-page English handbook and returns a spoken answer in the same language, source pages shown.</li><li data-tr>CUGA, the open-source harness from IBM Research, stays text-in and text-out; speech recognition and synthesis sit in two thin, swappable layers around it.</li><li data-tr>The default embedding model was English-only, so Hindi or Tamil questions retrieved five wrong passages, and the grounded agent answered that the handbook did not cover the question — no error, no warning.</li><li data-tr>The fix: the multilingual embedding model intfloat/multilingual-e5-large, which puts the same meaning in the same place across languages.</li></ul></aside>
+<h2 class="sec" data-tr>01 · The announcement</h2>
+<p data-tr>The harness at the centre is CUGA, the ConfigUrable Generalist Agent from IBM Research, an open-source framework under Apache 2.0 handling model wiring, tools, state and guardrails, so builders write tools and a prompt instead of an agent loop. The voice assistant runs CUGA as an embedded software kit inside a small web application. One setting switches the underlying model between watsonx and OpenAI. A knowledge tool parses the handbook PDF, chunks the text, embeds the chunks and searches them locally. Each question opens a fresh thread, so one person's language and context never leak into another session.</p>
+<figure class="body"><img src="ovia-inc-the-voice-was-the-easy-part-body-1.webp" alt="Ovia Inc — farmers working terraced paddy plots beside a village house, seen from an elevated viewpoint"><figcaption data-tr>Paddy plots under monsoon cloud, worked in small teams: the ground the handbook speaks to. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>02 · Why it matters</h2>
+<p data-tr>Most useful knowledge sits written and digitised in English. Most of the people who need that knowledge speak and think in other languages, and many would rather talk than type. The gap between the language of the record and the language of the question is not a translation detail; for anyone on the far side of it, the gap is the system. A handbook that cannot be found in the language of the field might as well not exist for the farmer holding a sheaf and a question at the same time.</p>
+<p data-tr>The pattern reaches past agriculture, as the builders say directly: swap the handbook for scheme documents, health advisories or legal guides and the same architecture answers a different public. Swap the speech provider and the deployment model changes — cloud speech for speed, speech models on local servers where data has to stay home — without rewriting the agent in the middle.</p>
+<blockquote class="pull" data-tr>Every layer behaved correctly, and the system still failed — quietly, in the language of the question.</blockquote>
+<h2 class="sec" data-tr>03 · The craft angle: test retrieval in the language of the question</h2>
+<p data-tr>Retrieval works the way retrieval works everywhere: text becomes vectors, and the nearest vectors win. The default embedding model in CUGA reads English only, so a Hindi question becomes a vector carrying almost no meaning. Retrieval still returned five passages for every question. The passages were the wrong ones, and the model — instructed, correctly, to answer only from what retrieval provided — replied that the handbook did not cover the question. No component raised an error, because no component had made one. The fault lived between the components, in the assumption that an English index understands a Hindi question.</p>
+<p data-tr>The fix was one component: intfloat/multilingual-e5-large, a multilingual embedding model that places the same meaning in the same region of the space whatever the language. Wiring the model into CUGA took a small workaround, documented in the tutorial published with the demo. After the swap, one English handbook serves every language, with no translated copies to make or maintain.</p>
+<figure class="wide"><img src="ovia-inc-the-voice-was-the-easy-part-body-2.webp" alt="Ovia Inc — a farmer guiding a plough behind two bulls across a tilled field at Chinawal, seen from behind"><figcaption data-tr>Ploughing at Chinawal, photographed from behind the team. Image: Ovia Inc</figcaption></figure>
+<p data-tr>Context engineering at Ovia since December 2022, practised daily across English, French and Spanish, keeps the order of work the IBM Research team recommends at the end of the build report: before tuning a single prompt, ask one question in a non-English language and check that the right pages come back.</p>
+<p data-tr>Around that check, the small decisions in the build decide whether a spoken answer deserves trust. Answers are written for the ear — no markdown, no bullet points, no citation tags read aloud — and a light formatter strips whatever slips through before speech. Guardrails stay cheap: input checks catch off-topic questions, and a reply beginning with a redirect marker swaps in a polite return to farming, with no second model call slowing the voice path. With cloud speech, the browser talks to the speech service directly and the server receives only text, so keys stay out of the server.</p>
+<h2 class="sec" data-tr>04 · Caveats and fine print</h2>
+<p data-tr>The build is a working demonstration, and the report keeps the claim at that size. No retrieval accuracy figures, recognition error rates, latency numbers or field results with farmers appear in the post, so the honest reading is architectural: the design is inspectable, the demo runs in a browser, and the tutorial rebuilds the assistant layer by layer. An agent told to answer only from retrieved passages is exactly as good as the retrieval in front of the model; when retrieval fails silently, grounding turns the failure into a confident, polite, wrong answer. Teams shipping the pattern need checks on the retrieved pages themselves, not only on the final spoken sentence.</p>
+<h2 class="sec" data-tr>05 · What to watch</h2>
+<p data-tr>Watch the embedding layer become a stated requirement rather than a default. Multilingual products will be judged by whether the index understands the language of the question, and the one-question test is cheap enough to become standard before any prompt work begins. Watch the handbook swap: scheme documents, health advisories and legal guides carry higher stakes than seed selection, and each new corpus tests whether source pages on screen are enough for a listener to trust a spoken answer. And watch where the speech runs. The same harness accepts cloud speech from the browser or open speech models on local infrastructure, which keeps the sovereignty choice open — a choice that decides, in many deployments, whether the service may run at all.</p>
+<p data-tr>We build voice and language work the way the Studio and the Lab build every engagement: the record stays in one place, the question arrives in the language of the person asking, and retrieval proves itself in that language before anything else is tuned. The voice was the easy part. The finding is the product.</p>
+
+  </div>
+  <div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+<li><span data-tr>Hugging Face — IBM Research, “An Indic Voice Agent with CUGA”, November 25, 2026:</span> <a href="https://huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga">https://huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga</a></li>
+<li><span data-tr>Hugging Face — IBM Research, “CUGA on Hugging Face: Democratizing Configurable AI Agents”, Hugging Face blog:</span> <a href="https://huggingface.co/blog/ibm-research/cuga-on-hugging-face">https://huggingface.co/blog/ibm-research/cuga-on-hugging-face</a></li>
+<li><span data-tr>IBM Research — “Introducing CUGA: The enterprise-ready configurable generalist agent”:</span> <a href="https://research.ibm.com/blog/cuga-agent-framework">https://research.ibm.com/blog/cuga-agent-framework</a></li>
+<li><span data-tr>CUGA project — open-source agent harness repository (Apache 2.0), GitHub:</span> <a href="https://github.com/cuga-project/cuga-agent">https://github.com/cuga-project/cuga-agent</a></li>
+<li><span data-tr>Photographs: a farmer threshing a sheaf to separate grain from straw — Jayaseerlourdhuraj, Creative Commons Attribution-Share Alike 3.0, via Wikimedia Commons:</span> <a href="https://commons.wikimedia.org/wiki/File:A_farmer.jpg">https://commons.wikimedia.org/wiki/File:A_farmer.jpg</a></li>
+<li><span data-tr>Photographs: rice crop at Kadavoor, Kerala — Jeevan Jose, Creative Commons Attribution-Share Alike 4.0, via Wikimedia Commons:</span> <a href="https://commons.wikimedia.org/wiki/File:Paddy_fields_at_Kadavoor.jpg">https://commons.wikimedia.org/wiki/File:Paddy_fields_at_Kadavoor.jpg</a></li>
+<li><span data-tr>Photographs: farmers on a paddy field near Kolhapur — Omar AV, Creative Commons Attribution 3.0, via Wikimedia Commons:</span> <a href="https://commons.wikimedia.org/wiki/File:Village_life_,_Farmers_on_paddy_(rice)_field_-_panoramio.jpg">https://commons.wikimedia.org/wiki/File:Village_life_,_Farmers_on_paddy_(rice)_field_-_panoramio.jpg</a></li>
+<li><span data-tr>Photographs: a farmer ploughing a field at Chinawal with two bulls — abhiriksh, Creative Commons Attribution-Share Alike 3.0, via Wikimedia Commons:</span> <a href="https://commons.wikimedia.org/wiki/File:Farmer_in_Chinawal_ploughing_field_by_using_bulls_2.jpg">https://commons.wikimedia.org/wiki/File:Farmer_in_Chinawal_ploughing_field_by_using_bulls_2.jpg</a></li>
+
+    </ul>
+  </div>
+  <p class="tags">#ArtificialIntelligence #AIAgents #VoiceAI #ContextEngineering #HuggingFace #toyoursatisfaction</p>
+  <footer>
+    <div class="frow">
+      <a href="../../" aria-label="Ovia Inc — home"><img class="flogo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="../../">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
+  </footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+</body>
+</html>
