@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
+<title>Same SQL, New Engine: Sirius Puts the GPU Under DuckDB — Ovia Inc</title>
+<meta name="description" content="NVIDIA and DuckLabs released Sirius, a GPU-native core extension that runs supported DuckDB queries on the GPU with no SQL rewrite — and published the runner to check the claim locally.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Same SQL, New Engine: Sirius Puts the GPU Under DuckDB">
+<meta property="og:description" content="NVIDIA and DuckLabs released Sirius, a GPU-native core extension that runs supported DuckDB queries on the GPU with no SQL rewrite — and published the runner to check the claim locally.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/articles/same-sql-new-engine/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/same-sql-new-engine/ovia-inc-same-sql-new-engine-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#38BDF8;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* masthead zone over the article background image */
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.52),rgba(10,14,20,.94));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;}
+  .masthead img.logo{height:46px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;text-transform:uppercase;font-weight:700;font-size:clamp(2.5rem,6.4vw,4.7rem);line-height:.99;letter-spacing:.004em;max-width:1020px;}
+  .standfirst{font-size:clamp(1.12rem,2.3vw,1.42rem);font-style:italic;color:var(--muted);max-width:780px;line-height:1.5;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  /* hero */
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;border-radius:2px;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  /* body columns */
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.16rem;line-height:1.75;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,sans-serif;font-size:5.4rem;line-height:.78;float:left;padding:.55rem .9rem 0 0;color:var(--accent);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:36px 0 14px;border-top:2px solid var(--accent);padding-top:14px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;font-size:clamp(1.55rem,3.6vw,2.35rem);line-height:1.3;font-style:italic;text-align:center;color:var(--accent);margin:42px 0;padding:4px 12px;}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;border-radius:2px;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px 20px 10px;margin:0 0 24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .keybox li{margin:0 0 9px 18px;font-size:.95rem;line-height:1.5;}
+  /* references + tags + footer */
+  .refs-sec{margin-top:44px;border-top:1px solid var(--line);padding-top:24px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  p.tags{color:var(--accent);font-size:.95rem;margin-top:26px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 10px;font-size:.95rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  footer .ftag{color:var(--text);letter-spacing:.06em;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
+</style>
+<style id="arch-css">
+/* Layout archetype: asym (asymmetric columns) */
+/* 6 — Asymmetric columns */
+body.arch-asym h1.display{max-width:640px;margin-left:auto;}
+body.arch-asym .standfirst{max-width:640px;margin-left:auto;}
+body.arch-asym .byline{text-align:right;}
+body.arch-asym .cols{column-count:1;max-width:600px;margin-left:auto;margin-right:0;}
+body.arch-asym figure.body,body.arch-asym figure.wide{width:148%;margin-left:-48%;}
+body.arch-asym blockquote.pull{width:132%;margin-left:-32%;text-align:left;}
+body.arch-asym .keybox{width:118%;margin-left:-18%;}
+body.arch-asym .hero-zone figure.hero{max-width:860px;margin-left:auto;}
+@media (max-width:820px){body.arch-asym figure.body,body.arch-asym figure.wide,body.arch-asym blockquote.pull,body.arch-asym .keybox{width:100%;margin-left:0;}body.arch-asym h1.display,body.arch-asym .standfirst{margin-left:0;}body.arch-asym .byline{text-align:left;}}
+</style>
+</head>
+<body class="arch arch-asym">
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('ovia-inc-same-sql-new-engine-background.webp')"></div>
+  <div class="mast-shade"></div>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="../../" aria-label="Ovia Inc — home"><img class="logo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc — Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+      </div>
+    </div>
+    <p class="kicker" data-tr>Ovia Inc — Data · GPU Analytics</p>
+    <h1 class="display" data-tr>Same SQL, New Engine: Sirius Puts the GPU Under DuckDB</h1>
+    <p class="standfirst" data-tr>Two commands load a GPU engine inside DuckDB, the SQL stays word for word, and the published benchmark runner lets any team test the speedup before believing a single figure.</p>
+    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+  </div>
+</header>
+<div class="hero-zone">
+  <figure class="hero">
+    <img src="ovia-inc-same-sql-new-engine-hero.webp" alt="Ovia Inc — server racks at the NOIRLab headquarters computer server room in Tucson, Arizona">
+    <figcaption data-tr>Server racks at the NOIRLab headquarters computer server room in Tucson, Arizona. Image: Ovia Inc</figcaption>
+  </figure>
+</div>
+<main>
+  <div class="cols">
+<p class="first" data-tr>The query did not change. The engine underneath it did.</p>
+<p data-tr>On November 23, NVIDIA and DuckLabs released Sirius as a core extension for DuckDB, the analytical database that runs inside a process rather than on a server. Two SQL commands install and load the extension. From that moment, supported analytical queries execute on an NVIDIA graphics processor instead of the central processor, while the SQL text, the schemas and the connection stay exactly as written.</p>
+<p data-tr>Sirius is an open-source, GPU-native SQL engine developed through a collaboration between the University of Wisconsin–Madison and NVIDIA. DuckDB keeps the front of the house: parsing the SQL, optimizing the plan, returning the results. Sirius takes the plan and runs it where the parallelism lives. A query whose features fall outside the supported set does not fail; the engine hands the query back to DuckDB on the CPU, and the application receives an answer through the same connection either way.</p>
+<aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>Sirius installs inside DuckDB with two SQL commands, with no SQL rewrite and no schema change.</li><li data-tr>DuckDB parses and optimizes; Sirius executes supported query plans on the GPU; unsupported queries fall back to the CPU engine.</li><li data-tr>In NVIDIA-reported cold-run tests on TPC-H-derived queries, a tuned two-GPU setup ran 3.25 to 5.50 times faster than the best tested CPU configurations.</li><li data-tr>The published benchmark runner, query definitions and configuration notes let any team repeat the measurement on local hardware before adopting anything.</li></ul></aside>
+<h2 class="sec" data-tr>01 · The announcement</h2>
+<p data-tr>The release arrives as part of DuckDB 2.0, and the requirements stay narrow: a file-backed DuckDB database, an NVIDIA GPU with a compatible driver, and a download of roughly 700 megabytes that selects the CUDA backend matching the driver on the machine. The walkthrough NVIDIA published builds a small TPC-H dataset, persists the tables with a checkpoint so Sirius can read the native DuckDB format, and then runs an ordinary grouped aggregation over the lineitem table. The example is deliberately small; NVIDIA states plainly that the sample illustrates the workflow and demonstrates no performance advantage at that size.</p>
+<figure class="body"><img src="ovia-inc-same-sql-new-engine-body-1.webp" alt="Ovia Inc — data centre at the Gemini South telescope in Chile seen through protective cells in a fisheye view"><figcaption data-tr>The room where the engine lives: a data centre at the Gemini South telescope in Chile, seen through its protective cells. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>02 · Why it matters</h2>
+<p data-tr>Analytical questions are the waiting room of data work. Exploration stalls while a scan runs; a pipeline finishes late; a dashboard answers at the speed of the slowest query behind it. The usual remedies carry a rewrite: move the data into a separate warehouse, translate the SQL into a GPU programming interface, or accept a new tool in the chain and maintain the seam forever. Sirius removes the rewrite from the decision. The interface the team already trusts stays in place, and the acceleration arrives underneath it, one extension load at a time.</p>
+<p data-tr>That shape matters beyond databases. Context engineering at Ovia since December 2022 rests on the same discipline: hold the surface that people and systems depend on steady, and improve the machinery behind the surface where measurement can prove the gain. A stable interface is not conservatism. The stable interface is what makes a faster engine safe to try, because the comparison stays honest — same question, same data, same result shape, two engines.</p>
+<blockquote class="pull" data-tr>Hold the surface steady, and improve the machinery behind the surface where measurement can prove the gain.</blockquote>
+<h2 class="sec" data-tr>03 · The craft angle: keep the question, change the engine</h2>
+<p data-tr>The benchmark NVIDIA published is a cold-run comparison, and the details deserve the same care as the headline. Queries derived from the TPC-H benchmark ran at scale factors from 100 gigabytes to 10 terabytes, with data stored in Amazon S3, under default and tuned settings, on pinned development builds. With tuned settings, two GPUs delivered the 3.25 to 5.50 times speedups over the best tested CPU configurations. At the one-terabyte scale, total runtime fell from 347.3 seconds to 63.2 seconds. At three terabytes, runtime fell from 752.4 seconds to 160.6 seconds, with query-time compute cost lower by approximately 71 percent. At ten terabytes, the tuned two-GPU run finished in 729.9 seconds against 2,369.4 seconds on CPU, a 3.25 times speedup and approximately 79 percent lower query-time compute cost. Every figure in this section is NVIDIA-reported.</p>
+<figure class="wide"><img src="ovia-inc-same-sql-new-engine-body-2.webp" alt="Ovia Inc — graphics card photographed from above, the class of hardware that executes supported query plans under Sirius"><figcaption data-tr>The execution layer, up close: a current-generation graphics card photographed from above. Image: Ovia Inc</figcaption></figure>
+<p data-tr>Two craft lessons travel with the numbers. First, scale changes the right configuration: at the smallest scale tested, one GPU carried the lowest cost while two GPUs carried the shortest runtime, and at the largest scale the tuned two-GPU setup won on both measures. Second, tuning is part of the result, not a footnote: at ten terabytes, the default two-GPU configuration did not finish, while the tuned configuration completed the workload. An engine swap that cannot state its settings has not yet earned a production slot.</p>
+<h2 class="sec" data-tr>04 · Caveats and fine print</h2>
+<p data-tr>The fine print is specific, and the article keeps the whole of it in view. Sirius timings exclude result fetch and export, while the CPU timings include CSV output, so the comparison is close but not perfectly symmetrical. Query-time compute costs cover measured instance runtime and exclude startup, validation, storage, S3 transfer and idle time. The tests used pinned development builds rather than a retail release. Support is partial by design: queries with unsupported features fall back to the CPU engine, which protects correctness and also means a workload gains only where the supported set reaches. Results vary with query structure, dataset size, hardware and cache conditions, as NVIDIA notes in the release itself.</p>
+<h2 class="sec" data-tr>05 · What to watch</h2>
+<p data-tr>Watch the supported set. Every operator and function Sirius learns widens the share of a real workload that runs on the GPU, and the fallback boundary is where adoption will be decided. Watch the benchmark runner as well: the repository publishes the runner, the query definitions, the configuration notes and the setup steps, so the honest next move for any team is a local rerun on local data before any claim travels further. And watch where the pattern repeats — an established interface, a new engine underneath, a published way to check the difference. That pattern is how infrastructure improves without breaking the work built on top of it.</p>
+<p data-tr>We run data work the way the Studio and the Lab run every engagement: the question stays legible, the engine earns its place under measurement, and the result returns through the surface the team already knows. Same SQL. New engine. Proof before adoption.</p>
+
+  </div>
+  <div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+<li><span data-tr>NVIDIA Technical Blog — “Get Started with GPU-Accelerated DuckDB Analytics Using the Sirius Core Extension”, November 23, 2026:</span> <a href="https://developer.nvidia.com/blog/get-started-with-gpu-accelerated-duckdb-analytics-using-the-sirius-core-extension/">https://developer.nvidia.com/blog/get-started-with-gpu-accelerated-duckdb-analytics-using-the-sirius-core-extension/</a></li>
+<li><span data-tr>DuckDB — “Announcing DuckDB 2.0.1 LTS”, November 20, 2026:</span> <a href="https://duckdb.org/2026/11/20/announcing-duckdb-201">https://duckdb.org/2026/11/20/announcing-duckdb-201</a></li>
+<li><span data-tr>Sirius project — benchmark runner, query definitions and configuration, GitHub repository:</span> <a href="https://github.com/sirius-db/sirius">https://github.com/sirius-db/sirius</a></li>
+<li><span data-tr>Photographs: server racks at the NOIRLab Headquarters Computer Server Room in Tucson, Arizona — NOIRLab/NSF/AURA/T. Slovinský, Creative Commons Attribution 4.0, via Wikimedia Commons:</span> <a href="https://commons.wikimedia.org/wiki/File:NOIRLab_HQ_Server_Racks_(6V6A0404-CC).jpg">https://commons.wikimedia.org/wiki/File:NOIRLab_HQ_Server_Racks_(6V6A0404-CC).jpg</a></li>
+<li><span data-tr>Photographs: top view of a server rack in the CERN Computer Centre — Marián Hubinský, Creative Commons Attribution-Share Alike 4.0, via Wikimedia Commons:</span> <a href="https://commons.wikimedia.org/wiki/File:Rack_of_Worldwide_LHC_Computing_Grid.jpg">https://commons.wikimedia.org/wiki/File:Rack_of_Worldwide_LHC_Computing_Grid.jpg</a></li>
+<li><span data-tr>Photographs: data centre at the Gemini South telescope in Chile, fisheye view — International Gemini Observatory/NOIRLab/NSF/AURA/Manuel Paredes, Creative Commons Attribution 4.0, via Wikimedia Commons:</span> <a href="https://commons.wikimedia.org/wiki/File:Data_Center_Fish_Eye_View_(noirlab-racks-155).jpg">https://commons.wikimedia.org/wiki/File:Data_Center_Fish_Eye_View_(noirlab-racks-155).jpg</a></li>
+<li><span data-tr>Photographs: Palit GeForce RTX 5090 GameRock graphics card photographed from above — PantheraLeo1359531, Creative Commons Attribution 4.0, via Wikimedia Commons:</span> <a href="https://commons.wikimedia.org/wiki/File:Palit_GeForce_RTX_5090_Gamerock_20250530_HOF4032.png">https://commons.wikimedia.org/wiki/File:Palit_GeForce_RTX_5090_Gamerock_20250530_HOF4032.png</a></li>
+
+    </ul>
+  </div>
+  <p class="tags">#ArtificialIntelligence #DataEngineering #GPUComputing #DuckDB #NVIDIA #ContextEngineering #toyoursatisfaction</p>
+  <footer>
+    <div class="frow">
+      <a href="../../" aria-label="Ovia Inc — home"><img class="flogo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="../../">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
+  </footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+</body>
+</html>
