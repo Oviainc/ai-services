@@ -240,7 +240,7 @@ function fill(d){
   el.num.textContent=d.label+" \u00B7 "+("0"+d.num).slice(-2);
   if(img){el.img.src=img.src;el.img.alt=img.alt;el.img.style.display="";}else{el.img.removeAttribute("src");el.img.style.display="none";}
   el.title.textContent=card.querySelector("h3").textContent;
-  var capT=view.querySelector(".dv-cap-t");if(capT)capT.textContent=d.label+" \u00B7 "+("0"+d.num).slice(-2)+" \u2014 "+el.title.textContent;
+  var capT=view.querySelector(".dv-cap-t");if(capT)capT.textContent=el.title.textContent;
   var comp=card.querySelector(".comp");el.comp.textContent=comp?comp.textContent:"";el.comp.style.display=comp?"":"none";
   var capC=view.querySelector(".dv-cap-c");if(capC)capC.textContent=comp?comp.textContent:"";
   el.body.innerHTML="";
