@@ -30,7 +30,7 @@ h2::before,h2::after{content:"";flex:1;height:1px;background:#000}
 .card h3{margin:0 0 .65rem;font-weight:400;font-size:1.62rem;line-height:1.18}
 .card p{margin:0 auto 1rem;max-width:21rem}
 .card .comp{font-family:var(--sans);font-style:normal;text-transform:uppercase;letter-spacing:.13em;font-size:.7rem;line-height:1.85;font-weight:600}
-.card .tag{font-style:italic;font-size:1.06rem}
+.card .tag{font-style:italic;font-size:1.06rem}.card .tag::before{content:"— "}
 .card 
 .card .pairs{font-family:var(--sans);letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;font-weight:600}
 .card a{color:#000;text-decoration:none}
@@ -47,7 +47,7 @@ footer p:first-of-type{font-family:var(--sans);letter-spacing:.38em;padding-left
 
  .card{transition:opacity .6s ease,transform .6s ease}
  .card.pre{opacity:0;transform:translateY(10px)}
- .card.dish{cursor:zoom-in}
+ .card.dish{cursor:pointer}.card.dish img{cursor:zoom-in}
  .card.dish img{transition:transform .6s ease}
  .card.dish:hover img{transform:scale(1.02)}
  .filters{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin:2.25rem 0 0;font-family:var(--sans)}
