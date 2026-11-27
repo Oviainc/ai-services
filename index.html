@@ -912,7 +912,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
       })();
     </script>
+    <script src="shared/lines.js"></script>
     <script>"use strict";
+      /* Shared lines: single source in shared/lines.js (LINE-REGISTRY.md).
+         SL(lang, key, fallback) reads the shared value; the fallback is
+         today's wording, used only if the shared file failed to load,
+         and is verified identical to the shared value at every push. */
+      var SL = function (lang, key, fallback) {
+        return (window.OVIA_LINES && window.OVIA_LINES[lang] && window.OVIA_LINES[lang][key]) || fallback;
+      };
 
       /* ============ Written languages: English, Français, Español ============
          This page is written in English, with hand-written Français and
@@ -927,17 +935,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           metaTitle: "AI Automation & AI Agents for Businesses | OVIA Inc.",
           langLabel: "Language",
           langNote: "",
-          metaDesc: "OVIA designs, builds and runs your agents, machine learning and product — and the daily operation they live in. Multilingual as standard, under a written plan with a fixed price.",
+          metaDesc: SL("en", "metadesc", "OVIA designs, builds and runs your agents, machine learning and product — and the daily operation they live in. Multilingual as standard, under a written plan with a fixed price."),
           navAgents: "Agents", navMl: "Machine Learning", navProducts: "Products",
           navServices: "Services", navWhy: "Why OVIA", navValues: "Values", navContact: "Contact Us",
-          book: "Got questions?",
+          book: SL("en", "cta", "Got questions?"),
         consultLine: "A consultation is a working session, not a sales call. Bring the problem that costs the most; leave with a written plan and a fixed price. If the fit is not there, the plan remains yours. Every serious enquiry receives a reply within one business day.",
         dataNote: "How client data and AI tools are handled is documented in full: <a href=\"privacy.html\">Privacy &amp; AI Transparency</a>.",
-          heroH1: "Designed in the Studio. Proven in the Lab.",
-          heroMission: "Your agents, machine learning and product, and the operation they live in — designed, built and managed end to end.",
+          heroH1: SL("en", "headline", "Designed in the Studio. Proven in the Lab."),
+          heroMission: SL("en", "subline", "Your agents, machine learning and product, and the operation they live in — designed, built and managed end to end."),
         heroLine: "Multilingual as standard — every conversation in the client's own language.",
-        buyerLine: "Any company. Any domain. Premium by design.",
-        pilotLine: "Begin at a single site. Fixed price, in writing, before anything starts.",
+        buyerLine: SL("en", "buyer", "Any company. Any domain. Premium by design."),
+        pilotLine: SL("en", "pilot", "Begin at a single site. Fixed price, in writing, before anything starts."),
           capHero: "Film — One glass form, dividing into three",
           ariaHero: "Film: a single colossal clear glass slab standing alone in a vast dark hall quietly divides into three ordered glass slabs, warm light glowing along their edges, then settles still above the glossy dark floor, gentle fog — surreal and minimal, in full colour, no water, no people",
           flag01: "Flagship 01", flag02: "Flagship 02", flag03: "Flagship 03",
@@ -1034,7 +1042,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         "fr": {
           "metaTitle": "Automatisation IA et agents IA pour les entreprises | OVIA Inc.",
           "langLabel": "Langue",
-          "metaDesc": "OVIA conçoit, construit et fait tourner vos agents, votre apprentissage machine et votre produit — ainsi que l'exploitation quotidienne où ils vivent. Multilingue par principe, sous un plan écrit à prix fixe.",
+          "metaDesc": SL("fr", "metadesc", "OVIA conçoit, construit et fait tourner vos agents, votre apprentissage machine et votre produit — ainsi que l'exploitation quotidienne où ils vivent. Multilingue par principe, sous un plan écrit à prix fixe."),
           "navAgents": "Agents",
           "navMl": "Apprentissage machine",
           "navProducts": "Produits",
@@ -1042,14 +1050,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           "navWhy": "Pourquoi OVIA",
           "navValues": "Valeurs",
           "navContact": "Nous contacter",
-          "book": "Des questions ?",
+          "book": SL("fr", "cta", "Des questions ?"),
           "consultLine": "Une consultation est une séance de travail, pas un appel de vente. Apportez le problème qui coûte le plus cher ; repartez avec un plan écrit et un prix fixe. Si l'adéquation n'est pas là, le plan reste le vôtre. Toute demande sérieuse reçoit une réponse sous un jour ouvrable.",
           "dataNote": "Le traitement des données des clients et des outils d'IA est documenté en entier : <a href=\"privacy.html\">Confidentialité et transparence de l'IA</a>.",
-          "heroH1": "Conçu dans le studio. Prouvé dans le laboratoire.",
-          "heroMission": "Vos agents, votre apprentissage machine et votre produit, ainsi que l'exploitation où ils vivent — conçus, construits et gérés de bout en bout.",
+          "heroH1": SL("fr", "headline", "Conçu dans le studio. Prouvé dans le laboratoire."),
+          "heroMission": SL("fr", "subline", "Vos agents, votre apprentissage machine et votre produit, ainsi que l'exploitation où ils vivent — conçus, construits et gérés de bout en bout."),
           "heroLine": "Multilingue par principe — chaque conversation dans la langue même du client.",
-          "buyerLine": "Toute entreprise. Tout domaine. Premium par conception.",
-          "pilotLine": "Commencez par un seul site. Prix fixe, par écrit, avant que quoi que ce soit commence.",
+          "buyerLine": SL("fr", "buyer", "Toute entreprise. Tout domaine. Premium par conception."),
+          "pilotLine": SL("fr", "pilot", "Commencez par un seul site. Prix fixe, par écrit, avant que quoi que ce soit commence."),
           "capHero": "Film — Une forme de verre, qui se divise en trois",
           "ariaHero": "Film : une seule dalle colossale de verre clair, debout seule dans une vaste salle sombre, se divise doucement en trois dalles de verre ordonnées, une lumière chaude brillant le long de leurs arêtes, puis se pose immobile au-dessus du sol sombre et brillant, brume légère — surréaliste et minimal, en couleurs, sans eau, sans personne",
           "flag01": "Pilier 01",
@@ -1163,7 +1171,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         "es": {
           "metaTitle": "Automatización con IA y agentes de IA para empresas | OVIA Inc.",
           "langLabel": "Idioma",
-          "metaDesc": "OVIA diseña, construye y opera sus agentes, su aprendizaje automático y su producto — y la operación diaria en la que viven. Multilingüe por principio, bajo un plan escrito con precio fijo.",
+          "metaDesc": SL("es", "metadesc", "OVIA diseña, construye y opera sus agentes, su aprendizaje automático y su producto — y la operación diaria en la que viven. Multilingüe por principio, bajo un plan escrito con precio fijo."),
           "navAgents": "Agentes",
           "navMl": "Aprendizaje automático",
           "navProducts": "Productos",
@@ -1171,14 +1179,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           "navWhy": "Por qué OVIA",
           "navValues": "Valores",
           "navContact": "Contáctenos",
-          "book": "¿Preguntas?",
+          "book": SL("es", "cta", "¿Preguntas?"),
           "consultLine": "Una consulta es una sesión de trabajo, no una llamada de ventas. Traiga el problema que más cuesta; salga con un plan escrito y un precio fijo. Si el encaje no está, el plan sigue siendo suyo. Toda consulta seria recibe respuesta en un día laborable.",
           "dataNote": "El tratamiento de los datos de los clientes y de las herramientas de IA está documentado por completo: <a href=\"privacy.html\">Privacidad y transparencia de la IA</a>.",
-          "heroH1": "Diseñado en el estudio. Probado en el laboratorio.",
-          "heroMission": "Sus agentes, su aprendizaje automático y su producto, y la operación en la que viven — diseñados, construidos y gestionados de principio a fin.",
+          "heroH1": SL("es", "headline", "Diseñado en el estudio. Probado en el laboratorio."),
+          "heroMission": SL("es", "subline", "Sus agentes, su aprendizaje automático y su producto, y la operación en la que viven — diseñados, construidos y gestionados de principio a fin."),
           "heroLine": "Multilingüe por principio — cada conversación en el idioma propio del cliente.",
-          "buyerLine": "Cualquier empresa. Cualquier dominio. Premium por diseño.",
-          "pilotLine": "Empiece por un solo sitio. Precio fijo, por escrito, antes de que empiece nada.",
+          "buyerLine": SL("es", "buyer", "Cualquier empresa. Cualquier dominio. Premium por diseño."),
+          "pilotLine": SL("es", "pilot", "Empiece por un solo sitio. Precio fijo, por escrito, antes de que empiece nada."),
           "capHero": "Película — Una forma de vidrio, dividiéndose en tres",
           "ariaHero": "Película: una sola losa colosal de vidrio claro, en pie sola en una vasta sala oscura, se divide en silencio en tres losas de vidrio ordenadas, luz cálida brillando a lo largo de sus bordes, y luego se asienta inmóvil sobre el suelo oscuro y brillante, niebla suave — surrealista y minimalista, a todo color, sin agua, sin personas",
           "flag01": "Emblema 01",
