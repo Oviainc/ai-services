@@ -1,43 +1,29 @@
-# Ovia Inc — AI Services
+# Ovia Inc - AI Services
 
-**AI, without the hype.**
+Designed in the Studio. Proven in the Lab.
 
-![Ovia Inc — AI agents, machine learning in production, and AI products for business](assets/ovia-inc-logo-film.jpg)
+The front desk, the follow up, the alerts, the presence and the underpinnings, run as one measured operation. Agents, machine learning and products, specified in writing, tested before launch, measured in production, managed end to end.
 
-
-We build AI agents, machine learning in production, and AI products for business — practical systems that do real work, explained in plain language.
-
-**Live site:** https://oviainc.github.io/ai-services/
+Live site: https://oviainc.github.io/ai-services/
 
 ## What we do
 
-- **AI agents** — agents that answer, route, draft, and follow through on real tasks, with a dedicated team behind them.
-- **Machine learning in production** — models moved out of notebooks and into daily operations, with monitoring and honest reporting.
-- **AI products for business** — focused tools built around one clear job, designed to be used every day.
-- **Context engineering** — the discipline behind reliable agents: the right information, in the right shape, at the right moment.
-- **Business intelligence & data** — dashboards, automation, and data workflows that turn scattered information into decisions.
+- Agents and autonomous workflows - reception, follow up, bookings and after hours lines, configured on the client own tools, evaluated before launch, scored in live operation. Deliverable: a configured agent team, managed daily, with a person able to step in at any point.
+- Machine learning, in production - warnings drawn from the client own records: stock, workload, mismatched bills, unused seats. Deliverable: an early warning system on the client own records, checked daily.
+- Products people actually use - storefronts, catalogues and internal screens, engineered to a written specification. Deliverable: the product itself, plus the source behind the product, managed after launch.
+- Immersive and Connected - simulation used as evidence, walked through before anything is built. Deliverable: an interactive preview in any modern browser.
+- Cloud, Security and IT - infrastructure under continuous verification, backups restore tested. Deliverable: managed storage, verified backups, security kept current, one point of contact.
+- Sustainable Design - design reduced to a documented system. Deliverable: the design, the source files, and the usage rules.
 
 ## Magazine
 
-We publish what we learn from real work — every piece lives on the site, in English, French, and Spanish:
-
-- [Magazine](https://oviainc.github.io/ai-services/magazine/) — current issue: [2026 Q4](https://oviainc.github.io/ai-services/magazine/2026-q4/)
-- New pieces are added as the work happens; each one is written from an actual project, deployment, or result.
-
-## This repository
-
-This repo is the source of the Ovia Inc AI services site:
-
-- `index.html` — the one-page site: one film per section, one headline, one line, one next step.
-- `magazine/` — the Magazine: hub, quarterly issues, and every piece the site and our posts link to. (`articles/` now holds only the library images and the redirect stubs for the old addresses.)
-- `assets/` — the section films and images (all images named `ovia-inc-*`).
-
-The site is plain HTML/CSS with no build step, served by GitHub Pages. It displays automatically in the visitor's language, with a language chooser covering 75+ languages.
+Quarterly, one issue at a time. Every piece lives on the site, multilingual as standard, with references in the open.
 
 ## Working with us
 
-Start from the site: https://oviainc.github.io/ai-services/ — the contact form there is the fastest way to reach the team.
+Start from the site contact form: https://oviainc.github.io/ai-services/#contact
+Every engagement opens with an audit, proceeds on a written plan at a fixed price, and runs as a managed system.
 
 ---
-
-Ovia Inc — Artificial Intelligence & Context Engineering. Based in Canada, working wherever the work is.
+Ovia Inc - AI operations and context engineering, managed end to end. Fully remote, wherever the work is.
+#toyoursatisfaction
