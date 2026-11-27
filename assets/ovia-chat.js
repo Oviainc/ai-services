@@ -80,7 +80,7 @@
     ".oc-bot{background:#fff}",
     ".oc-user{background:#000;color:#fff;margin-left:auto}",
     ".oc-topics{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 12px}",
-    ".oc-topic{background:#fff;border:1px solid #000;padding:6px 10px;cursor:pointer;font:13px system-ui,sans-serif}",
+    ".oc-topic{background:#fff;color:#000;-webkit-text-fill-color:#000;border:1px solid #000;padding:6px 10px;cursor:pointer;font:13px system-ui,sans-serif}",
     ".oc-topic:hover{background:#000;color:#fff}",
     "#ovia-chat-form{display:flex;border-top:1.5px solid #000}",
     "#ovia-chat-input{flex:1;border:none;padding:12px;font:14px system-ui,sans-serif;color:#000;background:#fff}",
