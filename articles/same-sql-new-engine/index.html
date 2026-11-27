@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
 <title>Same SQL, New Engine: Sirius Puts the GPU Under DuckDB — Ovia Inc</title>
-<meta name="description" content="NVIDIA and DuckLabs released Sirius, a GPU-native core extension that runs supported DuckDB queries on the GPU with no SQL rewrite — and published the runner to check the claim locally.">
+<meta name="description" content="NVIDIA and DuckLabs released Sirius, a GPU-native core extension that runs supported DuckDB queries on the GPU with no SQL rewrite, and published the runner to check the claim locally.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Same SQL, New Engine: Sirius Puts the GPU Under DuckDB">
-<meta property="og:description" content="NVIDIA and DuckLabs released Sirius, a GPU-native core extension that runs supported DuckDB queries on the GPU with no SQL rewrite — and published the runner to check the claim locally.">
+<meta property="og:description" content="NVIDIA and DuckLabs released Sirius, a GPU-native core extension that runs supported DuckDB queries on the GPU with no SQL rewrite, and published the runner to check the claim locally.">
 <meta property="og:url" content="https://oviainc.github.io/ai-services/articles/same-sql-new-engine/">
 <meta property="og:image" content="https://oviainc.github.io/ai-services/articles/same-sql-new-engine/ovia-inc-same-sql-new-engine-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
@@ -71,7 +71,7 @@
 </style>
 <style id="arch-css">
 /* Layout archetype: asym (asymmetric columns) */
-/* 6 — Asymmetric columns */
+/* 6, Asymmetric columns */
 body.arch-asym h1.display{max-width:640px;margin-left:auto;}
 body.arch-asym .standfirst{max-width:640px;margin-left:auto;}
 body.arch-asym .byline{text-align:right;}
@@ -90,7 +90,7 @@ body.arch-asym .hero-zone figure.hero{max-width:860px;margin-left:auto;}
   <div class="mast-inner">
     <div class="masthead">
       <a class="logo" href="../../" aria-label="Ovia Inc — home"><img class="logo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
-      <span class="wordmark">Ovia Inc — Magazine</span>
+      <span class="wordmark">Ovia Inc, Magazine</span>
       <div class="langbar">
         <label for="langPick" data-tr>Language</label>
         <select id="langPick" aria-label="Choose your language">
@@ -173,7 +173,7 @@ body.arch-asym .hero-zone figure.hero{max-width:860px;margin-left:auto;}
           </select>
       </div>
     </div>
-    <p class="kicker" data-tr>Ovia Inc — Data · GPU Analytics</p>
+    <p class="kicker" data-tr>Ovia Inc, Data · GPU Analytics</p>
     <h1 class="display" data-tr>Same SQL, New Engine: Sirius Puts the GPU Under DuckDB</h1>
     <p class="standfirst" data-tr>Two commands load a GPU engine inside DuckDB, the SQL stays word for word, and the published benchmark runner lets any team test the speedup before believing a single figure.</p>
     <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
@@ -196,7 +196,7 @@ body.arch-asym .hero-zone figure.hero{max-width:860px;margin-left:auto;}
 <figure class="body"><img src="ovia-inc-same-sql-new-engine-body-1.webp" alt="Ovia Inc — data centre at the Gemini South telescope in Chile seen through protective cells in a fisheye view"><figcaption data-tr>The room where the engine lives: a data centre at the Gemini South telescope in Chile, seen through its protective cells. Image: Ovia Inc</figcaption></figure>
 <h2 class="sec" data-tr>02 · Why it matters</h2>
 <p data-tr>Analytical questions are the waiting room of data work. Exploration stalls while a scan runs; a pipeline finishes late; a dashboard answers at the speed of the slowest query behind it. The usual remedies carry a rewrite: move the data into a separate warehouse, translate the SQL into a GPU programming interface, or accept a new tool in the chain and maintain the seam forever. Sirius removes the rewrite from the decision. The interface the team already trusts stays in place, and the acceleration arrives underneath it, one extension load at a time.</p>
-<p data-tr>That shape matters beyond databases. Context engineering at Ovia since December 2022 rests on the same discipline: hold the surface that people and systems depend on steady, and improve the machinery behind the surface where measurement can prove the gain. A stable interface is not conservatism. The stable interface is what makes a faster engine safe to try, because the comparison stays honest — same question, same data, same result shape, two engines.</p>
+<p data-tr>That shape matters beyond databases. Context engineering at Ovia since December 2022 rests on the same discipline: hold the surface that people and systems depend on steady, and improve the machinery behind the surface where measurement can prove the gain. A stable interface is not conservatism. The stable interface is what makes a faster engine safe to try, because the comparison stays honest, same question, same data, same result shape, two engines.</p>
 <blockquote class="pull" data-tr>Hold the surface steady, and improve the machinery behind the surface where measurement can prove the gain.</blockquote>
 <h2 class="sec" data-tr>03 · The craft angle: keep the question, change the engine</h2>
 <p data-tr>The benchmark NVIDIA published is a cold-run comparison, and the details deserve the same care as the headline. Queries derived from the TPC-H benchmark ran at scale factors from 100 gigabytes to 10 terabytes, with data stored in Amazon S3, under default and tuned settings, on pinned development builds. With tuned settings, two GPUs delivered the 3.25 to 5.50 times speedups over the best tested CPU configurations. At the one-terabyte scale, total runtime fell from 347.3 seconds to 63.2 seconds. At three terabytes, runtime fell from 752.4 seconds to 160.6 seconds, with query-time compute cost lower by approximately 71 percent. At ten terabytes, the tuned two-GPU run finished in 729.9 seconds against 2,369.4 seconds on CPU, a 3.25 times speedup and approximately 79 percent lower query-time compute cost. Every figure in this section is NVIDIA-reported.</p>
@@ -205,7 +205,7 @@ body.arch-asym .hero-zone figure.hero{max-width:860px;margin-left:auto;}
 <h2 class="sec" data-tr>04 · Caveats and fine print</h2>
 <p data-tr>The fine print is specific, and the article keeps the whole of it in view. Sirius timings exclude result fetch and export, while the CPU timings include CSV output, so the comparison is close but not perfectly symmetrical. Query-time compute costs cover measured instance runtime and exclude startup, validation, storage, S3 transfer and idle time. The tests used pinned development builds rather than a retail release. Support is partial by design: queries with unsupported features fall back to the CPU engine, which protects correctness and also means a workload gains only where the supported set reaches. Results vary with query structure, dataset size, hardware and cache conditions, as NVIDIA notes in the release itself.</p>
 <h2 class="sec" data-tr>05 · What to watch</h2>
-<p data-tr>Watch the supported set. Every operator and function Sirius learns widens the share of a real workload that runs on the GPU, and the fallback boundary is where adoption will be decided. Watch the benchmark runner as well: the repository publishes the runner, the query definitions, the configuration notes and the setup steps, so the honest next move for any team is a local rerun on local data before any claim travels further. And watch where the pattern repeats — an established interface, a new engine underneath, a published way to check the difference. That pattern is how infrastructure improves without breaking the work built on top of it.</p>
+<p data-tr>Watch the supported set. Every operator and function Sirius learns widens the share of a real workload that runs on the GPU, and the fallback boundary is where adoption will be decided. Watch the benchmark runner as well: the repository publishes the runner, the query definitions, the configuration notes and the setup steps, so the honest next move for any team is a local rerun on local data before any claim travels further. And watch where the pattern repeats, an established interface, a new engine underneath, a published way to check the difference. That pattern is how infrastructure improves without breaking the work built on top of it.</p>
 <p data-tr>We run data work the way the Studio and the Lab run every engagement: the question stays legible, the engine earns its place under measurement, and the result returns through the surface the team already knows. Same SQL. New engine. Proof before adoption.</p>
 
   </div>

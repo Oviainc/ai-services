@@ -2,18 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="icon" href="/ai-services/assets/favicon.ico" sizes="any" media="(prefers-color-scheme: light)">
-<link rel="icon" href="/ai-services/assets/favicon-white.ico" sizes="any" media="(prefers-color-scheme: dark)">
-<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32.png" media="(prefers-color-scheme: light)">
-<link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32-white.png" media="(prefers-color-scheme: dark)">
-<link rel="apple-touch-icon" href="/ai-services/assets/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
 <title>Ask for the Fields, Not the Page: A Small Model That Returns Null — Ovia Inc</title>
-<meta name="description" content="Dharma-AI's Field Extractor, published on Hugging Face on November 4, 2026, returns exact fields from any document as structured JSON — and returns null instead of inventing a value — and the case for treating the schema as the context.">
+<meta name="description" content="Dharma-AI's Field Extractor, published on Hugging Face on November 4, 2026, returns exact fields from any document as structured JSON, and returns null instead of inventing a value, and the case for treating the schema as the context.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ask for the Fields, Not the Page: A Small Model That Returns Null">
-<meta property="og:description" content="Dharma-AI's Field Extractor, published on Hugging Face on November 4, 2026, returns exact fields from any document as structured JSON — and returns null instead of inventing a value — and the case for treating the schema as the context.">
+<meta property="og:description" content="Dharma-AI's Field Extractor, published on Hugging Face on November 4, 2026, returns exact fields from any document as structured JSON, and returns null instead of inventing a value, and the case for treating the schema as the context.">
 <meta property="og:url" content="https://oviainc.github.io/ai-services/articles/ask-for-the-fields/">
 <meta property="og:image" content="https://oviainc.github.io/ai-services/articles/ask-for-the-fields/ovia-inc-ask-for-the-fields-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
@@ -75,7 +70,7 @@
   @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
 <style id="arch-css">
-/* 3 — Photo-essay grid */
+/* 3, Photo-essay grid */
 body.arch-grid .cols{display:grid;grid-template-columns:repeat(6,1fr);gap:28px;column-count:1;}
 body.arch-grid .cols>*{grid-column:span 3;margin-top:0;}
 body.arch-grid .cols p{margin-bottom:0;}
@@ -95,7 +90,7 @@ body.arch-grid .cols .keybox{grid-column:span 3;margin:0;}
   <div class="mast-inner">
     <div class="masthead">
       <a class="logo" href="../../" aria-label="Ovia Inc — home"><img class="logo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
-      <span class="wordmark">Ovia Inc — Magazine</span>
+      <span class="wordmark">Ovia Inc, Magazine</span>
       <div class="langbar">
         <label for="langPick" data-tr>Language</label>
         <select id="langPick" aria-label="Choose your language">
@@ -178,9 +173,9 @@ body.arch-grid .cols .keybox{grid-column:span 3;margin:0;}
           </select>
       </div>
     </div>
-    <p class="kicker" data-tr>Ovia Inc — Business Intelligence · Document Data</p>
+    <p class="kicker" data-tr>Ovia Inc, Business Intelligence · Document Data</p>
     <h1 class="display" data-tr>Ask for the Fields, Not the Page: A Small Model That Returns Null</h1>
-    <p class="standfirst" data-tr>A two-billion-parameter model reads a document image and hands back only the named fields, typed, under the keys the receiving system already uses — and leaves an honest blank where the document holds nothing.</p>
+    <p class="standfirst" data-tr>A two-billion-parameter model reads a document image and hands back only the named fields, typed, under the keys the receiving system already uses, and leaves an honest blank where the document holds nothing.</p>
     <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
   </div>
 </header>
