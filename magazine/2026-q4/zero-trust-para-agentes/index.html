@@ -197,7 +197,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p data-tr>Un agente rápido sin identidad clara solo produce errores más rápido. La identidad define qué puede hacer cada agente, con qué permisos y bajo qué registro. Por eso el orden importa: primero la identidad, después la autonomía. Cuando un agente comparte las credenciales de una persona, cada acción suya se confunde con las acciones de esa persona, y la primera pregunta de cualquier auditoría, quién hizo qué, deja de tener respuesta.</p>
 <p data-tr>La identidad propia se construye con las mismas piezas que ya conocemos de la federación clásica. OAuth 2.0 aporta la delegación con alcance limitado: un token dice qué se puede hacer, dónde y hasta cuándo. OpenID Connect añade la capa de identidad sobre ese flujo. SAML sigue resolviendo la federación empresarial. Y JWT ofrece el formato firmado que transporta las afirmaciones de un servicio a otro. Ninguna de estas piezas es nueva; lo nuevo es aplicarlas a actores que no son personas ni aplicaciones tradicionales, sino agentes que planifican.</p>
 <figure class="body">
-      <img src="https://oviainc.github.io/ai-services/articles/zero-trust-para-agentes/ovia-inc-zero-trust-para-agentes-body-1.webp" alt="Ovia Inc — Un teclado de control de acceso desgastado con luz indicadora roja">
+      <img src="https://oviainc.github.io/ai-services/articles/zero-trust-para-agentes/ovia-inc-zero-trust-para-agentes-body-1.webp" alt="Ovia Inc — Un teclado de control de acceso desgastado con luz indicadora roja" loading="lazy" decoding="async">
       <figcaption data-tr>El teclado de acceso, desgastado por el uso: cada paso se comprueba en la puerta. Imagen: <a href="https://www.pexels.com/photo/7824263/">Erik Mclean</a> · Pexels</figcaption>
     </figure>
 <h2 class="sec" id="sec-2" data-tr>02 · Permisos mínimos, siempre</h2>
@@ -206,14 +206,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2 class="sec" id="sec-3" data-tr>03 · Cada acción, verificada</h2>
 <p data-tr>Verificar una vez al inicio de la sesión no basta cuando quien actúa encadena decenas de acciones por minuto. La verificación debe acompañar a la acción: cada llamada a una herramienta, cada lectura sensible y cada escritura deberían pasar por el mismo punto de control que decidió la identidad y los permisos. Ese punto de control es el lugar donde la política se convierte en comportamiento: qué agente, qué acción, sobre qué recurso, con qué justificación registrada.</p>
 <figure class="body">
-      <img src="https://oviainc.github.io/ai-services/articles/zero-trust-para-agentes/ovia-inc-zero-trust-para-agentes-body-2.webp" alt="Ovia Inc — Una llave de acero y una ficha de acceso sobre acero oscuro bajo luz roja de acento">
+      <img src="https://oviainc.github.io/ai-services/articles/zero-trust-para-agentes/ovia-inc-zero-trust-para-agentes-body-2.webp" alt="Ovia Inc — Una llave de acero y una ficha de acceso sobre acero oscuro bajo luz roja de acento" loading="lazy" decoding="async">
       <figcaption data-tr>La credencial como objeto físico: única, con dueño y con fecha de caducidad. Imagen: Ovia Inc</figcaption>
     </figure>
 <p data-tr>Este diseño tiene un beneficio lateral que aparece en cuanto el sistema crece: el punto de control se convierte en el mejor lugar para observar. Si toda acción verificada pasa por el mismo sitio, ese sitio sabe qué agentes trabajan, qué herramientas usan y qué resultados devuelven. La seguridad y la observabilidad dejan de ser dos sistemas distintos y pasan a ser dos lecturas del mismo registro.</p>
 <h2 class="sec" id="sec-4" data-tr>04 · El registro que se puede comprobar</h2>
 <p data-tr>El tercer compromiso es el registro verificable. No alcanza con guardar registros que el propio sistema puede editar: el registro debe permitir que un tercero compruebe qué ocurrió, en qué orden y bajo qué identidad. Cuando un agente actúa en nombre de un equipo humano, la confianza no se declara; se demuestra mostrando la cadena completa de decisiones y acciones.</p>
 <figure class="wide">
-      <img src="https://oviainc.github.io/ai-services/articles/zero-trust-para-agentes/ovia-inc-zero-trust-para-agentes-body-3.webp" alt="Ovia Inc — Una cerradura de varios cerrojos con la llave puesta">
+      <img src="https://oviainc.github.io/ai-services/articles/zero-trust-para-agentes/ovia-inc-zero-trust-para-agentes-body-3.webp" alt="Ovia Inc — Una cerradura de varios cerrojos con la llave puesta" loading="lazy" decoding="async">
       <figcaption data-tr>La cerradura como objeto: varios cerrojos, una llave, ninguna confianza heredada. Imagen: <a href="https://www.pexels.com/photo/279810/">Pixabay</a> · Pexels</figcaption>
     </figure>
 <p data-tr>Ese registro también protege al propio equipo que despliega agentes. Cuando algo sale mal, y algo saldrá mal, la diferencia entre un incidente y una crisis es poder reconstruir la secuencia exacta: qué se pidió, qué se verificó, qué se permitió y qué se ejecutó. Sin registro verificable, cada error de un agente se convierte en una sospecha sobre todo el sistema.</p>
