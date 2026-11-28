@@ -13,7 +13,7 @@
         placeholder: "Ask about offerings, method, pricing",
         send: "Send",
         privacy: "Nothing typed here is sent anywhere. Answers are produced on your device.",
-        welcome: "Welcome. Ask about the offerings, the method, or pricing, or choose a topic.",
+        welcome: "OVIA is a studio and a lab that designs, builds and runs technology for anyone, in any domain: technology that answers, learns, creates, immerses, protects and lasts, all of it managed end to end. Welcome. Ask about the offerings, the method, or pricing, or choose a topic.",
         fallback: "All we know is OVIA. Ask about the offerings, the method, or pricing, or use the contact section, which reaches the studio and the lab directly.",
         contactBtn: "Go to the contact section",
         chips: ["Offerings", "Pricing", "The method", "Carte Blanche", "Contact"]
@@ -56,6 +56,7 @@
         { id: "contact", k: ["contact", "talk", "human", "person", "email", "reach", "consultation"],
           a: "The contact section reaches the studio and the lab directly. Every serious inquiry is answered within one business day, and every engagement is contracted in writing, with a fixed price and a named person responsible.",
           contact: true },
+        { id: "whatis", k: ["what is ovia", "who are you", "about ovia", "what does ovia do", "tell me about ovia", "define ovia"], a: "OVIA is a studio and a lab that designs, builds and runs technology for anyone, in any domain: technology that answers, learns, creates, immerses, protects and lasts, all of it managed end to end. Ask about the offerings for what can be run for you, or about any offering by name for the full detail." },
         { id: "hello", k: ["hello", "hi", "hey", "good morning", "good afternoon"],
           a: "Welcome. Ask about the offerings, the method, or pricing, or choose a topic below." }
       ]
@@ -67,7 +68,7 @@
         placeholder: "Offres, méthode, tarifs",
         send: "Envoyer",
         privacy: "Rien de ce qui est tapé ici n'est envoyé nulle part. Les réponses sont produites sur votre appareil.",
-        welcome: "Bienvenue. Posez une question sur les offres, la méthode ou les tarifs, ou choisissez un sujet.",
+        welcome: "OVIA est un studio et un laboratoire qui conçoit, construit et exploite la technologie pour tout le monde, dans tout domaine : une technologie qui répond, apprend, crée, immerge, protège et dure, le tout géré de bout en bout. Bienvenue. Posez une question sur les offres, la méthode ou les tarifs, ou choisissez un sujet.",
         fallback: "Tout ce que nous connaissons, c'est OVIA. Posez une question sur les offres, la méthode ou les tarifs, ou utilisez la section contact, qui joint directement le studio et le laboratoire.",
         contactBtn: "Aller à la section contact",
         chips: ["Offres", "Tarifs", "La méthode", "Carte Blanche", "Contact"]
@@ -110,6 +111,7 @@
         { id: "contact", k: ["contact", "parler", "humain", "personne", "courriel", "joindre", "consultation"],
           a: "La section contact joint directement le studio et le laboratoire. Toute demande sérieuse reçoit une réponse sous un jour ouvrable, et chaque engagement est contracté par écrit, à prix fixe, avec une personne nommée responsable.",
           contact: true },
+        { id: "whatis", k: ["qu'est-ce qu'ovia", "quest-ce quovia", "qui etes-vous", "a propos d'ovia", "que fait ovia", "c'est quoi ovia"], a: "OVIA est un studio et un laboratoire qui conçoit, construit et exploite la technologie pour tout le monde, dans tout domaine : une technologie qui répond, apprend, crée, immerge, protège et dure, le tout géré de bout en bout. Posez une question sur les offres pour ce qui peut être exploité pour vous, ou sur une offre par son nom pour le détail complet." },
         { id: "hello", k: ["bonjour", "salut", "bonsoir"],
           a: "Bienvenue. Posez une question sur les offres, la méthode ou les tarifs, ou choisissez un sujet ci-dessous." }
       ]
@@ -121,7 +123,7 @@
         placeholder: "Ofertas, método, precios",
         send: "Enviar",
         privacy: "Nada de lo que se escribe aquí se envía a ninguna parte. Las respuestas se producen en su dispositivo.",
-        welcome: "Bienvenido. Pregunte por las ofertas, el método o los precios, o elija un tema.",
+        welcome: "OVIA es un estudio y un laboratorio que diseña, construye y opera tecnología para cualquiera, en cualquier dominio: tecnología que responde, aprende, crea, sumerge, protege y perdura, todo ello gestionado de principio a fin. Bienvenido. Pregunte por las ofertas, el método o los precios, o elija un tema.",
         fallback: "Todo lo que conocemos es OVIA. Pregunte por las ofertas, el método o los precios, o use la sección de contacto, que llega directamente al estudio y al laboratorio.",
         contactBtn: "Ir a la sección de contacto",
         chips: ["Ofertas", "Precios", "El método", "Carte Blanche", "Contacto"]
@@ -164,6 +166,7 @@
         { id: "contact", k: ["contacto", "hablar", "humano", "persona", "correo", "consulta"],
           a: "La sección de contacto llega directamente al estudio y al laboratorio. Toda consulta seria recibe respuesta en un día laborable, y cada encargo se contrata por escrito, a precio fijo, con una persona nombrada responsable.",
           contact: true },
+        { id: "whatis", k: ["que es ovia", "quienes son", "acerca de ovia", "que hace ovia"], a: "OVIA es un estudio y un laboratorio que diseña, construye y opera tecnología para cualquiera, en cualquier dominio: tecnología que responde, aprende, crea, sumerge, protege y perdura, todo ello gestionado de principio a fin. Pregunte por las ofertas para lo que puede operarse para usted, o por cualquier oferta por su nombre para el detalle completo." },
         { id: "hello", k: ["hola", "buenos dias", "buenas tardes"],
           a: "Bienvenido. Pregunte por las ofertas, el método o los precios, o elija un tema abajo." }
       ]
@@ -177,7 +180,7 @@
   var CORE = {
     pt: { ui: { open: "Perguntas?", title: "OVIA Inc Studio Lab", placeholder: "Ofertas, método, preços", send: "Enviar",
       privacy: "Nada do que é escrito aqui é enviado para lado nenhum. As respostas são produzidas no seu dispositivo.",
-      welcome: "Bem-vindo. Pergunte pelas ofertas, pelo método ou pelos preços, ou escolha um tema.",
+      welcome: "A OVIA é um estúdio e um laboratório que desenha, constrói e opera tecnologia para qualquer pessoa, em qualquer domínio: tecnologia que responde, aprende, cria, envolve, protege e dura, tudo gerido de ponta a ponta. Bem-vindo. Pergunte pelas ofertas, pelo método ou pelos preços, ou escolha um tema.",
       fallback: "Tudo o que conhecemos é a OVIA. Pergunte pelas ofertas, pelo método ou pelos preços, ou use a secção de contacto, que chega diretamente ao estúdio e ao laboratório.",
       contactBtn: "Ir para a secção de contacto", chips: ["Ofertas", "Preços", "O método", "Carte Blanche", "Contacto"] },
       intents: [
@@ -187,10 +190,11 @@
         { id: "method", k: ["metodo", "processo", "como trabalham", "como funciona", "comecar", "prazo", "quanto tempo"], a: "Cada trabalho abre com uma auditoria, continua com um plano escrito a preço fixo, e funciona como um sistema gerido. Nada é entregue à espera que aguente. As pessoas que conhece são as pessoas que fazem o trabalho. Os prazos são fixados no plano escrito, antes de qualquer coisa começar." },
         { id: "carte", k: ["carte blanche", "toda a operacao", "tudo", "operacao completa"], a: "Carte Blanche. A operação inteira como um só trabalho: a receção, os alertas, a presença e as fundações, concebidos, reunidos e operados de ponta a ponta pelo estúdio e pelo laboratório." },
         { id: "contact", k: ["contacto", "falar", "humano", "pessoa", "email", "consulta"], a: "A secção de contacto chega diretamente ao estúdio e ao laboratório. Cada pedido sério recebe resposta num dia útil, e cada trabalho é contratado por escrito, a preço fixo, com uma pessoa nomeada responsável.", contact: true },
+        { id: "whatis", k: ["o que e a ovia", "quem sao voces", "sobre a ovia", "o que faz a ovia"], a: "A OVIA é um estúdio e um laboratório que desenha, constrói e opera tecnologia para qualquer pessoa, em qualquer domínio: tecnologia que responde, aprende, cria, envolve, protege e dura, tudo gerido de ponta a ponta. Pergunte pelas ofertas, ou por qualquer oferta pelo nome, para o detalhe completo." },
         { id: "hello", k: ["ola", "bom dia", "boa tarde"], a: "Bem-vindo. Pergunte pelas ofertas, pelo método ou pelos preços, ou escolha um tema abaixo." } ] },
     de: { ui: { open: "Fragen?", title: "OVIA Inc Studio Lab", placeholder: "Angebote, Methode, Preise", send: "Senden",
       privacy: "Nichts, was hier geschrieben wird, wird irgendwohin gesendet. Die Antworten werden auf Ihrem Gerät erzeugt.",
-      welcome: "Willkommen. Fragen Sie nach den Angeboten, der Methode oder den Preisen, oder wählen Sie ein Thema.",
+      welcome: "OVIA ist ein Studio und ein Labor, das Technologie für jeden und in jedem Bereich entwirft, baut und betreibt: Technologie, die antwortet, lernt, schafft, eintauchen lässt, schützt und Bestand hat, alles von Anfang bis Ende betreut. Willkommen. Fragen Sie nach den Angeboten, der Methode oder den Preisen, oder wählen Sie ein Thema.",
       fallback: "Alles, was wir kennen, ist OVIA. Fragen Sie nach den Angeboten, der Methode oder den Preisen, oder nutzen Sie den Kontaktbereich, der Studio und Labor direkt erreicht.",
       contactBtn: "Zum Kontaktbereich", chips: ["Angebote", "Preise", "Die Methode", "Carte Blanche", "Kontakt"] },
       intents: [
@@ -200,10 +204,11 @@
         { id: "method", k: ["methode", "prozess", "wie arbeiten sie", "wie funktioniert", "anfang", "dauer", "wie lange"], a: "Jeder Auftrag beginnt mit einem Audit, läuft über einen schriftlichen Plan zu einem Festpreis, und wird als betreutes System geführt. Nichts wird übergeben und gehofft. Die Menschen, die Sie treffen, sind die Menschen, die die Arbeit machen. Zeiten stehen im schriftlichen Plan, bevor irgendetwas beginnt." },
         { id: "carte", k: ["carte blanche", "ganzer betrieb", "alles", "kompletter betrieb"], a: "Carte Blanche. Der ganze Betrieb als ein Auftrag: Empfang, Warnungen, Präsenz und Fundamente, vom Studio und vom Labor von Anfang bis Ende entworfen, versammelt und betrieben." },
         { id: "contact", k: ["kontakt", "sprechen", "mensch", "person", "e-mail", "beratung"], a: "Der Kontaktbereich erreicht Studio und Labor direkt. Jede ernsthafte Anfrage wird innerhalb eines Werktages beantwortet, und jeder Auftrag wird schriftlich geschlossen, zu einem Festpreis, mit einer namentlich verantwortlichen Person.", contact: true },
+        { id: "whatis", k: ["was ist ovia", "wer sind sie", "uber ovia", "was macht ovia"], a: "OVIA ist ein Studio und ein Labor, das Technologie für jeden und in jedem Bereich entwirft, baut und betreibt: Technologie, die antwortet, lernt, schafft, eintauchen lässt, schützt und Bestand hat, alles von Anfang bis Ende betreut. Fragen Sie nach den Angeboten, oder nach einem Angebot beim Namen, für die volle Auskunft." },
         { id: "hello", k: ["hallo", "guten tag", "guten morgen"], a: "Willkommen. Fragen Sie nach den Angeboten, der Methode oder den Preisen, oder wählen Sie unten ein Thema." } ] },
     it: { ui: { open: "Domande?", title: "OVIA Inc Studio Lab", placeholder: "Offerte, metodo, prezzi", send: "Invia",
       privacy: "Niente di ciò che viene scritto qui viene inviato da nessuna parte. Le risposte sono prodotte sul suo dispositivo.",
-      welcome: "Benvenuto. Chieda delle offerte, del metodo o dei prezzi, oppure scelga un tema.",
+      welcome: "OVIA è uno studio e un laboratorio che progetta, costruisce e gestisce tecnologia per chiunque, in qualsiasi campo: tecnologia che risponde, impara, crea, immerge, protegge e dura, tutto gestito da cima a fondo. Benvenuto. Chieda delle offerte, del metodo o dei prezzi, oppure scelga un tema.",
       fallback: "Tutto ciò che conosciamo è OVIA. Chieda delle offerte, del metodo o dei prezzi, oppure usi la sezione contatti, che raggiunge direttamente lo studio e il laboratorio.",
       contactBtn: "Vai alla sezione contatti", chips: ["Offerte", "Prezzi", "Il metodo", "Carte Blanche", "Contatti"] },
       intents: [
@@ -213,10 +218,11 @@
         { id: "method", k: ["metodo", "processo", "come lavorate", "come funziona", "iniziare", "tempi", "quanto tempo"], a: "Ogni incarico si apre con un audit, procede con un piano scritto a prezzo fisso, e funziona come un sistema gestito. Niente viene consegnato sperando che tenga. Le persone che incontra sono le persone che fanno il lavoro. I tempi sono fissati nel piano scritto, prima che qualsiasi cosa cominci." },
         { id: "carte", k: ["carte blanche", "tutta l'operazione", "tutto", "operazione completa"], a: "Carte Blanche. L'intera operazione come un solo incarico: la reception, gli avvisi, la presenza e le fondamenta, concepiti, raccolti e gestiti da cima a fondo dallo studio e dal laboratorio." },
         { id: "contact", k: ["contatto", "contatti", "parlare", "umano", "persona", "email", "consulenza"], a: "La sezione contatti raggiunge direttamente lo studio e il laboratorio. Ogni richiesta seria riceve risposta entro un giorno lavorativo, e ogni incarico è contrattato per iscritto, a prezzo fisso, con una persona nominata responsabile.", contact: true },
+        { id: "whatis", k: ["cos'e ovia", "chi siete", "su ovia", "cosa fa ovia"], a: "OVIA è uno studio e un laboratorio che progetta, costruisce e gestisce tecnologia per chiunque, in qualsiasi campo: tecnologia che risponde, impara, crea, immerge, protegge e dura, tutto gestito da cima a fondo. Chieda delle offerte, o di qualsiasi offerta per nome, per il dettaglio completo." },
         { id: "hello", k: ["ciao", "buongiorno", "buonasera"], a: "Benvenuto. Chieda delle offerte, del metodo o dei prezzi, oppure scelga un tema qui sotto." } ] },
     nl: { ui: { open: "Vragen?", title: "OVIA Inc Studio Lab", placeholder: "Aanbod, methode, prijzen", send: "Verstuur",
       privacy: "Niets van wat hier wordt getypt, wordt ergens heen gestuurd. De antwoorden worden op uw apparaat gemaakt.",
-      welcome: "Welkom. Vraag naar het aanbod, de methode of de prijzen, of kies een onderwerp.",
+      welcome: "OVIA is een studio en een lab dat technologie ontwerpt, bouwt en beheert voor iedereen, in elk domein: technologie die antwoordt, leert, creëert, onderdompelt, beschermt en blijft, alles van begin tot eind beheerd. Welkom. Vraag naar het aanbod, de methode of de prijzen, of kies een onderwerp.",
       fallback: "Alles wat we kennen is OVIA. Vraag naar het aanbod, de methode of de prijzen, of gebruik het contactgedeelte, dat het studio en het lab rechtstreeks bereikt.",
       contactBtn: "Naar het contactgedeelte", chips: ["Aanbod", "Prijzen", "De methode", "Carte Blanche", "Contact"] },
       intents: [
@@ -226,13 +232,14 @@
         { id: "method", k: ["methode", "proces", "hoe werken jullie", "hoe werkt het", "beginnen", "duur", "hoe lang"], a: "Elke opdracht opent met een audit, verloopt volgens een schriftelijk plan tegen een vaste prijs, en loopt als een beheerd systeem. Niets wordt overgedragen en gehoopt. De mensen die u ontmoet, zijn de mensen die het werk doen. Tijden staan in het schriftelijke plan, voordat er iets begint." },
         { id: "carte", k: ["carte blanche", "hele werking", "alles", "volledige werking"], a: "Carte Blanche. De hele werking als één opdracht: de receptie, de waarschuwingen, de aanwezigheid en de fundamenten, van begin tot eind ontworpen, verzameld en beheerd door het studio en het lab." },
         { id: "contact", k: ["contact", "spreken", "mens", "persoon", "e-mail", "advies"], a: "Het contactgedeelte bereikt het studio en het lab rechtstreeks. Elk serieus verzoek wordt binnen één werkdag beantwoord, en elke opdracht wordt schriftelijk vastgelegd, tegen een vaste prijs, met een met naam genoemde verantwoordelijke.", contact: true },
+        { id: "whatis", k: ["wat is ovia", "wie zijn jullie", "over ovia", "wat doet ovia"], a: "OVIA is een studio en een lab dat technologie ontwerpt, bouwt en beheert voor iedereen, in elk domein: technologie die antwoordt, leert, creëert, onderdompelt, beschermt en blijft, alles van begin tot eind beheerd. Vraag naar het aanbod, of naar elk aanbod bij naam, voor het volledige detail." },
         { id: "hello", k: ["hallo", "goedemorgen", "goedemiddag"], a: "Welkom. Vraag naar het aanbod, de methode of de prijzen, of kies hieronder een onderwerp." } ] }
   };
 
   var CORE2 = {
     zh: { ui: { open: "有问题?", title: "OVIA Inc Studio Lab", placeholder: "询问服务、方法、价格", send: "发送",
       privacy: "您在此输入的任何内容都不会被发送到任何地方。答案在您的设备上生成。",
-      welcome: "欢迎。可以询问服务内容、工作方法或价格,也可以选择一个主题。",
+      welcome: "OVIA 是一家工作室与实验室,为任何人、在任何领域设计、构建并运行技术:能够回应、学习、创造、沉浸、保护并持久的技术,全部从头到尾受管理。 欢迎。可以询问服务内容、工作方法或价格,也可以选择一个主题。",
       fallback: "我们只了解 OVIA。可以询问服务内容、工作方法或价格,或使用联系页面,直接联系工作室与实验室。",
       contactBtn: "前往联系页面", chips: ["服务内容", "价格", "工作方法", "Carte Blanche", "联系"] },
       intents: [
@@ -242,10 +249,11 @@
         { id: "method", k: ["方法", "流程", "如何工作", "怎么开始", "多久", "时间"], a: "每项委托都从审计开始,按照固定价格的书面计划推进,作为受管理的系统运行。没有什么会被交出去然后听天由命。您见面的人就是做事的人。时间在书面计划中确定,在任何工作开始之前。" },
         { id: "carte", k: ["carte blanche", "整个运营", "全部", "整体"], a: "Carte Blanche。将整个运营作为一项委托:前台、预警、存在与根基,由工作室与实验室从头到尾构思、汇集并运行。" },
         { id: "contact", k: ["联系", "咨询", "邮件", "真人", "电话"], a: "联系页面直接通达工作室与实验室。每个认真的咨询都会在一个工作日内得到回复,每项委托都以书面形式签约,固定价格,并有具名的负责人。", contact: true },
+        { id: "whatis", k: ["ovia是什么", "什么是ovia", "你们是谁", "介绍一下ovia"], a: "OVIA 是一家工作室与实验室,为任何人、在任何领域设计、构建并运行技术:能够回应、学习、创造、沉浸、保护并持久的技术,全部从头到尾受管理。 可以询问服务内容,或按名称询问任何一项服务以获取完整详情。" },
         { id: "hello", k: ["你好", "您好", "早上好"], a: "欢迎。可以询问服务内容、工作方法或价格,或在下方选择一个主题。" } ] },
     ja: { ui: { open: "ご質問は?", title: "OVIA Inc Studio Lab", placeholder: "サービス、進め方、料金について", send: "送信",
       privacy: "ここに入力した内容はどこにも送信されません。回答はお使いの端末上で生成されます。",
-      welcome: "ようこそ。サービス内容、進め方、料金についてご質問いただくか、トピックをお選びください。",
+      welcome: "OVIAは、誰のためにも、どの分野でもテクノロジーを設計し、構築し、運用するスタジオでありラボです:応答し、学び、創造し、没入させ、守り、続くテクノロジー、そのすべてを最初から最後まで管理します。 ようこそ。サービス内容、進め方、料金についてご質問いただくか、トピックをお選びください。",
       fallback: "私たちが知っているのは OVIA だけです。サービス内容、進め方、料金についてご質問いただくか、お問い合わせページからスタジオとラボへ直接ご連絡ください。",
       contactBtn: "お問い合わせページへ", chips: ["サービス", "料金", "進め方", "Carte Blanche", "お問い合わせ"] },
       intents: [
@@ -255,10 +263,11 @@
         { id: "method", k: ["進め方", "方法", "プロセス", "始め", "期間", "どれくらい"], a: "すべての案件は監査から始まり、固定価格の書面計画に沿って進み、管理されたシステムとして運用されます。引き渡して任せきりにすることはありません。お会いする人々が、そのまま作業をする人々です。期間は書面計画の中で、何かが始まる前に確定します。" },
         { id: "carte", k: ["carte blanche", "運用全体", "すべて", "全体"], a: "Carte Blanche。運用全体を 1 件の案件として:受付、警告、存在感、基盤を、スタジオとラボが最初から最後まで構想し、集約し、運用します。" },
         { id: "contact", k: ["問い合わせ", "連絡", "相談", "メール", "担当"], a: "お問い合わせページはスタジオとラボに直接つながります。真剣なお問い合わせには 1 営業日以内に返信し、すべての案件は書面で契約され、固定価格で、責任者が明記されます。", contact: true },
+        { id: "whatis", k: ["oviaとは", "oviaは何", "あなたたちは何", "oviaについて"], a: "OVIAは、誰のためにも、どの分野でもテクノロジーを設計し、構築し、運用するスタジオでありラボです:応答し、学び、創造し、没入させ、守り、続くテクノロジー、そのすべてを最初から最後まで管理します。 サービス内容について、または名前を指定して詳細をお尋ねください。" },
         { id: "hello", k: ["こんにちは", "おはよう", "こんばんは"], a: "ようこそ。サービス内容、進め方、料金についてご質問いただくか、下のトピックをお選びください。" } ] },
     ko: { ui: { open: "질문이 있으신가요?", title: "OVIA Inc Studio Lab", placeholder: "서비스, 방식, 가격 문의", send: "보내기",
       privacy: "여기에 입력한 내용은 어디에도 전송되지 않습니다. 답변은 사용 중인 기기에서 생성됩니다.",
-      welcome: "환영합니다. 서비스 내용, 진행 방식, 가격에 대해 질문하시거나 주제를 선택해 주세요.",
+      welcome: "OVIA는 누구나, 어떤 분야에서든 기술을 설계하고, 구축하고, 운영하는 스튜디오이자 랩입니다: 응답하고, 배우고, 창조하고, 몰입시키고, 보호하고, 지속되는 기술, 그 모든 것을 처음부터 끝까지 관리합니다. 환영합니다. 서비스 내용, 진행 방식, 가격에 대해 질문하시거나 주제를 선택해 주세요.",
       fallback: "저희가 아는 것은 OVIA뿐입니다. 서비스 내용, 진행 방식, 가격에 대해 질문하시거나, 스튜디오와 랩에 직접 닿는 연락 페이지를 이용해 주세요.",
       contactBtn: "연락 페이지로 이동", chips: ["서비스", "가격", "진행 방식", "Carte Blanche", "연락"] },
       intents: [
@@ -268,10 +277,11 @@
         { id: "method", k: ["방식", "방법", "과정", "시작", "기간", "얼마나"], a: "모든 의뢰는 감사로 시작하고, 고정 가격의 서면 계획을 따라 진행되며, 관리되는 시스템으로 운영됩니다. 넘기고 나서 바라는 일은 없습니다. 만나시는 분들이 곧 작업을 하는 분들입니다. 기간은 서면 계획 안에서, 어떤 작업도 시작되기 전에 확정됩니다." },
         { id: "carte", k: ["carte blanche", "전체 운영", "전부", "모두"], a: "Carte Blanche. 전체 운영을 하나의 의뢰로: 프런트 데스크, 경고, 존재감, 기반을 스튜디오와 랩이 처음부터 끝까지 구상하고, 모으고, 운영합니다." },
         { id: "contact", k: ["연락", "문의", "상담", "이메일", "담당"], a: "연락 페이지는 스튜디오와 랩에 직접 닿습니다. 진지한 문의에는 영업일 기준 1일 이내에 답변하고, 모든 의뢰는 서면으로 계약되며, 고정 가격에 책임자가 명시됩니다.", contact: true },
+        { id: "whatis", k: ["ovia란", "ovia가 무엇", "어떤 회사", "ovia 소개"], a: "OVIA는 누구나, 어떤 분야에서든 기술을 설계하고, 구축하고, 운영하는 스튜디오이자 랩입니다: 응답하고, 배우고, 창조하고, 몰입시키고, 보호하고, 지속되는 기술, 그 모든 것을 처음부터 끝까지 관리합니다. 서비스 내용에 대해, 또는 이름을 지정해 전체 세부 내용을 질문해 주세요." },
         { id: "hello", k: ["안녕", "안녕하세요"], a: "환영합니다. 서비스 내용, 진행 방식, 가격에 대해 질문하시거나 아래 주제를 선택해 주세요." } ] },
     ar: { ui: { open: "أسئلة؟", title: "OVIA Inc Studio Lab", placeholder: "اسأل عن العروض والمنهج والأسعار", send: "إرسال",
       privacy: "لا يُرسل أي شيء يُكتب هنا إلى أي مكان. تُنتج الإجابات على جهازك.",
-      welcome: "مرحبًا. اسأل عن العروض أو المنهج أو الأسعار، أو اختر موضوعًا.",
+      welcome: "OVIA استوديو ومختبر يصمم ويبني ويدير التكنولوجيا لأي شخص، في أي مجال: تكنولوجيا تجيب وتتعلم وتبتكر وتُغمر وتحمي وتدوم، وكل ذلك مُدار من البداية إلى النهاية. مرحبًا. اسأل عن العروض أو المنهج أو الأسعار، أو اختر موضوعًا.",
       fallback: "كل ما نعرفه هو OVIA. اسأل عن العروض أو المنهج أو الأسعار، أو استخدم قسم الاتصال الذي يصل مباشرة إلى الاستوديو والمختبر.",
       contactBtn: "الذهاب إلى قسم الاتصال", chips: ["العروض", "الأسعار", "المنهج", "Carte Blanche", "الاتصال"] },
       intents: [
@@ -281,6 +291,7 @@
         { id: "method", k: ["منهج", "طريقة", "كيف تعملون", "خطوات", "بدء", "مدة", "كم يستغرق"], a: "يبدأ كل تعاقد بتدقيق، ويتقدم وفق خطة مكتوبة بسعر ثابت، ويعمل كنظام مُدار. لا يُسلَّم شيء على أمل أن يصمد. الأشخاص الذين تقابلهم هم الأشخاص الذين يقومون بالعمل. وتُحدد المدد في الخطة المكتوبة، قبل أن يبدأ أي شيء." },
         { id: "carte", k: ["carte blanche", "العملية بأكملها", "كل شيء", "كامل"], a: "Carte Blanche. العملية بأكملها كتعاقد واحد: المكتب الأمامي والتحذيرات والحضور والأسس، تُصمم وتُجمع وتُدار من البداية إلى النهاية بواسطة الاستوديو والمختبر." },
         { id: "contact", k: ["اتصال", "تواصل", "بريد", "شخص", "استشارة"], a: "يصل قسم الاتصال مباشرة إلى الاستوديو والمختبر. ويُرد على كل استفسار جاد خلال يوم عمل واحد، ويُتعاقد على كل عمل كتابة، بسعر ثابت، وبشخص مسؤول مسمى.", contact: true },
+        { id: "whatis", k: ["ما هي ovia", "من أنتم", "عن ovia", "ماذا تفعل ovia"], a: "OVIA استوديو ومختبر يصمم ويبني ويدير التكنولوجيا لأي شخص، في أي مجال: تكنولوجيا تجيب وتتعلم وتبتكر وتُغمر وتحمي وتدوم، وكل ذلك مُدار من البداية إلى النهاية. اسأل عن العروض، أو عن أي عرض باسمه، للحصول على التفصيل الكامل." },
         { id: "hello", k: ["مرحبا", "السلام", "صباح الخير"], a: "مرحبًا. اسأل عن العروض أو المنهج أو الأسعار، أو اختر موضوعًا أدناه." } ] }
   };
   Object.keys(CORE).forEach(function (k) { KB[k] = CORE[k]; });
