@@ -404,7 +404,7 @@
   panel.className = "oa-panel";
   panel.setAttribute("aria-label", "OVIA assistant");
   panel.innerHTML =
-    '<div class="oa-head"><img alt="" src="' + base + 'assets/ovia-inc-logo-black.png"><b></b>' +
+    '<div class="oa-head"><img alt="" src="' + base + 'assets/ovia-inc-logo.webp"><b></b>' +
     '<button class="oa-x" type="button" aria-label="Close">×</button></div>' +
     '<div class="oa-msgs"></div><div class="oa-chips"></div>' +
     '<form class="oa-row"><input type="text" autocomplete="off"><button type="submit"></button></form>' +
