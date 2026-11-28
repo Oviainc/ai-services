@@ -311,6 +311,14 @@
     ar: ["ما هي العروض؟", "كم التكلفة؟", "كيف تعملون؟", "Carte Blanche", "الاتصال"]
   };
 
+  var SERVICE_IDS = { offerings: 1, agents: 1, ml: 1, products: 1, immersive: 1, cloud: 1, design: 1, carte: 1 };
+  var SERVICE_LABEL = {
+    en: "Open the Services page", fr: "Ouvrir la page Services", es: "Abrir la página de servicios",
+    pt: "Abrir a página de serviços", de: "Die Serviceseite öffnen", it: "Aprire la pagina dei servizi",
+    nl: "Open de dienstenpagina", zh: "打开服务页面", ja: "サービスページを開く",
+    ko: "서비스 페이지 열기", ar: "فتح صفحة الخدمات"
+  };
+
   function pageLang() {
     var l = (document.documentElement.getAttribute("lang") || "en").toLowerCase();
     var keys = Object.keys(KB);
@@ -448,6 +456,23 @@
         a.textContent = hit.link.label;
         d.appendChild(document.createElement("br"));
         d.appendChild(a);
+      }
+      if (SERVICE_IDS[hit.id]) {
+        var sl = document.createElement("a");
+        sl.className = "oa-link";
+        sl.href = base + "#services";
+        sl.textContent = SERVICE_LABEL[L] || SERVICE_LABEL.en;
+        sl.addEventListener("click", function (e) {
+          var target = document.querySelector("#services");
+          if (target) {
+            e.preventDefault();
+            panel.classList.remove("open");
+            window.location.hash = "services";
+            setTimeout(function () { target.scrollIntoView({ behavior: "smooth" }); }, 350);
+          }
+        });
+        d.appendChild(document.createElement("br"));
+        d.appendChild(sl);
       }
       if (hit.contact) {
         var g = document.createElement("button");
