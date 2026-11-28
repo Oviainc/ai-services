@@ -13,7 +13,7 @@
 <meta property="og:image" content="https://oviainc.github.io/ai-services/articles/virtual-production-free-tier/ovia-inc-virtual-production-free-tier-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#4FD1A5;}
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#14957B;}
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
   a{color:var(--accent);}
@@ -70,28 +70,30 @@
   @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
 </style>
 <style id="arch-css">
-/* Layout archetype: classic (diversification pass) */
-body.arch-classic main{max-width:780px;}
-body.arch-classic .mast-inner{max-width:780px;text-align:center;}
-body.arch-classic .masthead{justify-content:center;}
-body.arch-classic .langbar{margin-left:0;}
-body.arch-classic h1.display{font-size:clamp(2.1rem,4.6vw,3.3rem);margin-left:auto;margin-right:auto;text-transform:none;letter-spacing:0;}
-body.arch-classic .standfirst{margin-left:auto;margin-right:auto;}
-body.arch-classic .cols{column-count:1;font-size:1.13rem;}
-body.arch-classic .cols figure.body,body.arch-classic .cols figure.wide{max-width:500px;margin-left:auto;margin-right:auto;}
-body.arch-classic .hero-zone{max-width:780px;}
-body.arch-classic h2.sec{text-align:center;border-top:1px solid var(--line);color:var(--text);}
-body.arch-classic .keybox{max-width:540px;margin-left:auto;margin-right:auto;}
-body.arch-classic blockquote.pull{font-size:1.55rem;}
+/* Layout archetype: cover (diversification pass) */
+body.arch-cover .mastzone{min-height:94vh;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:none;}
+body.arch-cover .mast-bg{display:none;}
+body.arch-cover figure.coverfig{position:absolute;inset:0;z-index:0;margin:0;}
+body.arch-cover figure.coverfig img{width:100%;height:100%;object-fit:cover;display:block;}
+body.arch-cover .mast-shade{z-index:1;background:linear-gradient(180deg,rgba(10,14,20,.46),rgba(10,14,20,.26) 42%,rgba(10,14,20,.94));}
+body.arch-cover .mast-inner{z-index:2;width:100%;padding-bottom:58px;}
+body.arch-cover figcaption.covercap{position:absolute;right:18px;bottom:14px;z-index:3;background:rgba(10,14,20,.62);padding:3px 10px;border-radius:2px;}
+body.arch-cover h1.display{font-size:clamp(3.1rem,9vw,6.8rem);max-width:1100px;}
+body.arch-cover .standfirst{font-size:clamp(1.25rem,2.6vw,1.6rem);}
+body.arch-cover .cols{column-count:1;max-width:880px;margin-left:auto;margin-right:auto;}
+body.arch-cover figure.wide{position:relative;left:50%;transform:translateX(-50%);width:100vw;padding:0 22px;}
+body.arch-cover figure.body{max-width:640px;margin-left:auto;margin-right:auto;}
+@media (max-width:640px){body.arch-cover figure.wide{padding:0 16px;}}
 </style>
 <link rel="icon" href="/ai-services/assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/ai-services/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/ai-services/assets/apple-touch-icon.png">
 </head>
-<body class="arch arch-classic">
+<body class="arch arch-cover">
 <header class="mastzone">
   <div class="mast-bg" style="background-image:url('ovia-inc-virtual-production-free-tier-background.webp')"></div>
   <div class="mast-shade"></div>
+  <figure class="coverfig"><img src="ovia-inc-virtual-production-free-tier-hero.webp" alt="Ovia Inc — A curved LED volume wall lit with a misty forest scene during a take, a cinema camera on a dolly track in the foreground, a performer in a long coat facing the wall and crew standing in the light spill"></figure>
   <div class="mast-inner">
     <div class="masthead">
       <a class="logo" href="../../" aria-label="Ovia Inc — home"><img class="logo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
@@ -184,12 +186,6 @@ body.arch-classic blockquote.pull{font-size:1.55rem;}
     <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
   </div>
 </header>
-<div class="hero-zone">
-  <figure class="hero">
-    <img src="ovia-inc-virtual-production-free-tier-hero.webp" alt="Ovia Inc — A soft 3D render of a miniature LED volume corner in pearl white and mint light, with a tiny camera shape on a smooth studio floor">
-    <figcaption data-tr>The volume at desk scale: pearl white, mint light, open to anyone willing to learn. Image: Ovia Inc</figcaption>
-  </figure>
-</div>
 <main>
   <div class="cols">
     <p class="first" data-tr>A professional virtual production platform now costs nothing to try. Pixotope 26.3.0 opens a free Discovery tier, non-commercial, in HD, with no licence step and no sales call, and pairs that open door with a serious engine step underneath: the whole platform consolidated onto Unreal Engine 5.8.3. The pairing is the story. Access decides who gets to learn the craft; the engine decides how far the craft can go once the learning starts.</p>
@@ -207,8 +203,8 @@ body.arch-classic blockquote.pull{font-size:1.55rem;}
     <p data-tr>Pixotope 26.3.0 consolidates the company's virtual production platform onto Unreal Engine 5.8.3 and reorganises the product into three editions, Discovery, Core and Max, with existing subscribers carried across at current pricing. The release also brings the Zone tracking system onto Windows inside the main platform, renders HTML graphics through the open OGraf standard, and lays the foundation for a native Video Wall product. Underneath the packaging sits a meaningful engine step: Epic's 5.8 line, in a broadcast-hardened build, with the lighting and motion-design gains that version carries.</p>
     <p data-tr>Release notes usually reward the reader who watches what moved where. Here, the direction is consolidation: one engine build, one platform, editions separated by scale rather than by entirely different toolsets. Subscribers carried across at current pricing signals that the reorganisation is structural, not a disguised price rise, the tiers redraw who the product is for, from first-time learners to national broadcasters, on the same foundation.</p>
     <figure class="body">
-      <img src="ovia-inc-virtual-production-free-tier-body-1.webp" alt="Ovia Inc — A miniature curved LED volume in pearl white with mint light glowing from the panels and a tiny camera on the floor, soft 3D render">
-      <figcaption data-tr>The volume, miniaturised: the stage as a learnable object, small enough to sit on a desk. Image: Ovia Inc</figcaption>
+      <img src="ovia-inc-virtual-production-free-tier-body-1.webp" alt="Ovia Inc — Technicians fitting the back of a curved LED wall section on a rolling frame, a director monitor cart with waveform screens beside them">
+      <figcaption data-tr>Behind the wall: the stage is crew work first, panels, cabling and a monitor cart, long before any picture appears. Image: Ovia Inc</figcaption>
     </figure>
     <h2 class="sec" data-tr>02 · What 5.8.3 brings</h2>
     <p data-tr>Three engine features headline the move. MegaLights arrives production-ready, letting scenes hold hundreds of dynamic, shadow-casting lights while performance stays steady, the difference between lighting a virtual set the way a gaffer would light a physical one and rationing every source. Lumen Lite trims the cost of global illumination for broadcast realities. And the Motion Design improvements continue the merger of broadcast graphics and real-time 3D into one toolset. For stages, the practical translation is headroom: more lights, richer sets, steadier frame rates on the wall.</p>
@@ -218,8 +214,8 @@ body.arch-classic blockquote.pull{font-size:1.55rem;}
     <p data-tr>The strategic headline sits at the bottom of the price list. Pixotope Discovery is a free tier for trying the full platform: non-commercial, in HD, downloadable after a simple sign-up, in the company's words, no licence assignment, no sales call, no cost. Virtual production has carried an entry problem for years: the craft could only be learned on expensive stages, inside working productions, by invitation. A zero-dollar tier changes who gets to practise. Students, independent creators, small studios and curious engineers can build the skills before a budget exists, the same on-ramp pattern that rebuilt every neighbouring craft, from editing to game development.</p>
     <p data-tr>The on-ramp pattern deserves respect because the pattern has a track record. Editing opened when the tools reached laptops; game development opened when engines went free at the entry tier; music production opened the same way. Each time, the craft did not cheapen, the practitioner base widened, and the top end rose with the talent arriving from below. A downloadable professional toolchain applies that proven mechanism to the volume.</p>
     <figure class="wide">
-      <img src="ovia-inc-virtual-production-free-tier-body-2.webp" alt="Ovia Inc — A sweeping video wall of pearl-white panels with hundreds of tiny mint light points, soft 3D render">
-      <figcaption data-tr>Wall and volume, one family: hundreds of small lights, one control surface. Image: Ovia Inc</figcaption>
+      <img src="ovia-inc-virtual-production-free-tier-body-2.webp" alt="Ovia Inc — A video wall under installation, modular panels on scaffold rigging, a technician on a scissor lift fitting a panel while a second worker guides from the floor">
+      <figcaption data-tr>Wall and volume, one family: the wall goes up panel by panel, on rigging, before it ever glows. Image: Ovia Inc</figcaption>
     </figure>
     <h2 class="sec" data-tr>04 · One system, wall to volume</h2>
     <p data-tr>Two quieter items point at the platform's direction. The Video Wall foundation is built on the same system as the XR stage work, controlled from the LED Mapping panel in Director, with full product integration planned for the next release, one control surface spanning video walls and volumes instead of parallel toolchains. And OGraf support renders HTML5 graphics templates through VideoIO with control from Live Controller, even rendering ordinary web pages as sources. Broadcast graphics, long a separate priesthood, keep dissolving into the same real-time stack.</p>
@@ -234,6 +230,9 @@ body.arch-classic blockquote.pull{font-size:1.55rem;}
     <h2 data-tr>References</h2>
     <ul class="refs">
       <li><span data-tr>Pixotope — “Pixotope 26.3.0: Discovery, Zone to Windows, Unreal 5.8.3, OGraf HTML5 playout and control, Video Wall Features and more”:</span> <a href="https://www.pixotope.com/blog/pixotope-26.3.0">https://www.pixotope.com/blog/pixotope-26.3.0</a></li>
+      <li><span data-tr>Epic Games — “Unreal Engine 5.8 Released”, Epic Developer Community Forums:</span> <a href="https://forums.unrealengine.com/t/unreal-engine-5-8-released/2729274">https://forums.unrealengine.com/t/unreal-engine-5-8-released/2729274</a></li>
+      <li><span data-tr>Sports Video Group — “Pixotope Consolidates Virtual Production Tools into Unified Platform”:</span> <a href="https://www.sportsvideo.org/2026/08/31/pixotope-consolidates-virtual-production-tools-into-unified-platform/">https://www.sportsvideo.org/2026/08/31/pixotope-consolidates-virtual-production-tools-into-unified-platform/</a></li>
+      <li><span data-tr>Photographs: an LED volume stage mid-take, the surface of an LED panel wall, technicians fitting a curved wall section, and a video wall under installation. Ovia Inc originals, made new for this article.</span></li>
 
     </ul>
   </div>
