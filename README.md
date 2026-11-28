@@ -4,6 +4,8 @@ Designed in the Studio. Proven in the Lab.
 
 The front desk, the follow up, the alerts, the presence and the underpinnings, run as one measured operation. Agents, machine learning and products, specified in writing, tested before launch, measured in production, managed end to end.
 
+OVIA is a studio and a lab that designs, builds and runs technology for anyone, in any domain: technology that answers, learns, creates, immerses, protects and lasts, all of it managed end to end.
+
 Live site: https://oviainc.github.io/ai-services/
 
 ## What we do
