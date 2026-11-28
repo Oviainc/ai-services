@@ -99,9 +99,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         },
         { "@type": "Service", "name": "AI Agents & Everyday jobs handled start to finish", "provider": { "@id": "https://oviainc.github.io/ai-services/#organization" }, "areaServed": "Worldwide", "url": "https://oviainc.github.io/ai-services/#agents", "description": "Helpers that answer calls and messages right away, book appointments, and follow up quotes and invoices for you." },
         { "@type": "Service", "name": "Machine Learning & Data Platforms", "provider": { "@id": "https://oviainc.github.io/ai-services/#organization" }, "areaServed": "Worldwide", "url": "https://oviainc.github.io/ai-services/#ml", "description": "Early warnings from your own records: stock running low, busy weeks coming, bills that do not match, orders that will be late." },
-        { "@type": "Service", "name": "AI Products & Web", "provider": { "@id": "https://oviainc.github.io/ai-services/#organization" }, "areaServed": "Worldwide", "url": "https://oviainc.github.io/ai-services/#products", "description": "Websites and simple screens your customers and your team find easy to use, every day." },
+        { "@type": "Service", "name": "AI Products & Web", "provider": { "@id": "https://oviainc.github.io/ai-services/#organization" }, "areaServed": "Worldwide", "url": "https://oviainc.github.io/ai-services/#products", "description": "Websites and simple screens your customers find easy to use, every day." },
         { "@type": "Service", "name": "Immersive & Connected", "provider": { "@id": "https://oviainc.github.io/ai-services/#organization" }, "areaServed": "Worldwide", "url": "https://oviainc.github.io/ai-services/#services", "description": "Photorealistic previews clients can walk through, a room, a product, a space that does not yet exist, so decisions are taken with confidence, plus safe practice for new staff before their first day on site." },
-        { "@type": "Service", "name": "Cloud, Security & IT", "provider": { "@id": "https://oviainc.github.io/ai-services/#organization" }, "areaServed": "Worldwide", "url": "https://oviainc.github.io/ai-services/#services", "description": "Files and systems kept secure, backed up and reachable from anywhere, verified backups, protection against intrusion and fraud maintained continuously, and one team to call." },
+        { "@type": "Service", "name": "Cloud, Security & IT", "provider": { "@id": "https://oviainc.github.io/ai-services/#organization" }, "areaServed": "Worldwide", "url": "https://oviainc.github.io/ai-services/#services", "description": "Files and systems kept secure, backed up and reachable from anywhere, verified backups, protection against intrusion and fraud maintained continuously, and one point of contact." },
         { "@type": "Service", "name": "Sustainable Design", "provider": { "@id": "https://oviainc.github.io/ai-services/#organization" }, "areaServed": "Worldwide", "url": "https://oviainc.github.io/ai-services/#services", "description": "Design built to endure, reduced to what is essential, and nothing more, clear at a glance today and still correct in five years." }
       ]
     }
@@ -127,7 +127,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
       body {
-        margin: 0;
+        margin: 0; overflow-x: clip;
         background: var(--black);
         color: var(--white);
         font-family: var(--font-body);
@@ -335,9 +335,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       /* ---------- Footer: one slim row ---------- */
       footer.site { border-top: 1px solid var(--line); padding: 42px 0 34px; }
-      .foot-row { display: flex; align-items: center; justify-content: space-between; gap: 18px 30px; flex-wrap: wrap; }
+      .foot-row { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px 30px; flex-wrap: wrap; text-align: center; }
       footer.site .brand { font-size: 1.05rem; }
-      .foot-links { display: flex; gap: 10px 26px; flex-wrap: wrap; }
+      .foot-links { display: flex; gap: 10px 26px; flex-wrap: wrap; justify-content: center; }
       .foot-links a {
         color: var(--muted); text-decoration: none; font-size: 0.76rem; font-weight: 600;
         letter-spacing: 0.14em; text-transform: uppercase;
@@ -345,7 +345,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .foot-links a:hover { color: var(--white); }
       .foot-bottom {
         margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--line);
-        display: flex; justify-content: space-between; gap: 8px 22px; flex-wrap: wrap;
+        display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; gap: 8px 22px; flex-wrap: wrap;
         color: var(--faint); font-size: 0.84rem;
       }
       .foot-bottom .nomad { max-width: 520px; }
@@ -528,7 +528,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <details class="more">
             <summary data-i18n="sumAgents">See an ordinary week →</summary>
             <div class="panel">
-              <p data-i18n="agentsPanel">Think of an ordinary week. Calls answered after hours instead of landing in voicemail. Appointments booked, confirmed and reminded without anyone touching a calendar. Quotes and invoices followed up, politely and on time, until they are signed or paid. Orders and stock checked before a customer is told yes. That is hours of busywork, done for you, using the tools you already use, set up around the way your business runs, with a person always able to step in. Where it earns its keep: a law firm's after-hours intake, taken with the screening questions agreed in advance and never a word of advice; a clinic's recalls and reminders, inside strict privacy boundaries; a hotel's night calls turned into direct bookings. A home-services emergency at 2 a.m., triaged and escalated to the on-call technician. A property manager's maintenance calls, sorted and routed before the team wakes.</p>
+              <p data-i18n="agentsPanel">Think of an ordinary week. Calls answered after hours instead of landing in voicemail. Appointments booked, confirmed and reminded without anyone touching a calendar. Quotes and invoices followed up, politely and on time, until they are signed or paid. Orders and stock checked before a customer is told yes. That is hours of busywork, done for you, using the tools you already use, set up around the way your business runs, with a person always able to step in. Where it earns its keep: a law firm's after-hours intake, taken with the screening questions agreed in advance and never a word of advice; a clinic's recalls and reminders, inside strict privacy boundaries; a hotel's night calls turned into direct bookings. A home-services emergency at 2 a.m., triaged and escalated to the on-call technician. A property manager's maintenance calls, sorted and routed before the day begins.</p>
               <ul class="includes">
                 <li data-i18n="chipAi1">Helpers built just for your business</li>
                 <li data-i18n="chipAi2">Everyday jobs handled start to finish</li>
@@ -536,7 +536,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li data-i18n="chipAi4">Understands everyday language</li>
                 <li data-i18n="chipAi5">Instant answers, on the spot</li>
               </ul>
-              <p class="desc recv" data-i18n="recvAgents">Deliverable: a configured agent team on your own tools, calls and messages answered, appointments booked, quotes and invoices followed up, managed daily, with a person able to step in at any point.</p>
+              <p class="desc recv" data-i18n="recvAgents">Deliverable: configured agents on your own tools, calls and messages answered, appointments booked, quotes and invoices followed up, managed daily, with a person able to step in at any point.</p>
               <a class="cta-link" href="#contact" data-offer="ai" data-i18n="agentsCta">Got questions about your helpers? →</a>
             </div>
           </details>
@@ -564,7 +564,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li data-i18n="chipMl4">Forecasts for the weeks ahead</li>
                 <li data-i18n="chipMl5">All your records in one place</li>
               </ul>
-              <p class="desc recv" data-i18n="recvMl">Deliverable: an early-warning system on your own records, stock, workload, late orders and slow payers flagged while there is still time to act, checked daily and kept accurate by the team that built it.</p>
+              <p class="desc recv" data-i18n="recvMl">Deliverable: an early-warning system on your own records, stock, workload, late orders and slow payers flagged while there is still time to act, checked daily and kept accurate as part of the managed solution.</p>
               <a class="cta-link" href="#contact" data-offer="ml" data-i18n="mlCta">Got questions about machine learning? →</a>
             </div>
           </details>
@@ -580,18 +580,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="wrap inner">
           <p class="kick" data-i18n="flag03">Flagship 03</p>
           <h2 data-i18n="prodH2">Products people actually use</h2>
-          <p class="desc" data-i18n-html="prodDesc"><strong>Products engineered to a written specification.</strong> A storefront that sells the company itself, a catalogue enriched until every item is findable, an internal screen a team opens daily. Verified against the specification at delivery, measured in use after it.</p>
+          <p class="desc" data-i18n-html="prodDesc"><strong>Products engineered to a written specification.</strong> A storefront that sells the company itself, a catalogue enriched until every item is findable, an internal screen opened daily. Verified against the specification at delivery, measured in use after it.</p>
           <details class="more">
             <summary data-i18n="sumProd">From one message to booked →</summary>
             <div class="panel">
-              <p data-i18n="prodPanel">We plan it, design how it looks and feels, and build it, so everything fits together from day one. A booking form that fills itself in from one short message. One simple screen an owner checks in two minutes, instead of rebuilding a spreadsheet at month-end. If your customers never have to think about it and your team opens it every day, it is doing its job.</p>
+              <p data-i18n="prodPanel">We plan it, design how it looks and feels, and build it, so everything fits together from day one. A booking form that fills itself in from one short message. One simple screen an owner checks in two minutes, instead of rebuilding a spreadsheet at month-end. If your customers never have to think about it and it is opened every day, it is doing its job.</p>
               <ul class="includes">
                 <li data-i18n="chipWeb1">Websites built for you</li>
                 <li data-i18n="chipWeb2">Planned with your customers in mind</li>
                 <li data-i18n="chipWeb3">Easy for anyone to use</li>
                 <li data-i18n="chipWeb4">Every step thought through</li>
               </ul>
-              <p class="desc recv" data-i18n="recvProd">Deliverable: the planned, designed and built product itself, website, booking flow or internal screen, plus the source behind it, managed after launch by the same team.</p>
+              <p class="desc recv" data-i18n="recvProd">Deliverable: the planned, designed and built product itself, website, booking flow or internal screen, plus the source behind it, managed after launch as a running, measured system.</p>
               <a class="cta-link" href="#contact" data-offer="web" data-i18n="prodCta">Got questions about your product? →</a>
             </div>
           </details>
@@ -601,9 +601,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- ================= Services intro ================= -->
       <section class="plain" id="services">
         <div class="wrap">
-          <h2 data-i18n="svcH2">One team sees the whole picture.</h2>
-          <p class="lede" data-i18n="svcLede">The pieces were never separate jobs. The phones, the follow-up, the records, the website, the security, designed together, built together, run together, by the same people, multilingual throughout, every conversation in the client's own language.</p>
-          <p class="svcstrip" data-i18n-html="svcStrip">Every engagement opens with an audit, proceeds on a written plan at a fixed price, and is managed as a running, measured system. Nothing is handed over and hoped for. The people you meet are the people who do the work.</p>
+          <h2 data-i18n="svcH2">The whole picture, delivered and engineered as one solution.</h2>
+          <p class="lede" data-i18n="svcLede">The pieces were never separate jobs. The phones, the follow-up, the records, the website, the security, designed together, built together, run together as one solution, multilingual throughout, every conversation in the client's own language.</p>
+          <p class="svcstrip" data-i18n-html="svcStrip">Every engagement opens with an audit, proceeds on a written plan at a fixed price, and is managed as a running, measured system. Nothing is handed over and hoped for.</p>
           <p class="svcstrip" data-i18n="carteLine">Or the whole operation at once: every system above, conceived, gathered and run as one engagement. Carte Blanche.</p>
         </div>
       </section>
@@ -631,7 +631,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="wrap inner">
           <p class="kick">05</p>
           <h3 data-i18n="cloudH3">Cloud, Security &amp; IT</h3>
-          <p class="desc" data-i18n="cloudP">Infrastructure under continuous verification. Backups are restore-tested, not merely scheduled; access is audited; protection against intrusion and fraud is maintained continuously, and routine problems are resolved before they reach your team. When something does go wrong, one call reaches the team that built the system. The assurance pack is prepared before the questionnaire arrives.</p>
+          <p class="desc" data-i18n="cloudP">Infrastructure under continuous verification. Backups are restore-tested, not merely scheduled; access is audited; protection against intrusion and fraud is maintained continuously, and routine problems are resolved before they reach you. When something does go wrong, one call reaches the engineers behind it. The assurance pack is prepared before the questionnaire arrives.</p>
           <p class="desc recv" data-i18n="recvCloud">Deliverable: managed storage and verified backups, security kept current, and a single point of contact.</p>
         </div>
       </section>
@@ -645,7 +645,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="wrap inner">
           <p class="kick">06</p>
           <h3 data-i18n="designH3">Sustainable Design</h3>
-          <p class="desc" data-i18n="designP">Design reduced to a documented system. Measured rules, the source files behind them, and standards written so any team can apply them and check the result. A public face that does not need to be reinvented every season, and stays correct for years.</p>
+          <p class="desc" data-i18n="designP">Design reduced to a documented system. Measured rules, the source files behind them, and standards written to be applied and checked by anyone. A public face that does not need to be reinvented every season, and stays correct for years.</p>
           <p class="desc recv" data-i18n="recvDesign">Deliverable: the design itself, the source files behind it, and the usage rules that keep it consistent.</p>
         </div>
       </section>
@@ -951,7 +951,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     sumAgents: "See an ordinary week →", sumMl: "See a warning, end to end →", sumProd: "From one message to booked →",
           agentsH2: "Agents & autonomous workflows",
           agentsDesc: "<strong>Agent systems for the front desk and everything behind it.</strong> Reception, guest lines, admissions and after-hours lines are configured on your own tools, evaluated against agreed cases before launch, then scored in live operation, call by call. Every action is logged, and a person can step in at any point.",
-          agentsPanel: "Think of an ordinary week. Calls answered after hours instead of landing in voicemail. Appointments booked, confirmed and reminded without anyone touching a calendar. Quotes and invoices followed up, politely and on time, until they are signed or paid. Orders and stock checked before a customer is told yes. That is hours of busywork, done for you, using the tools you already use, set up around the way your business runs, with a person always able to step in. Where it earns its keep: a law firm's after-hours intake, taken with the screening questions agreed in advance and never a word of advice; a clinic's recalls and reminders, inside strict privacy boundaries; a hotel's night calls turned into direct bookings. A home-services emergency at 2 a.m., triaged and escalated to the on-call technician. A property manager's maintenance calls, sorted and routed before the team wakes.",
+          agentsPanel: "Think of an ordinary week. Calls answered after hours instead of landing in voicemail. Appointments booked, confirmed and reminded without anyone touching a calendar. Quotes and invoices followed up, politely and on time, until they are signed or paid. Orders and stock checked before a customer is told yes. That is hours of busywork, done for you, using the tools you already use, set up around the way your business runs, with a person always able to step in. Where it earns its keep: a law firm's after-hours intake, taken with the screening questions agreed in advance and never a word of advice; a clinic's recalls and reminders, inside strict privacy boundaries; a hotel's night calls turned into direct bookings. A home-services emergency at 2 a.m., triaged and escalated to the on-call technician. A property manager's maintenance calls, sorted and routed before the day begins.",
           chipAi1: "Helpers built just for your business", chipAi2: "Everyday jobs handled start to finish", chipAi3: "Writing and replies, drafted for you", chipAi4: "Understands everyday language", chipAi5: "Instant answers, on the spot",
           agentsCta: "Got questions about your helpers? →",
           capAi: "Film, A single glass cube, turning slowly",
@@ -964,15 +964,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           capMl: "Film, Triangular prisms, light travelling",
           ariaMl: "Film: a row of colossal triangular glass prisms receding into fog in a vast dark hall, the camera still while a wave of warm light travels from one triangular prism to the next, their reflections on the glossy dark floor, surreal and minimal, in full colour, no water, no people",
           prodH2: "Products people actually use",
-          prodDesc: "<strong>Products engineered to a written specification.</strong> A storefront that sells the company itself, a catalogue enriched until every item is findable, an internal screen a team opens daily. Verified against the specification at delivery, measured in use after it.",
-          prodPanel: "We plan it, design how it looks and feels, and build it, so everything fits together from day one. A booking form that fills itself in from one short message. One simple screen an owner checks in two minutes, instead of rebuilding a spreadsheet at month-end. If your customers never have to think about it and your team opens it every day, it is doing its job.",
+          prodDesc: "<strong>Products engineered to a written specification.</strong> A storefront that sells the company itself, a catalogue enriched until every item is findable, an internal screen opened daily. Verified against the specification at delivery, measured in use after it.",
+          prodPanel: "We plan it, design how it looks and feels, and build it, so everything fits together from day one. A booking form that fills itself in from one short message. One simple screen an owner checks in two minutes, instead of rebuilding a spreadsheet at month-end. If your customers never have to think about it and it is opened every day, it is doing its job.",
           chipWeb1: "Websites built for you", chipWeb2: "Planned with your customers in mind", chipWeb3: "Easy for anyone to use", chipWeb4: "Every step thought through",
           prodCta: "Got questions about your product? →",
           capWeb: "Film, A glass infinity loop, light flowing around it endlessly",
           ariaWeb: "Film: a single colossal infinity loop of clear glass standing in a vast dark hall, vivid amber and cyan light flowing continuously around inside the glass in one endless circuit above a glossy dark floor, gentle fog, surreal and minimal, in full vivid colour, no water, no people",
-          svcH2: "One team sees the whole picture.",
-          svcLede: "The pieces were never separate jobs. The phones, the follow-up, the records, the website, the security, designed together, built together, run together, by the same people, multilingual throughout, every conversation in the client's own language.",
-        svcStrip: "Every engagement opens with an audit, proceeds on a written plan at a fixed price, and is managed as a running, measured system. Nothing is handed over and hoped for. The people you meet are the people who do the work.",
+          svcH2: "The whole picture, delivered and engineered as one solution.",
+          svcLede: "The pieces were never separate jobs. The phones, the follow-up, the records, the website, the security, designed together, built together, run together as one solution, multilingual throughout, every conversation in the client's own language.",
+        svcStrip: "Every engagement opens with an audit, proceeds on a written plan at a fixed price, and is managed as a running, measured system. Nothing is handed over and hoped for.",
         carteLine: "Or the whole operation at once: every system above, conceived, gathered and run as one engagement. Carte Blanche.",
           immCap: "Practice 04, See it before you build it",
           immAlt: "Immersive and connected practice",
@@ -985,18 +985,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           ariaImmersive: "Film: colossal glass panels as tall as towers floating and turning slowly above an endless bright reflective plain, daylight painting huge moving patterns of light all the way to the horizon, surreal and monumental, natural and crisp, in full colour, no people",
           ariaDesign: "Film: a calm row of identical colossal slabs of clear glass standing upright in a line receding into the distance under a bright blue sky with soft white clouds, vivid reflections of sky in the glass, sunlight gliding slowly across the row above a dry polished pale plain, surreal and minimal, in full vivid colour, no water, no people",
           cloudH3: "Cloud, Security & IT",
-          cloudP: "Infrastructure under continuous verification. Backups are restore-tested, not merely scheduled; access is audited; protection against intrusion and fraud is maintained continuously, and routine problems are resolved before they reach your team. When something does go wrong, one call reaches the team that built the system. The assurance pack is prepared before the questionnaire arrives.",
+          cloudP: "Infrastructure under continuous verification. Backups are restore-tested, not merely scheduled; access is audited; protection against intrusion and fraud is maintained continuously, and routine problems are resolved before they reach you. When something does go wrong, one call reaches the engineers behind it. The assurance pack is prepared before the questionnaire arrives.",
         recvCloud: "Deliverable: managed storage and verified backups, security kept current, and a single point of contact.",
-    cloudPanel: "Engagements begin with an audit of what exists: where the files live, who can reach them, what happens when a machine fails or a person leaves. Storage, backup and access are then rebuilt to a documented standard, protection is kept current month by month, and support runs through the team that did the work, one call, answered by someone who knows the system.",
+    cloudPanel: "Engagements begin with an audit of what exists: where the files live, who can reach them, what happens when a machine fails or a person leaves. Storage, backup and access are then rebuilt to a documented standard, protection is kept current month by month, and support runs through the engineers behind the build, one call, answered by someone who knows the system.",
           designCap: "Practice 06, Design that lasts",
           designAlt: "Sustainable design practice",
           designH3: "Sustainable Design",
-          designP: "Design reduced to a documented system. Measured rules, the source files behind them, and standards written so any team can apply them and check the result. A public face that does not need to be reinvented every season, and stays correct for years.",
+          designP: "Design reduced to a documented system. Measured rules, the source files behind them, and standards written to be applied and checked by anyone. A public face that does not need to be reinvented every season, and stays correct for years.",
         recvDesign: "Deliverable: the design itself, the source files behind it, and the usage rules that keep it consistent.",
-        recvAgents: "Deliverable: a configured agent team on your own tools, calls and messages answered, appointments booked, quotes and invoices followed up, managed daily, with a person able to step in at any point.",
-        recvMl: "Deliverable: an early-warning system on your own records, stock, workload, late orders and slow payers flagged while there is still time to act, checked daily and kept accurate by the team that built it.",
-        recvProd: "Deliverable: the planned, designed and built product itself, website, booking flow or internal screen, plus the source behind it, managed after launch by the same team.",
-    designPanel: "The practice works from a small set of durable decisions, typography, colour, spacing, tone, documented as rules your team can apply without us in the room. Deliverables include the source files and the usage rules, so the identity survives staff changes, new formats and time. Where a piece must move, film, print, product, the same system governs it.",
+        recvAgents: "Deliverable: configured agents on your own tools, calls and messages answered, appointments booked, quotes and invoices followed up, managed daily, with a person able to step in at any point.",
+        recvMl: "Deliverable: an early-warning system on your own records, stock, workload, late orders and slow payers flagged while there is still time to act, checked daily and kept accurate as part of the managed solution.",
+        recvProd: "Deliverable: the planned, designed and built product itself, website, booking flow or internal screen, plus the source behind it, managed after launch as a running, measured system.",
+    designPanel: "The practice works from a small set of durable decisions, typography, colour, spacing, tone, documented as rules that can be applied without us in the room. Deliverables include the source files and the usage rules, so the identity survives staff changes, new formats and time. Where a piece must move, film, print, product, the same system governs it.",
           svcCta: "Got questions? →",
           whyH2: "All of the benefit, with the safeguards built in",
           why1b: "Your data stays yours",
@@ -1070,7 +1070,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           "sumProd": "D'un seul message à la réservation →",
           "agentsH2": "Agents et flux de travail autonomes",
           "agentsDesc": "<strong>Des systèmes d'agents pour l'accueil et tout ce qui se tient derrière.</strong> Réception, lignes invités, admissions et lignes hors heures sont configurées sur vos propres outils, évaluées sur des cas convenus avant le lancement, puis notées en exploitation réelle, appel par appel. Chaque action est consignée, et une personne peut intervenir à tout moment.",
-          "agentsPanel": "Pensez à une semaine ordinaire. Des appels pris après les heures au lieu de tomber sur la messagerie. Des rendez-vous réservés, confirmés et rappelés sans que personne touche un calendrier. Des devis et des factures relancés, poliment et à temps, jusqu'à signature ou paiement. Des commandes et des stocks vérifiés avant de dire oui à un client. Voilà des heures de tâches répétitives, faites pour vous, avec les outils que vous utilisez déjà, réglés sur la façon dont votre entreprise fonctionne, et une personne toujours capable d'intervenir. Là où l'assistant fait ses preuves : l'accueil après les heures d'un cabinet d'avocats, avec les questions de tri convenues d'avance et jamais un mot de conseil ; les rappels et relances d'une clinique, dans des limites strictes de confidentialité ; les appels de nuit d'un hôtel transformés en réservations directes. Une urgence de services à domicile à 2 h du matin, triée et transmise au technicien de garde. Les appels de maintenance d'un gestionnaire immobilier, triés et acheminés avant le réveil de l'équipe.",
+          "agentsPanel": "Pensez à une semaine ordinaire. Des appels pris après les heures au lieu de tomber sur la messagerie. Des rendez-vous réservés, confirmés et rappelés sans que personne touche un calendrier. Des devis et des factures relancés, poliment et à temps, jusqu'à signature ou paiement. Des commandes et des stocks vérifiés avant de dire oui à un client. Voilà des heures de tâches répétitives, faites pour vous, avec les outils que vous utilisez déjà, réglés sur la façon dont votre entreprise fonctionne, et une personne toujours capable d'intervenir. Là où l'assistant fait ses preuves : l'accueil après les heures d'un cabinet d'avocats, avec les questions de tri convenues d'avance et jamais un mot de conseil ; les rappels et relances d'une clinique, dans des limites strictes de confidentialité ; les appels de nuit d'un hôtel transformés en réservations directes. Une urgence de services à domicile à 2 h du matin, triée et transmise au technicien de garde. Les appels de maintenance d'un gestionnaire immobilier, triés et acheminés avant le début de la journée.",
           "chipAi1": "Des assistants construits juste pour votre entreprise",
           "chipAi2": "Les tâches quotidiennes, menées du début à la fin",
           "chipAi3": "Écrits et réponses, rédigés pour vous",
@@ -1091,8 +1091,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           "capMl": "Film, Prismes triangulaires, la lumière voyage",
           "ariaMl": "Film : une rangée de prismes triangulaires colossaux en verre s'éloignant dans le brouillard d'une vaste salle sombre, la caméra immobile pendant qu'une vague de lumière chaude voyage d'un prisme à l'autre, leurs reflets sur le sol sombre et brillant, surréaliste et minimal, en couleurs, sans eau, sans personne",
           "prodH2": "Des produits que les gens utilisent vraiment",
-          "prodDesc": "<strong>Des produits ingéniés selon une spécification écrite.</strong> Une vitrine qui vend l'entreprise elle-même, un catalogue enrichi jusqu'à ce que chaque article se trouve, un écran interne qu'une équipe ouvre chaque jour. Vérifié contre la spécification à la livraison, mesuré en usage ensuite.",
-          "prodPanel": "Nous le planifions, nous concevons son apparence et son usage, et nous le construisons, pour que tout tienne ensemble dès le premier jour. Un formulaire de réservation qui se remplit tout seul à partir d'un court message. Un écran simple qu'un propriétaire consulte en deux minutes, au lieu de reconstruire un tableur en fin de mois. Si vos clients n'ont jamais à y penser et que votre équipe l'ouvre chaque jour, le produit fait son travail.",
+          "prodDesc": "<strong>Des produits ingéniés selon une spécification écrite.</strong> Une vitrine qui vend l'entreprise elle-même, un catalogue enrichi jusqu'à ce que chaque article se trouve, un écran interne ouvert chaque jour. Vérifié contre la spécification à la livraison, mesuré en usage ensuite.",
+          "prodPanel": "Nous le planifions, nous concevons son apparence et son usage, et nous le construisons, pour que tout tienne ensemble dès le premier jour. Un formulaire de réservation qui se remplit tout seul à partir d'un court message. Un écran simple qu'un propriétaire consulte en deux minutes, au lieu de reconstruire un tableur en fin de mois. Si vos clients n'ont jamais à y penser et qu'il s'ouvre chaque jour, le produit fait son travail.",
           "chipWeb1": "Des sites web construits pour vous",
           "chipWeb2": "Pensés avec vos clients à l'esprit",
           "chipWeb3": "Faciles à utiliser pour tout le monde",
@@ -1100,9 +1100,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           "prodCta": "Des questions sur votre produit ? →",
           "capWeb": "Film, Une boucle infinie de verre, la lumière y circule sans fin",
           "ariaWeb": "Film : une seule boucle infinie colossale de verre clair debout dans une vaste salle sombre, une lumière vive ambre et cyan circulant sans cesse à l'intérieur du verre en un circuit sans fin au-dessus d'un sol sombre et brillant, brume légère, surréaliste et minimal, en couleurs vives, sans eau, sans personne",
-          "svcH2": "Une seule équipe voit l'ensemble.",
-          "svcLede": "Les pièces n'ont jamais été des travaux séparés. Les téléphones, le suivi, les dossiers, le site web, la sécurité, conçus ensemble, construits ensemble, opérés ensemble, par les mêmes personnes, multilingues partout, chaque conversation dans la langue propre du client.",
-          "svcStrip": "Chaque engagement s'ouvre sur un audit, avance selon un plan écrit à prix fixe, et se gère comme un système en marche, mesuré. Rien n'est remis en espérant que cela tienne. Les personnes que vous rencontrez sont celles qui font le travail.",
+          "svcH2": "L'ensemble, livré et conçu comme une seule solution.",
+          "svcLede": "Les pièces n'ont jamais été des travaux séparés. Les téléphones, le suivi, les dossiers, le site web, la sécurité, conçus ensemble, construits ensemble, opérés ensemble comme une seule solution, multilingues partout, chaque conversation dans la langue propre du client.",
+          "svcStrip": "Chaque engagement s'ouvre sur un audit, avance selon un plan écrit à prix fixe, et se gère comme un système en marche, mesuré. Rien n'est remis en espérant que cela tienne.",
           "carteLine": "Ou l'opération entière d'un coup : chaque système ci-dessus, conçu, rassemblé et exploité en un seul engagement. Carte Blanche.",
           "immCap": "Pratique 04, Le voir avant de le construire",
           "immAlt": "Pratique immersive et connectée",
@@ -1115,18 +1115,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           "ariaImmersive": "Film : des panneaux de verre colossaux, hauts comme des tours, flottant et tournant lentement au-dessus d'une plaine réfléchissante claire et sans fin, la lumière du jour peignant d'immenses motifs de lumière mouvants jusqu'à l'horizon, surréaliste et monumental, naturel et net, en couleurs, sans personne",
           "ariaDesign": "Film : une rangée calme de dalles identiques et colossales de verre clair, debout en ligne s'éloignant au loin sous un ciel bleu vif aux nuages blancs et doux, des reflets vifs du ciel dans le verre, la lumière du soleil glissant lentement le long de la rangée au-dessus d'une plaine pâle sèche et polie, surréaliste et minimal, en couleurs vives, sans eau, sans personne",
           "cloudH3": "Nuage, sécurité et TI",
-          "cloudP": "Une infrastructure sous vérification continue. Les sauvegardes sont testées en restauration, pas seulement planifiées ; l'accès est audité ; la protection contre l'intrusion et la fraude est maintenue en continu, et les problèmes courants sont résolus avant d'atteindre votre équipe. Quand quelque chose tourne mal, un seul appel joint l'équipe qui a construit le système. Le dossier d'assurance est préparé avant l'arrivée du questionnaire.",
+          "cloudP": "Une infrastructure sous vérification continue. Les sauvegardes sont testées en restauration, pas seulement planifiées ; l'accès est audité ; la protection contre l'intrusion et la fraude est maintenue en continu, et les problèmes courants sont résolus avant de vous atteindre. Quand quelque chose tourne mal, un seul appel joint les ingénieurs derrière le système. Le dossier d'assurance est préparé avant l'arrivée du questionnaire.",
           "recvCloud": "Livrable : un stockage géré et des sauvegardes vérifiées, une sécurité tenue à jour, et un seul point de contact.",
-          "cloudPanel": "Les missions commencent par un audit de ce qui existe : où vivent les fichiers, qui peut les atteindre, ce qui arrive quand une machine tombe ou qu'une personne part. Le stockage, la sauvegarde et l'accès sont ensuite reconstruits selon une norme documentée, la protection est tenue à jour mois après mois, et le soutien passe par l'équipe qui a fait le travail, un seul appel, répondu par quelqu'un qui connaît le système.",
+          "cloudPanel": "Les missions commencent par un audit de ce qui existe : où vivent les fichiers, qui peut les atteindre, ce qui arrive quand une machine tombe ou qu'une personne part. Le stockage, la sauvegarde et l'accès sont ensuite reconstruits selon une norme documentée, la protection est tenue à jour mois après mois, et le soutien passe par les ingénieurs derrière la construction, un seul appel, répondu par quelqu'un qui connaît le système.",
           "designCap": "Pratique 06, Un design qui dure",
           "designAlt": "Pratique de design durable",
           "designH3": "Design durable",
-          "designP": "Le design réduit à un système documenté. Des règles mesurées, les fichiers sources derrière elles, et des normes écrites pour que toute équipe puisse les appliquer et en vérifier le résultat. Un visage public qui n'a pas à se réinventer chaque saison, et qui reste juste pendant des années.",
+          "designP": "Le design réduit à un système documenté. Des règles mesurées, les fichiers sources derrière elles, et des normes écrites pour être appliquées et vérifiées par quiconque. Un visage public qui n'a pas à se réinventer chaque saison, et qui reste juste pendant des années.",
           "recvDesign": "Livrable : le design lui-même, les fichiers sources derrière lui, et les règles d'usage qui le gardent cohérent.",
-          "recvAgents": "Livrable : une équipe d'agents configurée sur vos propres outils, appels et messages pris en charge, rendez-vous réservés, devis et factures relancés, gérée chaque jour, avec une personne pouvant intervenir à tout moment.",
-          "recvMl": "Livrable : un système d'alerte précoce sur vos propres données, stock, charge de travail, commandes en retard et paiements lents signalés tant qu'il est encore temps d'agir, vérifié chaque jour et tenu exact par l'équipe qui l'a construit.",
-          "recvProd": "Livrable : le produit lui-même, planifié, conçu et construit, site web, parcours de réservation ou écran interne, plus les sources derrière lui, géré après le lancement par la même équipe.",
-          "designPanel": "La pratique travaille à partir d'un petit ensemble de décisions durables, typographie, couleur, espacement, ton, documentées comme des règles que votre équipe peut appliquer sans nous dans la pièce. Les livrables comprennent les fichiers sources et les règles d'usage, pour que l'identité survive aux changements de personnel, aux nouveaux formats et au temps. Là où une pièce doit bouger, film, imprimé, produit, le même système la gouverne.",
+          "recvAgents": "Livrable : des agents configurés sur vos propres outils, appels et messages pris en charge, rendez-vous réservés, devis et factures relancés, gérée chaque jour, avec une personne pouvant intervenir à tout moment.",
+          "recvMl": "Livrable : un système d'alerte précoce sur vos propres données, stock, charge de travail, commandes en retard et paiements lents signalés tant qu'il est encore temps d'agir, vérifié chaque jour et tenu exact au sein de la solution gérée.",
+          "recvProd": "Livrable : le produit lui-même, planifié, conçu et construit, site web, parcours de réservation ou écran interne, plus les sources derrière lui, géré après le lancement comme un système en marche, mesuré.",
+          "designPanel": "La pratique travaille à partir d'un petit ensemble de décisions durables, typographie, couleur, espacement, ton, documentées comme des règles qui peuvent être appliquées sans nous dans la pièce. Les livrables comprennent les fichiers sources et les règles d'usage, pour que l'identité survive aux changements de personnel, aux nouveaux formats et au temps. Là où une pièce doit bouger, film, imprimé, produit, le même système la gouverne.",
           "svcCta": "Des questions ? →",
           "whyH2": "Tout le bénéfice, avec les garde-fous intégrés",
           "why1b": "Vos données restent les vôtres",
@@ -1202,7 +1202,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           "sumProd": "De un mensaje a la reserva →",
           "agentsH2": "Agentes y flujos de trabajo autónomos",
           "agentsDesc": "<strong>Sistemas de agentes para la recepción y todo lo que hay detrás.</strong> Recepción, líneas de huéspedes, admisiones y líneas fuera de horario se configuran en sus propias herramientas, se evalúan con casos acordados antes del lanzamiento y luego se califican en operación real, llamada por llamada. Cada acción queda registrada, y una persona puede intervenir en cualquier momento.",
-          "agentsPanel": "Piense en una semana común. Llamadas atendidas fuera de horario en lugar de caer en el buzón de voz. Citas reservadas, confirmadas y recordadas sin que nadie toque un calendario. Cotizaciones y facturas con seguimiento, con cortesía y a tiempo, hasta que se firman o se pagan. Pedidos y existencias verificados antes de decirle que sí a un cliente. Son horas de trabajo repetitivo, hechas por usted, con las herramientas que ya usa, ajustadas a la forma en que funciona su empresa, y una persona siempre capaz de intervenir. Donde el asistente se gana su lugar: la recepción fuera de horario de un bufete, con las preguntas de filtro acordadas de antemano y jamás una palabra de asesoría; los recordatorios de una clínica, dentro de límites estrictos de privacidad; las llamadas nocturnas de un hotel convertidas en reservas directas. Una emergencia de servicios a domicilio a las 2 a. m., clasificada y escalada al técnico de guardia. Las llamadas de mantenimiento de un administrador de propiedades, ordenadas y derivadas antes de que el equipo despierte.",
+          "agentsPanel": "Piense en una semana común. Llamadas atendidas fuera de horario en lugar de caer en el buzón de voz. Citas reservadas, confirmadas y recordadas sin que nadie toque un calendario. Cotizaciones y facturas con seguimiento, con cortesía y a tiempo, hasta que se firman o se pagan. Pedidos y existencias verificados antes de decirle que sí a un cliente. Son horas de trabajo repetitivo, hechas por usted, con las herramientas que ya usa, ajustadas a la forma en que funciona su empresa, y una persona siempre capaz de intervenir. Donde el asistente se gana su lugar: la recepción fuera de horario de un bufete, con las preguntas de filtro acordadas de antemano y jamás una palabra de asesoría; los recordatorios de una clínica, dentro de límites estrictos de privacidad; las llamadas nocturnas de un hotel convertidas en reservas directas. Una emergencia de servicios a domicilio a las 2 a. m., clasificada y escalada al técnico de guardia. Las llamadas de mantenimiento de un administrador de propiedades, ordenadas y derivadas antes de que empiece el día.",
           "chipAi1": "Asistentes construidos solo para su empresa",
           "chipAi2": "Las tareas diarias, atendidas de principio a fin",
           "chipAi3": "Escritos y respuestas, redactados por usted",
@@ -1223,8 +1223,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           "capMl": "Película, Prismas triangulares, la luz viaja",
           "ariaMl": "Película: una fila de prismas triangulares colosales de vidrio que se alejan en la niebla de una vasta sala oscura, la cámara inmóvil mientras una ola de luz cálida viaja de un prisma al siguiente, sus reflejos en el suelo oscuro y brillante, surrealista y minimalista, a todo color, sin agua, sin personas",
           "prodH2": "Productos que la gente sí usa",
-          "prodDesc": "<strong>Productos diseñados según una especificación escrita.</strong> Un escaparate que vende a la propia empresa, un catálogo enriquecido hasta que cada artículo se encuentra, una pantalla interna que un equipo abre cada día. Verificado contra la especificación en la entrega, medido en uso después.",
-          "prodPanel": "Lo planificamos, diseñamos cómo se ve y se siente, y lo construimos, para que todo encaje desde el primer día. Un formulario de reserva que se rellena solo desde un mensaje corto. Una pantalla simple que un propietario revisa en dos minutos, en lugar de reconstruir una hoja de cálculo a fin de mes. Si sus clientes nunca tienen que pensarlo y su equipo lo abre cada día, el producto está haciendo su trabajo.",
+          "prodDesc": "<strong>Productos diseñados según una especificación escrita.</strong> Un escaparate que vende a la propia empresa, un catálogo enriquecido hasta que cada artículo se encuentra, una pantalla interna abierta cada día. Verificado contra la especificación en la entrega, medido en uso después.",
+          "prodPanel": "Lo planificamos, diseñamos cómo se ve y se siente, y lo construimos, para que todo encaje desde el primer día. Un formulario de reserva que se rellena solo desde un mensaje corto. Una pantalla simple que un propietario revisa en dos minutos, en lugar de reconstruir una hoja de cálculo a fin de mes. Si sus clientes nunca tienen que pensarlo y se abre cada día, el producto está haciendo su trabajo.",
           "chipWeb1": "Sitios web construidos para usted",
           "chipWeb2": "Pensados con sus clientes en mente",
           "chipWeb3": "Fáciles de usar para cualquiera",
@@ -1232,9 +1232,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           "prodCta": "¿Preguntas sobre su producto? →",
           "capWeb": "Película, Un bucle infinito de vidrio, la luz circula sin fin",
           "ariaWeb": "Película: un solo bucle infinito colosal de vidrio claro en pie en una vasta sala oscura, luz viva ámbar y cian circulando sin cesar dentro del vidrio en un circuito sin fin sobre un suelo oscuro y brillante, niebla suave, surrealista y minimalista, a todo color vivo, sin agua, sin personas",
-          "svcH2": "Un solo equipo ve el panorama completo.",
-          "svcLede": "Las piezas nunca fueron trabajos separados. Los teléfonos, el seguimiento, los registros, el sitio web, la seguridad, diseñados juntos, construidos juntos, operados juntos, por las mismas personas, multilingües en todo, cada conversación en el idioma propio del cliente.",
-          "svcStrip": "Cada encargo se abre con una auditoría, avanza según un plan escrito a precio fijo y se gestiona como un sistema en marcha, medido. Nada se entrega esperando que funcione. Las personas que conoce son las que hacen el trabajo.",
+          "svcH2": "El panorama completo, entregado y diseñado como una sola solución.",
+          "svcLede": "Las piezas nunca fueron trabajos separados. Los teléfonos, el seguimiento, los registros, el sitio web, la seguridad, diseñados juntos, construidos juntos, operados juntos como una sola solución, multilingües en todo, cada conversación en el idioma propio del cliente.",
+          "svcStrip": "Cada encargo se abre con una auditoría, avanza según un plan escrito a precio fijo y se gestiona como un sistema en marcha, medido. Nada se entrega esperando que funcione.",
           "carteLine": "O la operación entera de una vez: cada sistema anterior, concebido, reunido y operado en un solo encargo. Carte Blanche.",
           "immCap": "Práctica 04, Verlo antes de construirlo",
           "immAlt": "Práctica inmersiva y conectada",
@@ -1247,18 +1247,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           "ariaImmersive": "Película: paneles de vidrio colosales, altos como torres, flotando y girando lentamente sobre una llanura reflectante clara e interminable, la luz del día pintando enormes patrones de luz en movimiento hasta el horizonte, surrealista y monumental, natural y nítido, a todo color, sin personas",
           "ariaDesign": "Película: una fila serena de losas idénticas y colosales de vidrio claro, en pie en una línea que se aleja a lo lejos bajo un cielo azul vivo con nubes blancas y suaves, reflejos vivos del cielo en el vidrio, la luz del sol deslizándose lentamente a lo largo de la fila sobre una llanura pálida, seca y pulida, surrealista y minimalista, a todo color vivo, sin agua, sin personas",
           "cloudH3": "Nube, seguridad y TI",
-          "cloudP": "Infraestructura bajo verificación continua. Las copias se prueban en restauración, no solo se programan; el acceso se audita; la protección contra intrusiones y fraude se mantiene de forma continua, y los problemas rutinarios se resuelven antes de llegar a su equipo. Cuando algo sale mal, una sola llamada alcanza al equipo que construyó el sistema. El paquete de garantías se prepara antes de que llegue el cuestionario.",
+          "cloudP": "Infraestructura bajo verificación continua. Las copias se prueban en restauración, no solo se programan; el acceso se audita; la protección contra intrusiones y fraude se mantiene de forma continua, y los problemas rutinarios se resuelven antes de llegar a usted. Cuando algo sale mal, una sola llamada alcanza a los ingenieros detrás del sistema. El paquete de garantías se prepara antes de que llegue el cuestionario.",
           "recvCloud": "Entregable: almacenamiento gestionado y copias verificadas, seguridad al día y un solo punto de contacto.",
-          "cloudPanel": "Los encargos comienzan con una auditoría de lo que existe: dónde viven los archivos, quién puede llegar a ellos, qué pasa cuando una máquina falla o una persona se va. El almacenamiento, el respaldo y el acceso se reconstruyen después según un estándar documentado, la protección se mantiene al día mes a mes, y el soporte pasa por el equipo que hizo el trabajo, una sola llamada, respondida por alguien que conoce el sistema.",
+          "cloudPanel": "Los encargos comienzan con una auditoría de lo que existe: dónde viven los archivos, quién puede llegar a ellos, qué pasa cuando una máquina falla o una persona se va. El almacenamiento, el respaldo y el acceso se reconstruyen después según un estándar documentado, la protección se mantiene al día mes a mes, y el soporte pasa por los ingenieros detrás de la construcción, una sola llamada, respondida por alguien que conoce el sistema.",
           "designCap": "Práctica 06, Diseño que dura",
           "designAlt": "Práctica de diseño sostenible",
           "designH3": "Diseño sostenible",
-          "designP": "El diseño reducido a un sistema documentado. Reglas medidas, los archivos fuente detrás de ellas y normas escritas para que cualquier equipo pueda aplicarlas y comprobar el resultado. Una cara pública que no necesita reinventarse cada temporada y se mantiene correcta durante años.",
+          "designP": "El diseño reducido a un sistema documentado. Reglas medidas, los archivos fuente detrás de ellas y normas escritas para que puedan ser aplicadas y comprobadas por cualquiera. Una cara pública que no necesita reinventarse cada temporada y se mantiene correcta durante años.",
           "recvDesign": "Entregable: el diseño mismo, los archivos fuente detrás de él y las reglas de uso que lo mantienen coherente.",
-          "recvAgents": "Entregable: un equipo de agentes configurado en sus propias herramientas, llamadas y mensajes atendidos, citas reservadas, cotizaciones y facturas con seguimiento, gestionado a diario, con una persona que puede intervenir en cualquier momento.",
-          "recvMl": "Entregable: un sistema de alerta temprana sobre sus propios registros, inventario, carga de trabajo, pedidos atrasados y pagos lentos señalados mientras aún hay tiempo de actuar, revisado a diario y mantenido exacto por el equipo que lo construyó.",
-          "recvProd": "Entregable: el producto mismo, planificado, diseñado y construido, sitio web, flujo de reserva o pantalla interna, más el código fuente detrás de él, gestionado tras el lanzamiento por el mismo equipo.",
-          "designPanel": "La práctica trabaja desde un conjunto pequeño de decisiones duraderas, tipografía, color, espaciado, tono, documentadas como reglas que su equipo puede aplicar sin nosotros en la sala. Los entregables incluyen los archivos fuente y las reglas de uso, para que la identidad sobreviva a los cambios de personal, a los nuevos formatos y al tiempo. Donde una pieza debe moverse, película, impreso, producto, el mismo sistema la gobierna.",
+          "recvAgents": "Entregable: agentes configurados en sus propias herramientas, llamadas y mensajes atendidos, citas reservadas, cotizaciones y facturas con seguimiento, gestionado a diario, con una persona que puede intervenir en cualquier momento.",
+          "recvMl": "Entregable: un sistema de alerta temprana sobre sus propios registros, inventario, carga de trabajo, pedidos atrasados y pagos lentos señalados mientras aún hay tiempo de actuar, revisado a diario y mantenido exacto dentro de la solución gestionada.",
+          "recvProd": "Entregable: el producto mismo, planificado, diseñado y construido, sitio web, flujo de reserva o pantalla interna, más el código fuente detrás de él, gestionado tras el lanzamiento como un sistema en marcha, medido.",
+          "designPanel": "La práctica trabaja desde un conjunto pequeño de decisiones duraderas, tipografía, color, espaciado, tono, documentadas como reglas que pueden aplicarse sin nosotros en la sala. Los entregables incluyen los archivos fuente y las reglas de uso, para que la identidad sobreviva a los cambios de personal, a los nuevos formatos y al tiempo. Donde una pieza debe moverse, película, impreso, producto, el mismo sistema la gobierna.",
           "svcCta": "¿Preguntas? →",
           "whyH2": "Todo el beneficio, con las salvaguardas integradas",
           "why1b": "Sus datos siguen siendo suyos",
