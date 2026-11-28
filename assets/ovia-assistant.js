@@ -341,13 +341,28 @@
   function answer(text) {
     var q = norm(text), pl = pageLang();
     /* Detect the language of the question itself across every knowledge set. */
+    var SIGNALS = {
+      fr: ["parlez", "bonjour", "merci", "vous", "moi", "des", "les", "une", "aux", "chez", "quel", "quelle", "combien", "pourquoi", "avec", "sur", "qui", "dans", "pour", "votre", "vos", "notre", "suis", "etes", "faites", "dites", "moi"],
+      es: ["hola", "gracias", "usted", "los", "las", "quiero", "cuanto", "cuesta", "sobre", "para", "con", "del", "sus", "nuestro", "habla", "dime", "cuentame", "ustedes"]
+    };
+    function signalCount(lk, q) {
+      var words = SIGNALS[lk]; if (!words) return 0;
+      var n = 0, seen = {};
+      words.forEach(function (w) { if (!seen[w] && (" " + q + " ").indexOf(" " + w + " ") !== -1) { seen[w] = 1; n++; } });
+      return n;
+    }
     var bestLang = pl, best = scoreIntents(KB[pl], q);
     Object.keys(KB).forEach(function (lk) {
       if (lk === pl) return;
       var r = scoreIntents(KB[lk], q);
-      if (r.score > best.score) { best = r; bestLang = lk; }
+      var adj = r.score > 0 ? r.score + signalCount(lk, q) * 4 : 0;
+      if (adj > best.score) { best = r; bestLang = lk; }
     });
-    if (!best.hit) return { lang: pl, hit: null };
+    if (!best.hit) {
+      var sigLang = pl, sigBest = 1;
+      Object.keys(SIGNALS).forEach(function (lk) { var n = signalCount(lk, q); if (n > sigBest) { sigBest = n; sigLang = lk; } });
+      return { lang: sigLang, hit: null };
+    }
     /* Core languages carry the core answers; detailed offerings come from the
        English set when the active set lacks that intent id. */
     var has = KB[bestLang].intents.some(function (it) { return it.id === best.hit.id; });
