@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'">
+<title>The Host Was the Bottleneck: Short Films on Half a Trainium3 — Ovia Inc</title>
+<meta name="description" content="Hugging Face ran LTX-2.5 video and sound generation on half an AWS Trainium3 machine, and the five-day port found the bottleneck on the host, not the accelerator.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Host Was the Bottleneck: Short Films on Half a Trainium3">
+<meta property="og:description" content="Hugging Face ran LTX-2.5 video and sound generation on half an AWS Trainium3 machine, and the five-day port found the bottleneck on the host, not the accelerator.">
+<meta property="og:url" content="https://oviainc.github.io/ai-services/articles/the-host-was-the-bottleneck/">
+<meta property="og:image" content="https://oviainc.github.io/ai-services/articles/the-host-was-the-bottleneck/ovia-inc-the-host-was-the-bottleneck-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#0A0E14;--panel:#101823;--text:#FFFFFF;--muted:#B9C4CE;--line:#22303E;--accent:#DB2777;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',Times,serif;line-height:1.6;}
+  a{color:var(--accent);}
+  .sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  /* masthead zone over the article background image */
+  .mastzone{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+  .mast-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.22;}
+  .mast-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,20,.52),rgba(10,14,20,.94));}
+  .mast-inner{position:relative;max-width:1180px;margin:0 auto;padding:24px 22px 42px;}
+  .masthead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .masthead a.logo{display:block;line-height:0;}
+  .masthead img.logo{height:46px;width:auto;display:block;}
+  .wordmark{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:.34em;font-size:13px;text-transform:uppercase;color:var(--text);}
+  .langbar{display:flex;align-items:center;gap:10px;margin-left:auto;}
+  .langbar label{color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .langbar select{background:#101823;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:.95rem;max-width:52vw;}
+  .kicker{color:var(--accent);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin:44px 0 16px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1.display{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,Haettenschweiler,"Helvetica Neue Condensed Bold",sans-serif;text-transform:uppercase;font-weight:700;font-size:clamp(2.5rem,6.4vw,4.7rem);line-height:.99;letter-spacing:.004em;max-width:1020px;}
+  .standfirst{font-size:clamp(1.12rem,2.3vw,1.42rem);font-style:italic;color:var(--muted);max-width:780px;line-height:1.5;margin-top:18px;}
+  .byline{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);margin-top:24px;padding-top:14px;}
+  /* hero */
+  .hero-zone{max-width:1180px;margin:34px auto 0;padding:0 22px;}
+  figure.hero img{width:100%;height:auto;display:block;border-radius:2px;}
+  figcaption{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--muted);padding-top:8px;letter-spacing:.03em;}
+  /* body columns */
+  main{max-width:1180px;margin:0 auto;padding:6px 22px 30px;}
+  .cols{margin-top:30px;font-size:1.16rem;line-height:1.75;}
+  @media (min-width:1020px){.cols{column-count:2;column-gap:54px;}}
+  .cols p{margin:0 0 20px;}
+  .cols p.first::first-letter{font-family:"Arial Narrow Bold","Franklin Gothic Medium",Impact,sans-serif;font-size:5.4rem;line-height:.78;float:left;padding:.55rem .9rem 0 0;color:var(--accent);font-weight:700;}
+  h2.sec{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:36px 0 14px;border-top:2px solid var(--accent);padding-top:14px;break-after:avoid;}
+  h2.sec:first-child{margin-top:0;}
+  blockquote.pull{column-span:all;font-size:clamp(1.55rem,3.6vw,2.35rem);line-height:1.3;font-style:italic;text-align:center;color:var(--accent);margin:42px 0;padding:4px 12px;}
+  figure.body{margin:4px 0 22px;break-inside:avoid;}
+  figure.wide{column-span:all;margin:30px 0 34px;}
+  figure.body img,figure.wide img{width:100%;height:auto;display:block;border-radius:2px;}
+  .keybox{break-inside:avoid;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);padding:18px 20px 10px;margin:0 0 24px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .keybox h3{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  .keybox li{margin:0 0 9px 18px;font-size:.95rem;line-height:1.5;}
+  /* references + tags + footer */
+  .refs-sec{margin-top:44px;border-top:1px solid var(--line);padding-top:24px;}
+  .refs-sec h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:.88rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  ul.refs{list-style:none;}
+  ul.refs li{margin-bottom:10px;color:var(--muted);font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  ul.refs a{color:var(--accent);text-decoration:none;word-break:break-all;}
+  ul.refs a:hover{text-decoration:underline;}
+  p.tags{color:var(--accent);font-size:.95rem;margin-top:26px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 10px;font-size:.95rem;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  footer .frow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  footer img.flogo{height:30px;width:auto;display:block;}
+  footer a{color:var(--accent);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+  footer .ftag{color:var(--text);letter-spacing:.06em;}
+  @media (max-width:640px){.mast-inner{padding:18px 16px 30px;}main,.hero-zone{padding-left:16px;padding-right:16px;}h1.display{font-size:2.35rem;}.cols{font-size:1.08rem;}}
+</style>
+<style id="arch-css">
+/* Layout archetype: rail (diversification pass) */
+body.arch-rail .layout{display:grid;grid-template-columns:296px minmax(0,1fr);gap:46px;align-items:start;}
+body.arch-rail .rail{position:sticky;top:22px;margin-top:30px;}
+body.arch-rail .rail .kicker{margin:0 0 20px;}
+body.arch-rail .rail .keybox{margin:0 0 26px;}
+body.arch-rail .rail blockquote.pull{column-span:none;text-align:left;font-size:1.45rem;line-height:1.35;margin:0;padding:6px 0 6px 18px;border-left:3px solid var(--accent);}
+body.arch-rail .cols{column-count:1;margin-top:30px;}
+body.arch-rail figure.body{width:62%;}
+body.arch-rail .cols figure.body:nth-of-type(2n){width:84%;margin-left:auto;}
+body.arch-rail figure.wide{width:100%;}
+@media (max-width:900px){body.arch-rail .layout{grid-template-columns:1fr;}body.arch-rail .rail{position:static;}body.arch-rail figure.body,body.arch-rail .cols figure.body:nth-of-type(2n){width:100%;margin-left:0;}}
+</style>
+</head>
+<body class="arch arch-rail">
+<header class="mastzone">
+  <div class="mast-bg" style="background-image:url('ovia-inc-the-host-was-the-bottleneck-background.webp')"></div>
+  <div class="mast-shade"></div>
+  <div class="mast-inner">
+    <div class="masthead">
+      <a class="logo" href="../../" aria-label="Ovia Inc — home"><img class="logo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span class="wordmark">Ovia Inc, Magazine</span>
+      <div class="langbar">
+        <label for="langPick" data-tr>Language</label>
+        <select id="langPick" aria-label="Choose your language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="pt">Português</option>
+            <option value="pt-BR">Português (Brasil)</option>
+            <option value="nl">Nederlands</option>
+            <option value="sv">Svenska</option>
+            <option value="nb">Norsk</option>
+            <option value="da">Dansk</option>
+            <option value="fi">Suomi</option>
+            <option value="pl">Polski</option>
+            <option value="cs">Čeština</option>
+            <option value="sk">Slovenčina</option>
+            <option value="sl">Slovenščina</option>
+            <option value="hr">Hrvatski</option>
+            <option value="sr">Srpski</option>
+            <option value="uk">Українська</option>
+            <option value="ru">Русский</option>
+            <option value="bg">Български</option>
+            <option value="el">Ελληνικά</option>
+            <option value="tr">Türkçe</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+            <option value="et">Eesti</option>
+            <option value="lv">Latviešu</option>
+            <option value="lt">Lietuvių</option>
+            <option value="ga">Gaeilge</option>
+            <option value="cy">Cymraeg</option>
+            <option value="is">Íslenska</option>
+            <option value="ca">Català</option>
+            <option value="eu">Euskara</option>
+            <option value="gl">Galego</option>
+            <option value="sq">Shqip</option>
+            <option value="mk">Македонски</option>
+            <option value="az">Azərbaycan</option>
+            <option value="ka">ქართული</option>
+            <option value="hy">Հայերեն</option>
+            <option value="kk">Қазақша</option>
+            <option value="uz">Oʻzbek</option>
+            <option value="ar">العربية</option>
+            <option value="he">עברית</option>
+            <option value="fa">فارسی</option>
+            <option value="ur">اردو</option>
+            <option value="hi">हिन्दी</option>
+            <option value="bn">বাংলা</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="ta">தமிழ்</option>
+            <option value="te">తెలుగు</option>
+            <option value="ml">മലയാളം</option>
+            <option value="mr">मराठी</option>
+            <option value="gu">ગુજરાતી</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ne">नेपाली</option>
+            <option value="si">සිංහල</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="fil">Filipino</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">中文 (繁體)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="sw">Kiswahili</option>
+            <option value="am">አማርኛ</option>
+            <option value="ha">Hausa</option>
+            <option value="yo">Yorùbá</option>
+            <option value="ig">Igbo</option>
+            <option value="zu">IsiZulu</option>
+            <option value="af">Afrikaans</option>
+            <option value="my">မြန်မာ</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="lo">ລາວ</option>
+            <option value="mn">Монгол</option>
+          </select>
+      </div>
+    </div>
+    <h1 class="display" data-tr>The Host Was the Bottleneck: Short Films on Half a Trainium3</h1>
+    <p class="standfirst" data-tr>A model that writes video and sound, a machine with 64 NeuronCores, and five days of porting: the clip times matched a paid API, and the profile blamed the queue in front of the device.</p>
+    <p class="byline" data-tr>Ovia Inc · Studio and Lab · 6 min read</p>
+  </div>
+</header>
+<div class="hero-zone">
+  <figure class="hero">
+    <img src="ovia-inc-the-host-was-the-bottleneck-hero.webp" alt="Ovia Inc — harp seal resting on an ice floe, photographed at floe level">
+    <figcaption data-tr>The lead actor, on location: a harp seal on an ice floe, the subject the generated film had to hold across every cut. Image: Ovia Inc</figcaption>
+  </figure>
+</div>
+<main>
+  <div class="layout">
+<aside class="rail">
+<p class="kicker" data-tr>Ovia Inc, Virtual Production · Inference</p>
+<aside class="keybox"><h3 data-tr>Key points</h3><ul><li data-tr>LTX-2.5 generates video and sound together; on half a Trainium3 machine, a loaded setup makes a 10-second 2048×1024 clip in 22 to 23 seconds (Hugging Face-reported).</li><li data-tr>The first working attempt took 5 minutes 20 seconds at 960×544; host-side fixes, not model changes, closed most of the gap.</li><li data-tr>Prompt encoding fell from about 205 seconds to 1.4; video decode at full resolution fell from 357 seconds to 1.6.</li><li data-tr>Films are chains of shots sharing frames at the cuts, so subjects survive them; each new shot still needs several takes and a human choice.</li></ul></aside>
+<blockquote class="pull" data-tr>The device sat idle most of the time; the queue in front of the device was the workload.</blockquote>
+</aside>
+<div class="cols">
+<p class="first" data-tr>The Ferrari went to the track on half its cylinders, and the timing sheet told an unfashionable story. With five days left on a month with an AWS Trainium3 machine, a Hugging Face engineer pointed LTX-2.5 from Lightricks, which generates video and sound together, at short films. Published on November 27, the report reads less like a hardware review and more like a field note on where time goes in a media pipeline.</p>
+<p data-tr>The machine is a trn3.48xlarge instance with 64 NeuronCores, accessed through an AWS partnership. The finished setup splits the model across 32 cores and, once loaded, produces a 10-second clip at 2048×1024 with sound in 22 to 23 seconds, as reported by Hugging Face. The comparison the author chose is the model's own paid API, which Lightricks states makes a 10-second 1080p clip in 23.7 seconds.</p>
+<p data-tr>The first attempt that ran took about 5 minutes 20 seconds for a 10-second clip at 960×544, with the cores computing for only about 45 seconds of it. Five days later, the same class of clip runs at four times the pixels in a fourteenth of the time, and almost none of that gap was the model.</p>
+<h2 class="sec" data-tr>01 · The announcement</h2>
+<p data-tr>The post names two goals: whether diffusers, the Hugging Face library, can generate video on Trainium3 as short films drafted from a script, and whether performance can approach the LTX online API. For CUDA, no usable figure exists to chase: the only one is a Lightricks claim of 6.8 seconds for a 10-second 720p clip on four B200 graphics processors, published without a method, and the post sets it aside rather than racing it.</p>
+<p data-tr>Three films came out of the run: a seal that dreams on warm sand and wakes on an ice floe, a fox walking in snow, and a goat. Each is reproducible: same code, same film file, same film back, byte for byte, in the author's reporting.</p>
+<figure class="body"><img src="ovia-inc-the-host-was-the-bottleneck-body-1.webp" alt="Ovia Inc — Arriflex 35 mm cinema camera photographed in profile"><figcaption data-tr>The older instrument: a 35 mm Arriflex, one operator, one lens, one take at a time. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>02 · Why the host set the pace</h2>
+<p data-tr>Out of the box, the model does not run on the NeuronCores. The transformer does not fit on a single core, and diffusers carries no plan to split it. A tensor-parallel plan across four cores made the model run. Sequence parallelism, splitting the video tokens eight ways, put 32 cores onto one clip and shrank each core's graph until the target resolution would load.</p>
+<p data-tr>Once the model ran, the device sat idle most of the time; the queue in front of the device was the workload. Every process had been running the whole pipeline, so prompt encoding happened many times over. Video decode ran on the host and took 357 seconds at full resolution. Thread pools sized for the whole node starved the one process running the pipeline's host stages. The fixes are unglamorous and specific: run the pipeline on one rank and send the other ranks their arguments, decode on the cores, pin the threads, stop encoding the padding. Host time per clip fell from about 280 seconds to about 8, and device time from 45 seconds to 15, at four times the pixels.</p>
+<h2 class="sec" data-tr>03 · The operations angle: profile the whole path</h2>
+<p data-tr>Context engineering at Ovia since December 2022 begins with the discipline the Staywired and Beanfield years taught on physical networks: measure the whole path before optimising the famous component. The slowest stage sets the delivery time, and the slowest stage is usually the one nobody put on the slide.</p>
+<p data-tr>A second lesson sits in the cold start. Loading the models takes about 3 minutes, and the first clip about 80 seconds. A service built on this stack keeps its processes warm, and a team that evaluates the approach on one cold run measures the loading dock, not the factory.</p>
+<figure class="wide"><img src="ovia-inc-the-host-was-the-bottleneck-body-2.webp" alt="Ovia Inc — red fox standing in snow, photographed at eye level"><figcaption data-tr>The second production: a fox in snow, held across cuts by frames handed from shot to shot. Image: Ovia Inc</figcaption></figure>
+<h2 class="sec" data-tr>04 · The craft angle: a film is a chain of frames</h2>
+<p data-tr>A film enters as a JSON list of shots, each with a name, a long prompt covering style, subject, motion, camera, light and sound, and a seed that preserves a chosen take. Prompts alone do not hold a subject across a cut, so shots chain: one starts from the last frames of an earlier shot, or ends on the first frames of a later one. The payoff shot is made first, in the pose-to-pose manner of animation, and its neighbours are built to meet it.</p>
+<p data-tr>The roots of the Studio reach back to TREBAS sound training and to the MELS years, when a flagship LED volume in Montréal was rendering worlds in real time. The continuity problem is familiar to editors and volume operators: a cut is a promise that the world on both sides of it agrees. Here the agreement travels in frames handed from shot to shot.</p>
+<h2 class="sec" data-tr>05 · Caveats and fine print</h2>
+<p data-tr>Every figure is reported by the Hugging Face author, and the post is a field report, not a controlled benchmark. The comparison crosses resolutions: 2048×1024 on Trainium3 against a vendor-stated 1080p figure for the paid API, and no comparable CUDA measurement exists in the post. Three problems stayed unexplained, including a NaN at one size in a single-graph compile, and the latent upsampler still runs on the host because its graph fails to load beside the transformer.</p>
+<p data-tr>Each shot makes its own sound, and sound does not carry across a cut. A shot lasts at most 20 seconds. Details go wrong often enough that the working method is four takes per shot and a human choice among them; the same prompt gave a goat wrong horns in three takes out of four. The robotics continuation follows prompts and footage, not a robot's commands; action-conditioned generation needs fine-tuning on a team's own machines.</p>
+<h2 class="sec" data-tr>06 · What to watch</h2>
+<p data-tr>Watch the upstream list first. Two open diffusers changes would retire key workarounds in this build: one fixes the LTX-2 pipelines, and one brings tensor and context parallelism into a single configuration, with an LTX-2.5 tensor-parallel plan named as planned work. When that plan lands, a five-day port becomes a standard deployment.</p>
+<p data-tr>Watch, too, where the host lesson travels. Every accelerator programme eventually meets the same queue in front of the device. Teams that profile the whole path, host included, keep finding the 205-second stage hiding beside the 15-second one. The track time was never the whole lap.</p>
+  </div>
+  </div>
+  <div class="refs-sec">
+    <h2 data-tr>References</h2>
+    <ul class="refs">
+<li><span data-tr>Hugging Face — “Taking Trainium3 to the Track: Generating Videos with LTX-2.5”, November 27, 2026:</span> <a href="https://huggingface.co/blog/video-trainium3">https://huggingface.co/blog/video-trainium3</a></li>
+<li><span data-tr>Photographs: a harp seal on an ice floe, photographed at floe level — claumoho, Creative Commons Attribution 2.0, via Wikimedia Commons:</span> <a href="https://commons.wikimedia.org/wiki/File:Harp_seal.jpg">https://commons.wikimedia.org/wiki/File:Harp_seal.jpg</a></li>
+<li><span data-tr>Photographs: tabular icebergs between the Larsen C ice shelf and the A-68 ice island, aerial view from a NASA Operation IceBridge flight — NASA ICE, Creative Commons Attribution 2.0, via Wikimedia Commons:</span> <a href="https://commons.wikimedia.org/wiki/File:Larsen_C_tabular_icebergs_2.jpg">https://commons.wikimedia.org/wiki/File:Larsen_C_tabular_icebergs_2.jpg</a></li>
+<li><span data-tr>Photographs: an Arriflex 35 mm cinema camera photographed in profile — Biswarup Ganguly, Creative Commons Attribution 3.0, via Wikimedia Commons:</span> <a href="https://commons.wikimedia.org/wiki/File:Arriflex_-_35mm_Movie_Camera_-_Kolkata_2012-10-09_1592.JPG">https://commons.wikimedia.org/wiki/File:Arriflex_-_35mm_Movie_Camera_-_Kolkata_2012-10-09_1592.JPG</a></li>
+<li><span data-tr>Photographs: a red fox standing in snow in the Rautas fjällurskog nature reserve, photographed at eye level — ClaudiaTen, Creative Commons Attribution-Share Alike 4.0, via Wikimedia Commons:</span> <a href="https://commons.wikimedia.org/wiki/File:Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog_(cropped).jpg">https://commons.wikimedia.org/wiki/File:Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog_(cropped).jpg</a></li>
+<li><span data-tr>OVIA Inc Studio Lab — AI operations and context engineering, managed end to end:</span> <a href="https://oviainc.github.io/ai-services/">https://oviainc.github.io/ai-services/</a></li>
+
+    </ul>
+  </div>
+  <p class="tags">#ArtificialIntelligence #VideoGeneration #VirtualProduction #HuggingFace #AIOperations #toyoursatisfaction</p>
+  <footer>
+    <div class="frow">
+      <a href="../../" aria-label="Ovia Inc — home"><img class="flogo" src="../../assets/ovia-inc-logo-white.webp" alt="Ovia Inc — logo"></a>
+      <span><a href="../../">Ovia Inc</a> · <span data-tr>Source on GitHub:</span> <a href="https://github.com/Oviainc/ai-services">github.com/Oviainc/ai-services</a></span>
+      <span class="ftag">#toyoursatisfaction</span>
+    </div>
+  </footer>
+</main>
+<script>
+(function () {
+  "use strict";
+  var originals = [];
+  function collect() {
+    originals = [];
+    document.querySelectorAll("[data-tr]").forEach(function (el) {
+      originals.push({ el: el, text: el.textContent });
+    });
+  }
+  function restore() {
+    originals.forEach(function (o) { o.el.textContent = o.text; });
+    document.documentElement.lang = "en";
+  }
+  function langName(code) {
+    try {
+      var n = new Intl.DisplayNames(["en"], { type: "language" }).of(code);
+      return n ? n.charAt(0).toUpperCase() + n.slice(1) : code;
+    } catch (e) { return code; }
+  }
+  function setLangChip(code) {
+    var sel = document.getElementById("langPick");
+    if (!sel) return;
+    var has = false;
+    for (var i = 0; i < sel.options.length; i++) if (sel.options[i].value === code) has = true;
+    if (!has) {
+      var opt = document.createElement("option");
+      opt.value = code; opt.textContent = langName(code);
+      sel.appendChild(opt);
+    }
+    sel.value = code;
+  }
+  function normalizeLang(raw) {
+    if (!raw) return null;
+    var c = String(raw).trim().replace("_", "-");
+    if (!c) return null;
+    var low = c.toLowerCase();
+    if (low.indexOf("zh") === 0) return (low.indexOf("tw") > -1 || low.indexOf("hk") > -1) ? "zh-TW" : "zh-CN";
+    if (low.indexOf("pt") === 0) return low.indexOf("br") > -1 ? "pt-BR" : "pt";
+    return low.split("-")[0];
+  }
+  function detectTargetLang() {
+    var candidates = [];
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q) candidates.push(q);
+    } catch (e) {}
+    if (navigator.languages && navigator.languages.length) candidates = candidates.concat(navigator.languages);
+    if (navigator.language) candidates.push(navigator.language);
+    for (var i = 0; i < candidates.length; i++) {
+      var c = normalizeLang(candidates[i]);
+      if (c) return c;
+    }
+    return "en";
+  }
+  var translationCache = new Map();
+  var deviceTranslator = null;
+  function createDeviceTranslator(target) {
+    var spec = { sourceLanguage: "en", targetLanguage: target };
+    var attempt = null;
+    try {
+      if ("Translator" in self && typeof Translator.create === "function") {
+        attempt = (Translator.availability ? Translator.availability(spec) : Promise.resolve("available"))
+          .then(function (a) { return a === "unavailable" ? null : Translator.create(spec); });
+      } else if (self.translation && typeof self.translation.createTranslator === "function") {
+        attempt = self.translation.createTranslator(spec);
+      }
+    } catch (e) { attempt = null; }
+    if (!attempt) return Promise.resolve(null);
+    return attempt.then(function (t) { return t || null; }).catch(function () { return null; });
+  }
+  function webLangCode(target) {
+    if (target === "zh") return "zh-CN";
+    return target;
+  }
+  function translateViaWeb(text, target) {
+    var url = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) +
+              "&langpair=" + encodeURIComponent("en|" + webLangCode(target));
+    return fetch(url).then(function (res) {
+      if (!res.ok) throw new Error("translation http " + res.status);
+      return res.json();
+    }).then(function (data) {
+      var out = data && data.responseData && data.responseData.translatedText;
+      if (!out || /MYMEMORY WARNING|QUERY LENGTH LIMIT|INVALID SOURCE|INVALID TARGET/i.test(out)) {
+        throw new Error("translation unavailable");
+      }
+      out = out.replace(/<\/?g[^>]*>/gi, "");
+      if (out.charAt(0) === "[" && out.charAt(out.length - 1) === "]" && text.charAt(0) !== "[") {
+        out = out.slice(1, -1);
+      }
+      var decoder = document.createElement("textarea");
+      decoder.innerHTML = out;
+      return decoder.value;
+    });
+  }
+  function translateChunk(text, target) {
+    if (!text || !text.trim()) return Promise.resolve(text);
+    var cacheKey = target + "\u0001" + text;
+    if (translationCache.has(cacheKey)) return Promise.resolve(translationCache.get(cacheKey));
+    var job = deviceTranslator
+      ? deviceTranslator.translate(text).catch(function () { deviceTranslator = null; return translateViaWeb(text, target); })
+      : translateViaWeb(text, target);
+    return job.then(function (out) {
+      translationCache.set(cacheKey, out);
+      return out;
+    });
+  }
+  function translateText(text, target) {
+    if (text.length <= 420) return translateChunk(text, target);
+    var chunks = [];
+    var rest = text;
+    while (rest.length > 420) {
+      var cut = rest.lastIndexOf(". ", 420);
+      if (cut < 120) cut = rest.lastIndexOf(" ", 420);
+      if (cut < 120) cut = 420;
+      chunks.push(rest.slice(0, cut + 1).trim());
+      rest = rest.slice(cut + 1).trim();
+    }
+    if (rest) chunks.push(rest);
+    return chunks.reduce(function (chain, chunk) {
+      return chain.then(function (acc) {
+        return translateChunk(chunk, target).then(function (t) { acc.push(t); return acc; });
+      });
+    }, Promise.resolve([])).then(function (parts) { return parts.join(" "); });
+  }
+  function translatePage(target) {
+    restore();
+    return createDeviceTranslator(target).then(function (t) {
+      deviceTranslator = t;
+      var index = 0;
+      var translatedAny = false;
+      function worker() {
+        if (index >= originals.length) return Promise.resolve();
+        var o = originals[index++];
+        var src = o.text;
+        if (!src.trim()) return worker();
+        return translateText(src, target).then(function (out) {
+          if (out && out !== src) { o.el.textContent = out; translatedAny = true; }
+        }).catch(function () {}).then(worker);
+      }
+      var workers = [];
+      for (var w = 0; w < 4; w++) workers.push(worker());
+      return Promise.all(workers).then(function () {
+        if (translatedAny) document.documentElement.lang = target;
+      });
+    });
+  }
+  collect();
+  var targetLang = detectTargetLang();
+  setLangChip(targetLang);
+  if (targetLang !== "en") translatePage(targetLang);
+  var langPick = document.getElementById("langPick");
+  if (langPick) {
+    langPick.addEventListener("change", function () {
+      var code = langPick.value;
+      deviceTranslator = null;
+      if (code === "en") { restore(); } else { translatePage(code); }
+    });
+  }
+})();
+</script>
+</body>
+</html>
