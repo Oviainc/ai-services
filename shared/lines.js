@@ -10,7 +10,7 @@ window.OVIA_LINES = {
   en: {
     headline: "Designed in the Studio. Proven in the Lab.",
     definition: "OVIA is a studio and a lab that designs, builds and runs technology for anyone, in any domain: technology that answers, learns, creates, immerses, protects and lasts, all of it managed end to end.",
-    subline: "The front desk, the follow up, the alerts, the presence and the underpinnings, run as one measured operation. Agents, machine learning and products, specified in writing, tested before launch, measured in production, managed end to end.",
+    subline: "OVIA designs, builds and runs technology for anyone, in any domain: technology that answers, learns, creates, immerses, protects and lasts, all of it managed end to end.",
     buyer: "Anyone. Any domain. Premium by design.",
     pilot: "Begin at a single site. Fixed price, in writing, before anything starts.",
     cta: "Got questions?",
@@ -20,7 +20,7 @@ window.OVIA_LINES = {
   fr: {
     headline: "Conçu dans le studio. Prouvé dans le laboratoire.",
     definition: "OVIA est un studio et un laboratoire qui conçoit, construit et exploite la technologie pour tout le monde, dans tout domaine : une technologie qui répond, apprend, crée, immerge, protège et dure, le tout géré de bout en bout.",
-    subline: "L'accueil, les relances, les alertes, la présence et les fondations, exploités comme une seule opération mesurée. Agents, apprentissage machine et produits, spécifiés par écrit, testés avant le lancement, mesurés en production, gérés de bout en bout.",
+    subline: "OVIA conçoit, construit et exploite la technologie pour tout le monde, dans tout domaine : une technologie qui répond, apprend, crée, immerge, protège et dure, le tout géré de bout en bout.",
     buyer: "Tout le monde. Tout domaine. Premium par conception.",
     pilot: "Commencez par un seul site. Prix fixe, par écrit, avant que quoi que ce soit commence.",
     cta: "Des questions ?",
@@ -30,7 +30,7 @@ window.OVIA_LINES = {
   es: {
     headline: "Diseñado en el estudio. Probado en el laboratorio.",
     definition: "OVIA es un estudio y un laboratorio que diseña, construye y opera tecnología para cualquiera, en cualquier dominio: tecnología que responde, aprende, crea, sumerge, protege y perdura, todo ello gestionado de principio a fin.",
-    subline: "La recepción, los seguimientos, las alertas, la presencia y los cimientos, operados como una sola operación medida. Agentes, aprendizaje automático y productos, especificados por escrito, probados antes del lanzamiento, medidos en producción, gestionados de principio a fin.",
+    subline: "OVIA diseña, construye y opera tecnología para cualquiera, en cualquier dominio: tecnología que responde, aprende, crea, sumerge, protege y perdura, todo ello gestionado de principio a fin.",
     buyer: "Cualquiera. Cualquier dominio. Premium por diseño.",
     pilot: "Empiece por un solo sitio. Precio fijo, por escrito, antes de que empiece nada.",
     cta: "¿Preguntas?",
