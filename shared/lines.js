@@ -9,30 +9,33 @@
 window.OVIA_LINES = {
   en: {
     headline: "Designed in the Studio. Proven in the Lab.",
-    subline: "Your agents, machine learning and product, and the operation they live in — designed, built and managed end to end.",
-    buyer: "Any company. Any domain. Premium by design.",
+    definition: "OVIA is a studio and a lab that designs, builds and runs technology for anyone, in any domain: technology that answers, learns, creates, immerses, protects and lasts, all of it managed end to end.",
+    subline: "The front desk, the follow up, the alerts, the presence and the underpinnings, run as one measured operation. Agents, machine learning and products, specified in writing, tested before launch, measured in production, managed end to end.",
+    buyer: "Anyone. Any domain. Premium by design.",
     pilot: "Begin at a single site. Fixed price, in writing, before anything starts.",
     cta: "Got questions?",
     stamp: "#toyoursatisfaction",
-    metadesc: "OVIA designs, builds and runs your agents, machine learning and product — and the daily operation they live in. Multilingual as standard, under a written plan with a fixed price."
+    metadesc: "OVIA is a studio and a lab that designs, builds and runs technology for anyone, in any domain: technology that answers, learns, creates, immerses, protects and lasts, all of it managed end to end."
   },
   fr: {
     headline: "Conçu dans le studio. Prouvé dans le laboratoire.",
-    subline: "Vos agents, votre apprentissage machine et votre produit, ainsi que l'exploitation où ils vivent — conçus, construits et gérés de bout en bout.",
-    buyer: "Toute entreprise. Tout domaine. Premium par conception.",
+    definition: "OVIA est un studio et un laboratoire qui conçoit, construit et exploite la technologie pour tout le monde, dans tout domaine : une technologie qui répond, apprend, crée, immerge, protège et dure, le tout géré de bout en bout.",
+    subline: "L'accueil, les relances, les alertes, la présence et les fondations, exploités comme une seule opération mesurée. Agents, apprentissage machine et produits, spécifiés par écrit, testés avant le lancement, mesurés en production, gérés de bout en bout.",
+    buyer: "Tout le monde. Tout domaine. Premium par conception.",
     pilot: "Commencez par un seul site. Prix fixe, par écrit, avant que quoi que ce soit commence.",
     cta: "Des questions ?",
     stamp: "#toyoursatisfaction",
-    metadesc: "OVIA conçoit, construit et fait tourner vos agents, votre apprentissage machine et votre produit — ainsi que l'exploitation quotidienne où ils vivent. Multilingue par principe, sous un plan écrit à prix fixe."
+    metadesc: "OVIA est un studio et un laboratoire qui conçoit, construit et exploite la technologie pour tout le monde, dans tout domaine : une technologie qui répond, apprend, crée, immerge, protège et dure, le tout géré de bout en bout."
   },
   es: {
     headline: "Diseñado en el estudio. Probado en el laboratorio.",
-    subline: "Sus agentes, su aprendizaje automático y su producto, y la operación en la que viven — diseñados, construidos y gestionados de principio a fin.",
-    buyer: "Cualquier empresa. Cualquier dominio. Premium por diseño.",
+    definition: "OVIA es un estudio y un laboratorio que diseña, construye y opera tecnología para cualquiera, en cualquier dominio: tecnología que responde, aprende, crea, sumerge, protege y perdura, todo ello gestionado de principio a fin.",
+    subline: "La recepción, los seguimientos, las alertas, la presencia y los cimientos, operados como una sola operación medida. Agentes, aprendizaje automático y productos, especificados por escrito, probados antes del lanzamiento, medidos en producción, gestionados de principio a fin.",
+    buyer: "Cualquiera. Cualquier dominio. Premium por diseño.",
     pilot: "Empiece por un solo sitio. Precio fijo, por escrito, antes de que empiece nada.",
     cta: "¿Preguntas?",
     stamp: "#toyoursatisfaction",
-    metadesc: "OVIA diseña, construye y opera sus agentes, su aprendizaje automático y su producto — y la operación diaria en la que viven. Multilingüe por principio, bajo un plan escrito con precio fijo."
+    metadesc: "OVIA es un estudio y un laboratorio que diseña, construye y opera tecnología para cualquiera, en cualquier dominio: tecnología que responde, aprende, crea, sumerge, protege y perdura, todo ello gestionado de principio a fin."
   }
 };
 
